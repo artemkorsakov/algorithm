@@ -6,7 +6,7 @@ addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVe
 val apache2 = "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 val gh = GitHubSettings(
   org = "artemkorsakov",
-  proj = "",
+  proj = "algorithms",
   publishOrg = "artemkorsakov",
   license = apache2
 )
@@ -27,7 +27,7 @@ lazy val rootSettings = buildSettings ++ commonSettings ++ publishSettings ++ sc
 lazy val module       = mkModuleFactory(gh.proj, mkConfig(rootSettings, commonJvmSettings, commonJsSettings))
 lazy val prj          = mkPrjFactory(rootSettings)
 
-lazy val root = project
+lazy val Algorithms = project
   .in(file("."))
   .configure(mkRootConfig(rootSettings, rootJVM))
   .aggregate(rootJVM)
@@ -74,20 +74,20 @@ lazy val docs = project
   .enablePlugins(ScalaUnidocPlugin)
   .settings(
     crossScalaVersions := Seq(scalaVersion.value),
-    //scalacOptions in Tut ~= (_.filterNot(Set("-Ywarn-unused:imports"))),
-    micrositeName := "Algorithm Library",
-    micrositeDescription := "This is the description of my Algorithm Library",
-    micrositeUrl := "https://artemkorsakov.github.io/algorithm",
-    micrositeDocumentationUrl := "/docs",
+    micrositeName := "Algorithms Library",
+    micrositeDescription := "This is the description of my Algorithms Library",
+    micrositeUrl := "https://artemkorsakov.github.io",
+    micrositeBaseUrl := "/algorithms",
+    micrositeDocumentationUrl := "/algorithms/docs",
     micrositeDocumentationLabelDescription := "Documentation",
     micrositeAuthor := "Artem Korsakov",
     micrositeGithubOwner := "artemkorsakov",
-    micrositeGithubRepo := "algorithm",
+    micrositeGithubRepo := "algorithms",
     micrositeTheme := "pattern",
     micrositeEditButton := Some(
-        MicrositeEditButton("Improve this Page", "/edit/master/microsite/docs/{{ page.path }}")
+        MicrositeEditButton("Improve this Page", "/edit/master/docs/docs/{{ page.path }}")
       ),
-    apiURL := Some(url("https://artemkorsakov.github.io/algorithm/api/")),
+    apiURL := Some(url("https://artemkorsakov.github.io/algorithms/api/")),
     micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
     micrositePushSiteWith := GitHub4s,
     micrositeGitterChannel := false
