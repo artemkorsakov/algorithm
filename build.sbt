@@ -1,12 +1,13 @@
 import _root_.sbtcrossproject.CrossPlugin.autoImport.CrossType
+import microsites.MicrositeEditButton
 
 addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVersion.value.get + \"-SNAPSHOT\"")
 
 val apache2 = "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 val gh = GitHubSettings(
-  org = "com.github.artemkorsakov",
-  proj = "algorithm",
-  publishOrg = "com.github.artemkorsakov",
+  org = "artemkorsakov",
+  proj = "",
+  publishOrg = "artemkorsakov",
   license = apache2
 )
 
@@ -26,7 +27,7 @@ lazy val rootSettings = buildSettings ++ commonSettings ++ publishSettings ++ sc
 lazy val module       = mkModuleFactory(gh.proj, mkConfig(rootSettings, commonJvmSettings, commonJsSettings))
 lazy val prj          = mkPrjFactory(rootSettings)
 
-lazy val Algorithm = project
+lazy val root = project
   .in(file("."))
   .configure(mkRootConfig(rootSettings, rootJVM))
   .aggregate(rootJVM)
@@ -63,19 +64,35 @@ lazy val testsM = module("tests", CrossType.Pure)
     libs.testDependencies("scalatest")
   )
 
-/** Docs - Generates and publishes the scaladoc API documents and the project web site using sbt-microsite.*/
+/** Docs - Generates and publishes the scaladoc API documents and the project web site using sbt-microsite.
+  * https://47degrees.github.io/sbt-microsites/docs/settings/
+  * https://jekyllrb.com/docs/
+  */
 lazy val docs = project
   .configure(mkDocConfig(gh, rootSettings, Nil, core))
   .enablePlugins(MicrositesPlugin)
   .enablePlugins(ScalaUnidocPlugin)
   .settings(
     crossScalaVersions := Seq(scalaVersion.value),
-    scalacOptions in Tut ~= (_.filterNot(Set("-Ywarn-unused:imports"))),
-    micrositeSettings(gh, mainDev, "algorithm"),
-    micrositeDocumentationUrl := "/algorithm/api/com.github.artemkorsakov/index.html",
-    micrositeDocumentationLabelDescription := "API Documentation",
-    micrositeGithubOwner := "com.github.artemkorsakov"
+    //scalacOptions in Tut ~= (_.filterNot(Set("-Ywarn-unused:imports"))),
+    micrositeName := "Algorithm Library",
+    micrositeDescription := "This is the description of my Algorithm Library",
+    micrositeUrl := "https://artemkorsakov.github.io/algorithm",
+    micrositeDocumentationUrl := "/docs",
+    micrositeDocumentationLabelDescription := "Documentation",
+    micrositeAuthor := "Artem Korsakov",
+    micrositeGithubOwner := "artemkorsakov",
+    micrositeGithubRepo := "algorithm",
+    micrositeTheme := "pattern",
+    micrositeEditButton := Some(
+        MicrositeEditButton("Improve this Page", "/edit/master/microsite/docs/{{ page.path }}")
+      ),
+    apiURL := Some(url("https://artemkorsakov.github.io/algorithm/api/")),
+    micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
+    micrositePushSiteWith := GitHub4s,
+    micrositeGitterChannel := false
   )
+
 lazy val buildSettings = sharedBuildSettings(gh, libs)
 
 lazy val commonSettings =
@@ -92,3 +109,7 @@ lazy val commonJvmSettings = Seq()
 lazy val publishSettings = sharedPublishSettings(gh) ++ credentialSettings ++ sharedReleaseProcess
 
 lazy val scoverageSettings = sharedScoverageSettings(60)
+
+addCommandAlias("rel", "reload")
+addCommandAlias("com", "all compile test:compile")
+addCommandAlias("mksite", "makeMicrosite")

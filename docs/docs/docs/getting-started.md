@@ -1,11 +1,11 @@
 ---
-layout: home
-title:  Home
-section: home
-position: 1
+layout: docs
+title: Getting Started
 ---
 
-algorithm is Blah blah blah
+# Temp header Getting Started
+
+Description Getting Started.
 
 ## Installation
 
