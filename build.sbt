@@ -64,6 +64,8 @@ lazy val testsM = module("tests", CrossType.Pure)
     libs.testDependencies("scalatest")
   )
 
+lazy val docsMappingsAPIDir = settingKey[String]("Name of subdirectory in site target directory for api docs")
+
 /** Docs - Generates and publishes the scaladoc API documents and the project web site using sbt-microsite.
   * https://47degrees.github.io/sbt-microsites/docs/settings/
   * https://jekyllrb.com/docs/
@@ -87,10 +89,26 @@ lazy val docs = project
     micrositeEditButton := Some(
         MicrositeEditButton("Improve this Page", "/edit/master/docs/docs/{{ page.path }}")
       ),
-    apiURL := Some(url("https://artemkorsakov.github.io/algorithms/api/")),
     micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
     micrositePushSiteWith := GitHub4s,
-    micrositeGitterChannel := false
+    micrositeGitterChannel := false,
+    micrositePalette := Map(
+        "brand-primary"   -> "#5B5988",
+        "brand-secondary" -> "#292E53",
+        "brand-tertiary"  -> "#222749",
+        "gray-dark"       -> "#49494B",
+        "gray"            -> "#7B7B7E",
+        "gray-light"      -> "#E5E5E6",
+        "gray-lighter"    -> "#F4F3F4",
+        "white-color"     -> "#FFFFFF"
+      ),
+    apiURL := Some(url("https://artemkorsakov.github.io/algorithms/api/")),
+    autoAPIMappings := true,
+    unidocProjectFilter in (ScalaUnidoc, unidoc) := inProjects(coreJVM),
+    docsMappingsAPIDir := "api",
+    addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), docsMappingsAPIDir),
+    fork in (ScalaUnidoc, unidoc) := true,
+    scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") }
   )
 
 lazy val buildSettings = sharedBuildSettings(gh, libs)
@@ -106,6 +124,15 @@ lazy val commonJsSettings = Seq(scalaJSStage in Global := FastOptStage)
 
 lazy val commonJvmSettings = Seq()
 
+/*
+lazy val credentialSettings = Seq(
+  for {
+    username <- Option(sys.env.get("SONATYPE_USERNAME"))
+    password <- Option(sys.env.get("SONATYPE_PASSWORD"))
+  } yield Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", username.get, password.get)
+)
+ */
+
 lazy val publishSettings = sharedPublishSettings(gh) ++ credentialSettings ++ sharedReleaseProcess
 
 lazy val scoverageSettings = sharedScoverageSettings(60)
@@ -113,3 +140,5 @@ lazy val scoverageSettings = sharedScoverageSettings(60)
 addCommandAlias("rel", "reload")
 addCommandAlias("com", "all compile test:compile")
 addCommandAlias("mksite", "makeMicrosite")
+addCommandAlias("pbsite", "publishMicrosite")
+// publish library
