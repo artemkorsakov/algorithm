@@ -1,12 +1,12 @@
 ---
 layout: home
-title:  "Home"
-section: "section_home"
-position: 1
+title:  Home
+section: home
+position: 0
 technologies:
- - first:  ["Scala", "sbt-microsites plugin is completely written in Scala"]
- - second: ["API Documentation", "API Documentation"]
- - third:  ["Documentation", "Documentation"]
+ - first:  ["Scala", "Algorithms library is completely written in Scala"]
+ - second: ["Documentation", "Documentation"]
+ - third:  ["API Documentation", "API Documentation"]
 ---
 
 ## {{page.title}}

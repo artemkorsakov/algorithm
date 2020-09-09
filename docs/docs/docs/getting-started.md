@@ -3,9 +3,9 @@ layout: docs
 title: Getting Started
 ---
 
-# Temp header Getting Started
+# Temp header {{page.title}}
 
-Description Getting Started.
+Description {{page.title}}.
 
 ## Installation
 

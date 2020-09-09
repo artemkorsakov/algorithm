@@ -1,8 +1,6 @@
 import _root_.sbtcrossproject.CrossPlugin.autoImport.CrossType
 import microsites.MicrositeEditButton
 
-addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVersion.value.get + \"-SNAPSHOT\"")
-
 val apache2 = "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 val gh = GitHubSettings(
   org = "artemkorsakov",
@@ -77,7 +75,7 @@ lazy val docs = project
   .settings(
     crossScalaVersions := Seq(scalaVersion.value),
     micrositeName := "Algorithms Library",
-    micrositeDescription := "This is the description of my Algorithms Library",
+    micrositeDescription := "Algorithms library contains the most popular and efficient algorithms.",
     micrositeUrl := "https://artemkorsakov.github.io",
     micrositeBaseUrl := "/algorithms",
     micrositeDocumentationUrl := "/algorithms/docs",
@@ -141,4 +139,5 @@ addCommandAlias("rel", "reload")
 addCommandAlias("com", "all compile test:compile")
 addCommandAlias("mksite", "makeMicrosite")
 addCommandAlias("pbsite", "publishMicrosite")
+addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVersion.value.get + \"-SNAPSHOT\"")
 // publish library

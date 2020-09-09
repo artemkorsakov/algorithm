@@ -2,13 +2,21 @@ options:
   - title: Introduction
     url: docs/index.html
 
-    nested_options:
-      - title: Title1
-        url: docs/title1.html
-
-      - title: Title2
-        url: docs/title2.html
-
   - title: Getting Started
     url: docs/getting-started.html
+
+  - title: Primes
+    url: docs/primes.html
+
+    nested_options:
+      - title: Operations with primes
+        url: docs/primes/oper_primes.html
+
+      - title: PhiFunction
+        url: docs/primes/phi_function.html
+
+      - title: Radicals
+        url: docs/primes/radicals.html
+
+
 

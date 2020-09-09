@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Introduction
+title: "Radicals"
 ---
 
 ## {{page.title}}

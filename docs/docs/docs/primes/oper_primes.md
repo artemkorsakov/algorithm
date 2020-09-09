@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Introduction
+title: "Operations with primes"
 ---
 
 ## {{page.title}}
