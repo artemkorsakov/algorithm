@@ -7,8 +7,7 @@ Algorithms library contains the most popular and efficient algorithms.
 ## Installation
 Add the following to your build.sbt
 ```scala
-libraryDependencies ++= Seq(
-  "com.github.artemkorsakov" %% "algorithm" % "0.0.1-SNAPSHOT")
+libraryDependencies ++= Seq("com.github.artemkorsakov" %% "algorithms-core" % "0.0.3")
 ```
 
 ## Documentation
