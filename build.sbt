@@ -122,15 +122,6 @@ lazy val commonJsSettings = Seq(scalaJSStage in Global := FastOptStage)
 
 lazy val commonJvmSettings = Seq()
 
-/*
-lazy val credentialSettings = Seq(
-  for {
-    username <- Option(sys.env.get("SONATYPE_USERNAME"))
-    password <- Option(sys.env.get("SONATYPE_PASSWORD"))
-  } yield Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", username.get, password.get)
-)
- */
-
 lazy val publishSettings = sharedPublishSettings(gh) ++ credentialSettings ++ sharedReleaseProcess
 
 lazy val scoverageSettings = sharedScoverageSettings(60)
@@ -140,4 +131,12 @@ addCommandAlias("com", "all compile test:compile")
 addCommandAlias("mksite", "makeMicrosite")
 addCommandAlias("pbsite", "publishMicrosite")
 addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVersion.value.get + \"-SNAPSHOT\"")
-// publish library
+/*
+...
+releaseStepCommand("sonatypeOpen \"your groupId\" \"Some staging name\""),
+...
+releaseStepCommand("publishSigned"),
+...
+releaseStepCommand("sonatypeRelease"),
+...
+ */
