@@ -26,9 +26,28 @@ ThisBuild / homepage := Some(url("https://artemkorsakov.github.io/algorithms/"))
 // Remove all additional repository other than Maven Central from POM
 ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / ".sonatype_credentials")
-ThisBuild / publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
+import xerial.sbt.Sonatype._
+ThisBuild / sonatypeSessionName := s"[sbt-sonatype] ${name.value} ${version.value}"
+ThisBuild / sonatypeProjectHosting := Some(GitHubHosting("artemkorsakov", "algorithms", "artemkorsakov@mail.ru"))
+ThisBuild / sonatypeProfileName := "com.github.artemkorsakov"
+ThisBuild / publishTo := sonatypePublishToBundle.value
 ThisBuild / publishMavenStyle := true
+
+import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
+ThisBuild / releaseCrossBuild := true
+ThisBuild / releaseVersionBump := sbtrelease.Version.Bump.Next
+ThisBuild / releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  releaseStepCommand("publishSigned"),
+  // releaseStepCommandAndRemaining("+publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
+)

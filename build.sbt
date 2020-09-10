@@ -115,7 +115,12 @@ lazy val commonSettings =
   addCompilerPlugins(libs, "kind-projector") ++ sharedCommonSettings ++ scalacAllSettings ++ Seq(
     organization := "com.github.artemkorsakov",
     parallelExecution in Test := true,
-    crossScalaVersions := Seq(libs.vers("scalac_2.11"), scalaVersion.value)
+    crossScalaVersions := Seq(
+        libs.vers("scalac_2.11"),
+        libs.vers("scalac_2.12"),
+        libs.vers("scalac_2.13"),
+        scalaVersion.value
+      )
   )
 
 lazy val commonJsSettings = Seq(scalaJSStage in Global := FastOptStage)
@@ -130,13 +135,3 @@ addCommandAlias("rel", "reload")
 addCommandAlias("com", "all compile test:compile")
 addCommandAlias("mksite", "makeMicrosite")
 addCommandAlias("pbsite", "publishMicrosite")
-addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVersion.value.get + \"-SNAPSHOT\"")
-/*
-...
-releaseStepCommand("sonatypeOpen \"your groupId\" \"Some staging name\""),
-...
-releaseStepCommand("publishSigned"),
-...
-releaseStepCommand("sonatypeRelease"),
-...
- */
