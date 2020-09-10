@@ -116,7 +116,6 @@ lazy val commonSettings =
     organization := "com.github.artemkorsakov",
     parallelExecution in Test := true,
     crossScalaVersions := Seq(
-        libs.vers("scalac_2.11"),
         libs.vers("scalac_2.12"),
         libs.vers("scalac_2.13"),
         scalaVersion.value
