@@ -6,16 +6,9 @@ The following books, articles and resources served as a source for the algorithm
 
 ## Installation
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22) 
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central&color=success)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22) 
+![release](https://img.shields.io/github/v/tag/artemkorsakov/algorithms?color=success&label=release)
 ![last commit](https://img.shields.io/github/last-commit/artemkorsakov/algorithms)
-![issues](https://img.shields.io/github/issues/artemkorsakov/algorithms)
-![pull requests](https://img.shields.io/github/issues-pr/artemkorsakov/algorithms)
-![followers](https://img.shields.io/github/followers/artemkorsakov?style=social)
-![forks](https://img.shields.io/github/forks/artemkorsakov/algorithms?style=social)
-![stars](https://img.shields.io/github/stars/artemkorsakov/algorithms?style=social)
-![watchers](https://img.shields.io/github/watchers/artemkorsakov/algorithms?style=social)
-
-
 
 
 Add the following to your build.sbt
