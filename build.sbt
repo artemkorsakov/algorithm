@@ -9,12 +9,13 @@ val gh = GitHubSettings(
   license = apache2
 )
 
+val github = "https://github.com/artemkorsakov"
 val mainDev =
   Developer(
     "Artem Korsakov",
     "@artemkorsakov",
     "artemkorsakov@mail.ru",
-    new java.net.URL("http://github.com/artemkorsakov")
+    new java.net.URL(github)
   )
 
 val devs = List(Developer)
@@ -75,7 +76,7 @@ lazy val docs = project
   .settings(
     crossScalaVersions := Seq(scalaVersion.value),
     micrositeName := "Algorithms Library",
-    micrositeDescription := "Algorithms library contains the most popular and efficient algorithms.",
+    micrositeDescription := "Algorithms library contains the most popular and interesting algorithms.",
     micrositeUrl := "https://artemkorsakov.github.io",
     micrositeBaseUrl := "/algorithms",
     micrositeDocumentationUrl := "/algorithms/docs",
@@ -100,7 +101,7 @@ lazy val docs = project
         "gray-lighter"    -> "#F4F3F4",
         "white-color"     -> "#FFFFFF"
       ),
-    apiURL := Some(url("https://artemkorsakov.github.io/algorithms/api/")),
+    apiURL := Some(url(s"${micrositeUrl.value}${micrositeBaseUrl.value}/api/")),
     autoAPIMappings := true,
     unidocProjectFilter in (ScalaUnidoc, unidoc) := inProjects(coreJVM),
     docsMappingsAPIDir := "api",
@@ -108,9 +109,18 @@ lazy val docs = project
     fork in (ScalaUnidoc, unidoc) := true,
     scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") },
     mdocVariables := Map(
-        "VERSION"        -> "0.0.3",
-        "SCALA_VERSIONS" -> "2.13, 2.12",
-        "MAVEN_BADGE"    -> "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)"
+        "VERSION"                   -> "0.0.3",
+        "SCALA_VERSIONS"            -> "2.13, 2.12",
+        "MAVEN_BADGE"               -> "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)",
+        "DESCRIPTION"               -> micrositeDescription.value,
+        "EMAIL"                     -> s"mailto:${mainDev.email}",
+        "GITHUB"                    -> github,
+        "ISSUES"                    -> s"$github/algorithms/issues",
+        "PULLS"                     -> s"$github/algorithms/pulls",
+        "WEBSITE"                   -> s"${micrositeUrl.value}${micrositeBaseUrl.value}",
+        "DOC_SITE"                  -> s"${micrositeUrl.value}${micrositeDocumentationUrl.value}",
+        "API_SITE"                  -> apiURL.value.get.toString,
+        "SOURCE_OF_ALGORITHMS_LINK" -> s"${micrositeUrl.value}/algorithms/sources_of_algorithms.html"
       )
   )
 

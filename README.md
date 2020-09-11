@@ -1,6 +1,6 @@
 # Algorithms Library
 
-Algorithms library contains the most popular and efficient algorithms.
+Algorithms library contains the most popular and interesting algorithms.
 
 The following books, articles and resources served as a source for the algorithms - [source of algorithms](https://artemkorsakov.github.io/algorithms/sources_of_algorithms.html).
 
