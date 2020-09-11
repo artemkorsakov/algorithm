@@ -106,7 +106,12 @@ lazy val docs = project
     docsMappingsAPIDir := "api",
     addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), docsMappingsAPIDir),
     fork in (ScalaUnidoc, unidoc) := true,
-    scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") }
+    scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") },
+    mdocVariables := Map(
+        "VERSION"        -> "0.0.3",
+        "SCALA_VERSIONS" -> "2.13, 2.12",
+        "MAVEN_BADGE"    -> "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)"
+      )
   )
 
 lazy val buildSettings = sharedBuildSettings(gh, libs)

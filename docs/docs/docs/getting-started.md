@@ -3,15 +3,11 @@ layout: docs
 title: Getting Started
 ---
 
-# Temp header {{page.title}}
+# Installation
 
-Description {{page.title}}.
-
-## Installation
-
-algorithm is available on scala 2.11, 2.12, 2.13.
-
-Add the following to your build.sbt
+The library is available in the central repository - @MAVEN_BADGE@
+<br>It is available on scala @SCALA_VERSIONS@.
+<br>Add the following to your build.sbt
 ```scala
-libraryDependencies ++= Seq("com.github.artemkorsakov" %% "algorithms-core" % "0.0.3")
+libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "@VERSION@"
 ```
