@@ -1,7 +1,6 @@
 ---
 layout: home
 title:  "About me"
-section: about
 position: 100
 ---
 
@@ -16,8 +15,8 @@ My results on Euler project are
 <br><img src="https://projecteuler.net/profile/fonkost.png">
 
 #### Contacts
- - <a href='https://github.com/artemkorsakov'>github</a>
- - <a href='mailto:artemkorsakov@mail.ru'>artemkorsakov@mail.ru</a>
- - <a href='https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D1%91%D0%BC-%D0%BA%D0%BE%D1%80%D1%81%D0%B0%D0%BA%D0%BE%D0%B2-a682646b/'>LinkedIn</a>
+- <a href='https://github.com/artemkorsakov'>github</a>
+- <a href='mailto:artemkorsakov@mail.ru'>artemkorsakov@mail.ru</a>
+- <a href='https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D1%91%D0%BC-%D0%BA%D0%BE%D1%80%D1%81%D0%B0%D0%BA%D0%BE%D0%B2-a682646b/'>LinkedIn</a>
  
 
