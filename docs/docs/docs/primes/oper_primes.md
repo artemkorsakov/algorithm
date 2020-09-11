@@ -3,16 +3,12 @@ layout: docs
 title: "Operations with primes"
 ---
 
-# {{page.title}}
+## {{page.title}}
 
-Common operations with prime numbers.
+Common operations with [prime numbers](https://en.wikipedia.org/wiki/Prime_number).
 
 ### isPrime
-_Determines if the given integer is prime._
-
-**Sources** 
-- [Project Euler: Problem 7](https://projecteuler.net/problem=7)
-- [Project Euler: Problem 7 overview](https://projecteuler.net/overview=007)
+`Determines if the given integer is prime.`
 
 **Algorithm**
 - A prime number greater than 1.
@@ -21,8 +17,12 @@ _Determines if the given integer is prime._
 - Any number n can have only one primefactor greater than &#8730;n.
 - The consequence for primality testing of a number n is: if we cannot find a number f less than
      or equal &#8730;n that divides n then n is prime: the only primefactor of n is n itself
-    
-**Using:**
+   
+**Sources** 
+- [Project Euler: Problem 7](https://projecteuler.net/problem=7)
+- [Project Euler: Problem 7 overview](https://projecteuler.net/overview=007)
+ 
+**Using**
 ```scala
 import com.github.artemkorsakov.primes.Primes._
 

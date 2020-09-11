@@ -1,8 +1,8 @@
 # Algorithms Library
 
 Algorithms library contains the most popular and efficient algorithms.
-<br>The following books, articles and resources served as a source for the algorithms - 
-<a href='https://artemkorsakov.github.io/algorithms/source_of_algorithms.html'>Source of algorithms</a>.
+
+The following books, articles and resources served as a source for the algorithms - [source of algorithms](https://artemkorsakov.github.io/algorithms/sources_of_algorithms.html).
 
 ## Installation
 
@@ -13,7 +13,15 @@ Add the following to your build.sbt
 libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.3"
 ```
 
+**Using**
+```scala
+import com.github.artemkorsakov.primes.Primes._
+
+val res = 1000999.isPrime
+// res: Boolean = true
+```
+
 ## Documentation
-The library homepage is available <a href='https://artemkorsakov.github.io/algorithms/'>here</a>.
-<br>The library documentation is available <a href='https://artemkorsakov.github.io/algorithms/docs/'>here</a>.
-<br>The library API is available <a href='https://artemkorsakov.github.io/algorithms/api/'>here</a>.
+The library homepage is available [here](https://artemkorsakov.github.io/algorithms/).
+<br>The library documentation is available [here](https://artemkorsakov.github.io/algorithms/docs/).
+<br>The library API is available [here](https://artemkorsakov.github.io/algorithms/api/).

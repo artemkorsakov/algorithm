@@ -1,10 +1,10 @@
 ---
 layout: home
-title:  "About me"
+title:  "About author"
 position: 100
 ---
 
-## {{page.title}}
+### {{page.title}}
 
 My name is Artem Korsakov (Артём Корсаков). 
 I am a Scala developer and a former QA Automation Engineer.
