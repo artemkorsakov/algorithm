@@ -5,7 +5,7 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
 class PrimesSuite extends AnyFunSuiteLike {
-  test("check isPrime method") {
+  test("isPrime method") {
     (-1).isPrime shouldBe false
     0.isPrime shouldBe false
     1.isPrime shouldBe false
@@ -21,4 +21,18 @@ class PrimesSuite extends AnyFunSuiteLike {
     1000999.isPrime shouldBe true
   }
 
+  test("nextPrime method") {
+    2.nextPrime shouldBe 3
+    3.nextPrime shouldBe 5
+    5.nextPrime shouldBe 7
+    7.nextPrime shouldBe 11
+    11.nextPrime shouldBe 13
+    13.nextPrime shouldBe 17
+    1000999.nextPrime shouldBe 1001003
+  }
+
+  test("isPrimeArray method") {
+    isPrimeArray(20) shouldBe Array(false, false, true, true, false, true, false, true, false, false, false, true,
+      false, true, false, false, false, true, false, true, false)
+  }
 }

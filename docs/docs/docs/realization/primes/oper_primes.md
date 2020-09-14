@@ -1,10 +1,19 @@
-package com.github.artemkorsakov.primes
+---
+layout: docs
+title: "Realization: Operations with primes"
+parent_link: ../../primes/oper_primes.html
+---
 
-class Primes(n: Long) {
-  import Primes._
+## {{page.title}}
 
-  /** Determines if the given integer is prime.
-    */
+Realizations for [Operations with primes]({{ page.parent_link }}).
+
+### isPrime
+
+[Algorithm]({{ page.parent_link }}{{ "#isPrime" | downcase }})
+
+**Realization**
+```scala
   def isPrime: Boolean =
     if (n < 2) false
     else if (n < 4) true
@@ -17,9 +26,16 @@ class Primes(n: Long) {
       while (candidate <= sqrt && n % candidate != 0) candidate += (if (candidate % 6 == 5) 2 else 4)
       n % candidate != 0
     }
+```
 
-  /** Get next prime number for the given prime number.
-    */
+---
+
+### nextPrime
+
+[Algorithm]({{ page.parent_link }}{{ "#nextPrime" | downcase }})
+
+**Realization**
+```scala
   def nextPrime: Long =
     if (n == 2) {
       3
@@ -32,13 +48,16 @@ class Primes(n: Long) {
       }
       nextPrime
     }
-}
+```
 
-object Primes {
-  implicit def long2PrimesLong(i: Long): Primes = new Primes(i)
+---
 
-  /** Array of boolean values whether the array index is a prime number (Sieve of Eratosthenes).
-    */
+### isPrimeArray
+
+[Algorithm]({{ page.parent_link }}{{ "#isPrimeArray" | downcase }})
+
+**Realization**
+```scala
   def isPrimeArray(n: Int): Array[Boolean] = {
     val result = Array.fill(n + 1)(true)
     result(0) = false
@@ -55,4 +74,6 @@ object Primes {
     }
     result
   }
-}
+```
+
+---

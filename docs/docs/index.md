@@ -30,6 +30,5 @@ libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "@VERSI
 ```
 
 ### Documentation
-- [Website](@WEBSITE@)
 - [Documentation](@DOC_SITE@)
 - [ScalaDoc](@API_SITE@)
