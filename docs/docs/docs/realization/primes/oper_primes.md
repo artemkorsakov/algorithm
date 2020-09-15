@@ -77,3 +77,15 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 ```
 
 ---
+
+### primes
+
+[Algorithm]({{ page.parent_link }}{{ "#primes" | downcase }})
+
+**Realization**
+```scala
+  def primes(n: Int): Array[Int] =
+    isPrimeArray(n).zipWithIndex.filter(_._1).map(_._2)
+```
+
+---

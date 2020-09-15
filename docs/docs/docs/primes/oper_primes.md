@@ -88,3 +88,25 @@ isPrimeArray(10)
 ```
 
 ---
+
+### primes
+All prime numbers from 2 through n.
+
+**Algorithm**
+1. Take isPrimeArray and filter by `true`
+
+**Complexity** _O_(n log(log n))
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#primes" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala
+import com.github.artemkorsakov.primes.Primes._
+
+primes(30)
+// res0: Array[Int] = Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
+```
+
+---

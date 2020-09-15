@@ -35,4 +35,12 @@ class PrimesSuite extends AnyFunSuiteLike {
     isPrimeArray(20) shouldBe Array(false, false, true, true, false, true, false, true, false, false, false, true,
       false, true, false, false, false, true, false, true, false)
   }
+
+  test("primes method") {
+    primes(30) shouldBe Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
+    val prms = primes(1001003)
+    prms startsWith Array(2, 3, 5, 7)
+    prms endsWith Array(1000973, 1000981, 1000999, 1001003)
+  }
+
 }

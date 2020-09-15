@@ -14,7 +14,7 @@ technologies:
 
 @DESCRIPTION@
 
-Please [email to me](@EMAIL@), create [an issue](@ISSUES@) or [pull request](@PULLS@) on github in the following cases:
+Please [email](@EMAIL@), create [an issue](@ISSUES@) or [pull request](@PULLS@) on github in the following cases:
 - you found an error in an algorithm or on the website
 - you think that an algorithm is not efficient and there is a better implementation
 - you want to add a new algorithm

@@ -55,4 +55,10 @@ object Primes {
     }
     result
   }
+
+  /** All prime numbers from 2 through n (inclusive).
+    */
+  def primes(n: Int): Array[Int] =
+    isPrimeArray(n).zipWithIndex.filter(_._1).map(_._2)
+
 }
