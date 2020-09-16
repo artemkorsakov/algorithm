@@ -110,3 +110,29 @@ primes(30)
 ```
 
 ---
+
+### givenCountOfPrimes
+Get the given number of primes.
+
+**Algorithm**
+1. The result is obvious if count is less or equal 2.
+2. If count is more than 2 then start with Array(2, 3)
+3. Starting from 5 check each number of the form 6*k*&#177;1 whether it is prime.
+4. Add to array if it is prime.
+5. If array's size is less than count return to point 3.
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#givenCountOfPrimes" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala
+import com.github.artemkorsakov.primes.Primes._
+
+givenCountOfPrimes(10)
+// res0: Array[Int] = Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
+```
+
+---

@@ -43,4 +43,11 @@ class PrimesSuite extends AnyFunSuiteLike {
     prms endsWith Array(1000973, 1000981, 1000999, 1001003)
   }
 
+  test("givenCountOfPrimes method") {
+    givenCountOfPrimes(10) shouldBe Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
+    val prms = givenCountOfPrimes(10001)
+    prms startsWith Array(2, 3, 5, 7, 11)
+    prms endsWith Array(104711, 104717, 104723, 104729, 104743)
+  }
+
 }

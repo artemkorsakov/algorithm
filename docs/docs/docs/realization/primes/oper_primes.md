@@ -89,3 +89,42 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 ```
 
 ---
+
+### givenCountOfPrimes
+
+[Algorithm]({{ page.parent_link }}{{ "#givenCountOfPrimes" | downcase }})
+
+**Realization**
+```scala
+  def givenCountOfPrimes(count: Int): Array[Int] =
+    if (count <= 0) {
+      Array.empty[Int]
+    } else if (count == 1) {
+      Array(2)
+    } else if (count == 2) {
+      Array(2, 3)
+    } else {
+      val result = new Array[Int](count)
+      result(0) = 2
+      result(1) = 3
+
+      var candidate = 5
+      var tempCount = 2
+      while (tempCount < count) {
+        if (candidate.isPrime) {
+          result(tempCount) = candidate
+          tempCount += 1
+        }
+        candidate += 2
+        if (tempCount < count && candidate.isPrime) {
+          result(tempCount) = candidate
+          tempCount += 1
+        }
+        candidate += 4
+      }
+
+      result
+    }
+```
+
+---

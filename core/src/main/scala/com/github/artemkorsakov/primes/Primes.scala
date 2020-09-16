@@ -36,6 +36,7 @@ class Primes(n: Long) {
 
 object Primes {
   implicit def long2PrimesLong(i: Long): Primes = new Primes(i)
+  implicit def int2PrimesLong(i: Int): Primes   = new Primes(i.toLong)
 
   /** Array of boolean values whether the array index is a prime number (Sieve of Eratosthenes).
     */
@@ -60,5 +61,37 @@ object Primes {
     */
   def primes(n: Int): Array[Int] =
     isPrimeArray(n).zipWithIndex.filter(_._1).map(_._2)
+
+  /** Get the given number of primes.
+    */
+  def givenCountOfPrimes(count: Int): Array[Int] =
+    if (count <= 0) {
+      Array.empty[Int]
+    } else if (count == 1) {
+      Array(2)
+    } else if (count == 2) {
+      Array(2, 3)
+    } else {
+      val result = new Array[Int](count)
+      result(0) = 2
+      result(1) = 3
+
+      var candidate = 5
+      var tempCount = 2
+      while (tempCount < count) {
+        if (candidate.isPrime) {
+          result(tempCount) = candidate
+          tempCount += 1
+        }
+        candidate += 2
+        if (tempCount < count && candidate.isPrime) {
+          result(tempCount) = candidate
+          tempCount += 1
+        }
+        candidate += 4
+      }
+
+      result
+    }
 
 }
