@@ -43,9 +43,9 @@ class PrimesSuite extends AnyFunSuiteLike {
     prms endsWith Array(1000973, 1000981, 1000999, 1001003)
   }
 
-  test("givenCountOfPrimes method") {
-    givenCountOfPrimes(10) shouldBe Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
-    val prms = givenCountOfPrimes(10001)
+  test("generatePrimes method") {
+    generatePrimes(10) shouldBe Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
+    val prms = generatePrimes(10001)
     prms startsWith Array(2, 3, 5, 7, 11)
     prms endsWith Array(104711, 104717, 104723, 104729, 104743)
   }
@@ -59,16 +59,16 @@ class PrimesSuite extends AnyFunSuiteLike {
     5.largestPrimeFactor shouldBe 5
   }
 
-  test("smallestPrimeFactors method") {
-    smallestPrimeFactors(10) shouldBe Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
-  }
-
   test("smallestPrimeFactor method") {
     6.smallestPrimeFactor shouldBe 2
     104743.smallestPrimeFactor shouldBe 104743
     1024.smallestPrimeFactor shouldBe 2
     42.smallestPrimeFactor shouldBe 2
     10965021787L.smallestPrimeFactor shouldBe 104711
+  }
+
+  test("smallestPrimeFactorArray method") {
+    smallestPrimeFactorArray(10) shouldBe Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
   }
 
 }

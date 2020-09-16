@@ -90,13 +90,13 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 ---
 
-### givenCountOfPrimes
+### generatePrimes
 
-[Algorithm]({{ page.parent_link }}{{ "#givenCountOfPrimes" | downcase }})
+[Algorithm]({{ page.parent_link }}{{ "#generatePrimes" | downcase }})
 
 **Realization**
 ```scala
-  def givenCountOfPrimes(count: Int): Array[Int] =
+  def generatePrimes(count: Int): Array[Int] =
     if (count <= 0) {
       Array.empty[Int]
     } else if (count == 1) {
@@ -155,13 +155,25 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 ---
 
-### smallestPrimeFactors
+### smallestPrimeFactor
 
-[Algorithm]({{ page.parent_link }}{{ "#smallestPrimeFactors" | downcase }})
+[Algorithm]({{ page.parent_link }}{{ "#smallestPrimeFactor" | downcase }})
 
 **Realization**
 ```scala
-  def smallestPrimeFactors(count: Int): Array[Int] = {
+  def smallestPrimeFactor: Long =
+    (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
+```
+
+---
+
+### smallestPrimeFactorArray
+
+[Algorithm]({{ page.parent_link }}{{ "#smallestPrimeFactorArray" | downcase }})
+
+**Realization**
+```scala
+  def smallestPrimeFactorArray(count: Int): Array[Int] = {
     val result = new Array[Int](count + 1)
 
     val limit = math.sqrt(count.toDouble).toInt
@@ -180,18 +192,6 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
     result
   }
-```
-
----
-
-### smallestPrimeFactor
-
-[Algorithm]({{ page.parent_link }}{{ "#smallestPrimeFactor" | downcase }})
-
-**Realization**
-```scala
-  def smallestPrimeFactor: Long =
-    (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
 ```
 
 ---

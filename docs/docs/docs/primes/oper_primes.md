@@ -19,7 +19,7 @@ Determines if the given integer is prime.
 5. The consequence for primality testing of a number **n** is: if we cannot find a number **f** less than
      or equal **&#8730;n** that divides **n** then **n** is prime: the only primefactor of **n** is **n** itself
      
-**Complexity** _O(&#8730;n)_
+**Complexity** _O_(&#8730;n)
      
 [**Algorithm realization**]({{ page.realization_link }}{{ "#isPrime" | downcase }})
 
@@ -111,7 +111,7 @@ primes(30)
 
 ---
 
-### givenCountOfPrimes
+### generatePrimes
 Get the given count of primes.
 
 **Algorithm**
@@ -123,7 +123,7 @@ Get the given count of primes.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#givenCountOfPrimes" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#generatePrimes" | downcase }})
 
 **Sources** 
 
@@ -131,7 +131,7 @@ Get the given count of primes.
 ```scala
 import com.github.artemkorsakov.primes.Primes._
 
-givenCountOfPrimes(10)
+generatePrimes(10)
 // res0: Array[Int] = Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
 ```
 
@@ -163,31 +163,6 @@ import com.github.artemkorsakov.primes.Primes._
 
 ---
 
-### smallestPrimeFactors
-Returns an array spf where spf(k) is the smallest prime factor of k, valid for 2 &#8804; k &#8804; n.
-For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
-
-**Algorithm**
-1. For all numbers **i** from **2** to **k** if the **smallest prime factor** has not yet been set then set **i**.
-2. For all numbers **j** from **i<sup>2</sup>** to **k** by **i** step set the **smallest prime factor** as **i**.
-3. Return to step 2.
-
-**Complexity** 
-     
-[**Algorithm realization**]({{ page.realization_link }}{{ "#smallestPrimeFactors" | downcase }})
-
-**Sources** 
-
-**Using**
-```scala
-import com.github.artemkorsakov.primes.Primes._
-
-smallestPrimeFactors(10)
-// res0: Array[Int] = Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
-```
-
----
-
 ### smallestPrimeFactor
 Get the smallest prime factor.
 
@@ -206,6 +181,31 @@ import com.github.artemkorsakov.primes.Primes._
 
 10965021787L.smallestPrimeFactor
 // res0: Long = 104711
+```
+
+---
+
+### smallestPrimeFactorArray
+Returns an array spf where spf(k) is the smallest prime factor of k, valid for 2 &#8804; k &#8804; n.
+For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
+
+**Algorithm**
+1. For all numbers **i** from **2** to **k** if the **smallest prime factor** has not yet been set then set **i**.
+2. For all numbers **j** from **i<sup>2</sup>** to **k** by **i** step set the **smallest prime factor** as **i**.
+3. Return to step 2.
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#smallestPrimeFactorArray" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala
+import com.github.artemkorsakov.primes.Primes._
+
+smallestPrimeFactorArray(10)
+// res0: Array[Int] = Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
 ```
 
 ---

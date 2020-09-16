@@ -89,7 +89,7 @@ object Primes {
 
   /** Get the given number of primes.
     */
-  def givenCountOfPrimes(count: Int): Array[Int] =
+  def generatePrimes(count: Int): Array[Int] =
     if (count <= 0) {
       Array.empty[Int]
     } else if (count == 1) {
@@ -122,7 +122,7 @@ object Primes {
   /** Returns an array spf where spf(k) is the smallest prime factor of k, valid for 2 &#8804; k &#8804; n.
     * For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
     */
-  def smallestPrimeFactors(count: Int): Array[Int] = {
+  def smallestPrimeFactorArray(count: Int): Array[Int] = {
     val result = new Array[Int](count + 1)
 
     val limit = math.sqrt(count.toDouble).toInt
