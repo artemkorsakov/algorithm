@@ -32,6 +32,31 @@ class Primes(n: Long) {
       }
       nextPrime
     }
+
+  /** Get the largest prime factor.
+    */
+  def largestPrimeFactor: Long = {
+    var max    = 1L
+    var i      = 2L
+    var number = n
+    while (i <= number) {
+      if (number % i == 0) {
+        max = i
+        while (number % i == 0) {
+          number /= i
+        }
+      }
+      i = i.nextPrime
+    }
+
+    max
+  }
+
+  /** Get the smallest prime factor.
+    */
+  def smallestPrimeFactor: Long =
+    (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
+
 }
 
 object Primes {
@@ -93,5 +118,28 @@ object Primes {
 
       result
     }
+
+  /** Returns an array spf where spf(k) is the smallest prime factor of k, valid for 2 &#8804; k &#8804; n.
+    * For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
+    */
+  def smallestPrimeFactors(count: Int): Array[Int] = {
+    val result = new Array[Int](count + 1)
+
+    val limit = math.sqrt(count.toDouble).toInt
+    for (i <- 2 until result.length) {
+      if (result(i) == 0) {
+        result(i) = i
+        if (i <= limit) {
+          for (j <- i * i to count by i) {
+            if (result(j) == 0) {
+              result(j) = i
+            }
+          }
+        }
+      }
+    }
+
+    result
+  }
 
 }

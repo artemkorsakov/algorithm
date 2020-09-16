@@ -50,4 +50,25 @@ class PrimesSuite extends AnyFunSuiteLike {
     prms endsWith Array(104711, 104717, 104723, 104729, 104743)
   }
 
+  test("largestPrimeFactor method") {
+    6.largestPrimeFactor shouldBe 3
+    104743.largestPrimeFactor shouldBe 104743
+    1024.largestPrimeFactor shouldBe 2
+    13195.largestPrimeFactor shouldBe 29
+    600851475143L.largestPrimeFactor shouldBe 6857L
+    5.largestPrimeFactor shouldBe 5
+  }
+
+  test("smallestPrimeFactors method") {
+    smallestPrimeFactors(10) shouldBe Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
+  }
+
+  test("smallestPrimeFactor method") {
+    6.smallestPrimeFactor shouldBe 2
+    104743.smallestPrimeFactor shouldBe 104743
+    1024.smallestPrimeFactor shouldBe 2
+    42.smallestPrimeFactor shouldBe 2
+    10965021787L.smallestPrimeFactor shouldBe 104711
+  }
+
 }

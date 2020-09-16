@@ -128,3 +128,70 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 ```
 
 ---
+
+### largestPrimeFactor
+
+[Algorithm]({{ page.parent_link }}{{ "#largestPrimeFactor" | downcase }})
+
+**Realization**
+```scala
+  def largestPrimeFactor: Long = {
+    var max    = 1L
+    var i      = 2L
+    var number = n
+    while (i <= number) {
+      if (number % i == 0) {
+        max = i
+        while (number % i == 0) {
+          number /= i
+        }
+      }
+      i = i.nextPrime
+    }
+
+    max
+  }
+```
+
+---
+
+### smallestPrimeFactors
+
+[Algorithm]({{ page.parent_link }}{{ "#smallestPrimeFactors" | downcase }})
+
+**Realization**
+```scala
+  def smallestPrimeFactors(count: Int): Array[Int] = {
+    val result = new Array[Int](count + 1)
+
+    val limit = math.sqrt(count.toDouble).toInt
+    for (i <- 2 until result.length) {
+      if (result(i) == 0) {
+        result(i) = i
+        if (i <= limit) {
+          for (j <- i * i to count by i) {
+            if (result(j) == 0) {
+              result(j) = i
+            }
+          }
+        }
+      }
+    }
+
+    result
+  }
+```
+
+---
+
+### smallestPrimeFactor
+
+[Algorithm]({{ page.parent_link }}{{ "#smallestPrimeFactor" | downcase }})
+
+**Realization**
+```scala
+  def smallestPrimeFactor: Long =
+    (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
+```
+
+---
