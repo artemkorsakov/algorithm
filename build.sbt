@@ -67,7 +67,6 @@ lazy val docsMappingsAPIDir = settingKey[String]("Name of subdirectory in site t
 
 /** Docs - Generates and publishes the scaladoc API documents and the project web site using sbt-microsite.
   * https://47degrees.github.io/sbt-microsites/docs/settings/
-  * https://jekyllrb.com/docs/
   */
 lazy val docs = project
   .configure(mkDocConfig(gh, rootSettings, Nil, core))
