@@ -1,5 +1,7 @@
 package com.github.artemkorsakov.primes
 
+import scala.collection.mutable
+
 class Primes(n: Long) {
   import Primes._
 
@@ -56,6 +58,28 @@ class Primes(n: Long) {
     */
   def smallestPrimeFactor: Long =
     (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
+
+  /** For a given number return all its prime factors with powers.
+    */
+  def primeFactorsWithPow: Map[Long, Long] = {
+    val map = mutable.Map.empty[Long, Long]
+
+    var i      = 2L
+    var number = n
+    while (number > 1) {
+      if (i.isPrime && number % i == 0) {
+        var pow = 0L
+        while (number % i == 0) {
+          number /= i
+          pow += 1
+        }
+        map += i -> pow
+      }
+      i += 1
+    }
+
+    map.toMap
+  }
 
 }
 

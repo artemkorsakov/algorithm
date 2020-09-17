@@ -7,7 +7,7 @@ The following books, articles and resources served as a source for the algorithm
 ## Installation
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central&color=success)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22) 
-![release](https://img.shields.io/github/v/tag/artemkorsakov/algorithms?color=success&label=release)
+[![latest snapshot](https://img.shields.io/nexus/s/https/oss.sonatype.org/com.github.artemkorsakov/algorithms-core_2.13.svg?label=latest%20snapshot)](https://oss.sonatype.org/content/repositories/snapshots/com/github/artemkorsakov/algorithms-core_2.13/)
 ![last commit](https://img.shields.io/github/last-commit/artemkorsakov/algorithms)
 
 

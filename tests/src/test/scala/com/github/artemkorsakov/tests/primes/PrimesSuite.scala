@@ -5,7 +5,7 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
 class PrimesSuite extends AnyFunSuiteLike {
-  test("isPrime method") {
+  test("isPrime") {
     (-1).isPrime shouldBe false
     0.isPrime shouldBe false
     1.isPrime shouldBe false
@@ -21,7 +21,7 @@ class PrimesSuite extends AnyFunSuiteLike {
     1000999.isPrime shouldBe true
   }
 
-  test("nextPrime method") {
+  test("nextPrime") {
     2.nextPrime shouldBe 3
     3.nextPrime shouldBe 5
     5.nextPrime shouldBe 7
@@ -31,26 +31,26 @@ class PrimesSuite extends AnyFunSuiteLike {
     1000999.nextPrime shouldBe 1001003
   }
 
-  test("isPrimeArray method") {
+  test("isPrimeArray") {
     isPrimeArray(20) shouldBe Array(false, false, true, true, false, true, false, true, false, false, false, true,
       false, true, false, false, false, true, false, true, false)
   }
 
-  test("primes method") {
+  test("primes") {
     primes(30) shouldBe Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
     val prms = primes(1001003)
     prms startsWith Array(2, 3, 5, 7)
     prms endsWith Array(1000973, 1000981, 1000999, 1001003)
   }
 
-  test("generatePrimes method") {
+  test("generatePrimes") {
     generatePrimes(10) shouldBe Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
     val prms = generatePrimes(10001)
     prms startsWith Array(2, 3, 5, 7, 11)
     prms endsWith Array(104711, 104717, 104723, 104729, 104743)
   }
 
-  test("largestPrimeFactor method") {
+  test("largestPrimeFactor") {
     6.largestPrimeFactor shouldBe 3
     104743.largestPrimeFactor shouldBe 104743
     1024.largestPrimeFactor shouldBe 2
@@ -59,7 +59,7 @@ class PrimesSuite extends AnyFunSuiteLike {
     5.largestPrimeFactor shouldBe 5
   }
 
-  test("smallestPrimeFactor method") {
+  test("smallestPrimeFactor") {
     6.smallestPrimeFactor shouldBe 2
     104743.smallestPrimeFactor shouldBe 104743
     1024.smallestPrimeFactor shouldBe 2
@@ -67,8 +67,14 @@ class PrimesSuite extends AnyFunSuiteLike {
     10965021787L.smallestPrimeFactor shouldBe 104711
   }
 
-  test("smallestPrimeFactorArray method") {
+  test("smallestPrimeFactorArray") {
     smallestPrimeFactorArray(10) shouldBe Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
+  }
+
+  test("primeFactorsWithPow") {
+    1000.primeFactorsWithPow shouldBe Map(2   -> 3, 5 -> 3)
+    1024.primeFactorsWithPow shouldBe Map(2   -> 10)
+    777111.primeFactorsWithPow shouldBe Map(3 -> 1, 37 -> 1, 7001 -> 1)
   }
 
 }

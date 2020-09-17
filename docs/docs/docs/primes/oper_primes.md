@@ -209,3 +209,31 @@ smallestPrimeFactorArray(10)
 ```
 
 ---
+
+### primeFactorsWithPow
+For a given number return all its prime factors with powers.
+
+**Algorithm**
+1. Start: **i** is equal to **2**, **n** is equal to **number**.
+2. If **i** is prime and **n % i == 0** then let's define **pow** is equal to **0**.
+3. While **n % i == 0**, **pow** is incremented and **n** becomes equal to **n/i**.
+4. If **n > 1** then **i** is incremented and we return to step 2.
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#primeFactorsWithPow" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala
+import com.github.artemkorsakov.primes.Primes._
+
+1000.primeFactorsWithPow
+// res0: Map[Long,Long] = Map(2 -> 3, 5 -> 3)
+
+1024.primeFactorsWithPow
+// res1: Map[Long,Long] = Map(2 -> 10)
+```
+
+---

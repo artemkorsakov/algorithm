@@ -195,3 +195,32 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 ```
 
 ---
+
+### primeFactorsWithPow
+
+[Algorithm]({{ page.parent_link }}{{ "#primeFactorsWithPow" | downcase }})
+
+**Realization**
+```scala
+  def primeFactorsWithPow: Map[Long, Long] = {
+    val map = mutable.Map.empty[Long, Long]
+
+    var i      = 2L
+    var number = n
+    while (number > 1) {
+      if (i.isPrime && number % i == 0) {
+        var pow = 0L
+        while (number % i == 0) {
+          number /= i
+          pow += 1
+        }
+        map += i -> pow
+      }
+      i += 1
+    }
+
+    map.toMap
+  }
+```
+
+---
