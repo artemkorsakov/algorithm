@@ -29,6 +29,9 @@ class PrimesSuite extends AnyFunSuiteLike {
     11.nextPrime shouldBe 13
     13.nextPrime shouldBe 17
     1000999.nextPrime shouldBe 1001003
+
+    val primesArray = primes(100)
+    (0 until primesArray.length - 1).forall(i => primesArray(i).nextPrime == primesArray(i + 1)) shouldBe true
   }
 
   test("isPrimeArray") {
