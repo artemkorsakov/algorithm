@@ -9,7 +9,7 @@ realization_link: ../realization/primes/phi_function.html
 In number theory, [Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function) counts 
 the positive integers up to a given integer n that are relatively prime to n.
 
-### phiFunction
+### totient
 Counts the positive integers up to a given integer n that are relatively prime to n.
 
 **Algorithm**
@@ -17,7 +17,7 @@ Counts the positive integers up to a given integer n that are relatively prime t
      
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#phiFunction" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#totient" | downcase }})
 
 **Sources** 
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
@@ -26,13 +26,13 @@ Counts the positive integers up to a given integer n that are relatively prime t
 ```scala
 import com.github.artemkorsakov.primes.PhiFunction._
 
-val res = 87109.phiFunction
+val res = 87109.totient
 // res0: Long = 79180
 ```
 
 ---
 
-### phiFunctionArray
+### totientArray
 Euler's totient function's array
 
 **Algorithm**
@@ -43,7 +43,7 @@ Euler's totient function's array
      
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#phiFunctionArray" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#totientArray" | downcase }})
 
 **Sources** 
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
@@ -52,7 +52,7 @@ Euler's totient function's array
 ```scala
 import com.github.artemkorsakov.primes.PhiFunction._
 
-val res = phiFunctionArray(15)
+val res = totientArray(15)
 // res0: Array[Long] = Array(0, 1, 1, 2, 2, 4, 2, 6, 4, 6, 4, 10, 4, 12, 6, 8)
 ```
 

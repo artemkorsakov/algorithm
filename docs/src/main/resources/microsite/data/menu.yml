@@ -9,7 +9,7 @@ options:
       - title: Operations with primes
         url: docs/primes/oper_primes.html
 
-      - title: PhiFunction
+      - title: Euler's totient function
         url: docs/primes/phi_function.html
 
       - title: Radicals

@@ -7,7 +7,7 @@ class PhiFunction(n: Long) {
     *
     * @see <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function">detailed description</a>
     */
-  def phiFunction: Long =
+  def totient: Long =
     n.primeFactorsWithPow.keySet.foldLeft(n)((b, p) => b * (p - 1) / p)
 }
 
@@ -17,9 +17,9 @@ object PhiFunction {
   implicit def long2PhiFunction(i: Long): PhiFunction = new PhiFunction(i)
   implicit def int2PhiFunction(i: Int): PhiFunction   = new PhiFunction(i.toLong)
 
-  /** \varphi(p*n) = p*\varphi(n), if n%p == 0; \varphi(p)*\varphi(n), if n%p != 0
+  /** Euler's totient function array
     */
-  def phiFunctionArray(limit: Int): Array[Long] = {
+  def totientArray(limit: Int): Array[Long] = {
     val phiArray = new Array[Long](limit + 1)
     phiArray(1) = 1
 

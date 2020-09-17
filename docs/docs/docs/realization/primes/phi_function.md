@@ -8,25 +8,25 @@ parent_link: ../../primes/phi_function.html
 
 Realizations for [Euler's totient function]({{ page.parent_link }}).
 
-### phiFunction
+### totient
 
-[Algorithm]({{ page.parent_link }}{{ "#phiFunction" | downcase }})
+[Algorithm]({{ page.parent_link }}{{ "#totient" | downcase }})
 
 **Realization**
 ```scala
-  def phiFunction: Long =
+  def totient: Long =
     n.primeFactorsWithPow.keySet.foldLeft(n)((b, p) => b * (p - 1) / p)
 ```
 
 ---
 
-### phiFunctionArray
+### totientArray
 
-[Algorithm]({{ page.parent_link }}{{ "#phiFunctionArray" | downcase }})
+[Algorithm]({{ page.parent_link }}{{ "#totientArray" | downcase }})
 
 **Realization**
 ```scala
-  def phiFunctionArray(limit: Int): Array[Long] = {
+  def totientArray(limit: Int): Array[Long] = {
     val phiArray = new Array[Long](limit + 1)
     phiArray(1) = 1
 
