@@ -15,5 +15,18 @@ options:
       - title: Radicals
         url: docs/primes/radicals.html
 
+  - title: Combinatorics
+    url: docs/combinatorics.html
 
+    nested_options:
+      - title: Binomial Coefficient
+        url: docs/combinatorics/binomial_coefficient.html
 
+      - title: Coins
+        url: docs/combinatorics/coins.html
+
+      - title: Factorials
+        url: docs/combinatorics/factorials.html
+
+      - title: Three colours
+        url: docs/combinatorics/three_colours.html
