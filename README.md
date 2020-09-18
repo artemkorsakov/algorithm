@@ -21,15 +21,17 @@ libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.4"
 import com.github.artemkorsakov.primes.Primes._
 import com.github.artemkorsakov.primes.PhiFunction._
 import com.github.artemkorsakov.primes.Radicals._
+import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
 
 val res0 = 1000999.isPrime
-// res0: Boolean = true
-
 val res1 = 87109.totient
-// res1: Long = 79180
-
 val res2 = 21.isSquareFree
+val res3 = binomialCoefficient(100, 68)
+
+// res0: Boolean = true
+// res1: Long = 79180
 // res2: Boolean = true
+// res3: BigInt = 143012501349174257560226775
 ```
 
 ## Documentation
