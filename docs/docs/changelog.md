@@ -7,6 +7,15 @@ position: 99
 ### {{page.title}}
 
 
+#### [v0.0.4](https://github.com/artemkorsakov/algorithms/tree/v0.0.4) (2020-09-18)
+
+**Features:**
+- Publish complete package ```com.github.artemkorsakov.primes``` for working with 
+[prime numbers](https://en.wikipedia.org/wiki/Prime_number),
+[Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function),
+[the radical of a positive integer n](https://en.wikipedia.org/wiki/Radical_of_an_integer).
+
+
 #### [v0.0.3](https://github.com/artemkorsakov/algorithms/tree/v0.0.3) (2020-09-10)
 
 **Features:**

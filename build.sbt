@@ -1,6 +1,10 @@
 import _root_.sbtcrossproject.CrossPlugin.autoImport.CrossType
 import microsites.MicrositeEditButton
 
+val release_version = "0.0.4"
+val badge =
+  "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central&color=success)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)"
+
 val apache2 = "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 val gh = GitHubSettings(
   org = "artemkorsakov",
@@ -108,9 +112,9 @@ lazy val docs = project
     fork in (ScalaUnidoc, unidoc) := true,
     scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") },
     mdocVariables := Map(
-        "VERSION"                   -> "0.0.3",
+        "VERSION"                   -> release_version,
         "SCALA_VERSIONS"            -> "2.13, 2.12",
-        "MAVEN_BADGE"               -> "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)",
+        "MAVEN_BADGE"               -> badge,
         "DESCRIPTION"               -> micrositeDescription.value,
         "EMAIL"                     -> s"mailto:${mainDev.email}",
         "GITHUB"                    -> github,
