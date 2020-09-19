@@ -46,7 +46,7 @@ class Coins(number: Int) {
 
   private def partitionPart(s: Int, n: Int, pS: BigInt): BigInt = {
     var k  = s
-    var op = if (s == 1) 1 else 2
+    var op = k * (3 * k - 1) / 2
     var p  = pS
     while (op <= n) {
       if ((k + 1) % 2 == 0) {

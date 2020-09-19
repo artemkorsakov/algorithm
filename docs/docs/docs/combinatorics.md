@@ -12,6 +12,7 @@ You can use the package, for example, like this:
 import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
 import com.github.artemkorsakov.combinatorics.Coins._
 import com.github.artemkorsakov.combinatorics.Factorials._
+import com.github.artemkorsakov.combinatorics.ThreeColours._
 
 val res0 = binomialCoefficient(100, 68)
 // res0: BigInt = 143012501349174257560226775
@@ -28,6 +29,9 @@ val res4 = 1000.partition
 val res5 = optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(100)
 // res5: BigInt = 190569291
 
-val res10 = 30.factorial
-// res10: BigInt = 265252859812191058636308480000000
+val res6 = 30.factorial
+// res6: BigInt = 265252859812191058636308480000000
+
+val res7 = countABCRows(2, 2, 2)
+// res7: Long = 90
 ```

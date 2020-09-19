@@ -13,7 +13,7 @@ The following books, articles and resources served as a source for the algorithm
 
 Add the following to your build.sbt
 ```scala
-libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.4"
+libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.5"
 ```
 
 **Using**
@@ -24,14 +24,19 @@ import com.github.artemkorsakov.primes.Radicals._
 import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
 
 val res0 = 1000999.isPrime
-val res1 = 87109.totient
-val res2 = 21.isSquareFree
-val res3 = binomialCoefficient(100, 68)
-
 // res0: Boolean = true
+
+val res1 = 87109.totient
 // res1: Long = 79180
-// res2: Boolean = true
-// res3: BigInt = 143012501349174257560226775
+
+val res2 = binomialCoefficient(100, 68)
+// res2: BigInt = 143012501349174257560226775
+
+val res3 = 1000.partition
+// res3: BigInt = 24061467864032622473692149727991
+
+val res4 = 30.factorial
+// res4: BigInt = 265252859812191058636308480000000
 ```
 
 ## Documentation
