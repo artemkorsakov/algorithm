@@ -20,8 +20,9 @@ libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.5"
 ```scala
 import com.github.artemkorsakov.primes.Primes._
 import com.github.artemkorsakov.primes.PhiFunction._
-import com.github.artemkorsakov.primes.Radicals._
 import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
+import com.github.artemkorsakov.combinatorics.Coins._
+import com.github.artemkorsakov.combinatorics.Factorials._
 
 val res0 = 1000999.isPrime
 // res0: Boolean = true
