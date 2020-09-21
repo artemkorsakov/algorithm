@@ -30,3 +30,13 @@ options:
 
       - title: Three colours
         url: docs/combinatorics/three_colours.html
+
+  - title: Digital
+    url: docs/digital.html
+
+    nested_options:
+      - title: Digits
+        url: docs/digital/digits.html
+
+      - title: Pandigital
+        url: docs/digital/pandigital.html
