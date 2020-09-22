@@ -14,20 +14,20 @@ class DivisorsSuite extends AnyFunSuiteLike {
     gcd(Array(14, 21, 28, 2, 49)) shouldBe 1
     gcd(Array(14, 21, 28, 49)) shouldBe 7
   }
+
+  test("gcdex") {
+    gcdex(15, 10) shouldBe ((5, 1, -1))
+    gcdex(12121212L, 23422344L) shouldBe ((12, 347845, -180012))
+  }
+
+  test("gcdInverse") {
+    gcdInverse(111, 10) shouldBe 1
+  }
+
 }
 
 /*
 public class DivisorsTests {
-    @Test
-    public void testGCDInverse() {
-        Assert.assertEquals(Divisors.gcdInverse(111, 10), 1);
-    }
-
-    @Test
-    public void testGCDex() {
-        Assert.assertEquals(Divisors.gcdex(15, 10).getD(), 5);
-    }
-
     @Test
     public void testGetDivisors() {
         Assert.assertEquals(Divisors.getDivisors(30), Arrays.asList(2L, 15L, 3L, 10L, 5L, 6L));

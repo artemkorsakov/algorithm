@@ -32,3 +32,38 @@ Realizations for [Operations with divisors]({{ page.parent_link }}).
 ```
 
 ---
+
+### gcdex
+
+[Algorithm]({{ page.parent_link }}{{ "#gcdex" | downcase }})
+
+**Realization**
+```scala
+  def gcdex(a: Long, b: Long): (Long, Long, Long) =
+    if (a == 0) {
+      (b, 0, 1)
+    } else {
+      val temp = gcdex(b % a, a)
+      (temp._1, temp._3 - (b / a) * temp._2, temp._2)
+    }
+```
+
+---
+
+### gcdInverse
+
+[Algorithm]({{ page.parent_link }}{{ "#gcdInverse" | downcase }})
+
+**Realization**
+```scala
+  def gcdInverse(a: Long, m: Long): Long = {
+    val extraEuclid = gcdex(a, m)
+    if (extraEuclid._1 == 1) {
+      (extraEuclid._2 % m + m) % m
+    } else {
+      -1
+    }
+  }
+```
+
+---

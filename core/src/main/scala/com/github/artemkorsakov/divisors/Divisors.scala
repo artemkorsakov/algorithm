@@ -28,42 +28,35 @@ object Divisors {
       }
     }
 
+  /** Extended Euclidean algorithm.
+    *
+    * @see <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">detailed description</a>
+    */
+  def gcdex(a: Long, b: Long): (Long, Long, Long) =
+    if (a == 0) {
+      (b, 0, 1)
+    } else {
+      val temp = gcdex(b % a, a)
+      (temp._1, temp._3 - (b / a) * temp._2, temp._2)
+    }
+
+  /** Modular multiplicative inverse.
+    *
+    * @see <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">detailed description</a>
+    */
+  def gcdInverse(a: Long, m: Long): Long = {
+    val extraEuclid = gcdex(a, m)
+    if (extraEuclid._1 == 1) {
+      (extraEuclid._2 % m + m) % m
+    } else {
+      -1
+    }
+  }
+
 }
 /*
     private static final Map<Long, BigInteger> SUM_OF_DIVISORS_BI_MAP = new HashMap<>();
     private static final Map<Long, Integer> COUNT_OF_DIVISORS = new HashMap<>();
-
-
-    /**
- * Modular multiplicative inverse.
- *
- * @see <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">detailed description</a>
- */
-    public static long gcdInverse(long a, long m) {
-        ExtraEuclid extraEuclid = gcdex(a, m);
-        extraEuclid.x = (extraEuclid.x % m + m) % m;
-        return extraEuclid.d == 1 ? extraEuclid.x : -1;
-    }
-
-    /**
- * Extended Euclidean algorithm.
- *
- * @see <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">detailed description</a>
- */
-    public static ExtraEuclid gcdex(long a, long b) {
-        ExtraEuclid extraEuclid = new ExtraEuclid();
-        if (a == 0) {
-            extraEuclid.x = 0;
-            extraEuclid.y = 1;
-            extraEuclid.d = b;
-            return extraEuclid;
-        }
-        ExtraEuclid temp = gcdex(b % a, a);
-        extraEuclid.setX(temp.y - (b / a) * temp.x);
-        extraEuclid.setY(temp.x);
-        extraEuclid.setD(temp.d);
-        return extraEuclid;
-    }
 
     /**
  * Returns all divisors of n (more than 1 and less than n).
@@ -150,14 +143,6 @@ object Divisors {
         COUNT_OF_DIVISORS.put(n, sum);
         return sum;
     }
-
-    @Data
-    public static class ExtraEuclid {
-        private long d;
-        private long x;
-        private long y;
-    }
-
 }
 
  */
