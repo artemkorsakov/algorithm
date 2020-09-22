@@ -39,34 +39,39 @@ class DigitsSuite extends AnyFunSuiteLike {
     BigInt(1457).sumOfDigits shouldBe 17
   }
 
+  test("hasEqualDigits") {
+    111.hasEqualDigits shouldBe true
+    112.hasEqualDigits shouldBe true
+    123.hasEqualDigits shouldBe false
+    56003.hasEqualDigits shouldBe true
+    56113.hasEqualDigits shouldBe true
+    56333.hasEqualDigits shouldBe true
+    56443.hasEqualDigits shouldBe true
+    56663.hasEqualDigits shouldBe true
+    56773.hasEqualDigits shouldBe true
+    56993.hasEqualDigits shouldBe true
+    569993.hasEqualDigits(3, 9) shouldBe true
+    56993.hasEqualDigits(2, 9) shouldBe true
+    56993.hasEqualDigits(3, 9) shouldBe false
+  }
+
+  test("possibleNumbers") {
+    possibleNumbers(Seq(1, 3, 7)) shouldBe Set("713", "731", "317", "137", "173", "371")
+    possibleNumbers(Seq(1, 0, 7)) shouldBe Set("710", "170", "107", "701", "071", "017")
+    possibleNumbers(Seq(1, 1)) shouldBe Set("11")
+    possibleNumbers(Seq(1, 1, 5, 6)) shouldBe Set(
+      "1156",
+      "1165",
+      "1516",
+      "1561",
+      "1615",
+      "1651",
+      "5116",
+      "5161",
+      "5611",
+      "6115",
+      "6151",
+      "6511"
+    )
+  }
 }
-/*
-
-    @Test
-    public void testHasEqualDigits() {
-        Assert.assertTrue(Digits.hasEqualDigits(111));
-        Assert.assertTrue(Digits.hasEqualDigits(112));
-        Assert.assertFalse(Digits.hasEqualDigits(123));
-        Assert.assertTrue(Digits.hasEqualDigits(56003));
-        Assert.assertTrue(Digits.hasEqualDigits(56113));
-        Assert.assertTrue(Digits.hasEqualDigits(56333));
-        Assert.assertTrue(Digits.hasEqualDigits(56443));
-        Assert.assertTrue(Digits.hasEqualDigits(56663));
-        Assert.assertTrue(Digits.hasEqualDigits(56773));
-        Assert.assertTrue(Digits.hasEqualDigits(56993));
-        Assert.assertTrue(Digits.hasEqualDigits(569993, 3, 9));
-        Assert.assertTrue(Digits.hasEqualDigits(56993, 2, 9));
-        Assert.assertFalse(Digits.hasEqualDigits(56993, 3, 9));
-    }
-
-    @Test
-    public void testGetPossibleVariants() {
-        List<Integer> variants = Digits.getPossibleVariants(Arrays.asList(1, 3, 7));
-        Assert.assertEquals(Arrays.asList(137, 173, 317, 371, 713, 731), variants);
-        variants = Digits.getPossibleVariants(Arrays.asList(1, 1));
-        Assert.assertEquals(Collections.singletonList(11), variants);
-        variants = Digits.getPossibleVariants(Arrays.asList(1, 1, 5, 6));
-        System.out.println(variants);
-        Assert.assertEquals(Arrays.asList(1156, 1165, 1516, 1561, 1615, 1651, 5116, 5161, 5611, 6115, 6151, 6511), variants);
-    }
- */

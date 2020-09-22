@@ -28,6 +28,18 @@ class Digits(number: BigInt) {
     sum
   }
 
+  /** Is the given digit in the given number at least countOfEqual times?
+    */
+  def hasEqualDigits(countOfEqual: Int, digit: Int): Boolean =
+    digits.count(d => d == digit) >= countOfEqual
+
+  /** Has equal digits?
+    */
+  def hasEqualDigits: Boolean = {
+    val dgs = digits
+    dgs.length != dgs.distinct.length
+  }
+
 }
 
 object Digits {
@@ -46,59 +58,23 @@ object Digits {
   def containTheSameDigits(number1: String, number2: String): Boolean =
     (number1.length == number2.length) && number1.toCharArray.sorted.sameElements(number2.toCharArray.sorted)
 
-}
-
-/*
-public class Digits {
-
-    /**
- * Is the given digit in the given number at least countOfEqual times?
- */
-    public static boolean hasEqualDigits(long number, int countOfEqual, int digit) {
-        return getDigits(number).stream().filter(d -> d == digit).count() >= countOfEqual;
-    }
-
-    /**
- * Has equal digits?
- */
-    public static boolean hasEqualDigits(long number) {
-        List<Integer> digits = getDigits(number);
-        return digits.size() != digits.stream().distinct().count();
-    }
-
-    /**
- * Returns all numbers made up of given digits.
- */
-    public static List<Integer> getPossibleVariants(List<Integer> digits) {
-        return getStringPossibleVariants(digits).stream().map(Integer::parseInt).collect(Collectors.toList());
-    }
-
-    /**
- * Returns all numbers made up of given digits.
- */
-    public static List<String> getStringPossibleVariants(List<Integer> digits) {
-        if (digits.size() == 1) {
-            return Collections.singletonList("" + digits.get(0));
+  /** Returns all numbers made up of given digits.
+    */
+  def possibleNumbers(digits: Seq[Int]): Set[String] =
+    if (digits.length == 1) {
+      Set(digits.head.toString)
+    } else {
+      var products = Set.empty[String]
+      for (i <- digits.indices) {
+        val digit       = digits(i).toString
+        val tmpDigits   = digits.take(i) ++ digits.takeRight(digits.length - i - 1)
+        val tmpVariants = possibleNumbers(tmpDigits)
+        for (tmpVariant <- tmpVariants) {
+          val newProduct = digit + tmpVariant
+          products += newProduct
         }
-
-        List<String> products = new ArrayList<>();
-        for (int i = 0; i < digits.size(); i++) {
-            String digit = "" + digits.get(i);
-            List<Integer> tmpDigits = new ArrayList<>();
-            tmpDigits.addAll(digits.subList(0, i));
-            tmpDigits.addAll(digits.subList(i + 1, digits.size()));
-            List<String> tmpVariants = getStringPossibleVariants(tmpDigits);
-            for (String tmpVariant : tmpVariants) {
-                String newProduct = digit + tmpVariant;
-                if (!products.contains(newProduct)) {
-                    products.add(newProduct);
-                }
-            }
-        }
-
-        return products;
+      }
+      products
     }
 
 }
-
- */
