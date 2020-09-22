@@ -40,3 +40,16 @@ options:
 
       - title: Pandigital
         url: docs/digital/pandigital.html
+
+  - title: Divisors
+    url: docs/divisors.html
+
+    nested_options:
+      - title: Operations with divisors
+        url: docs/divisors/divisors_oper.html
+
+      - title: Chinese Remainder Theorem
+        url: docs/divisors/chinese_remainder_theorem.html
+
+      - title: Perfect Numbers
+        url: docs/divisors/perfect_numbers.html
