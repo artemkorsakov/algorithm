@@ -5,7 +5,7 @@ class Pandigital(number: Long) {
   /** Is a number an integer that has among its significant digits each digit used exactly once?
     */
   def isPandigital: Boolean =
-    number.toString.length == 9 && !number.toString.contains("0") && number.toString.distinct.length == 9
+    number.toString.length == 9 && !number.toString.contains("0") && number.toString.toSeq.distinct.length == 9
 
   /** Is a number an integer that has among its significant digits (from 1 to n) each digit used exactly once?
     */
