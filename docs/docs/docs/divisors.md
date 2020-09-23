@@ -10,6 +10,8 @@ The package ```com.github.artemkorsakov.divisors``` contains operations with div
 You can use the package, for example, like this:
 ```scala
 import com.github.artemkorsakov.divisors.Divisors._
+import com.github.artemkorsakov.divisors.ChineseRemainderTheorem
+import com.github.artemkorsakov.divisors.PerfectNumbers._
 
 val res0 = gcd(12121212L, 23422344L)
 // res0: Long = 12
@@ -28,4 +30,10 @@ val res4 = 220.sumOfDivisors
 
 val res5 = 100.countOfDivisors
 // res5: Long = 9
+
+val res6 = ChineseRemainderTheorem.solution(Array(707, 527), Array(0, 5))
+// res6: BigInt = 258762
+
+val res7 = 8128.perfectNumbersType
+// res7: com.github.artemkorsakov.divisors.PerfectNumbers.PerfectNumbersType.Value = Perfect
 ```

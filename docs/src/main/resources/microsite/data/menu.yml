@@ -48,7 +48,7 @@ options:
       - title: Operations with divisors
         url: docs/divisors/divisors_oper.html
 
-      - title: Chinese Remainder Theorem
+      - title: Chinese Remainder T.
         url: docs/divisors/chinese_remainder_theorem.html
 
       - title: Perfect Numbers

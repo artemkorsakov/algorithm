@@ -8,24 +8,18 @@ parent_link: ../../divisors/chinese_remainder_theorem.html
 
 Realizations for [Chinese Remainder Theorem]({{ page.parent_link }}).
 
-### isPrime
+### solution
 
-[Algorithm]({{ page.parent_link }}{{ "#isPrime" | downcase }})
+[Algorithm]({{ page.parent_link }}{{ "#solution" | downcase }})
 
 **Realization**
 ```scala
-  def isPrime: Boolean =
-    if (n < 2) false
-    else if (n < 4) true
-    else if (n % 2 == 0) false
-    else if (n < 9) true
-    else if (n % 3 == 0) false
-    else {
-      val sqrt      = math.sqrt(n.toDouble).toLong
-      var candidate = 5
-      while (candidate <= sqrt && n % candidate != 0) candidate += (if (candidate % 6 == 5) 2 else 4)
-      n % candidate != 0
-    }
+  def solution(aArray: Array[Long], rArray: Array[Long]): BigInt = {
+    val m            = aArray.product                                            // Step 1
+    val mArray       = aArray.map(a => m / a)                                    // Step 2
+    val mMinus1Array = mArray.indices.map(i => gcdInverse(mArray(i), aArray(i))) // Step 3
+    mArray.indices.foldLeft(BigInt(0))((x, i) => x + (((rArray(i) * mArray(i)) % m) * mMinus1Array(i)) % m) // Step 4
+  }
 ```
 
 ---

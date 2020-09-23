@@ -8,31 +8,27 @@ realization_link: ../realization/divisors/perfect_numbers.html
 
 Operations with [perfect numbers](https://en.wikipedia.org/wiki/Perfect_number).
 
-### isPrime
-Determines if the given integer is prime.
+### perfectNumbersType
+Return perfectNumbersType:
+- **Perfect**: a perfect number is a positive integer that is equal to the sum of its positive divisors, excluding the number itself.
+- **Deficient**: a deficient number is a positive integer that is less to the sum of its positive divisors, excluding the number itself.
+- **Abundant**: an abundant number is a positive integer that is more to the sum of its positive divisors, excluding the number itself.
 
 **Algorithm**
-1. A prime number greater than **1**.
-2. All primes except **2** are odd.
-3. All primes greater than **3** can be written in the form **6k&#177;1**.
-4. Any number **n** can have only one primefactor greater than **&#8730;n**.
-5. The consequence for primality testing of a number **n** is: if we cannot find a number **f** less than
-     or equal **&#8730;n** that divides **n** then **n** is prime: the only primefactor of **n** is **n** itself
+
+**Complexity**
      
-**Complexity** _O_(&#8730;n)
-     
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isPrime" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#perfectNumbersType" | downcase }})
 
 **Sources** 
-- [Project Euler: Problem 7](https://projecteuler.net/problem=7)
-- [Project Euler: Problem 7 overview](https://projecteuler.net/overview=007)
+- [Perfect numbers](https://en.wikipedia.org/wiki/Perfect_number)
 
 **Using**
 ```scala
-import com.github.artemkorsakov.primes.Primes._
+import com.github.artemkorsakov.divisors.PerfectNumbers._
 
-val res = 1000999.isPrime
-// res0: Boolean = true
+val res0 = 8128.perfectNumbersType
+// res0: com.github.artemkorsakov.divisors.PerfectNumbers.PerfectNumbersType.Value = Perfect
 ```
 
 ---

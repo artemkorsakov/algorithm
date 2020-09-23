@@ -1,38 +1,37 @@
 ---
 layout: docs
-title: "Chinese Remainder Theorem"
+title: "Chinese Remainder T."
+full_title: "Chinese Remainder Theorem"
 realization_link: ../realization/divisors/chinese_remainder_theorem.html
 ---
 
-## {{page.title}}
+## {{page.full_title}}
 
 [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem).
 
-### isPrime
-Determines if the given integer is prime.
+### solution
+Return **n**, such than **n % a<sub>i</sub> = r<sub>i</sub>**.
 
 **Algorithm**
-1. A prime number greater than **1**.
-2. All primes except **2** are odd.
-3. All primes greater than **3** can be written in the form **6k&#177;1**.
-4. Any number **n** can have only one primefactor greater than **&#8730;n**.
-5. The consequence for primality testing of a number **n** is: if we cannot find a number **f** less than
-     or equal **&#8730;n** that divides **n** then **n** is prime: the only primefactor of **n** is **n** itself
+1. Calculate ![formula](http://latex.codecogs.com/svg.latex?M=%7B%5Cdisplaystyle%20%5Cprod%20_%7B%7Bi=1%7D%7D%5E%7Bn%7Da_%7Bi%7D%7D).
+2. For all ![f](http://latex.codecogs.com/svg.latex?i%5Cin%20%5C%7B1,2,%5Cdots%20,n%5C%7D) 
+find ![f](http://latex.codecogs.com/svg.latex?M_%7Bi%7D=%7B%5Cfrac%20%20M%7Ba_%7Bi%7D%7D%7D).
+3. Find ![f](http://latex.codecogs.com/svg.latex?M_%7Bi%7D%5E%7B%7B-1%7D%7D=%7B%5Cfrac%20%201%7BM_%7Bi%7D%7D%7D%7B%5Cbmod%20%20%7Ba_%7Bi%7D%7D%7D).
+4. Return result ![f](http://latex.codecogs.com/svg.latex?x=%5Csum%20_%7B%7Bi=1%7D%7D%5E%7Bn%7Dr_%7Bi%7DM_%7Bi%7DM_%7Bi%7D%5E%7B%7B-1%7D%7D%5Cmod%20M).
      
-**Complexity** _O_(&#8730;n)
+**Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isPrime" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#solution" | downcase }})
 
 **Sources** 
-- [Project Euler: Problem 7](https://projecteuler.net/problem=7)
-- [Project Euler: Problem 7 overview](https://projecteuler.net/overview=007)
+- [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem)
 
 **Using**
 ```scala
-import com.github.artemkorsakov.primes.Primes._
+import com.github.artemkorsakov.divisors.ChineseRemainderTheorem._
 
-val res = 1000999.isPrime
-// res0: Boolean = true
+val res0 = solution(Array(707, 527), Array(0, 5))
+// res0: BigInt = 258762
 ```
 
 ---
