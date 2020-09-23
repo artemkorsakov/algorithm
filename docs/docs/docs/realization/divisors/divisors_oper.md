@@ -67,3 +67,45 @@ Realizations for [Operations with divisors]({{ page.parent_link }}).
 ```
 
 ---
+
+### divisors
+
+[Algorithm]({{ page.parent_link }}{{ "#divisors" | downcase }})
+
+**Realization**
+```scala
+  def divisors: Set[Long] =
+    (2L to math.sqrt(number.toDouble).toLong).filter(number % _ == 0).flatMap(i => Set(i, number / i)).toSet
+```
+
+---
+
+### sumOfDivisors
+
+[Algorithm]({{ page.parent_link }}{{ "#sumOfDivisors" | downcase }})
+
+**Realization**
+```scala
+  def sumOfDivisors: BigInt = {
+    val primeDivisors = number.primeFactorsWithPow
+    primeDivisors.keySet.foldLeft(BigInt(1)) { (mul, prime) =>
+      val num = BigInt(prime).pow(primeDivisors(prime).toInt + 1) - 1
+      val den = BigInt(prime) - 1
+      mul * (num / den)
+    }
+  }
+```
+
+---
+
+### countOfDivisors
+
+[Algorithm]({{ page.parent_link }}{{ "#countOfDivisors" | downcase }})
+
+**Realization**
+```scala
+  def countOfDivisors: Long =
+    number.primeFactorsWithPow.values.foldLeft(1L)((mul, a) => mul * (a + 1))
+```
+
+---

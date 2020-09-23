@@ -1,8 +1,38 @@
 package com.github.artemkorsakov.divisors
 
-class Divisors {}
+import com.github.artemkorsakov.primes.Primes._
+
+class Divisors(number: Long) {
+
+  /** Returns all divisors of n (more than 1 and less than n).
+    */
+  def divisors: Set[Long] =
+    (2L to math.sqrt(number.toDouble).toLong).filter(number % _ == 0).flatMap(i => Set(i, number / i)).toSet
+
+  /** Return the sum of the divisors of n.
+    *
+    * @see <a href="https://en.wikipedia.org/wiki/Divisor_function">detailed description</a>
+    */
+  def sumOfDivisors: BigInt = {
+    val primeDivisors = number.primeFactorsWithPow
+    primeDivisors.keySet.foldLeft(BigInt(1)) { (mul, prime) =>
+      val num = BigInt(prime).pow(primeDivisors(prime).toInt + 1) - 1
+      val den = BigInt(prime) - 1
+      mul * (num / den)
+    }
+  }
+
+  /** Return the count of divisors of n.
+    */
+  def countOfDivisors: Long =
+    number.primeFactorsWithPow.values.foldLeft(1L)((mul, a) => mul * (a + 1))
+
+}
 
 object Divisors {
+  implicit def long2Divisors(i: Long): Divisors = new Divisors(i)
+  implicit def int2Divisors(i: Int): Divisors   = new Divisors(i.toLong)
+
   def gcd(aArray: Array[Long]): Long =
     if (aArray.length <= 1) {
       aArray.headOption.getOrElse(1)
@@ -10,7 +40,7 @@ object Divisors {
       gcd(aArray.head, gcd(aArray.tail))
     }
 
-  /** Return the greatest common factor.
+  /** Return the greatest common divisor.
     */
   def gcd(u: Long, v: Long): Long =
     if (u == v) {
@@ -54,95 +84,3 @@ object Divisors {
   }
 
 }
-/*
-    private static final Map<Long, BigInteger> SUM_OF_DIVISORS_BI_MAP = new HashMap<>();
-    private static final Map<Long, Integer> COUNT_OF_DIVISORS = new HashMap<>();
-
-    /**
- * Returns all divisors of n (more than 1 and less than n).
- */
-    public static List<Long> getDivisors(long n) {
-        List<Long> divisors = new ArrayList<>();
-
-        if (n < 4) {
-            return divisors;
-        }
-
-        for (long i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                divisors.add(i);
-
-                long pair = n / i;
-                if (pair != i) {
-                    divisors.add(pair);
-                }
-            }
-        }
-
-        return divisors;
-    }
-
-    /**
- * Return the sum of the divisors of n.
- *
- * @see <a href="https://en.wikipedia.org/wiki/Divisor_function">detailed description</a>
- */
-    public static BigInteger getSumOfDivisors(long number) {
-        if (SUM_OF_DIVISORS_BI_MAP.containsKey(number)) {
-            return SUM_OF_DIVISORS_BI_MAP.get(number);
-        }
-
-        BigInteger mul = BigInteger.ONE;
-
-        Map<Integer, Integer> allPrimeFactorsWithPow = Primes.getAllPrimeFactorsWithPow(number);
-        for (int prime : allPrimeFactorsWithPow.keySet()) {
-            BigInteger den = BigInteger.valueOf(prime).subtract(BigInteger.ONE);
-            BigInteger sum = BigInteger.valueOf(prime)
-                    .pow(BigInteger.valueOf(allPrimeFactorsWithPow.get(prime)).add(BigInteger.ONE).intValueExact())
-                    .subtract(BigInteger.ONE)
-                    .divide(den);
-            mul = mul.multiply(sum);
-        }
-
-        SUM_OF_DIVISORS_BI_MAP.put(number, mul);
-        return SUM_OF_DIVISORS_BI_MAP.get(number);
-    }
-
-    /**
- * Return the sum of the divisors of n not exceeding n.
- */
-    public static int getSumOfDivisorsLessThanN(int n) {
-        if (n < 2) {
-            return 0;
-        }
-
-        int sum = 1;
-        for (int i = 2; i <= (int) Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                int pair = n / i;
-                sum += pair == i ? i : i + pair;
-            }
-        }
-
-        return sum;
-    }
-
-    /**
- * Return the count of divisors of n.
- */
-    public static int getCountOfDivisors(long n) {
-        if (COUNT_OF_DIVISORS.containsKey(n)) {
-            COUNT_OF_DIVISORS.get(n);
-        }
-
-        Map<Integer, Integer> result = Primes.getAllPrimeFactorsWithPow(n);
-        int sum = 1;
-        for (int value : result.values()) {
-            sum *= value + 1;
-        }
-        COUNT_OF_DIVISORS.put(n, sum);
-        return sum;
-    }
-}
-
- */

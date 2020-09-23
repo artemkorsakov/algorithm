@@ -19,4 +19,13 @@ val res1 = gcdex(12121212L, 23422344L)
 
 val res2 = gcdInverse(111, 10)
 // res2: Long = 1
+
+val res3 = 30.divisors
+// res3: Set[Long] = Set(5, 10, 6, 2, 3, 15)
+
+val res4 = 220.sumOfDivisors
+// res4: BigInt = 504
+
+val res5 = 100.countOfDivisors
+// res5: Long = 9
 ```

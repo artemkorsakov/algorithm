@@ -91,3 +91,77 @@ val res0 = gcdInverse(111, 10)
 
 ---
 
+### divisors
+Returns all divisors of n (more than 1 and less than n).
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#divisors" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala
+import com.github.artemkorsakov.divisors.Divisors._
+
+val res0 = 30.divisors
+// res0: Set[Long] = Set(5, 10, 6, 2, 3, 15)
+```
+
+---
+
+### sumOfDivisors
+Return the sum of the divisors of n.
+
+**Algorithm**
+1. If we write 
+![formula](http://latex.codecogs.com/svg.latex?n%20=%20%5Cprod_%7Bi=1%7D%5Er%20p_i%5E%7Ba_i%7D) 
+where **r = ω(n)** is the number of distinct prime factors of **n**, **p<sub>i</sub>** is the **i**th prime factor, 
+and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** is divisible, then we have:
+![formula](http://latex.codecogs.com/svg.latex?%7B%5Cdisplaystyle%20%5Csigma%20_%7B1%7D(n)=%5Cprod%20_%7Bi=1%7D%5E%7Br%7D%7B%5Cfrac%20%7Bp_%7Bi%7D%5E%7B(a_%7Bi%7D&plus;1)%7D-1%7D%7Bp_%7Bi%7D-1%7D%7D.%7D)
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#sumOfDivisors" | downcase }})
+
+**Sources** 
+- [Divisor function](https://en.wikipedia.org/wiki/Divisor_function)
+
+**Using**
+```scala
+import com.github.artemkorsakov.divisors.Divisors._
+
+val res0 = 220.sumOfDivisors
+// res0: BigInt = 504
+```
+
+---
+
+### countOfDivisors
+Return the count of divisors of n.
+
+**Algorithm**
+1. If we write 
+![formula](http://latex.codecogs.com/svg.latex?n%20=%20%5Cprod_%7Bi=1%7D%5Er%20p_i%5E%7Ba_i%7D) 
+where **r = ω(n)** is the number of distinct prime factors of **n**, **p<sub>i</sub>** is the **i**th prime factor, 
+and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** is divisible, then we have:
+![formula](http://latex.codecogs.com/svg.latex?%5Csigma_0(n)=%5Cprod_%7Bi=1%7D%5Er%20(a_i&plus;1)) 
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#countOfDivisors" | downcase }})
+
+**Sources** 
+- [Divisor function](https://en.wikipedia.org/wiki/Divisor_function)
+
+**Using**
+```scala
+import com.github.artemkorsakov.divisors.Divisors._
+
+val res0 = 100.countOfDivisors
+// res0: Long = 9
+```
+
+---

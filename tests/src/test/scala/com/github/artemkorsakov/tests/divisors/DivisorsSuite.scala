@@ -24,27 +24,16 @@ class DivisorsSuite extends AnyFunSuiteLike {
     gcdInverse(111, 10) shouldBe 1
   }
 
+  test("divisors") {
+    30.divisors shouldBe Set(2, 15, 3, 10, 5, 6)
+  }
+
+  test("sumOfDivisors") {
+    220.sumOfDivisors shouldBe 504
+    284.sumOfDivisors shouldBe 504
+  }
+
+  test("countOfDivisors") {
+    100.countOfDivisors shouldBe 9
+  }
 }
-
-/*
-public class DivisorsTests {
-    @Test
-    public void testGetDivisors() {
-        Assert.assertEquals(Divisors.getDivisors(30), Arrays.asList(2L, 15L, 3L, 10L, 5L, 6L));
-    }
-
-    @Test
-    public void testGetSumOfDivisors() {
-        Assert.assertEquals(284, Divisors.getSumOfDivisorsLessThanN(220));
-        Assert.assertEquals(220, Divisors.getSumOfDivisorsLessThanN(284));
-        Assert.assertEquals(504, Divisors.getSumOfDivisors(220L).intValueExact());
-        Assert.assertEquals(504, Divisors.getSumOfDivisors(284L).intValueExact());
-    }
-
-    @Test
-    public void testGetCountOfDivisors() {
-        Assert.assertEquals(Divisors.getCountOfDivisors(100), 9);
-    }
-}
-
- */
