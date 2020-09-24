@@ -14,6 +14,8 @@ Realizations for [Binomial Coefficient]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+  import scala.annotation.tailrec
+
   @tailrec
   def binomialCoefficient(n: Int, k: Int): BigInt =
     if (k < 0 || k > n) {
