@@ -70,6 +70,8 @@ class Coins(number: Int) {
 
 **Realization**
 ```scala
+  import com.github.artemkorsakov.combinatorics.Coins._
+
   def optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(sum: Int): BigInt =
     sum.partition - 1
 ```

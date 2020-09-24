@@ -14,6 +14,8 @@ Realizations for [Chinese Remainder Theorem]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import com.github.artemkorsakov.divisors.Divisors._
+
   def solution(aArray: Array[Long], rArray: Array[Long]): BigInt = {
     val m            = aArray.product                                            // Step 1
     val mArray       = aArray.map(a => m / a)                                    // Step 2

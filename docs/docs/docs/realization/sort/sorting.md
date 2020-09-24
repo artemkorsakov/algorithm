@@ -14,6 +14,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Sorting(array: Array[Int]) {
   def insertionSort(): Unit =
     for (j <- 1 until array.length) {
       val key = array(j)
@@ -24,6 +25,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
       }
       array(i + 1) = key
     }
+}
 ```
 
 ---
@@ -34,6 +36,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Sorting(array: Array[Int]) {
   def insertionSortReverse(): Unit =
     for (j <- 1 until array.length) {
       val key = array(j)
@@ -44,6 +47,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
       }
       array(i + 1) = key
     }
+}
 ```
 
 ---
@@ -54,6 +58,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Sorting(array: Array[Int]) {
   def selectionSort(): Unit =
     for (i <- 0 until array.length - 1) {
       var jMin = i
@@ -71,6 +76,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
       array(j) = array(i)
       array(i) = temp
     }
+}
 ```
 
 ---
@@ -81,6 +87,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Sorting(array: Array[Int]) {
   def selectionSortReverse(): Unit =
     for (i <- 0 until array.length - 1) {
       var jMax = i
@@ -98,6 +105,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
       array(j) = array(i)
       array(i) = temp
     }
+}
 ```
 
 ---
@@ -108,6 +116,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Sorting(array: Array[Int]) {
   def mergeSort(): Unit =
     mergeSort(0, array.length - 1)
 
@@ -141,6 +150,7 @@ Realizations for [Sorting Algorithms]({{ page.parent_link }}).
         }
       }
     }
+}
 ```
 
 ---

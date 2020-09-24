@@ -29,6 +29,7 @@ Realizations for [Digits]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Digits(number: BigInt) {
   def digits: Array[Int] = {
     val digits = new Array[Int](number.toString.length)
     var i      = 1
@@ -40,6 +41,7 @@ Realizations for [Digits]({{ page.parent_link }}).
     }
     digits
   }
+}
 ```
 
 ---
@@ -50,6 +52,7 @@ Realizations for [Digits]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Digits(number: BigInt) {
   def sumOfDigits: Int = {
     var sum = 0
     var n   = number
@@ -59,6 +62,7 @@ Realizations for [Digits]({{ page.parent_link }}).
     }
     sum
   }
+}
 ```
 
 ---
@@ -69,6 +73,9 @@ Realizations for [Digits]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import com.github.artemkorsakov.digital.Digits._
+
+class Digits(number: BigInt) {
   def hasEqualDigits(countOfEqual: Int, digit: Int): Boolean =
     digits.count(d => d == digit) >= countOfEqual
 
@@ -76,6 +83,19 @@ Realizations for [Digits]({{ page.parent_link }}).
     val dgs = digits
     dgs.length != dgs.distinct.length
   }
+
+  def digits: Array[Int] = {
+    val digits = new Array[Int](number.toString.length)
+    var i      = 1
+    var n      = number
+    while (i <= digits.length) {
+      digits(digits.length - i) = (n % 10).toInt
+      n /= 10
+      i += 1
+    }
+    digits
+  }
+}
 ```
 
 ---

@@ -14,6 +14,11 @@ Realizations for [Perfect Numbers]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import com.github.artemkorsakov.divisors.Divisors._
+import com.github.artemkorsakov.divisors.PerfectNumbers.PerfectNumbersType
+
+class PerfectNumbers(n: Long) {
+
   def perfectNumbersType: PerfectNumbersType.Value = {
     val sum = n.sumOfDivisors - n
     if (sum == n) {
@@ -24,6 +29,7 @@ Realizations for [Perfect Numbers]({{ page.parent_link }}).
       PerfectNumbersType.Abundant
     }
   }
+}
 ```
 
 ---

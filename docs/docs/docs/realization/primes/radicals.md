@@ -14,8 +14,12 @@ Realizations for [Radicals]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import com.github.artemkorsakov.primes.Primes._
+
+class Radicals(n: Long) {
   def rad: Long =
     n.primeFactorsWithPow.keySet.product
+}
 ```
 
 ---
@@ -26,6 +30,8 @@ Realizations for [Radicals]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import com.github.artemkorsakov.primes.Primes._
+
   def allRads(limit: Int): Array[Int] = {
     val rads = new Array[Int](limit + 1)
     rads(1) = 1
@@ -46,6 +52,9 @@ Realizations for [Radicals]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import com.github.artemkorsakov.primes.Primes._
+
+class Radicals(n: Long) {
   def isSquareFree: Boolean = {
     var p      = 2L
     val s      = math.sqrt(n.toDouble).toLong
@@ -58,6 +67,7 @@ Realizations for [Radicals]({{ page.parent_link }}).
     }
     isFree
   }
+}
 ```
 
 ---

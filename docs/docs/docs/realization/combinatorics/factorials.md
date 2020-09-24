@@ -14,7 +14,9 @@ Realizations for [Factorials]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Factorials(n: Int) {
   def factorial: BigInt = (2 to n).foldLeft(BigInt(1))((f, i) => f * BigInt(i))
+}
 ```
 
 ---
