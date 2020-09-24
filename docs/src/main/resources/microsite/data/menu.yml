@@ -53,3 +53,10 @@ options:
 
       - title: Perfect Numbers
         url: docs/divisors/perfect_numbers.html
+
+  - title: Sorting
+    url: docs/sort.html
+
+    nested_options:
+      - title: Sorting Algorithms
+        url: docs/sort/sorting.html
