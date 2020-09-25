@@ -60,3 +60,13 @@ options:
     nested_options:
       - title: Sorting Algorithms
         url: docs/sort/sorting.html
+
+  - title: String Algorithms
+    url: docs/str.html
+
+    nested_options:
+      - title: Operations with strings
+        url: docs/str/string_algorithms.html
+
+      - title: Numbers description
+        url: docs/str/numbers_description.html

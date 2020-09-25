@@ -1,5 +1,7 @@
 package com.github.artemkorsakov.digital
 
+import com.github.artemkorsakov.str.StringAlgorithms
+
 class Digits(number: BigInt) {
 
   /** Returns the digits of a number.
@@ -56,7 +58,7 @@ object Digits {
   /** Do two numbers contain the same digits?
     */
   def containTheSameDigits(number1: String, number2: String): Boolean =
-    (number1.length == number2.length) && number1.toCharArray.sorted.sameElements(number2.toCharArray.sorted)
+    StringAlgorithms.areAnagrams(number1, number2)
 
   /** Returns all numbers made up of given digits.
     */
