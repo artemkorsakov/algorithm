@@ -70,3 +70,6 @@ options:
 
       - title: Numbers description
         url: docs/str/numbers_description.html
+
+      - title: Roman numerals
+        url: docs/str/roman_numerals.html

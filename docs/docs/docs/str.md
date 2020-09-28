@@ -11,6 +11,7 @@ You can use the package, for example, like this:
 ```scala
 import com.github.artemkorsakov.str.StringAlgorithms._
 import com.github.artemkorsakov.str.NumbersDescription._
+import com.github.artemkorsakov.str.RomanNumerals._
 
 val res0 = sum("37107287533902102798797998220837590246510135740250", "46376937677490009712648124896970078050417018260538") 
 // res0: String = 83484225211392112511446123117807668296927154000788
@@ -32,4 +33,13 @@ val res5 = 1435.inEnglish
 
 val res6 = 999999.inEnglish
 // res6: Option[String] = Some(nine hundred and ninety-nine thousand nine hundred and ninety-nine)
+
+val res7 = "MCCCCCCVI".toMinimalRomanNumeral
+// res7: Option[String] = Some(MDCVI)
+
+val res8 = "MCMLXXXIV".toArabic
+// res8: Option[Long] = Some(1984)
+
+val res9 = 1984.toRoman
+// res9: Option[String] = Some(MCMLXXXIV)
 ```
