@@ -21,7 +21,6 @@ ThisBuild / developers := List(
 
 ThisBuild / description := "Algorithms library contains the most popular and efficient algorithms."
 ThisBuild / homepage := Some(url("https://artemkorsakov.github.io/algorithms/"))
-ThisBuild / resolvers += Resolver.sonatypeRepo("snapshots")
 
 ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / ".sonatype_credentials")
@@ -43,8 +42,8 @@ ThisBuild / releaseProcess := Seq[ReleaseStep](
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  releaseStepCommand("publishSigned"),
-  // releaseStepCommandAndRemaining("+publishSigned"),
+  // releaseStepCommand("publishSigned"),
+  releaseStepCommandAndRemaining("+publishSigned"),
   releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion,
   commitNextVersion,
