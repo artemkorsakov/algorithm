@@ -6,11 +6,20 @@ position: 99
 
 ### {{page.title}}
 
+#### [v0.0.6](https://github.com/artemkorsakov/algorithms/tree/v0.0.6) (2020-09-28)
+
+**Features:**
+- Publish complete package ```com.github.artemkorsakov.digital``` for operations with digits.
+- Publish complete package ```com.github.artemkorsakov.divisors``` for operations with divisors.
+- Publish complete package ```com.github.artemkorsakov.sort``` for [sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm).
+- Publish complete package ```com.github.artemkorsakov.str``` for string algorithms.
+
+---
 
 #### [v0.0.5](https://github.com/artemkorsakov/algorithms/tree/v0.0.5) (2020-09-19)
 
 **Features:**
-- Publish complete package ```com.github.artemkorsakov.tests.combinatorics``` for [Combinatorics algorithms](https://en.wikipedia.org/wiki/Combinatorics).
+- Publish complete package ```com.github.artemkorsakov.combinatorics``` for [Combinatorics algorithms](https://en.wikipedia.org/wiki/Combinatorics).
 
 ---
 
