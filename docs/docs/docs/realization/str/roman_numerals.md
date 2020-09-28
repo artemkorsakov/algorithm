@@ -53,7 +53,6 @@ class RomanNumerals(roman: String) {
 import cats.implicits._
 import com.github.artemkorsakov.str.RomanNumeralSymbol._
 import com.github.artemkorsakov.str.RomanNumeralSymbol
-import scala.collection.mutable
 
 class RomanNumerals(roman: String) {
 
@@ -62,15 +61,15 @@ class RomanNumerals(roman: String) {
     if (min.isEmpty) {
       None
     } else {
-      val temp    = min.get + "  "
-      var i       = 0
-      val symbols = mutable.MutableList.empty[RomanNumeralSymbol.Value]
+      val temp = min.get + "  "
+      var i    = 0
+      var sum  = 0L
       while (i < min.get.length) {
         val symbol = toRomanNumeralSymbol(temp.substring(i, i + 2)).get
-        symbols += symbol
+        sum += symbol.id
         i += symbol.toString.length
       }
-      symbols.map(sym => sym.id.toLong).sum.some
+      sum.some
     }
   }
 
