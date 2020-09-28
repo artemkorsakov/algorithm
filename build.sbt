@@ -26,6 +26,8 @@ val devs = List(Developer)
 
 lazy val libs = org.typelevel.libraries
 
+resolvers += Resolver.sonatypeRepo("snapshots")
+
 lazy val rootSettings = buildSettings ++ commonSettings ++ publishSettings ++ scoverageSettings
 lazy val module       = mkModuleFactory(gh.proj, mkConfig(rootSettings, commonJvmSettings, commonJsSettings))
 lazy val prj          = mkPrjFactory(rootSettings)
