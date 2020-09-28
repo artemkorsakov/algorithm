@@ -42,7 +42,7 @@ val res2 = "37107287533902102798797998220837590246510135740250" |+| "46376937677
 ### areAnagrams
 Are two words anagrams? 
 
-It is the same as [Digits#containTheSameDigits](../digital/digits.html#containthesamedigits)
+It is the same as [Digits - containTheSameDigits](../digital/digits#containthesamedigits)
 
 **Algorithm**
 

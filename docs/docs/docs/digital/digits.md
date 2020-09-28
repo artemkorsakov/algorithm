@@ -9,7 +9,7 @@ realization_link: ../realization/digital/digits.html
 ### containTheSameDigits
 Do two numbers contain the same digits?
 
-It is the same as [Operations with strings#areAnagrams](../str/string_algorithms.html#areanagrams)
+It is the same as [Operations with strings - areAnagrams](../str/string_algorithms#areanagrams)
 
 **Algorithm**
 
