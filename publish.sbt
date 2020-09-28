@@ -43,7 +43,7 @@ ThisBuild / releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion,
   tagRelease,
   // releaseStepCommand("publishSigned"),
-  releaseStepCommandAndRemaining("+publishSigned"),
+  // releaseStepCommandAndRemaining("+publishSigned"),
   releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion,
   commitNextVersion,
