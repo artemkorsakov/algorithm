@@ -32,3 +32,27 @@ val res1 = 999999.inEnglish
 ```
 
 ---
+
+### inRussian
+Number description in Russian.
+
+**Algorithm**
+
+**Complexity**
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#inRussian" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala
+import com.github.artemkorsakov.str.NumbersDescription._
+
+val res0 = 11011435.inRussian
+// res0: Option[String] = Some(одиннадцать миллионов одиннадцать тысяч четыреста тридцать пять)
+
+val res1 = 999999.inRussian
+// res1: Option[String] = Some(девятьсот девяносто девять тысяч девятьсот девяносто девять)
+```
+
+---

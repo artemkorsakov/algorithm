@@ -34,12 +34,18 @@ val res5 = 1435.inEnglish
 val res6 = 999999.inEnglish
 // res6: Option[String] = Some(nine hundred and ninety-nine thousand nine hundred and ninety-nine)
 
-val res7 = "MCCCCCCVI".toMinimalRomanNumeral
-// res7: Option[String] = Some(MDCVI)
+val res7 = 11011435.inRussian
+// res7: Option[String] = Some(одиннадцать миллионов одиннадцать тысяч четыреста тридцать пять)
 
-val res8 = "MCMLXXXIV".toArabic
-// res8: Option[Long] = Some(1984)
+val res8 = 999999.inRussian
+// res8: Option[String] = Some(девятьсот девяносто девять тысяч девятьсот девяносто девять)
 
-val res9 = 1984.toRoman
-// res9: Option[String] = Some(MCMLXXXIV)
+val res9 = "MCCCCCCVI".toMinimalRomanNumeral
+// res9: Option[String] = Some(MDCVI)
+
+val res10 = "MCMLXXXIV".toArabic
+// res10: Option[Long] = Some(1984)
+
+val res11 = 1984.toRoman
+// res11: Option[String] = Some(MCMLXXXIV)
 ```

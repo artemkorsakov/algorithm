@@ -72,6 +72,87 @@ class NumbersDescription(number: Long) {
       case _              => None
     }
 
+  def inRussian: Option[String] =
+    (number match {
+      case n if n < 21 => toRussianBase(n)
+      case n if n < hundred =>
+        toRussianBase((number / 10) * 10) |+| " ".some |+| (number % 10).inRussian
+      case n if n < thousand =>
+        toRussianBase((number / hundred) * hundred) |+| " ".some |+| (number % hundred).inRussian
+      case n if n < million =>
+        val first = number / thousand
+        val firstInRussian =
+          if (first % 10 == 1 && (first % hundred) / 10 != 1)
+            ((first / 10) * 10).inRussian |+| " одна тысяча".some
+          else if (first % 10 == 2 && (first % hundred) / 10 != 1)
+            ((first / 10) * 10).inRussian |+| " две тысячи".some
+          else if (3 <= first % 10 && first % 10 <= 4 && (first % hundred) / 10 != 1)
+            first.inRussian.map(f => f + " тысячи")
+          else
+            first.inRussian.map(f => f + " тысяч")
+        firstInRussian |+| " ".some |+| (number % thousand).inRussian
+      case n if n < billion     => constructRussian(n, million)
+      case n if n < trillion    => constructRussian(n, billion)
+      case n if n < quadrillion => constructRussian(n, trillion)
+      case _                    => None
+    }).map(ans => ans.trim)
+
+  private def constructRussian(n: Long, base: Long): Option[String] = {
+    val first = n / base
+    val firstInRussian =
+      if (first % 10 == 1 && (first % base) / 10 != 1)
+        first.inRussian |+| " ".some |+| toRussianBase(base)
+      else if (2 <= first % 10 && first % 10 <= 4 && (first % base) / 10 != 1)
+        first.inRussian |+| " ".some |+| toRussianBase(base) |+| "а".some
+      else
+        first.inRussian |+| " ".some |+| toRussianBase(base) |+| "ов".some
+    firstInRussian |+| " ".some |+| (n % base).inRussian
+  }
+
+  private def toRussianBase(n: Long): Option[String] =
+    n match {
+      case 0              => "".some
+      case 1              => "один".some
+      case 2              => "два".some
+      case 3              => "три".some
+      case 4              => "четыре".some
+      case 5              => "пять".some
+      case 6              => "шесть".some
+      case 7              => "семь".some
+      case 8              => "восемь".some
+      case 9              => "девять".some
+      case 10             => "десять".some
+      case 11             => "одиннадцать".some
+      case 12             => "двенадцать".some
+      case 13             => "тринадцать".some
+      case 14             => "четырнадцать".some
+      case 15             => "пятнадцать".some
+      case 16             => "шестнадцать".some
+      case 17             => "семнадцать".some
+      case 18             => "восемнадцать".some
+      case 19             => "девятнадцать".some
+      case 20             => "двадцать".some
+      case 30             => "тридцать".some
+      case 40             => "сорок".some
+      case 50             => "пятьдесят".some
+      case 60             => "шестьдесят".some
+      case 70             => "семьдесят".some
+      case 80             => "восемьдесят".some
+      case 90             => "девяносто".some
+      case 100            => "сто".some
+      case 200            => "двести".some
+      case 300            => "триста".some
+      case 400            => "четыреста".some
+      case 500            => "пятьсот".some
+      case 600            => "шестьсот".some
+      case 700            => "семьсот".some
+      case 800            => "восемьсот".some
+      case 900            => "девятьсот".some
+      case 1000000        => "миллион".some
+      case 1000000000     => "миллиард".some
+      case 1000000000000L => "триллион".some
+      case _              => None
+    }
 }
 
 object NumbersDescription {
