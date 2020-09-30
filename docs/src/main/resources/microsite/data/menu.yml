@@ -73,3 +73,17 @@ options:
 
       - title: Roman numerals
         url: docs/str/roman_numerals.html
+
+  - title: Various numbers
+    url: docs/numbers.html
+
+    nested_options:
+      - title: Cyclic numbers
+        url: docs/numbers/cyclic_numbers.html
+
+  - title: Different algorithms
+    url: docs/operations.html
+
+    nested_options:
+      - title: Common operations
+        url: docs/operations/common_operations.html
