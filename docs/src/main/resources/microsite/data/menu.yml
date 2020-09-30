@@ -81,6 +81,13 @@ options:
       - title: Cyclic numbers
         url: docs/numbers/cyclic_numbers.html
 
+  - title: Various math objects
+    url: docs/objects.html
+
+    nested_options:
+      - title: Matrix
+        url: docs/objects/matrix.html
+
   - title: Different algorithms
     url: docs/operations.html
 
