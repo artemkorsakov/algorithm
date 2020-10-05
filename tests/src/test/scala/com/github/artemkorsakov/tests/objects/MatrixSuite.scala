@@ -1,45 +1,25 @@
 package com.github.artemkorsakov.tests.objects
 
+import com.github.artemkorsakov.objects.Matrix._
 import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
 class MatrixSuite extends AnyFunSuiteLike {
-  test("test") {
-    1 shouldBe 1
+  test("dot") {
+    dot(Array(1L, 2L, -3L), Array(-7L, 4L, 6L)) shouldBe Some(-17L)
+    dot(Array(1.5, 2, -3), Array(-7, 4, 6.2)) shouldBe Some(-21.1)
+    dot(
+      Array(BigInt(156744), BigInt(53453535), BigInt(-656464646)),
+      Array(BigInt(-4324344), BigInt(455455455), BigInt(445354354))
+    ) shouldBe Some(BigInt(-268014362053361195L))
+  }
+
+  test("dotMod") {
+    dotMod(Array(1007, 2456, -3466), Array(-3347, 4343, 6445), 1000) shouldBe Some(609)
   }
 }
 
 /*
-package com.github.artemkorsakov.figure;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import java.math.BigInteger;
-import java.util.Arrays;
-
-public class MatrixTests {
-    @Test
-    public void testDot() {
-        long[] x = new long[]{1, 2, -3};
-        long[] y = new long[]{-7, 4, 6};
-        Assert.assertEquals(Matrix.dot(x, y), -17);
-
-        double[] xd = new double[]{1.5, 2, -3};
-        double[] yd = new double[]{-7, 4, 6.2};
-        Assert.assertEquals(Matrix.dot(xd, yd), -21.1);
-
-        BigInteger[] xb = new BigInteger[]{BigInteger.valueOf(156744), BigInteger.valueOf(53453535), BigInteger.valueOf(-656464646)};
-        BigInteger[] yb = new BigInteger[]{BigInteger.valueOf(-4324344), BigInteger.valueOf(455455455), BigInteger.valueOf(445354354)};
-        Assert.assertEquals(Matrix.dot(xb, yb), BigInteger.valueOf(-268014362053361195L));
-    }
-
-    @Test
-    public void testDotMod() {
-        long[] x = new long[]{1007, 2456, -3466};
-        long[] y = new long[]{-3347, 4343, 6445};
-        Assert.assertEquals(Matrix.dotMod(x, y, 1000), 609);
-    }
 
     @Test
     public void testTransposeLong() {

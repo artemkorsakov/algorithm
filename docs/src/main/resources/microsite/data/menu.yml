@@ -88,6 +88,9 @@ options:
       - title: Matrix
         url: docs/objects/matrix.html
 
+      - title: Triangle
+        url: docs/objects/triangle.html
+
   - title: Different algorithms
     url: docs/operations.html
 

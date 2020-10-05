@@ -1,57 +1,43 @@
 package com.github.artemkorsakov.objects
 
-class Matrix {}
+/** Matrix.
+  *
+  * @see <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">detailed description</a>
+  */
+object Matrix {
+  def dot[T](x: Array[Long], y: Array[Long]): Option[Long] =
+    if (x.length != y.length) {
+      None
+    } else {
+      Some(x.indices.foldLeft(Default.value[Long])((s, i) => s + x(i) * y(i)))
+    }
+
+  def dot[T](x: Array[Double], y: Array[Double]): Option[Double] =
+    if (x.length != y.length) {
+      None
+    } else {
+      Some(x.indices.foldLeft(Default.value[Double])((s, i) => s + x(i) * y(i)))
+    }
+
+  def dot[T](x: Array[BigInt], y: Array[BigInt]): Option[BigInt] =
+    if (x.length != y.length) {
+      None
+    } else {
+      Some(x.indices.foldLeft(Default.value[BigInt])((s, i) => s + x(i) * y(i)))
+    }
+
+  def dotMod(x: Array[Long], y: Array[Long], module: Long): Option[Long] =
+    if (x.length != y.length) {
+      None
+    } else {
+      val res = x.indices.foldLeft(Default.value[BigInt])((s, i) => (s + BigInt(x(i)) * BigInt(y(i))) % module)
+      Some(((res + module) % module).toLong)
+    }
+}
+
 /*
-package com.github.artemkorsakov.figure;
-
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
-/**
- * Matrix
- *
- * @see <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">detailed description</a>
- */
 public class Matrix {
-    public static long dot(long[] x, long[] y) {
-        if (x.length != y.length) {
-            throw new IllegalArgumentException("Vector lengths should be equal");
-        }
-        return IntStream.range(0, x.length).parallel()
-                .filter(i -> x[i] != 0 && y[i] != 0)
-                .mapToLong(i -> x[i] * y[i])
-                .sum();
-    }
 
-    public static double dot(double[] x, double[] y) {
-        if (x.length != y.length) {
-            throw new IllegalArgumentException("Vector lengths should be equal");
-        }
-        return IntStream.range(0, x.length).parallel()
-                .filter(i -> x[i] != 0 && y[i] != 0)
-                .mapToDouble(i -> x[i] * y[i]).sum();
-    }
-
-    public static BigInteger dot(BigInteger[] x, BigInteger[] y) {
-        if (x.length != y.length) {
-            throw new IllegalArgumentException("Vector lengths should be equal");
-        }
-        return IntStream.range(0, x.length).parallel()
-                .filter(i -> !x[i].equals(BigInteger.ZERO) && !y[i].equals(BigInteger.ZERO))
-                .mapToObj(i -> x[i].multiply(y[i]))
-                .reduce(BigInteger::add).orElse(BigInteger.ZERO);
-    }
-
-    public static long dotMod(long[] x, long[] y, long module) {
-        if (x.length != y.length) {
-            throw new IllegalArgumentException("Vector lengths should be equal");
-        }
-        return IntStream.range(0, x.length).parallel()
-                .filter(i -> x[i] != 0 && y[i] != 0)
-                .mapToLong(i -> BigInteger.valueOf(x[i]).multiply(BigInteger.valueOf(y[i])).mod(BigInteger.valueOf(module)).longValueExact())
-                .reduce((l1, l2) -> l1 = (l1 + l2) % module).orElse(0);
-    }
 
     /**
  * The <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of a matrix.
