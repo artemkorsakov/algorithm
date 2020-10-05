@@ -25,7 +25,7 @@ How many different options to arrange these balls in a row?
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.combinatorics.ThreeColours._
-val res0 = countABCRows(2, 2, 2)
+countABCRows(2, 2, 2)
 ```
 
 ---

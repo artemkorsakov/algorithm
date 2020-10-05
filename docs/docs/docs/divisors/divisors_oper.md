@@ -29,7 +29,7 @@ Similarly, **gcd(u, 2v) = gcd(u, v)** if **u** is odd.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-val res0 = gcd(12121212L, 23422344L)
+gcd(12121212L, 23422344L)
 ```
 
 ---
@@ -54,8 +54,7 @@ The result is a tuple **(gcd(a,b), x, y)**
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.divisors.Divisors._
-val res1 = gcdex(12121212L, 23422344L)
+gcdex(12121212L, 23422344L)
 ```
 
 ---
@@ -78,8 +77,7 @@ In the standard notation of modular arithmetic this congruence is written as
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.divisors.Divisors._
-val res2 = gcdInverse(111, 10)
+gcdInverse(111, 10)
 ```
 
 ---
@@ -97,8 +95,7 @@ Returns all divisors of n (more than 1 and less than n).
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.divisors.Divisors._
-val res3 = 30.divisors
+30.divisors
 ```
 
 ---
@@ -122,8 +119,7 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.divisors.Divisors._
-val res4 = 220.sumOfDivisors
+220.sumOfDivisors
 ```
 
 ---
@@ -147,8 +143,7 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.divisors.Divisors._
-val res5 = 100.countOfDivisors
+100.countOfDivisors
 ```
 
 ---

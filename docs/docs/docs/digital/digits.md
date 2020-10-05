@@ -22,7 +22,7 @@ It is the same as [Operations with strings - areAnagrams](../str/string_algorith
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.digital.Digits._
-val res0 = containTheSameDigits(127035954683L, 589323567104L)
+containTheSameDigits(127035954683L, 589323567104L)
 ```
 
 ---
@@ -40,8 +40,7 @@ Returns the digits of a number.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.digital.Digits._
-val res1 = 1406357289L.digits
+1406357289L.digits
 ```
 
 ---
@@ -59,8 +58,7 @@ Returns the sum of the digits of a number.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.digital.Digits._
-val res2 = 1406357289L.sumOfDigits
+1406357289L.sumOfDigits
 ```
 
 ---
@@ -78,10 +76,9 @@ Does the number have at least two of the same digits?
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.digital.Digits._
-val res3 = 56993.hasEqualDigits
-val res4 = 56993.hasEqualDigits(2, 9)
-val res5 = 56993.hasEqualDigits(3, 9)
+56993.hasEqualDigits
+56993.hasEqualDigits(2, 9)
+56993.hasEqualDigits(3, 9)
 ```
 
 ---
@@ -99,8 +96,7 @@ Returns all numbers made up of given digits.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.digital.Digits._
-val res6 = possibleNumbers(Seq(1, 1, 5, 6))
+possibleNumbers(Seq(1, 1, 5, 6))
 ```
 
 ---

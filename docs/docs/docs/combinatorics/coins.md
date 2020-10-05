@@ -34,7 +34,7 @@ How many different ways can £2 be made using any number of coins?
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.combinatorics.Coins._
-val res0 = countWays(Array(1, 2, 5, 10, 20, 50, 100, 200), 200)
+countWays(Array(1, 2, 5, 10, 20, 50, 100, 200), 200)
 ```
 
 ---
@@ -56,8 +56,7 @@ Two sums that differ only in the order of their summands are considered the same
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.combinatorics.Coins._
-val res1 = 1000.partition
+1000.partition
 ```
 
 ---
@@ -76,8 +75,7 @@ How many options to get sum as a sum of at least two positive numbers?
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.combinatorics.Coins._
-val res2 = optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(100)
+optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(100)
 ```
 
 ---

@@ -30,7 +30,7 @@ Determines if the given integer is prime.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-val res = 1000999.isPrime
+1000999.isPrime
 ```
 
 ---
@@ -51,9 +51,8 @@ Get next prime number for the given prime number.
 **Sources** 
 
 **Using**
-```scala mdoc:reset
-import com.github.artemkorsakov.primes.Primes._
-val res = 1000999.nextPrime
+```scala mdoc
+1000999.nextPrime
 ```
 
 ---
@@ -77,7 +76,6 @@ All prime numbers from 2 through n as a boolean array.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 isPrimeArray(5)
 ```
 
@@ -97,7 +95,6 @@ All prime numbers from 2 through n.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 primes(30)
 ```
 
@@ -121,7 +118,6 @@ Get the given count of primes.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 generatePrimes(10)
 ```
 
@@ -145,7 +141,6 @@ Get the largest prime factor.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 600851475143L.largestPrimeFactor
 ```
 
@@ -165,7 +160,6 @@ Get the smallest prime factor.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 10965021787L.smallestPrimeFactor
 ```
 
@@ -188,7 +182,6 @@ For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 smallestPrimeFactorArray(10)
 ```
 
@@ -211,7 +204,6 @@ For a given number return all its prime factors with powers.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Primes._
 1000.primeFactorsWithPow
 1024.primeFactorsWithPow
 ```

@@ -25,8 +25,8 @@ Calculate binomial coefficient ![binomial coefficient](https://latex.codecogs.co
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
-val res0 = binomialCoefficient(100, 68)
-val res1 = binomialCoefficient(100, 68, 1000000)
+binomialCoefficient(100, 68)
+binomialCoefficient(100, 68, 1000000)
 ```
 
 ---

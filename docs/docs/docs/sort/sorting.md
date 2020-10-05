@@ -46,7 +46,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.sort.Sorting._
 {
   val array = Array(5, 2, 4, 6, 1, 3)
   array.insertionSortReverse()
@@ -70,7 +69,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.sort.Sorting._
 {
   val array = Array(5, 2, 4, 6, 1, 3)
   array.selectionSort()
@@ -94,7 +92,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.sort.Sorting._
 {
   val array = Array(5, 2, 4, 6, 1, 3)
   array.selectionSortReverse()
@@ -118,7 +115,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.sort.Sorting._
 {
   val array = Array(5, 2, 4, 6, 1, 3)
   array.mergeSort()

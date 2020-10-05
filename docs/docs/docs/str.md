@@ -8,20 +8,24 @@ title: "String Algorithms"
 The package ```com.github.artemkorsakov.str``` contains string algorithms. 
 
 You can use the package, for example, like this:
-```scala mdoc:to-string
+```scala mdoc
 import com.github.artemkorsakov.str.StringAlgorithms._
+sum("37107287533902102798797998220837590246510135740250", "46376937677490009712648124896970078050417018260538") 
+"37107287533902102798797998220837590246510135740250" sum "46376937677490009712648124896970078050417018260538"
+"37107287533902102798797998220837590246510135740250" |+| "46376937677490009712648124896970078050417018260538"
+areAnagrams("post", "stop")
+"\"COLIN\"".alphabeticalValue
+```
+```scala mdoc:to-string
 import com.github.artemkorsakov.str.NumbersDescription._
+1435.inEnglish
+999999.inEnglish
+11011435.inRussian
+999999.inRussian
+```
+```scala mdoc
 import com.github.artemkorsakov.str.RomanNumerals._
-val res0 = sum("37107287533902102798797998220837590246510135740250", "46376937677490009712648124896970078050417018260538") 
-val res1 = "37107287533902102798797998220837590246510135740250" sum "46376937677490009712648124896970078050417018260538"
-val res2 = "37107287533902102798797998220837590246510135740250" |+| "46376937677490009712648124896970078050417018260538"
-val res3 = areAnagrams("post", "stop")
-val res4 = "\"COLIN\"".alphabeticalValue
-val res5 = 1435.inEnglish
-val res6 = 999999.inEnglish
-val res7 = 11011435.inRussian
-val res8 = 999999.inRussian
-val res9 = "MCCCCCCVI".toMinimalRomanNumeral
-val res10 = "MCMLXXXIV".toArabic
-val res11 = 1984.toRoman
+"MCCCCCCVI".toMinimalRomanNumeral
+"MCMLXXXIV".toArabic
+1984.toRoman
 ```

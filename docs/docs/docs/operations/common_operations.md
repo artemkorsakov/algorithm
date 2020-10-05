@@ -24,7 +24,7 @@ The sum of the n first numbers.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-val res0 = sumToGiven(1000000)
+sumToGiven(1000000)
 ```
 
 ---
@@ -44,8 +44,7 @@ The sum of the n first square numbers.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.operations.CommonOperations._
-val res1 = sumOfSquaresTo(1000)
+sumOfSquaresTo(1000)
 ```
 
 ---
@@ -65,8 +64,7 @@ The sum of the n first cubes numbers.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.operations.CommonOperations._
-val res2 = sumOfCubesTo(1000)
+sumOfCubesTo(1000)
 ```
 
 ---
@@ -85,8 +83,7 @@ A square root of a number x.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.operations.CommonOperations._
-val res3 = 1000.sqrt
+1000.sqrt
 ```
 
 ---
@@ -104,8 +101,7 @@ Is a number a square?
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.operations.CommonOperations._
-val res4 = 36.isSquare
+36.isSquare
 ```
 
 ---
@@ -125,9 +121,8 @@ All square numbers from start (inclusive) to finish (inclusive).
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.operations.CommonOperations._
-val res5 = allSquares(2)
-val res6 = allSquares(1024, 1444)
+allSquares(2)
+allSquares(1024, 1444)
 ```
 
 ---
@@ -145,8 +140,7 @@ Returns a list of unique lists containing given numbers without repetition.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.operations.CommonOperations._
-val res7 = allNumbersVariants(Set(2, 3, 5))
+allNumbersVariants(Set(2, 3, 5))
 ```
 
 ---

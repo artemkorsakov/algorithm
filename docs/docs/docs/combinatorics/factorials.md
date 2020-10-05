@@ -24,7 +24,7 @@ Calculate factorial.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.combinatorics.Factorials._
-val res0 = 30.factorial
+30.factorial
 ```
 
 ---

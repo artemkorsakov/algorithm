@@ -25,7 +25,7 @@ Counts the positive integers up to a given integer n that are relatively prime t
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.primes.PhiFunction._
-val res = 87109.totient
+87109.totient
 ```
 
 ---
@@ -47,9 +47,8 @@ Euler's totient function's array
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 
 **Using**
-```scala mdoc:reset
-import com.github.artemkorsakov.primes.PhiFunction._
-val res = totientArray(10)
+```scala mdoc
+totientArray(10)
 ```
 
 ---

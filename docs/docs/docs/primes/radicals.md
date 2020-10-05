@@ -28,7 +28,7 @@ Return the product of distinct prime factors of n.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.primes.Radicals._
-val res = 504.rad
+504.rad
 ```
 
 ---
@@ -48,9 +48,8 @@ Return array of products of distinct prime factors of any n not more limit.
 **Sources** 
 
 **Using**
-```scala mdoc:reset
-import com.github.artemkorsakov.primes.Radicals._
-val res = allRads(10) 
+```scala mdoc
+allRads(10) 
 ```
 
 ---
@@ -69,9 +68,8 @@ Return `true` if number is [a square-free integer](https://en.wikipedia.org/wiki
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.primes.Radicals._
-val res0 = 20.isSquareFree
-val res1 = 21.isSquareFree
+20.isSquareFree
+21.isSquareFree
 ```
 
 ---

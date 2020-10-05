@@ -24,7 +24,7 @@ Roman number in its minimum notation.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.str.RomanNumerals._
-val res0 = "MCCCCCCVI".toMinimalRomanNumeral
+"MCCCCCCVI".toMinimalRomanNumeral
 ```
 
 ---
@@ -42,8 +42,7 @@ Roman number to Arabic.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.str.RomanNumerals._
-val res1 = "MCMLXXXIV".toArabic
+"MCMLXXXIV".toArabic
 ```
 
 ---
@@ -61,8 +60,7 @@ Arabic number to Roman.
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.str.RomanNumerals._
-val res2 = 1984.toRoman
+1984.toRoman
 ```
 
 ---

@@ -26,7 +26,7 @@ Return perfectNumbersType:
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.divisors.PerfectNumbers._
-val res0 = 8128.perfectNumbersType
+8128.perfectNumbersType
 ```
 
 ---

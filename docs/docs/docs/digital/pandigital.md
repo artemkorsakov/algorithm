@@ -22,9 +22,9 @@ realization_link: ../realization/digital/pandigital.html
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.digital.Pandigital._
-val res0 = 192384576L.isPandigital
-val res1 = 2134.isPandigital(4)
-val res2 = 1406357289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0))
+192384576L.isPandigital
+2134.isPandigital(4)
+1406357289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0))
 ```
 
 ---
