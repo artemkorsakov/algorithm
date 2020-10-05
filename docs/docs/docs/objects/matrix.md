@@ -17,11 +17,10 @@ realization_link: ../realization/objects/matrix.html
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.numbers.CyclicNumbers._
 
 val res0 = (1 to 5).map(i => i.triangleNumber)
-// res0: scala.collection.immutable.IndexedSeq[Long] = Vector(1, 3, 6, 10, 15)
 ```
 
 ---
