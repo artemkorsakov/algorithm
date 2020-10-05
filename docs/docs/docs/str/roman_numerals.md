@@ -22,11 +22,9 @@ Roman number in its minimum notation.
 - [About Roman Numerals](https://projecteuler.net/about=roman_numerals)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.str.RomanNumerals._
-
 val res0 = "MCCCCCCVI".toMinimalRomanNumeral
-// res0: Option[String] = Some(MDCVI)
 ```
 
 ---
@@ -43,11 +41,9 @@ Roman number to Arabic.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.str.RomanNumerals._
-
 val res1 = "MCMLXXXIV".toArabic
-// res1: Option[Long] = Some(1984)
 ```
 
 ---
@@ -64,11 +60,9 @@ Arabic number to Roman.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.str.RomanNumerals._
-
 val res2 = 1984.toRoman
-// res2: Option[String] = Some(MCMLXXXIV)
 ```
 
 ---

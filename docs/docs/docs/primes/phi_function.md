@@ -23,11 +23,9 @@ Counts the positive integers up to a given integer n that are relatively prime t
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.PhiFunction._
-
 val res = 87109.totient
-// res0: Long = 79180
 ```
 
 ---
@@ -49,11 +47,9 @@ Euler's totient function's array
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 
 **Using**
-```scala
+```scala mdoc:reset
 import com.github.artemkorsakov.primes.PhiFunction._
-
-val res = totientArray(15)
-// res0: Array[Long] = Array(0, 1, 1, 2, 2, 4, 2, 6, 4, 6, 4, 10, 4, 12, 6, 8)
+val res = totientArray(10)
 ```
 
 ---

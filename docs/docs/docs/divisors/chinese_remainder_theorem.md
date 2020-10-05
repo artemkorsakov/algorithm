@@ -27,11 +27,9 @@ find ![f](http://latex.codecogs.com/svg.latex?M_%7Bi%7D=%7B%5Cfrac%20%20M%7Ba_%7
 - [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.ChineseRemainderTheorem._
-
 val res0 = solution(Array(707, 527), Array(0, 5))
-// res0: BigInt = 258762
 ```
 
 ---

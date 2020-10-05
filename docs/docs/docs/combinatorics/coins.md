@@ -32,11 +32,9 @@ How many different ways can £2 be made using any number of coins?
 - [Project Euler: Coin sums (overview)](https://projecteuler.net/overview=031)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.combinatorics.Coins._
-
 val res0 = countWays(Array(1, 2, 5, 10, 20, 50, 100, 200), 200)
-// res0: Long = 73682
 ```
 
 ---
@@ -57,11 +55,9 @@ Two sums that differ only in the order of their summands are considered the same
 - [Wikipedia](https://en.wikipedia.org/wiki/Partition_(number_theory))
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.combinatorics.Coins._
-
-val res0 = 1000.partition
-// res0: BigInt = 24061467864032622473692149727991
+val res1 = 1000.partition
 ```
 
 ---
@@ -79,11 +75,9 @@ How many options to get sum as a sum of at least two positive numbers?
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.combinatorics.Coins._
-
-val res0 = optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(100)
-// res0: BigInt = 190569291
+val res2 = optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(100)
 ```
 
 ---

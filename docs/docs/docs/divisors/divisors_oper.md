@@ -27,11 +27,9 @@ Similarly, **gcd(u, 2v) = gcd(u, v)** if **u** is odd.
 - [Binary GCD algorithm](https://en.wikipedia.org/wiki/Binary_GCD_algorithm)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-
 val res0 = gcd(12121212L, 23422344L)
-// res0: Long = 12
 ```
 
 ---
@@ -55,12 +53,9 @@ The result is a tuple **(gcd(a,b), x, y)**
 - [Extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-
-val res0 = gcdex(12121212L, 23422344L)
-// res0: (Long, Long, Long) = (12,347845,-180012)
-// 347845*12121212 + (-180012)*23422344 = 12
+val res1 = gcdex(12121212L, 23422344L)
 ```
 
 ---
@@ -82,11 +77,9 @@ In the standard notation of modular arithmetic this congruence is written as
 - [Modular multiplicative inverse](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-
-val res0 = gcdInverse(111, 10)
-// res0: Long = 1
+val res2 = gcdInverse(111, 10)
 ```
 
 ---
@@ -103,11 +96,9 @@ Returns all divisors of n (more than 1 and less than n).
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-
-val res0 = 30.divisors
-// res0: Set[Long] = Set(5, 10, 6, 2, 3, 15)
+val res3 = 30.divisors
 ```
 
 ---
@@ -130,11 +121,9 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 - [Divisor function](https://en.wikipedia.org/wiki/Divisor_function)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-
-val res0 = 220.sumOfDivisors
-// res0: BigInt = 504
+val res4 = 220.sumOfDivisors
 ```
 
 ---
@@ -157,11 +146,9 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 - [Divisor function](https://en.wikipedia.org/wiki/Divisor_function)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.Divisors._
-
-val res0 = 100.countOfDivisors
-// res0: Long = 9
+val res5 = 100.countOfDivisors
 ```
 
 ---

@@ -24,11 +24,9 @@ Return perfectNumbersType:
 - [Perfect numbers](https://en.wikipedia.org/wiki/Perfect_number)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.divisors.PerfectNumbers._
-
 val res0 = 8128.perfectNumbersType
-// res0: com.github.artemkorsakov.divisors.PerfectNumbers.PerfectNumbersType.Value = Perfect
 ```
 
 ---

@@ -23,14 +23,10 @@ Calculate binomial coefficient ![binomial coefficient](https://latex.codecogs.co
 - [Wikipedia](https://en.wikipedia.org/wiki/Binomial_coefficient)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
-
 val res0 = binomialCoefficient(100, 68)
 val res1 = binomialCoefficient(100, 68, 1000000)
-
-// res0: BigInt = 143012501349174257560226775
-// res1: BigInt = 226775
 ```
 
 ---

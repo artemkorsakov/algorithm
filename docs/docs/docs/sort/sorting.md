@@ -21,12 +21,13 @@ realization_link: ../realization/sort/sorting.html
 - [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.sort.Sorting._
-
-val res0 = Array(5, 2, 4, 6, 1, 3)
-res0.insertionSort()
-// res0: Array[Int] = Array(1, 2, 3, 4, 5, 6)
+{
+  val array = Array(5, 2, 4, 6, 1, 3)
+  array.insertionSort()
+  array
+}
 ```
 
 ---
@@ -44,12 +45,13 @@ res0.insertionSort()
 - [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.sort.Sorting._
-
-val res1 = Array(5, 2, 4, 6, 1, 3)
-res1.insertionSortReverse()
-// res1: Array[Int] = Array(6, 5, 4, 3, 2, 1)
+{
+  val array = Array(5, 2, 4, 6, 1, 3)
+  array.insertionSortReverse()
+  array
+}
 ```
 
 ---
@@ -67,12 +69,13 @@ res1.insertionSortReverse()
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.sort.Sorting._
-
-val res2 = Array(5, 2, 4, 6, 1, 3)
-res2.selectionSort()
-// res2: Array[Int] = Array(1, 2, 3, 4, 5, 6)
+{
+  val array = Array(5, 2, 4, 6, 1, 3)
+  array.selectionSort()
+  array
+}
 ```
 
 ---
@@ -90,12 +93,13 @@ res2.selectionSort()
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.sort.Sorting._
-
-val res3 = Array(5, 2, 4, 6, 1, 3)
-res3.selectionSortReverse()
-// res3: Array[Int] = Array(6, 5, 4, 3, 2, 1)
+{
+  val array = Array(5, 2, 4, 6, 1, 3)
+  array.selectionSortReverse()
+  array
+}
 ```
 
 ---
@@ -113,12 +117,13 @@ res3.selectionSortReverse()
 - [Merge sort](https://en.wikipedia.org/wiki/Merge_sort)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.sort.Sorting._
-
-val res4 = Array(5, 2, 4, 6, 1, 3)
-res4.mergeSort()
-// res4: Array[Int] = Array(1, 2, 3, 4, 5, 6)
+{
+  val array = Array(5, 2, 4, 6, 1, 3)
+  array.mergeSort()
+  array
+}
 ```
 
 ---

@@ -20,11 +20,9 @@ It is the same as [Operations with strings - areAnagrams](../str/string_algorith
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.digital.Digits._
-
 val res0 = containTheSameDigits(127035954683L, 589323567104L)
-// res0: Boolean = true
 ```
 
 ---
@@ -41,11 +39,9 @@ Returns the digits of a number.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.digital.Digits._
-
-val res0 = 1406357289L.digits
-// res0: Array[Int] = Array(1, 4, 0, 6, 3, 5, 7, 2, 8, 9)
+val res1 = 1406357289L.digits
 ```
 
 ---
@@ -62,11 +58,9 @@ Returns the sum of the digits of a number.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.digital.Digits._
-
-val res0 = 1406357289L.sumOfDigits
-// res0: Int = 45
+val res2 = 1406357289L.sumOfDigits
 ```
 
 ---
@@ -83,17 +77,11 @@ Does the number have at least two of the same digits?
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.digital.Digits._
-
-val res0 = 56993.hasEqualDigits
-// res0: Boolean = true
-
-val res1 = 56993.hasEqualDigits(2, 9)
-// res1: Boolean = true
-
-val res2 = 56993.hasEqualDigits(3, 9)
-// res2: Boolean = false
+val res3 = 56993.hasEqualDigits
+val res4 = 56993.hasEqualDigits(2, 9)
+val res5 = 56993.hasEqualDigits(3, 9)
 ```
 
 ---
@@ -110,11 +98,9 @@ Returns all numbers made up of given digits.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.digital.Digits._
-
-val res0 = possibleNumbers(Seq(1, 1, 5, 6))
-// res0: Set[String] = Set(5116, 1516, 1165, 6511, 1156, 5161, 6151, 1615, 5611, 6115, 1651, 1561)
+val res6 = possibleNumbers(Seq(1, 1, 5, 6))
 ```
 
 ---

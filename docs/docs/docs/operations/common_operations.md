@@ -22,11 +22,9 @@ The sum of the n first numbers.
 - [Sum](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res0 = sumToGiven(1000000)
-// res0: Long = 500000500000
 ```
 
 ---
@@ -45,11 +43,9 @@ The sum of the n first square numbers.
 - [Square number](https://en.wikipedia.org/wiki/Square_number)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res1 = sumOfSquaresTo(1000)
-// res1: Long = 333833500
 ```
 
 ---
@@ -68,11 +64,9 @@ The sum of the n first cubes numbers.
 - [Cube](https://en.wikipedia.org/wiki/Cube_(algebra))
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res2 = sumOfCubesTo(1000)
-// res2: Long = 250500250000
 ```
 
 ---
@@ -90,11 +84,9 @@ A square root of a number x.
 - [Square root](https://en.wikipedia.org/wiki/Square_root)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res3 = 1000.sqrt
-// res3: Double = 31.622776601684336
 ```
 
 ---
@@ -111,11 +103,9 @@ Is a number a square?
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res4 = 36.isSquare
-// res4: Boolean = true
 ```
 
 ---
@@ -134,14 +124,10 @@ All square numbers from start (inclusive) to finish (inclusive).
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res5 = allSquares(2)
-// res5: List[Int] = List(16, 25, 36, 49, 64, 81)
-
 val res6 = allSquares(1024, 1444)
-// res6: List[Int] = List(1024, 1089, 1156, 1225, 1296, 1369, 1444)
 ```
 
 ---
@@ -158,11 +144,9 @@ Returns a list of unique lists containing given numbers without repetition.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.operations.CommonOperations._
-
 val res7 = allNumbersVariants(Set(2, 3, 5))
-// res7: Set[Set[Int]] = Set(Set(2), Set(3, 2), Set(5), Set(3), Set(5, 3, 2), Set(5, 3), Set(5, 2))
 ```
 
 ---

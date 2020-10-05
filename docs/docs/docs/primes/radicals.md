@@ -26,11 +26,9 @@ Return the product of distinct prime factors of n.
 - [wiki: Radical of an integer](https://en.wikipedia.org/wiki/Radical_of_an_integer)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Radicals._
-
 val res = 504.rad
-// res0: Long = 42
 ```
 
 ---
@@ -50,11 +48,9 @@ Return array of products of distinct prime factors of any n not more limit.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc:reset
 import com.github.artemkorsakov.primes.Radicals._
-
-val res = allRads(20) 
-// res0: Array[Int] = Array(0, 1, 2, 3, 2, 5, 6, 7, 2, 3, 10, 11, 6, 13, 14, 15, 2, 17, 6, 19, 10)
+val res = allRads(10) 
 ```
 
 ---
@@ -72,14 +68,10 @@ Return `true` if number is [a square-free integer](https://en.wikipedia.org/wiki
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Radicals._
-
 val res0 = 20.isSquareFree
-// res0: Boolean = false
-
 val res1 = 21.isSquareFree
-// res1: Boolean = true
 ```
 
 ---

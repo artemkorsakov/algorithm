@@ -20,17 +20,11 @@ realization_link: ../realization/digital/pandigital.html
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.digital.Pandigital._
-
 val res0 = 192384576L.isPandigital
-// res0: Boolean = true
-
 val res1 = 2134.isPandigital(4)
-// res1: Boolean = true
-
 val res2 = 1406357289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0))
-// res2: Boolean = true
 ```
 
 ---

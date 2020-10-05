@@ -28,11 +28,9 @@ Determines if the given integer is prime.
 - [Project Euler: Problem 7 overview](https://projecteuler.net/overview=007)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 val res = 1000999.isPrime
-// res0: Boolean = true
 ```
 
 ---
@@ -53,11 +51,9 @@ Get next prime number for the given prime number.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc:reset
 import com.github.artemkorsakov.primes.Primes._
-
 val res = 1000999.nextPrime
-// res0: Long = 1001003
 ```
 
 ---
@@ -80,11 +76,9 @@ All prime numbers from 2 through n as a boolean array.
 - [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
-isPrimeArray(10)
-// res0: Array[Boolean] = Array(false, false, true, true, false, true, false, true, false, false, false)
+isPrimeArray(5)
 ```
 
 ---
@@ -102,11 +96,9 @@ All prime numbers from 2 through n.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 primes(30)
-// res0: Array[Int] = Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
 ```
 
 ---
@@ -128,11 +120,9 @@ Get the given count of primes.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 generatePrimes(10)
-// res0: Array[Int] = Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
 ```
 
 ---
@@ -154,11 +144,9 @@ Get the largest prime factor.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 600851475143L.largestPrimeFactor
-// res0: Long = 6857
 ```
 
 ---
@@ -176,11 +164,9 @@ Get the smallest prime factor.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 10965021787L.smallestPrimeFactor
-// res0: Long = 104711
 ```
 
 ---
@@ -201,11 +187,9 @@ For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 smallestPrimeFactorArray(10)
-// res0: Array[Int] = Array(0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2)
 ```
 
 ---
@@ -226,14 +210,10 @@ For a given number return all its prime factors with powers.
 **Sources** 
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-
 1000.primeFactorsWithPow
-// res0: Map[Long,Long] = Map(2 -> 3, 5 -> 3)
-
 1024.primeFactorsWithPow
-// res1: Map[Long,Long] = Map(2 -> 10)
 ```
 
 ---

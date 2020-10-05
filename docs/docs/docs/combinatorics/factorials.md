@@ -22,11 +22,9 @@ Calculate factorial.
 - [Wikipedia](https://en.wikipedia.org/wiki/Factorial)
 
 **Using**
-```scala
+```scala mdoc
 import com.github.artemkorsakov.combinatorics.Factorials._
-
 val res0 = 30.factorial
-// res0: BigInt = 265252859812191058636308480000000
 ```
 
 ---
