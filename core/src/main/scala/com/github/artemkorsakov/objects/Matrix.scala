@@ -1,226 +1,56 @@
 package com.github.artemkorsakov.objects
 
+import com.github.artemkorsakov.objects.GenericOperation._
+import com.github.artemkorsakov.objects.Matrix._
+
+/** Matrix.
+  *
+  * @see <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">detailed description</a>
+  */
+class Matrix[T](a: Seq[Seq[T]]) {
+
+  /** <a href="https://en.wikipedia.org/wiki/Transpose">Transpose</a> of a matrix. */
+  def matrixTranspose: Seq[Seq[T]] =
+    a.head.indices.map(i => a.indices.map(j => a(j)(i)))
+
+  /** New matrix without the given row and the given column. */
+  def minorMatrix(row: Int, column: Int): Option[Seq[Seq[T]]] =
+    if (a.isEmpty || a.exists(i => i.length != a.length) || row < 0 || row >= a.length || column < 0 || column >= a.head.length) {
+      None
+    } else {
+      Some(a.indices.filter(_ != row).map(i => a.head.indices.filter(_ != column).map(j => a(i)(j))))
+    }
+
+  /** <a href="https://en.wikipedia.org/wiki/Determinant">Determinant</a> of a matrix. */
+  def matrixDeterminant: Option[T] =
+    if (a.isEmpty || a.exists(i => i.length != a.length)) {
+      None
+    } else {
+      if (a.length == 1) {
+        Some(a.head.head)
+      } else {
+        Some(a.head.indices.foldLeft(zeroT(a.head.head)) { (sum, i) =>
+          val mul = mulT(a.head(i), a.minorMatrix(0, i).get.matrixDeterminant.get)
+          if (i % 2 == 0) {
+            addT(sum, mul)
+          } else {
+            subT(sum, mul)
+          }
+        })
+      }
+    }
+}
+
 /** Matrix.
   *
   * @see <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">detailed description</a>
   */
 object Matrix {
-  def dot[T](x: Array[Long], y: Array[Long]): Option[Long] =
-    if (x.length != y.length) {
-      None
-    } else {
-      Some(x.indices.foldLeft(Default.value[Long])((s, i) => s + x(i) * y(i)))
-    }
-
-  def dot[T](x: Array[Double], y: Array[Double]): Option[Double] =
-    if (x.length != y.length) {
-      None
-    } else {
-      Some(x.indices.foldLeft(Default.value[Double])((s, i) => s + x(i) * y(i)))
-    }
-
-  def dot[T](x: Array[BigInt], y: Array[BigInt]): Option[BigInt] =
-    if (x.length != y.length) {
-      None
-    } else {
-      Some(x.indices.foldLeft(Default.value[BigInt])((s, i) => s + x(i) * y(i)))
-    }
-
-  def dotMod(x: Array[Long], y: Array[Long], module: Long): Option[Long] =
-    if (x.length != y.length) {
-      None
-    } else {
-      val res = x.indices.foldLeft(Default.value[BigInt])((s, i) => (s + BigInt(x(i)) * BigInt(y(i))) % module)
-      Some(((res + module) % module).toLong)
-    }
+  implicit def seq2Matrix[T](a: Seq[Seq[T]]): Matrix[T] = new Matrix[T](a)
 }
 
 /*
 public class Matrix {
-
-
-    /**
- * The <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of a matrix.
- */
-    public static long[][] transpose(long[][] a) {
-        long[][] b = new long[a[0].length][];
-
-        for (int i = 0; i < b.length; i++) {
-            b[i] = new long[a.length];
-            for (int j = 0; j < a.length; j++) {
-                b[i][j] = a[j][i];
-            }
-        }
-
-        return b;
-    }
-
-    /**
- * {@link Matrix#transpose(long[][]) transpose
- */
-    public static double[][] transpose(double[][] a) {
-        double[][] b = new double[a[0].length][];
-
-        for (int i = 0; i < b.length; i++) {
-            b[i] = new double[a.length];
-            for (int j = 0; j < a.length; j++) {
-                b[i][j] = a[j][i];
-            }
-        }
-
-        return b;
-    }
-
-    /**
- * {@link Matrix#transpose(long[][]) transpose
- */
-    public static BigInteger[][] transpose(BigInteger[][] a) {
-        BigInteger[][] b = new BigInteger[a[0].length][];
-
-        for (int i = 0; i < b.length; i++) {
-            b[i] = new BigInteger[a.length];
-            for (int j = 0; j < a.length; j++) {
-                b[i][j] = a[j][i];
-            }
-        }
-
-        return b;
-    }
-
-    /**
- * The <a href="https://en.wikipedia.org/wiki/Determinant">determinant</a> of a matrix.
- */
-    public static long det(long[][] a) {
-        if (a.length == 0 || Arrays.stream(a).anyMatch(i -> i.length != a.length)) {
-            throw new IllegalArgumentException("Matrix is not a square matrix!");
-        }
-
-        if (a.length == 1) {
-            return a[0][0];
-        }
-
-        long det = 0;
-
-        for (int i = 0; i < a[0].length; i++) {
-            det += Math.pow(-1, i) * a[0][i] * det(minor(a, 0, i));
-        }
-
-        return det;
-    }
-
-    /**
- * {@link Matrix#det(long[][])}  determinant
- */
-    public static double det(double[][] a) {
-        if (a.length == 0 || Arrays.stream(a).anyMatch(i -> i.length != a.length)) {
-            throw new IllegalArgumentException("Matrix is not a square matrix!");
-        }
-
-        if (a.length == 1) {
-            return a[0][0];
-        }
-
-        double det = 0;
-
-        for (int i = 0; i < a[0].length; i++) {
-            det += Math.pow(-1, i) * a[0][i] * det(minor(a, 0, i));
-        }
-
-        return det;
-    }
-
-    /**
- * {@link Matrix#det(long[][])}  determinant
- */
-    public static BigInteger det(BigInteger[][] a) {
-        if (a.length == 0 || Arrays.stream(a).anyMatch(i -> i.length != a.length)) {
-            throw new IllegalArgumentException("Matrix is not a square matrix!");
-        }
-
-        if (a.length == 1) {
-            return a[0][0];
-        }
-
-        BigInteger det = BigInteger.ZERO;
-
-        for (int i = 0; i < a[0].length; i++) {
-            det = det.add(BigInteger.valueOf((long) Math.pow(-1, i)).multiply(a[0][i].multiply(det(minor(a, 0, i)))));
-        }
-
-        return det;
-    }
-
-    public static long[][] minor(long[][] a, int row, int column) {
-        if (a.length == 0 || Arrays.stream(a).anyMatch(i -> i.length != a.length)) {
-            throw new IllegalArgumentException("Minor exists only for a square matrix!");
-        }
-
-        if (row < 0 || row >= a.length || column < 0 || column >= a[0].length) {
-            throw new IllegalArgumentException("Invalid row or column");
-        }
-
-        long[][] b = new long[a.length - 1][a[0].length - 1];
-
-        for (int i = 0; i < a.length; i++) {
-            if (i != row) {
-                for (int j = 0; j < a[0].length; j++) {
-                    if (j != column) {
-                        b[i < row ? i : i - 1][j < column ? j : j - 1] = a[i][j];
-                    }
-                }
-            }
-        }
-
-        return b;
-    }
-
-    public static double[][] minor(double[][] a, int row, int column) {
-        if (a.length == 0 || Arrays.stream(a).anyMatch(i -> i.length != a.length)) {
-            throw new IllegalArgumentException("Minor exists only for a square matrix!");
-        }
-
-        if (row < 0 || row >= a.length || column < 0 || column >= a[0].length) {
-            throw new IllegalArgumentException("Invalid row or column");
-        }
-
-        double[][] b = new double[a.length - 1][a[0].length - 1];
-
-        for (int i = 0; i < a.length; i++) {
-            if (i != row) {
-                for (int j = 0; j < a[0].length; j++) {
-                    if (j != column) {
-                        b[i < row ? i : i - 1][j < column ? j : j - 1] = a[i][j];
-                    }
-                }
-            }
-        }
-
-        return b;
-    }
-
-    public static BigInteger[][] minor(BigInteger[][] a, int row, int column) {
-        if (a.length == 0 || Arrays.stream(a).anyMatch(i -> i.length != a.length)) {
-            throw new IllegalArgumentException("Minor exists only for a square matrix!");
-        }
-
-        if (row < 0 || row >= a.length || column < 0 || column >= a[0].length) {
-            throw new IllegalArgumentException("Invalid row or column");
-        }
-
-        BigInteger[][] b = new BigInteger[a.length - 1][a[0].length - 1];
-
-        for (int i = 0; i < a.length; i++) {
-            if (i != row) {
-                for (int j = 0; j < a[0].length; j++) {
-                    if (j != column) {
-                        b[i < row ? i : i - 1][j < column ? j : j - 1] = a[i][j];
-                    }
-                }
-            }
-        }
-
-        return b;
-    }
 
     public static long[][] add(long[][] a, long[][] b) {
         if (a.length != b.length || IntStream.range(0, a.length).anyMatch(i -> a[i].length != b[i].length)) {

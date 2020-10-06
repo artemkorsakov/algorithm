@@ -5,123 +5,102 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
 class MatrixSuite extends AnyFunSuiteLike {
-  test("dot") {
-    dot(Array(1L, 2L, -3L), Array(-7L, 4L, 6L)) shouldBe Some(-17L)
-    dot(Array(1.5, 2, -3), Array(-7, 4, 6.2)) shouldBe Some(-21.1)
-    dot(
-      Array(BigInt(156744), BigInt(53453535), BigInt(-656464646)),
-      Array(BigInt(-4324344), BigInt(455455455), BigInt(445354354))
-    ) shouldBe Some(BigInt(-268014362053361195L))
+  test("matrixTranspose") {
+    val matrix1 = Seq(Seq(1, 2))
+    val matrix2 = Seq(Seq(1), Seq(2))
+    matrix1.matrixTranspose shouldBe matrix2
+    matrix2.matrixTranspose shouldBe matrix1
+    matrix1.matrixTranspose.matrixTranspose shouldBe matrix1
+    matrix2.matrixTranspose.matrixTranspose shouldBe matrix2
+
+    val matrix3 = Seq(Seq(1, 2), Seq(3, 4))
+    val matrix4 = Seq(Seq(1, 3), Seq(2, 4))
+    matrix3.matrixTranspose shouldBe matrix4
+    matrix4.matrixTranspose shouldBe matrix3
+    matrix3.matrixTranspose.matrixTranspose shouldBe matrix3
+    matrix4.matrixTranspose.matrixTranspose shouldBe matrix4
+
+    val matrix5 = Seq(Seq(1, 2), Seq(3, 4), Seq(5, 6))
+    val matrix6 = Seq(Seq(1, 3, 5), Seq(2, 4, 6))
+    matrix5.matrixTranspose shouldBe matrix6
+    matrix6.matrixTranspose shouldBe matrix5
+    matrix5.matrixTranspose.matrixTranspose shouldBe matrix5
+    matrix6.matrixTranspose.matrixTranspose shouldBe matrix6
+
+    val matrix7 = Seq(Seq(1.1, 2.2), Seq(3.3, 4.4))
+    val matrix8 = Seq(Seq(1.1, 3.3), Seq(2.2, 4.4))
+    matrix7.matrixTranspose shouldBe matrix8
+    matrix8.matrixTranspose shouldBe matrix7
+    matrix7.matrixTranspose.matrixTranspose shouldBe matrix7
+    matrix8.matrixTranspose.matrixTranspose shouldBe matrix8
+
+    val matrix9  = Seq(Seq(BigInt(1), BigInt(2)), Seq(BigInt(3), BigInt(4)), Seq(BigInt(5), BigInt(6)))
+    val matrix10 = Seq(Seq(BigInt(1), BigInt(3), BigInt(5)), Seq(BigInt(2), BigInt(4), BigInt(6)))
+    matrix9.matrixTranspose shouldBe matrix10
+    matrix10.matrixTranspose shouldBe matrix9
+    matrix9.matrixTranspose.matrixTranspose shouldBe matrix9
+    matrix10.matrixTranspose.matrixTranspose shouldBe matrix10
+
+    val matrix11 = Seq(Seq(1L, 2L), Seq(3L, 4L), Seq(5L, 6L))
+    val matrix12 = Seq(Seq(1L, 3L, 5L), Seq(2L, 4L, 6L))
+    matrix11.matrixTranspose shouldBe matrix12
+    matrix12.matrixTranspose shouldBe matrix11
+    matrix11.matrixTranspose.matrixTranspose shouldBe matrix11
+    matrix12.matrixTranspose.matrixTranspose shouldBe matrix12
   }
 
-  test("dotMod") {
-    dotMod(Array(1007, 2456, -3466), Array(-3347, 4343, 6445), 1000) shouldBe Some(609)
+  test("minorMatrix") {
+    val matrix = Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8))
+    matrix.minorMatrix(0, 0) shouldBe Some(Seq(Seq(-2, -1, -6), Seq(-1, 2, 4), Seq(1, -3, -8)))
+    matrix.minorMatrix(0, 1) shouldBe Some(Seq(Seq(-1, -1, -6), Seq(-1, 2, 4), Seq(2, -3, -8)))
+    matrix.minorMatrix(0, 2) shouldBe Some(Seq(Seq(-1, -2, -6), Seq(-1, -1, 4), Seq(2, 1, -8)))
+    matrix.minorMatrix(0, 3) shouldBe Some(Seq(Seq(-1, -2, -1), Seq(-1, -1, 2), Seq(2, 1, -3)))
+    matrix.minorMatrix(1, 0) shouldBe Some(Seq(Seq(-1, -1, -4), Seq(-1, 2, 4), Seq(1, -3, -8)))
+    matrix.minorMatrix(1, 1) shouldBe Some(Seq(Seq(-2, -1, -4), Seq(-1, 2, 4), Seq(2, -3, -8)))
+    matrix.minorMatrix(1, 2) shouldBe Some(Seq(Seq(-2, -1, -4), Seq(-1, -1, 4), Seq(2, 1, -8)))
+    matrix.minorMatrix(1, 3) shouldBe Some(Seq(Seq(-2, -1, -1), Seq(-1, -1, 2), Seq(2, 1, -3)))
+    matrix.minorMatrix(2, 0) shouldBe Some(Seq(Seq(-1, -1, -4), Seq(-2, -1, -6), Seq(1, -3, -8)))
+    matrix.minorMatrix(2, 1) shouldBe Some(Seq(Seq(-2, -1, -4), Seq(-1, -1, -6), Seq(2, -3, -8)))
+    matrix.minorMatrix(2, 2) shouldBe Some(Seq(Seq(-2, -1, -4), Seq(-1, -2, -6), Seq(2, 1, -8)))
+    matrix.minorMatrix(2, 3) shouldBe Some(Seq(Seq(-2, -1, -1), Seq(-1, -2, -1), Seq(2, 1, -3)))
+    matrix.minorMatrix(3, 0) shouldBe Some(Seq(Seq(-1, -1, -4), Seq(-2, -1, -6), Seq(-1, 2, 4)))
+    matrix.minorMatrix(3, 1) shouldBe Some(Seq(Seq(-2, -1, -4), Seq(-1, -1, -6), Seq(-1, 2, 4)))
+    matrix.minorMatrix(3, 2) shouldBe Some(Seq(Seq(-2, -1, -4), Seq(-1, -2, -6), Seq(-1, -1, 4)))
+    matrix.minorMatrix(3, 3) shouldBe Some(Seq(Seq(-2, -1, -1), Seq(-1, -2, -1), Seq(-1, -1, 2)))
+
+    val matrixD = Seq(
+      Seq(-2.2, -1.1, -1.1, -4.4),
+      Seq(-1.1, -2.2, -1.1, -6.6),
+      Seq(-1.1, -1.1, 2.2, 4.4),
+      Seq(2.2, 1.1, -3.3, -8.8)
+    )
+    matrixD.minorMatrix(2, 3) shouldBe Some(Seq(Seq(-2.2, -1.1, -1.1), Seq(-1.1, -2.2, -1.1), Seq(2.2, 1.1, -3.3)))
+
+    val matrixL = matrix.map(_.map(_.toLong))
+    matrixL.minorMatrix(2, 3) shouldBe Some(Seq(Seq(-2L, -1L, -1L), Seq(-1L, -2L, -1L), Seq(2L, 1L, -3L)))
+
+    val matrixBI = matrix.map(_.map(BigInt(_)))
+    matrixBI.minorMatrix(2, 3) shouldBe Some(
+      Seq(
+        Seq(BigInt(-2L), BigInt(-1L), BigInt(-1L)),
+        Seq(BigInt(-1L), BigInt(-2L), BigInt(-1L)),
+        Seq(BigInt(2L), BigInt(1L), BigInt(-3L))
+      )
+    )
   }
+
+  test("matrixDeterminant") {
+    Seq(Seq(-2, -1), Seq(-1, -2)).matrixDeterminant shouldBe Some(3)
+    val matrix = Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8))
+    matrix.matrixDeterminant shouldBe Some(-8)
+    matrix.map(_.map(_.toLong)).matrixDeterminant shouldBe Some(-8L)
+    matrix.map(_.map(_.toDouble)).matrixDeterminant shouldBe Some(-8.0)
+    matrix.map(_.map(BigInt(_))).matrixDeterminant shouldBe Some(BigInt(-8))
+  }
+
 }
 
 /*
-
-    @Test
-    public void testTransposeLong() {
-        long[][] matrix1 = new long[][]{new long[]{1, 2}};
-        long[][] matrix2 = new long[][]{new long[]{1}, new long[]{2}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        matrix1 = new long[][]{new long[]{1, 2}, new long[]{3, 4}};
-        matrix2 = new long[][]{new long[]{1, 3}, new long[]{2, 4}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        matrix1 = new long[][]{new long[]{1, 2}, new long[]{3, 4}, new long[]{5, 6}};
-        matrix2 = new long[][]{new long[]{1, 3, 5}, new long[]{2, 4, 6}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        Assert.assertEquals(Matrix.transpose(Matrix.transpose(matrix1)), matrix1);
-    }
-
-    @Test
-    public void testTransposeDouble() {
-        double[][] matrix1 = new double[][]{new double[]{1, 2}};
-        double[][] matrix2 = new double[][]{new double[]{1}, new double[]{2}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        matrix1 = new double[][]{new double[]{1, 2}, new double[]{3, 4}};
-        matrix2 = new double[][]{new double[]{1, 3}, new double[]{2, 4}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        matrix1 = new double[][]{new double[]{1, 2}, new double[]{3, 4}, new double[]{5, 6}};
-        matrix2 = new double[][]{new double[]{1, 3, 5}, new double[]{2, 4, 6}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        Assert.assertEquals(Matrix.transpose(Matrix.transpose(matrix1)), matrix1);
-    }
-
-    @Test
-    public void testTransposeBigInteger() {
-        BigInteger[][] matrix1 = new BigInteger[][]{new BigInteger[]{BigInteger.valueOf(1), BigInteger.valueOf(2)}};
-        BigInteger[][] matrix2 = new BigInteger[][]{new BigInteger[]{BigInteger.valueOf(1)}, new BigInteger[]{BigInteger.valueOf(2)}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        matrix1 = new BigInteger[][]{new BigInteger[]{BigInteger.valueOf(1), BigInteger.valueOf(2)}, new BigInteger[]{BigInteger.valueOf(3), BigInteger.valueOf(4)}};
-        matrix2 = new BigInteger[][]{new BigInteger[]{BigInteger.valueOf(1), BigInteger.valueOf(3)}, new BigInteger[]{BigInteger.valueOf(2), BigInteger.valueOf(4)}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        matrix1 = new BigInteger[][]{new BigInteger[]{BigInteger.valueOf(1), BigInteger.valueOf(2)}, new BigInteger[]{BigInteger.valueOf(3), BigInteger.valueOf(4)}, new BigInteger[]{BigInteger.valueOf(5), BigInteger.valueOf(6)}};
-        matrix2 = new BigInteger[][]{new BigInteger[]{BigInteger.valueOf(1), BigInteger.valueOf(3), BigInteger.valueOf(5)}, new BigInteger[]{BigInteger.valueOf(2), BigInteger.valueOf(4), BigInteger.valueOf(6)}};
-        Assert.assertEquals(Matrix.transpose(matrix1), matrix2);
-        Assert.assertEquals(Matrix.transpose(matrix2), matrix1);
-
-        Assert.assertEquals(Matrix.transpose(Matrix.transpose(matrix1)), matrix1);
-    }
-
-    @Test
-    public void testDet() {
-        long[][] matrix = new long[][]{new long[]{-2, -1, -1, -4}, new long[]{-1, -2, -1, -6}, new long[]{-1, -1, 2, 4}, new long[]{2, 1, -3, -8}};
-        Assert.assertEquals(Matrix.det(matrix), -8);
-        double[][] matrixD = Arrays.stream(matrix).map(m -> Arrays.stream(m).mapToDouble(t -> (double) t).toArray()).toArray(double[][]::new);
-        Assert.assertEquals(Matrix.det(matrixD), -8);
-        BigInteger[][] matrixB = Arrays.stream(matrix).map(m -> Arrays.stream(m).mapToObj(BigInteger::valueOf).toArray(BigInteger[]::new)).toArray(BigInteger[][]::new);
-        Assert.assertEquals(Matrix.det(matrixB).longValueExact(), -8);
-
-        matrix = new long[][]{new long[]{2, -1, 2, 1, -3}, new long[]{1, 2, 1, -1, 2}, new long[]{1, -1, -2, -1, -1}, new long[]{2, 1, -1, -2, -1}, new long[]{1, -2, -1, -1, 2}};
-        Assert.assertEquals(Matrix.det(matrix), 36);
-        matrixD = Arrays.stream(matrix).map(m -> Arrays.stream(m).mapToDouble(t -> (double) t).toArray()).toArray(double[][]::new);
-        Assert.assertEquals(Matrix.det(matrixD), 36);
-        matrixB = Arrays.stream(matrix).map(m -> Arrays.stream(m).mapToObj(BigInteger::valueOf).toArray(BigInteger[]::new)).toArray(BigInteger[][]::new);
-        Assert.assertEquals(Matrix.det(matrixB).longValueExact(), 36);
-    }
-
-    @Test
-    public void testMinor() {
-        long[][] matrix = new long[][]{new long[]{-2, -1, -1, -4}, new long[]{-1, -2, -1, -6}, new long[]{-1, -1, 2, 4}, new long[]{2, 1, -3, -8}};
-        Assert.assertEquals(Matrix.minor(matrix, 0, 0), new long[][]{new long[]{-2, -1, -6}, new long[]{-1, 2, 4}, new long[]{1, -3, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 0, 1), new long[][]{new long[]{-1, -1, -6}, new long[]{-1, 2, 4}, new long[]{2, -3, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 0, 2), new long[][]{new long[]{-1, -2, -6}, new long[]{-1, -1, 4}, new long[]{2, 1, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 0, 3), new long[][]{new long[]{-1, -2, -1}, new long[]{-1, -1, 2}, new long[]{2, 1, -3}});
-        Assert.assertEquals(Matrix.minor(matrix, 1, 0), new long[][]{new long[]{-1, -1, -4}, new long[]{-1, 2, 4}, new long[]{1, -3, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 1, 1), new long[][]{new long[]{-2, -1, -4}, new long[]{-1, 2, 4}, new long[]{2, -3, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 1, 2), new long[][]{new long[]{-2, -1, -4}, new long[]{-1, -1, 4}, new long[]{2, 1, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 1, 3), new long[][]{new long[]{-2, -1, -1}, new long[]{-1, -1, 2}, new long[]{2, 1, -3}});
-        Assert.assertEquals(Matrix.minor(matrix, 2, 0), new long[][]{new long[]{-1, -1, -4}, new long[]{-2, -1, -6}, new long[]{1, -3, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 2, 1), new long[][]{new long[]{-2, -1, -4}, new long[]{-1, -1, -6}, new long[]{2, -3, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 2, 2), new long[][]{new long[]{-2, -1, -4}, new long[]{-1, -2, -6}, new long[]{2, 1, -8}});
-        Assert.assertEquals(Matrix.minor(matrix, 2, 3), new long[][]{new long[]{-2, -1, -1}, new long[]{-1, -2, -1}, new long[]{2, 1, -3}});
-        Assert.assertEquals(Matrix.minor(matrix, 3, 0), new long[][]{new long[]{-1, -1, -4}, new long[]{-2, -1, -6}, new long[]{-1, 2, 4}});
-        Assert.assertEquals(Matrix.minor(matrix, 3, 1), new long[][]{new long[]{-2, -1, -4}, new long[]{-1, -1, -6}, new long[]{-1, 2, 4}});
-        Assert.assertEquals(Matrix.minor(matrix, 3, 2), new long[][]{new long[]{-2, -1, -4}, new long[]{-1, -2, -6}, new long[]{-1, -1, 4}});
-        Assert.assertEquals(Matrix.minor(matrix, 3, 3), new long[][]{new long[]{-2, -1, -1}, new long[]{-1, -2, -1}, new long[]{-1, -1, 2}});
-
-        Assert.assertEquals(Matrix.minor(toDouble(matrix), 2, 3), toDouble(new long[][]{new long[]{-2, -1, -1}, new long[]{-1, -2, -1}, new long[]{2, 1, -3}}));
-        Assert.assertEquals(Matrix.minor(toBigInteger(matrix), 2, 3), toBigInteger(new long[][]{new long[]{-2, -1, -1}, new long[]{-1, -2, -1}, new long[]{2, 1, -3}}));
-    }
-
     @Test
     public void testAdd() {
         long[][] matrixA = new long[][]{new long[]{-2, -1, -1, -4}, new long[]{-1, -2, -1, -6}, new long[]{-1, -1, 2, 4}, new long[]{2, 1, -3, -8}};

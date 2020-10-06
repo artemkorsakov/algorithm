@@ -7,7 +7,7 @@ realization_link: ../realization/objects/matrix.html
 ## {{page.title}}
 [Matrix](https://en.wikipedia.org/wiki/Matrix_multiplication).
 
-### dot
+### mul
 Product of two lines.
 
 **Algorithm**
@@ -15,34 +15,92 @@ Product of two lines.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#dot" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#mul" | downcase }})
 
 **Sources** 
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.objects.Matrix._
-dot(Array(1L, 2L, -3L), Array(-7L, 4L, 6L))
-dot(Array(1.5, 2, -3), Array(-7, 4, 6.2))
-dot(Array(BigInt(156744), BigInt(53453535), BigInt(-656464646)), Array(BigInt(-4324344), BigInt(455455455), BigInt(445354354)))
+import com.github.artemkorsakov.objects.MatrixLine._
+Seq(1L, 2L, -3L).mul(Seq(-7L, 4L, 6L)) 
+Seq(1L, 2L, -3L) * Seq(-7L, 4L, 6L) 
 ```
 
 ---
 
-### dotMod
+### mulMod
 Product by module of two lines.
 
 **Algorithm**
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#dotMod" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#mulMod" | downcase }})
 
 **Sources** 
 
 **Using**
 ```scala mdoc
-dotMod(Array(1007, 2456, -3466), Array(-3347, 4343, 6445), 1000)
+Seq(1007, 2456, -3466).mulMod(Seq(-3347, 4343, 6445), 1000)
+```
+
+---
+
+### matrixTranspose
+[Transpose of a matrix](https://en.wikipedia.org/wiki/Transpose).
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#matrixTranspose" | downcase }})
+
+**Sources** 
+- [Transpose](https://en.wikipedia.org/wiki/Transpose)
+
+**Using**
+```scala mdoc
+import com.github.artemkorsakov.objects.Matrix._
+Seq(Seq(1, 2), Seq(3, 4), Seq(5, 6)).matrixTranspose
+Seq(Seq(1, 3, 5), Seq(2, 4, 6)).matrixTranspose
+Seq(Seq(1, 2), Seq(3, 4), Seq(5, 6)).matrixTranspose.matrixTranspose
+```
+
+---
+
+### minorMatrix
+New matrix without the given row and the given column.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#minorMatrix" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)).minorMatrix(1, 2)
+```
+
+---
+
+### matrixDeterminant
+[Determinant of a matrix](https://en.wikipedia.org/wiki/Determinant).
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#matrixDeterminant" | downcase }})
+
+**Sources** 
+- [Determinant](https://en.wikipedia.org/wiki/Determinant)
+
+**Using**
+```scala mdoc
+Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)).matrixDeterminant
 ```
 
 ---
