@@ -24,6 +24,7 @@ ThisBuild / homepage := Some(url("https://artemkorsakov.github.io/algorithms/"))
 
 ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / ".sonatype_credentials")
+
 import xerial.sbt.Sonatype._
 ThisBuild / sonatypeSessionName := s"[sbt-sonatype] ${name.value} ${version.value}"
 ThisBuild / sonatypeProjectHosting := Some(GitHubHosting("artemkorsakov", "algorithms", "artemkorsakov@mail.ru"))

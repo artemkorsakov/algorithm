@@ -135,8 +135,7 @@ lazy val commonSettings =
     parallelExecution in Test := true,
     crossScalaVersions := Seq(
         libs.vers("scalac_2.12"),
-        libs.vers("scalac_2.13"),
-        scalaVersion.value
+        libs.vers("scalac_2.13")
       )
   )
 
@@ -147,14 +146,6 @@ lazy val commonJvmSettings = Seq()
 lazy val publishSettings = sharedPublishSettings(gh) ++ credentialSettings ++ sharedReleaseProcess
 
 lazy val scoverageSettings = sharedScoverageSettings(60)
-
-val source = scala.io.Source.fromFile(Path.userHome / ".sbt" / ".gpg_credentials")
-val lines =
-  try source.getLines.mkString("\n")
-  finally source.close()
-usePgpKeyHex(lines.split("\n").head)
-Global / pgpPassphrase := Some(lines.split("\n").last.toCharArray)
-Global / useGpgAgent := false
 
 addCommandAlias("rel", "reload")
 addCommandAlias("com", "all compile test:compile")
