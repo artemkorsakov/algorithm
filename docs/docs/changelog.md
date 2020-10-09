@@ -6,6 +6,15 @@ position: 99
 
 ### {{page.title}}
 
+#### [v0.0.7](https://github.com/artemkorsakov/algorithms/tree/v0.0.7) (2020-10-09)
+
+**Features:**
+- Publish complete package ```com.github.artemkorsakov.numbers``` for operations with various numbers.
+- Publish complete package ```com.github.artemkorsakov.objects``` for operations with various math objects such as matrix.
+- Publish complete package ```com.github.artemkorsakov.operations``` contains various simple algorithms.
+
+---
+
 #### [v0.0.6](https://github.com/artemkorsakov/algorithms/tree/v0.0.6) (2020-09-28)
 
 **Features:**
