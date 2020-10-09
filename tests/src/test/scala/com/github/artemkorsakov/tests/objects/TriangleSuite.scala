@@ -1,21 +1,24 @@
 package com.github.artemkorsakov.tests.objects
 
-class TriangleSuite {
+import com.github.artemkorsakov.objects.Triangle
+import org.scalatest.funsuite.AnyFunSuiteLike
+import org.scalatest.matchers.should.Matchers._
 
+class TriangleSuite extends AnyFunSuiteLike {
+  test("getPointOnTriangleType") {
+    Triangle((-340, 495), (-153, -910), (835, -947)).getPointOnTriangleType(
+      (0, 0)
+    ) shouldBe Triangle.PointOnTriangleType.Inside
+    Triangle((-175, 41), (-421, -714), (574, -645)).getPointOnTriangleType(
+      (0, 0)
+    ) shouldBe Triangle.PointOnTriangleType.Outside
+    Triangle((-175, 41), (-421, -714), (574, -645)).getPointOnTriangleType(
+      (-175, 41)
+    ) shouldBe Triangle.PointOnTriangleType.OnTheSide
+  }
+
+  test("isZeroPointInside") {
+    Triangle((-340, 495), (-153, -910), (835, -947)).isZeroPointInside shouldBe true
+    Triangle((-175, 41), (-421, -714), (574, -645)).isZeroPointInside shouldBe false
+  }
 }
-
-/*
-public class TriangleTests {
-    @Test
-    public void test() {
-        Assert.assertEquals(new Triangle(new Point(-340, 495), new Point(-153, -910), new Point(835, -947)).getPointOnTriangleType(new Point(0, 0)), Triangle.PointOnTriangleType.INSIDE);
-        Assert.assertEquals(new Triangle(new Point(-175, 41), new Point(-421, -714), new Point(574, -645)).getPointOnTriangleType(new Point(0, 0)), Triangle.PointOnTriangleType.OUTSIDE);
-    }
-
-    @Test
-    public void testIsZeroPointInside() {
-        Assert.assertTrue(new Triangle(new Point(-340, 495), new Point(-153, -910), new Point(835, -947)).isZeroPointInside());
-        Assert.assertFalse(new Triangle(new Point(-175, 41), new Point(-421, -714), new Point(574, -645)).isZeroPointInside());
-    }
-}
- */

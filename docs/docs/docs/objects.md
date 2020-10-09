@@ -40,3 +40,11 @@ fibonacciMatrix.power(20)
 Seq(Seq(1, 2, 1, 0), Seq(1, 1, 0, -1), Seq(-2, 0, 1, 2), Seq(0, 2, 1, 1)).power(100)
 fibonacciMatrix.powerMod(50, 1000000)
 ```
+```scala mdoc
+import com.github.artemkorsakov.objects.Triangle
+Triangle((-340, 495), (-153, -910), (835, -947)).getPointOnTriangleType((0, 0))
+Triangle((-175, 41), (-421, -714), (574, -645)).getPointOnTriangleType((0, 0))
+Triangle((-175, 41), (-421, -714), (574, -645)).getPointOnTriangleType((-175, 41))
+Triangle((-340, 495), (-153, -910), (835, -947)).isZeroPointInside
+Triangle((-175, 41), (-421, -714), (574, -645)).isZeroPointInside
+```
