@@ -98,29 +98,51 @@ class MatrixSuite extends AnyFunSuiteLike {
     matrix.map(_.map(BigInt(_))).matrixDeterminant shouldBe Some(BigInt(-8))
   }
 
+  test("add") {
+    val matrixA = Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8))
+    val matrixB = Seq(Seq(8, -5, -6, -4), Seq(-13, -22, -11, -65), Seq(45, 45, 34, 35), Seq(23, 12, -33, -82))
+    val matrixC = Seq(Seq(6, -6, -7, -8), Seq(-14, -24, -12, -71), Seq(44, 44, 36, 39), Seq(25, 13, -36, -90))
+    matrixA.add(matrixB) shouldBe Some(matrixC)
+    matrixA + matrixB shouldBe Some(matrixC)
+  }
+
+  test("matrix multiplication by number") {
+    Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)).mul(10) shouldBe Seq(
+      Seq(-20, -10, -10, -40),
+      Seq(-10, -20, -10, -60),
+      Seq(-10, -10, 20, 40),
+      Seq(20, 10, -30, -80)
+    )
+    Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)) * 10 shouldBe Seq(
+      Seq(-20, -10, -10, -40),
+      Seq(-10, -20, -10, -60),
+      Seq(-10, -10, 20, 40),
+      Seq(20, 10, -30, -80)
+    )
+    Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8))
+      .mulMod(10, 11) shouldBe Seq(Seq(2, 1, 1, 4), Seq(1, 2, 1, 6), Seq(1, 1, 9, 7), Seq(9, 10, 3, 8))
+  }
+
+  test("matrix multiplication") {
+    val matrixA = Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0))
+    val matrixB = Seq(Seq(1, 2, 3), Seq(-3, 5, 4), Seq(6, 2, 1), Seq(1, -1, 0))
+    val matrixC = Seq(Seq(8, 25, 27), Seq(23, -1, -1), Seq(13, 18, 14))
+    matrixA.mul(matrixB) shouldBe Some(matrixC)
+    matrixA * matrixB shouldBe Some(matrixC)
+    matrixA.mulMod(matrixB, 7) shouldBe Some(Seq(Seq(1, 4, 6), Seq(2, 6, 6), Seq(6, 4, 0)))
+  }
+
+  test("matrix multiplication by row") {
+    val matrixA = Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0))
+    val matrixB = Seq(1, -3, 6, 1)
+    val matrixC = Seq(8, 23, 13)
+    matrixA.mul(matrixB) shouldBe Some(matrixC)
+    matrixA * matrixB shouldBe Some(matrixC)
+    matrixA.mulMod(matrixB, 7) shouldBe Some(Seq(1, 2, 6))
+  }
 }
 
 /*
-    @Test
-    public void testAdd() {
-        long[][] matrixA = new long[][]{new long[]{-2, -1, -1, -4}, new long[]{-1, -2, -1, -6}, new long[]{-1, -1, 2, 4}, new long[]{2, 1, -3, -8}};
-        long[][] matrixB = new long[][]{new long[]{8, -5, -6, -4}, new long[]{-13, -22, -11, -65}, new long[]{45, 45, 34, 35}, new long[]{23, 12, -33, -82}};
-        long[][] matrixC = new long[][]{new long[]{6, -6, -7, -8}, new long[]{-14, -24, -12, -71}, new long[]{44, 44, 36, 39}, new long[]{25, 13, -36, -90}};
-        Assert.assertEquals(Matrix.add(matrixA, matrixB), matrixC);
-
-        Assert.assertEquals(Matrix.add(toDouble(matrixA), toDouble(matrixB)), toDouble(matrixC));
-        Assert.assertEquals(Matrix.add(toBigInteger(matrixA), toBigInteger(matrixB)), toBigInteger(matrixC));
-
-    }
-
-    @Test
-    public void testMul() {
-        long[][] matrixA = new long[][]{new long[]{3, 4, 2, 5}, new long[]{0, -1, 3, 2}, new long[]{1, 2, 3, 0}};
-        long[][] matrixB = new long[][]{new long[]{1, 2, 3}, new long[]{-3, 5, 4}, new long[]{6, 2, 1}, new long[]{1, -1, 0}};
-        long[][] matrixC = new long[][]{new long[]{8, 25, 27}, new long[]{23, -1, -1}, new long[]{13, 18, 14}};
-        Assert.assertEquals(Matrix.mult(matrixA, matrixB), matrixC);
-    }
-
     @Test
     public void testPower() {
         long[][] matrixA = new long[][]{new long[]{2, 0}, new long[]{-1, 3}};
@@ -143,14 +165,6 @@ class MatrixSuite extends AnyFunSuiteLike {
         long[][] fibonacciMatrix = new long[][]{new long[]{1, 1}, new long[]{1, 0}};
         long[][] matrix = Matrix.powerMod(fibonacciMatrix, 50, 1_000_000);
         Assert.assertEquals(matrix, new long[][]{new long[]{11074, 269025}, new long[]{269025, 742049}});
-    }
-
-    private double[][] toDouble(long[][] matrix) {
-        return Arrays.stream(matrix).map(m -> Arrays.stream(m).mapToDouble(t -> (double) t).toArray()).toArray(double[][]::new);
-    }
-
-    private BigInteger[][] toBigInteger(long[][] matrix) {
-        return Arrays.stream(matrix).map(m -> Arrays.stream(m).mapToObj(BigInteger::valueOf).toArray(BigInteger[]::new)).toArray(BigInteger[][]::new);
     }
 
 }

@@ -7,7 +7,7 @@ realization_link: ../realization/objects/matrix.html
 ## {{page.title}}
 [Matrix](https://en.wikipedia.org/wiki/Matrix_multiplication).
 
-### mul
+### mulRows
 Product of two lines.
 
 **Algorithm**
@@ -15,7 +15,7 @@ Product of two lines.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mul" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#mulRows" | downcase }})
 
 **Sources** 
 
@@ -24,23 +24,6 @@ Product of two lines.
 import com.github.artemkorsakov.objects.MatrixLine._
 Seq(1L, 2L, -3L).mul(Seq(-7L, 4L, 6L)) 
 Seq(1L, 2L, -3L) * Seq(-7L, 4L, 6L) 
-```
-
----
-
-### mulMod
-Product by module of two lines.
-
-**Algorithm**
-
-**Complexity** 
-     
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mulMod" | downcase }})
-
-**Sources** 
-
-**Using**
-```scala mdoc
 Seq(1007, 2456, -3466).mulMod(Seq(-3347, 4343, 6445), 1000)
 ```
 
@@ -101,6 +84,90 @@ Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -
 **Using**
 ```scala mdoc
 Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)).matrixDeterminant
+```
+
+---
+
+### add
+Addition of two matrices.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#add" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+val matrixA = Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8))
+val matrixB = Seq(Seq(8, -5, -6, -4), Seq(-13, -22, -11, -65), Seq(45, 45, 34, 35), Seq(23, 12, -33, -82))
+matrixA.add(matrixB)
+matrixA + matrixB
+```
+
+---
+
+### mulByNum
+Matrix multiplication by number.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#mulByNum" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)).mul(7)
+Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)) * 8
+Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -8)).mulMod(10, 11)
+```
+
+---
+
+### mulMatrix
+Matrix multiplication.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#mulMatrix" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)).mul(Seq(Seq(1, 2, 3), Seq(-3, 5, 4), Seq(6, 2, 1), Seq(1, -1, 0)))
+Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)) * Seq(Seq(1, 2, 3), Seq(-3, 5, 4), Seq(6, 2, 1), Seq(1, -1, 0))
+Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)).mulMod(Seq(Seq(1, 2, 3), Seq(-3, 5, 4), Seq(6, 2, 1), Seq(1, -1, 0)), 7)
+```
+
+---
+
+### mulMatrixByRow
+Matrix multiplication by row.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#mulMatrixByRow" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)).mul(Seq(1, -3, 6, 1))
+Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)) * Seq(1, -3, 6, 1)
+Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)).mulMod(Seq(1, -3, 6, 1), 7)
+Seq(1, -3, 6).mul(Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)))
+Seq(1, -3, 6) * Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0))
+Seq(1, -3, 6).mulMod(Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)), 7)
 ```
 
 ---

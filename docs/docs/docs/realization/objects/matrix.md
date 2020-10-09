@@ -8,9 +8,9 @@ parent_link: ../../objects/matrix.html
 
 Realizations for [Matrix]({{ page.parent_link }}).
 
-### mul
+### mulRows
 
-[Algorithm]({{ page.parent_link }}{{ "#mul" | downcase }})
+[Algorithm]({{ page.parent_link }}{{ "#mulRows" | downcase }})
 
 **Realization**
 ```scala
@@ -25,20 +25,7 @@ class MatrixLine[T](x: Seq[T]) {
     } else {
       Some(x.indices.foldLeft(zeroT(x.head))((s, i) => addT(s, mulT(x(i), y(i)))))
     }
-}
-```
-
----
-
-### mulMod
-
-[Algorithm]({{ page.parent_link }}{{ "#mulMod" | downcase }})
-
-**Realization**
-```scala
-import com.github.artemkorsakov.objects.GenericOperation._
-
-class MatrixLine[T](x: Seq[T]) {
+    
   def mulMod(y: Seq[T], module: T): Option[T] =
     if (x.length != y.length) {
       None
@@ -109,6 +96,157 @@ class Matrix[T](a: Seq[Seq[T]]) {
         })
       }
     }
+}
+```
+
+---
+
+### add
+
+[Algorithm]({{ page.parent_link }}{{ "#add" | downcase }})
+
+**Realization**
+```scala
+import com.github.artemkorsakov.objects.GenericOperation._
+
+class Matrix[T](a: Seq[Seq[T]]) {
+  def +(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] = add(b)
+
+  def add(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] =
+    if (a.length != b.length || a.indices.exists(i => a(i).length != b(i).length))
+      None
+    else
+      Some(a.indices.map(i => a(i).indices.map(j => addT(a(i)(j), b(i)(j)))))
+}
+```
+
+---
+
+### mulByNum
+
+[Algorithm]({{ page.parent_link }}{{ "#mulByNum" | downcase }})
+
+**Realization**
+```scala
+import com.github.artemkorsakov.objects.GenericOperation._
+
+class Matrix[T](a: Seq[Seq[T]]) {
+  def *(b: T): Seq[Seq[T]] = mul(b)
+
+  def mul(b: T): Seq[Seq[T]] =
+    a.indices.map(i => a(i).indices.map(j => mulT(a(i)(j), b)))
+    
+  def mulMod(b: T, module: T): Seq[Seq[T]] =
+    a.indices.map(i => a(i).indices.map(j => modT(mulT(a(i)(j), b), module)))
+}
+```
+
+---
+
+### mulMatrix
+
+[Algorithm]({{ page.parent_link }}{{ "#mulMatrix" | downcase }})
+
+**Realization**
+```scala
+import com.github.artemkorsakov.objects.GenericOperation._
+import com.github.artemkorsakov.objects.MatrixLine._
+import com.github.artemkorsakov.objects.Matrix._
+import cats.implicits._
+
+class Matrix[T](a: Seq[Seq[T]]) {
+  def *(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] = mul(b)
+
+  def mul(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] =
+    if (
+      a.isEmpty || b.isEmpty || a
+        .exists(_.length != a.head.length) || b.exists(_.length != b.head.length) || a.head.length != b.length
+    )
+      None
+    else
+      a.indices
+        .map(i => b.head.indices.map(j => a(i).mul(b.indices.map(k => b(k)(j)))).toList.traverse(identity))
+        .toList
+        .traverse(identity)
+        
+  def mulMod(b: Seq[Seq[T]], module: T): Option[Seq[Seq[T]]] =
+    if (
+      a.isEmpty || b.isEmpty || a
+        .exists(_.length != a.head.length) || b.exists(_.length != b.head.length) || a.head.length != b.length
+    )
+      None
+    else
+      a.indices
+        .map(i => b.head.indices.map(j => a(i).mulMod(b.indices.map(k => b(k)(j)), module)).toList.traverse(identity))
+        .toList
+        .traverse(identity)
+}
+```
+
+---
+
+### mulMatrixByRow
+
+[Algorithm]({{ page.parent_link }}{{ "#mulMatrixByRow" | downcase }})
+
+**Realization**
+```scala
+import com.github.artemkorsakov.objects.Matrix._
+import com.github.artemkorsakov.objects.MatrixLine._
+import cats.implicits._
+
+class Matrix[T](a: Seq[Seq[T]]) {
+  def *(b: MatrixLine[T]): Option[Seq[T]] = mul(b)
+
+  def mul(b: MatrixLine[T]): Option[Seq[T]] =
+    for {
+      seq <- mul(b.x.map(Seq(_)))
+    } yield seq.map(s => s.head)
+
+  def mulMod(b: MatrixLine[T], module: T): Option[Seq[T]] =
+    for {
+      seq <- mulMod(b.x.map(Seq(_)), module)
+    } yield seq.map(s => s.head)
+    
+  def mul(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] =
+    if (
+      a.isEmpty || b.isEmpty || a
+        .exists(_.length != a.head.length) || b.exists(_.length != b.head.length) || a.head.length != b.length
+    )
+      None
+    else
+      a.indices
+        .map(i => b.head.indices.map(j => a(i).mul(b.indices.map(k => b(k)(j)))).toList.traverse(identity))
+        .toList
+        .traverse(identity)
+        
+  def mulMod(b: Seq[Seq[T]], module: T): Option[Seq[Seq[T]]] =
+    if (
+      a.isEmpty || b.isEmpty || a
+        .exists(_.length != a.head.length) || b.exists(_.length != b.head.length) || a.head.length != b.length
+    )
+      None
+    else
+      a.indices
+        .map(i => b.head.indices.map(j => a(i).mulMod(b.indices.map(k => b(k)(j)), module)).toList.traverse(identity))
+        .toList
+        .traverse(identity)
+}
+
+case class MatrixLine[T](x: Seq[T]) {
+  def *(b: Matrix[T]): Option[Seq[T]] = mul(b)
+
+  def mul(b: Matrix[T]): Option[Seq[T]] =
+    for {
+      seq <- toMatrix.mul(Seq(x))
+    } yield seq.head
+
+  def mulMod(b: Matrix[T], module: T): Option[Seq[T]] =
+    for {
+      seq <- toMatrix.mulMod(Seq(x), module)
+    } yield seq.head
+    
+  def toMatrix: Matrix[T] = new Matrix[T](Seq(x))
 }
 ```
 
