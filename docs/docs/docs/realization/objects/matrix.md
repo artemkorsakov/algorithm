@@ -251,3 +251,65 @@ case class MatrixLine[T](x: Seq[T]) {
 ```
 
 ---
+
+### power
+
+[Algorithm]({{ page.parent_link }}{{ "#power" | downcase }})
+
+**Realization**
+```scala
+import com.github.artemkorsakov.objects.Matrix._
+import com.github.artemkorsakov.objects.MatrixLine._
+import cats.implicits._
+import com.github.artemkorsakov.objects.GenericOperation._
+
+class Matrix[T](a: Seq[Seq[T]]) {
+  def power(b: Long): Option[Seq[Seq[T]]] =
+    if (b < 1)
+      None
+    else if (b == 1)
+      Some(a)
+    else {
+      val powers  = b.toBinaryString
+      val powersC = new Array[Seq[Seq[T]]](powers.length)
+      powersC(0) = a
+      (1 until powers.length).foreach { i =>
+        for {
+          mul <- powersC(i - 1) * powersC(i - 1)
+        } yield powersC(i) = mul
+      }
+      var c = powersC.last
+      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+        for {
+          mul <- c * powersC(powersC.length - 1 - i)
+        } yield c = mul
+      }
+      Some(c)
+    }
+
+  def powerMod(b: Long, module: T): Option[Seq[Seq[T]]] =
+    if (b < 1)
+      None
+    else if (b == 1)
+      Some(a.map(_.map(modT(_, module))))
+    else {
+      val powers  = b.toBinaryString
+      val powersC = new Array[Seq[Seq[T]]](powers.length)
+      powersC(0) = a
+      (1 until powers.length).foreach { i =>
+        for {
+          mul <- powersC(i - 1).mulMod(powersC(i - 1), module)
+        } yield powersC(i) = mul
+      }
+      var c = powersC.last
+      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+        for {
+          mul <- c.mulMod(powersC(powersC.length - 1 - i), module)
+        } yield c = mul
+      }
+      Some(c)
+    }
+}
+```
+
+---

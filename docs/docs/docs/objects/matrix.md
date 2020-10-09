@@ -171,3 +171,25 @@ Seq(1, -3, 6).mulMod(Seq(Seq(3, 4, 2, 5), Seq(0, -1, 3, 2), Seq(1, 2, 3, 0)), 7)
 ```
 
 ---
+
+### power
+Matrix exponentiation.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#power" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+Seq(Seq(2, 0), Seq(-1, 3)).power(2)
+val fibonacciMatrix = Seq(Seq(1, 1), Seq(1, 0))
+fibonacciMatrix.power(20)
+Seq(Seq(1, 2, 1, 0), Seq(1, 1, 0, -1), Seq(-2, 0, 1, 2), Seq(0, 2, 1, 1)).power(100)
+fibonacciMatrix.powerMod(50, 1000000)
+```
+
+---

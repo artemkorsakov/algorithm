@@ -140,33 +140,17 @@ class MatrixSuite extends AnyFunSuiteLike {
     matrixA * matrixB shouldBe Some(matrixC)
     matrixA.mulMod(matrixB, 7) shouldBe Some(Seq(1, 2, 6))
   }
+
+  test("power") {
+    Seq(Seq(2, 0), Seq(-1, 3)).power(2) shouldBe Some(Seq(Seq(4, 0), Seq(-5, 9)))
+
+    val fibonacciMatrix = Seq(Seq(1, 1), Seq(1, 0))
+    fibonacciMatrix.power(20) shouldBe Some(Seq(Seq(10946, 6765), Seq(6765, 4181)))
+
+    Seq(Seq(1, 2, 1, 0), Seq(1, 1, 0, -1), Seq(-2, 0, 1, 2), Seq(0, 2, 1, 1)).power(100) shouldBe Some(
+      Seq(Seq(1, 200, 100, 0), Seq(100, 1, 0, -100), Seq(-200, 0, 1, 200), Seq(0, 200, 100, 1))
+    )
+
+    fibonacciMatrix.powerMod(50, 1000000) shouldBe Some(Seq(Seq(11074, 269025), Seq(269025, 742049)))
+  }
 }
-
-/*
-    @Test
-    public void testPower() {
-        long[][] matrixA = new long[][]{new long[]{2, 0}, new long[]{-1, 3}};
-        long[][] matrixB = new long[][]{new long[]{4, 0}, new long[]{-5, 9}};
-        Assert.assertEquals(Matrix.power(matrixA, 2), matrixB);
-
-        long[][] fibonacciMatrix = new long[][]{new long[]{1, 1}, new long[]{1, 0}};
-        long[][] matrix = Matrix.power(fibonacciMatrix, 20);
-        Assert.assertEquals(matrix, new long[][]{new long[]{10946, 6765}, new long[]{6765, 4181}});
-        Assert.assertEquals(toDouble(matrix), toDouble(new long[][]{new long[]{10946, 6765}, new long[]{6765, 4181}}));
-        Assert.assertEquals(toBigInteger(matrix), toBigInteger(new long[][]{new long[]{10946, 6765}, new long[]{6765, 4181}}));
-
-        long[][] matrixC = new long[][]{new long[]{1, 2, 1, 0}, new long[]{1, 1, 0, -1}, new long[]{-2, 0, 1, 2}, new long[]{0, 2, 1, 1}};
-        long[][] matrixD = new long[][]{new long[]{1, 200, 100, 0}, new long[]{100, 1, 0, -100}, new long[]{-200, 0, 1, 200}, new long[]{0, 200, 100, 1}};
-        Assert.assertEquals(Matrix.power(matrixC, 100), matrixD);
-    }
-
-    @Test
-    public void testPowerMod() {
-        long[][] fibonacciMatrix = new long[][]{new long[]{1, 1}, new long[]{1, 0}};
-        long[][] matrix = Matrix.powerMod(fibonacciMatrix, 50, 1_000_000);
-        Assert.assertEquals(matrix, new long[][]{new long[]{11074, 269025}, new long[]{269025, 742049}});
-    }
-
-}
-
- */

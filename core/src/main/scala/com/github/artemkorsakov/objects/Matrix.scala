@@ -96,6 +96,52 @@ case class Matrix[T](a: Seq[Seq[T]]) {
       seq <- mulMod(b.x.map(Seq(_)), module)
     } yield seq.map(s => s.head)
 
+  /** Matrix exponentiation. */
+  def power(b: Long): Option[Seq[Seq[T]]] =
+    if (b < 1)
+      None
+    else if (b == 1)
+      Some(a)
+    else {
+      val powers  = b.toBinaryString
+      val powersC = new Array[Seq[Seq[T]]](powers.length)
+      powersC(0) = a
+      (1 until powers.length).foreach { i =>
+        for {
+          mul <- powersC(i - 1) * powersC(i - 1)
+        } yield powersC(i) = mul
+      }
+      var c = powersC.last
+      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+        for {
+          mul <- c * powersC(powersC.length - 1 - i)
+        } yield c = mul
+      }
+      Some(c)
+    }
+
+  def powerMod(b: Long, module: T): Option[Seq[Seq[T]]] =
+    if (b < 1)
+      None
+    else if (b == 1)
+      Some(a.map(_.map(modT(_, module))))
+    else {
+      val powers  = b.toBinaryString
+      val powersC = new Array[Seq[Seq[T]]](powers.length)
+      powersC(0) = a
+      (1 until powers.length).foreach { i =>
+        for {
+          mul <- powersC(i - 1).mulMod(powersC(i - 1), module)
+        } yield powersC(i) = mul
+      }
+      var c = powersC.last
+      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+        for {
+          mul <- c.mulMod(powersC(powersC.length - 1 - i), module)
+        } yield c = mul
+      }
+      Some(c)
+    }
 }
 
 /** Matrix.
@@ -105,121 +151,3 @@ case class Matrix[T](a: Seq[Seq[T]]) {
 object Matrix {
   implicit def seq2Matrix[T](a: Seq[Seq[T]]): Matrix[T] = new Matrix[T](a)
 }
-
-/*
-public class Matrix {
-    public static long[] mult(long[] a, long[][] b) {
-        return mult(new long[][]{a}, b)[0];
-    }
-
-    public static long[] multMod(long[] a, long[][] b, long module) {
-        return multMod(new long[][]{a}, b, module)[0];
-    }
-
-    public static long[][] power(long[][] a, long b) {
-        if (b < 1) {
-            throw new IllegalArgumentException();
-        }
-        if (b == 1) {
-            return a;
-        }
-
-        String powers = Long.toBinaryString(b);
-        long[][][] powersC = new long[powers.length()][][];
-        powersC[0] = a;
-        for (int i = 1; i < powersC.length; i++) {
-            powersC[i] = mult(powersC[i - 1], powersC[i - 1]);
-        }
-
-        long[][] c = powersC[powersC.length - 1];
-
-        for (int i = 1; i < powers.length(); i++) {
-            if (powers.charAt(i) == '1') {
-                c = mult(c, powersC[powersC.length - 1 - i]);
-            }
-        }
-
-        return c;
-    }
-
-    public static double[][] power(double[][] a, long b) {
-        if (b < 1) {
-            throw new IllegalArgumentException();
-        }
-        if (b == 1) {
-            return a;
-        }
-
-        String powers = Long.toBinaryString(b);
-        double[][][] powersC = new double[powers.length()][][];
-        powersC[0] = a;
-        for (int i = 1; i < powersC.length; i++) {
-            powersC[i] = mult(powersC[i - 1], powersC[i - 1]);
-        }
-
-        double[][] c = powersC[powersC.length - 1];
-
-        for (int i = 1; i < powers.length(); i++) {
-            if (powers.charAt(i) == '1') {
-                c = mult(c, powersC[powersC.length - 1 - i]);
-            }
-        }
-
-        return c;
-    }
-
-    public static BigInteger[][] power(BigInteger[][] a, long b) {
-        if (b < 1) {
-            throw new IllegalArgumentException();
-        }
-        if (b == 1) {
-            return a;
-        }
-
-        String powers = Long.toBinaryString(b);
-        BigInteger[][][] powersC = new BigInteger[powers.length()][][];
-        powersC[0] = a;
-        for (int i = 1; i < powersC.length; i++) {
-            powersC[i] = mult(powersC[i - 1], powersC[i - 1]);
-        }
-
-        BigInteger[][] c = powersC[powersC.length - 1];
-
-        for (int i = 1; i < powers.length(); i++) {
-            if (powers.charAt(i) == '1') {
-                c = mult(c, powersC[powersC.length - 1 - i]);
-            }
-        }
-
-        return c;
-    }
-
-    public static long[][] powerMod(long[][] a, long b, long module) {
-        if (b < 1) {
-            throw new IllegalArgumentException();
-        }
-        if (b == 1) {
-            return a;
-        }
-
-        String powers = Long.toBinaryString(b);
-        long[][][] powersC = new long[powers.length()][][];
-        powersC[0] = a;
-        for (int i = 1; i < powersC.length; i++) {
-            powersC[i] = multMod(powersC[i - 1], powersC[i - 1], module);
-        }
-
-        long[][] c = powersC[powersC.length - 1];
-
-        for (int i = 1; i < powers.length(); i++) {
-            if (powers.charAt(i) == '1') {
-                c = multMod(c, powersC[powersC.length - 1 - i], module);
-            }
-        }
-
-        return c;
-    }
-
-}
-
- */
