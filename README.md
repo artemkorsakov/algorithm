@@ -13,7 +13,7 @@ The following books, articles and resources served as a source for the algorithm
 
 Add the following to your build.sbt
 ```
-libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.9"
+libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.0.7"
 ```
 
 **Using**

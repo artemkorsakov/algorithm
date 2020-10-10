@@ -6,7 +6,7 @@ position: 99
 
 ### {{page.title}}
 
-#### [v0.0.9](https://github.com/artemkorsakov/algorithms/tree/v0.0.9) (2020-10-09)
+#### [v0.0.7](https://github.com/artemkorsakov/algorithms/tree/v0.0.7) (2020-10-10)
 
 **Features:**
 - Publish complete package ```com.github.artemkorsakov.numbers``` for operations with various numbers.
