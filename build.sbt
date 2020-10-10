@@ -147,7 +147,6 @@ lazy val publishSettings = sharedPublishSettings(gh) ++ credentialSettings ++ sh
 
 lazy val scoverageSettings = sharedScoverageSettings(60)
 
-addCommandAlias("rel", "reload")
 addCommandAlias("com", "all compile test:compile")
 addCommandAlias("mks", "makeMicrosite")
 addCommandAlias("pbs", "publishMicrosite")
