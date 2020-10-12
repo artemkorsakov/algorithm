@@ -13,6 +13,8 @@ class DivisorsSuite extends AnyFunSuiteLike {
     gcd(12121212L, 23422344L) shouldBe 12
     gcd(Array(14, 21, 28, 2, 49)) shouldBe 1
     gcd(Array(14, 21, 28, 49)) shouldBe 7
+    gcd(-8, 21) shouldBe 1
+    gcd(BigInt(-8), BigInt(24)) shouldBe 8
   }
 
   test("gcdex") {

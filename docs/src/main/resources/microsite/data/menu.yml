@@ -78,6 +78,30 @@ options:
     url: docs/numbers.html
 
     nested_options:
+      - title: Rational number/Fraction
+        url: docs/numbers/rational.html
+
+      - title: Complex number
+        url: docs/numbers/complex.html
+
+      - title: Fibonacci
+        url: docs/numbers/fibonacci.html
+
+      - title: Hamming number
+        url: docs/numbers/hamming.html
+
+      - title: Harshad number
+        url: docs/numbers/harshad.html
+
+      - title: Collatz number
+        url: docs/numbers/collatz.html
+
+      - title: Palindrome
+        url: docs/numbers/palindrome.html
+
+      - title: Pythagorean triplet
+        url: docs/numbers/pythagorean.html
+
       - title: Cyclic numbers
         url: docs/numbers/cyclic_numbers.html
 
