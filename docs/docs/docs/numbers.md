@@ -83,6 +83,12 @@ import com.github.artemkorsakov.numbers.Fibonacci._
 1000000000000000L.fibonacciMatrix(1307674368000L)
 ```
 ```scala mdoc
+import com.github.artemkorsakov.numbers.HammingNumber._
+2125764000.isHammingNumber(5)
+2125764000.isHammingNumber(7)
+2125764000.isHammingNumber(3)
+```
+```scala mdoc
 import com.github.artemkorsakov.numbers.CollatzNumber._
 1.collatz
 3.collatz
