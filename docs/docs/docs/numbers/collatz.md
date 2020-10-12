@@ -1,31 +1,32 @@
 ---
 layout: docs
-title: "Cyclic numbers"
-realization_link: ../realization/numbers/cyclic_numbers.html
+title: "Collatz number"
+realization_link: ../realization/numbers/collatz.html
 ---
 
 ## {{page.title}}
 
-The term [figurate number](https://en.wikipedia.org/wiki/Figurate_number) is used by different writers for members of different sets of numbers, 
-generalizing from triangular numbers to different shapes (polygonal numbers) 
-and different dimensions (polyhedral numbers).
+Returns count of Collatz conjecture's steps.
 
-### figurateNumbers
+### collatz
 
 **Algorithm**
-1. Triangular number - ![formula](http://latex.codecogs.com/svg.latex?%7B%5Cdisplaystyle%20T_%7Bn%7D=%7B%5Cfrac%20%7Bn(n&plus;1)%7D%7B2%7D%7D%7D)
+1. ![f](http://latex.codecogs.com/svg.latex?%7B%5Cdisplaystyle%20f(n)=%7B%5Cbegin%7Bcases%7D%7B%5Cfrac%20%7Bn%7D%7B2%7D%7D&%7B%5Ctext%7Bif%20%7D%7Dn%5Cequiv%200%7B%5Cpmod%20%7B2%7D%7D%5C%5C%5B4px%5D3n&plus;1&%7B%5Ctext%7Bif%20%7D%7Dn%5Cequiv%201%7B%5Cpmod%20%7B2%7D%7D%5Cend%7Bcases%7D%7D%7D)
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#figurateNumbers" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#collatz" | downcase }})
 
 **Sources** 
-- [Triangular number](https://en.wikipedia.org/wiki/Triangular_number)
+- [Collatz conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.numbers.CyclicNumbers._
-(1 to 5).map(i => i.triangleNumber)
+import com.github.artemkorsakov.numbers.CollatzNumber._
+1.collatz
+3.collatz
+19.collatz
+27.collatz
 ```
 
 ---

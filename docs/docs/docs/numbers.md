@@ -76,6 +76,20 @@ ComplexNumber(5.0, 3.0).power(8)
 ComplexNumber(-1.0 / 2.0, Math.sqrt(3.0) / 2.0).power(3)
 ```
 ```scala mdoc
+import com.github.artemkorsakov.numbers.Fibonacci._
+(1 to 6).map(i => i.fibonacci)
+100.fibonacci
+20.fibonacciMatrix
+1000000000000000L.fibonacciMatrix(1307674368000L)
+```
+```scala mdoc
+import com.github.artemkorsakov.numbers.CollatzNumber._
+1.collatz
+3.collatz
+19.collatz
+27.collatz
+```
+```scala mdoc
 import com.github.artemkorsakov.numbers.CyclicNumbers._
 (1 to 5).map(i => i.triangleNumber)
 (1 to 5).map(i => i.squareNumber)
