@@ -89,6 +89,17 @@ import com.github.artemkorsakov.numbers.HammingNumber._
 2125764000.isHammingNumber(3)
 ```
 ```scala mdoc
+import com.github.artemkorsakov.numbers.HarshadNumber._
+1728.isHarshadNumber
+1729.isHarshadNumber
+1730.isHarshadNumber
+198.isStrongHarshadNumber
+1728.isStrongHarshadNumber
+1729.isStrongHarshadNumber
+getStrongRightTruncatableHarshadPrimes(3)
+getStrongRightTruncatableHarshadPrimes(4).sum
+```
+```scala mdoc
 import com.github.artemkorsakov.numbers.CollatzNumber._
 1.collatz
 3.collatz

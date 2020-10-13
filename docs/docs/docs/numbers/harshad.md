@@ -1,31 +1,85 @@
 ---
 layout: docs
-title: "Cyclic numbers"
-realization_link: ../realization/numbers/cyclic_numbers.html
+title: "Harshad number"
+realization_link: ../realization/numbers/harshad.html
 ---
 
 ## {{page.title}}
 
-The term [figurate number](https://en.wikipedia.org/wiki/Figurate_number) is used by different writers for members of different sets of numbers, 
-generalizing from triangular numbers to different shapes (polygonal numbers) 
-and different dimensions (polyhedral numbers).
+[A harshad number](https://en.wikipedia.org/wiki/Harshad_number) is an integer that is divisible by the sum of its digits.
 
-### figurateNumbers
+A strong Harshad number is a harshad number that, when divided by the sum of its digits, results in a prime.
+
+### isHarshadNumber
+[A harshad number](https://en.wikipedia.org/wiki/Harshad_number) is an integer that is divisible by the sum of its digits.
 
 **Algorithm**
-1. Triangular number - ![formula](http://latex.codecogs.com/svg.latex?%7B%5Cdisplaystyle%20T_%7Bn%7D=%7B%5Cfrac%20%7Bn(n&plus;1)%7D%7B2%7D%7D%7D)
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#figurateNumbers" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#isHarshadNumber" | downcase }})
 
 **Sources** 
-- [Triangular number](https://en.wikipedia.org/wiki/Triangular_number)
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.numbers.CyclicNumbers._
-(1 to 5).map(i => i.triangleNumber)
+import com.github.artemkorsakov.numbers.HarshadNumber._
+1728.isHarshadNumber
+1729.isHarshadNumber
+1730.isHarshadNumber
+```
+
+---
+
+### isStrongHarshadNumber
+A strong Harshad number is a harshad number that, when divided by the sum of its digits, results in a prime.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#isStrongHarshadNumber" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+198.isStrongHarshadNumber
+1728.isStrongHarshadNumber
+1729.isStrongHarshadNumber
+```
+
+---
+
+### getStrongRightTruncatableHarshadPrimes
+A Harshad or Niven number is a number that is divisible by the sum of its digits.
+201 is a Harshad number because it is divisible by 3 (the sum of its digits.)
+When we truncate the last digit from 201, we get 20, which is a Harshad number.
+When we truncate the last digit from 20, we get 2, which is also a Harshad number.
+Let's call a Harshad number that, while recursively truncating the last digit, always results in a Harshad number a right truncatable Harshad number.
+
+Also:
+201/3=67 which is prime.
+Let's call a Harshad number that, when divided by the sum of its digits, results in a prime a strong Harshad number.
+
+Now take the number 2011 which is prime.
+When we truncate the last digit from it we get 201, a strong Harshad number that is also right truncatable.
+Let's call such primes strong, right truncatable Harshad primes.
+
+Return all strong, right truncatable Harshad primes less than 10<sup>p</sup>.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#getStrongRightTruncatableHarshadPrimes" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+getStrongRightTruncatableHarshadPrimes(3)
+getStrongRightTruncatableHarshadPrimes(4).sum
 ```
 
 ---
