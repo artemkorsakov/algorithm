@@ -1,31 +1,35 @@
 ---
 layout: docs
-title: "Cyclic numbers"
-realization_link: ../realization/numbers/cyclic_numbers.html
+title: "Palindrome"
+realization_link: ../realization/numbers/palindrome.html
 ---
 
 ## {{page.title}}
 
-The term [figurate number](https://en.wikipedia.org/wiki/Figurate_number) is used by different writers for members of different sets of numbers, 
-generalizing from triangular numbers to different shapes (polygonal numbers) 
-and different dimensions (polyhedral numbers).
+[Palindrome](https://en.wikipedia.org/wiki/Palindrome).
 
-### figurateNumbers
+### isPalindrome
+Is the given number a palindrome?
+
+Is the given number a palindrome in the base **n** system?
 
 **Algorithm**
-1. Triangular number - ![formula](http://latex.codecogs.com/svg.latex?%7B%5Cdisplaystyle%20T_%7Bn%7D=%7B%5Cfrac%20%7Bn(n&plus;1)%7D%7B2%7D%7D%7D)
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#figurateNumbers" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#isPalindrome" | downcase }})
 
 **Sources** 
-- [Triangular number](https://en.wikipedia.org/wiki/Triangular_number)
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.numbers.CyclicNumbers._
-(1 to 5).map(i => i.triangleNumber)
+import com.github.artemkorsakov.numbers.Palindrome._
+BigInt("4668731596684224866951378664").isPalindrome
+4994.isPalindrome
+4994.isPalindrome(2)
+15.isPalindrome(2)
+26.isPalindrome(3)
+63.isPalindrome(4)
 ```
 
 ---

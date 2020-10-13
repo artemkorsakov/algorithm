@@ -75,6 +75,7 @@ Return all strong, right truncatable Harshad primes less than 10<sup>p</sup>.
 [**Algorithm realization**]({{ page.realization_link }}{{ "#getStrongRightTruncatableHarshadPrimes" | downcase }})
 
 **Sources** 
+- [Project Euler. Problem 387](https://projecteuler.net/problem=387)
 
 **Using**
 ```scala mdoc

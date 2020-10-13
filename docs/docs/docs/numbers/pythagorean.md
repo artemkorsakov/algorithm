@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: "Cyclic numbers"
-realization_link: ../realization/numbers/cyclic_numbers.html
+title: "Pythagorean triplet"
+realization_link: ../realization/numbers/pythagorean.html
 ---
 
 ## {{page.title}}

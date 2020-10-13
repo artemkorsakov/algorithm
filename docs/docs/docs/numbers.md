@@ -107,6 +107,15 @@ import com.github.artemkorsakov.numbers.CollatzNumber._
 27.collatz
 ```
 ```scala mdoc
+import com.github.artemkorsakov.numbers.Palindrome._
+BigInt("4668731596684224866951378664").isPalindrome
+4994.isPalindrome
+4994.isPalindrome(2)
+15.isPalindrome(2)
+26.isPalindrome(3)
+63.isPalindrome(4)
+```
+```scala mdoc
 import com.github.artemkorsakov.numbers.CyclicNumbers._
 (1 to 5).map(i => i.triangleNumber)
 (1 to 5).map(i => i.squareNumber)
