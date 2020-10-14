@@ -23,7 +23,7 @@ case class Matrix[T](a: Seq[Seq[T]]) {
     )
       None
     else
-      Some(a.indices.filter(_ != row).map(i => a.head.indices.filter(_ != column).map(j => a(i)(j))))
+      Some(a.indices.withFilter(_ != row).map(i => a.head.indices.withFilter(_ != column).map(j => a(i)(j))))
 
   /** <a href="https://en.wikipedia.org/wiki/Determinant">Determinant</a> of a matrix. */
   def matrixDeterminant: Option[T] =
@@ -112,7 +112,7 @@ case class Matrix[T](a: Seq[Seq[T]]) {
         } yield powersC(i) = mul
       }
       var c = powersC.last
-      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+      (1 until powers.length).withFilter(powers(_) == '1').foreach { i =>
         for {
           mul <- c * powersC(powersC.length - 1 - i)
         } yield c = mul
@@ -135,7 +135,7 @@ case class Matrix[T](a: Seq[Seq[T]]) {
         } yield powersC(i) = mul
       }
       var c = powersC.last
-      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+      (1 until powers.length).withFilter(powers(_) == '1').foreach { i =>
         for {
           mul <- c.mulMod(powersC(powersC.length - 1 - i), module)
         } yield c = mul

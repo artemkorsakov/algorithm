@@ -75,7 +75,7 @@ Realizations for [Operations with divisors]({{ page.parent_link }}).
 **Realization**
 ```scala
   def divisors: Set[Long] =
-    (2L to math.sqrt(number.toDouble).toLong).filter(number % _ == 0).flatMap(i => Set(i, number / i)).toSet
+    (2L to math.sqrt(number.toDouble).toLong).withFilter(number % _ == 0).flatMap(i => Set(i, number / i)).toSet
 ```
 
 ---

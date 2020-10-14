@@ -26,7 +26,7 @@ object HarshadNumber {
     var harshadNumbers = Seq(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L)
     (1 until p - 1).flatMap { _ =>
       harshadNumbers = rightTruncatableHarshadNumbers(harshadNumbers)
-      harshadNumbers.filter(_.isStrongHarshadNumber).flatMap(strongRightTruncatableHarshadPrimes)
+      harshadNumbers.withFilter(_.isStrongHarshadNumber).flatMap(strongRightTruncatableHarshadPrimes)
     }
   }
 
@@ -36,7 +36,7 @@ object HarshadNumber {
     * Let's call such primes strong, right truncatable Harshad primes.
     */
   private def strongRightTruncatableHarshadPrimes(strongHarshadNumber: Long): Seq[Long] =
-    (1 to 9 by 2).filter(i => (strongHarshadNumber * 10 + i).isPrime).map(strongHarshadNumber * 10 + _)
+    (1 to 9 by 2).withFilter(i => (strongHarshadNumber * 10 + i).isPrime).map(strongHarshadNumber * 10 + _)
 
   /**
     * A Harshad or Niven number is a number that is divisible by the sum of its digits.
@@ -52,7 +52,7 @@ object HarshadNumber {
   private def rightTruncatableHarshadNumbers(harshadNumber: Long): Seq[Long] = {
     val sumOfDigits = harshadNumber.sumOfDigits
     val newNumber   = harshadNumber * 10
-    (0 to 9).filter(i => (newNumber + i) % (sumOfDigits + i) == 0).map(newNumber + _)
+    (0 to 9).withFilter(i => (newNumber + i) % (sumOfDigits + i) == 0).map(newNumber + _)
   }
 
 }

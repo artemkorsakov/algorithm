@@ -17,21 +17,20 @@ class Primes(n: Long) {
       val sqrt      = math.sqrt(n.toDouble).toLong
       var candidate = 5
       while (candidate <= sqrt && n % candidate != 0) candidate += (if (candidate % 6 == 5) 2 else 4)
-      n % candidate != 0
+      n                             % candidate != 0
     }
 
   /** Get next prime number for the given prime number.
     */
   def nextPrime: Long =
-    if (n == 2) {
+    if (n == 2)
       3
-    } else if (n == 3) {
+    else if (n == 3)
       5
-    } else {
+    else {
       var nextPrime = if (n % 3 == 1) n + 4 else n + 2
-      while (!nextPrime.isPrime) {
+      while (!nextPrime.isPrime)
         nextPrime = if (nextPrime % 3 == 1) nextPrime + 4 else nextPrime + 2
-      }
       nextPrime
     }
 
@@ -44,9 +43,8 @@ class Primes(n: Long) {
     while (i <= number) {
       if (number % i == 0) {
         max = i
-        while (number % i == 0) {
+        while (number % i == 0)
           number /= i
-        }
       }
       i = i.nextPrime
     }
@@ -97,9 +95,8 @@ object Primes {
     var i  = 2
     var i2 = i * i
     while (i2 <= n) {
-      if (result(i)) {
+      if (result(i))
         (i2 to n by i).foreach(j => result(j) = false)
-      }
       i += 1
       i2 = i * i
     }
@@ -109,18 +106,18 @@ object Primes {
   /** All prime numbers from 2 through n (inclusive).
     */
   def primes(n: Int): Array[Int] =
-    isPrimeArray(n).zipWithIndex.filter(_._1).map(_._2)
+    isPrimeArray(n).zipWithIndex.withFilter(_._1).map(_._2)
 
   /** Get the given number of primes.
     */
   def generatePrimes(count: Int): Array[Int] =
-    if (count <= 0) {
+    if (count <= 0)
       Array.empty[Int]
-    } else if (count == 1) {
+    else if (count == 1)
       Array(2)
-    } else if (count == 2) {
+    else if (count == 2)
       Array(2, 3)
-    } else {
+    else {
       val result = new Array[Int](count)
       result(0) = 2
       result(1) = 3
@@ -150,18 +147,14 @@ object Primes {
     val result = new Array[Int](count + 1)
 
     val limit = math.sqrt(count.toDouble).toInt
-    for (i <- 2 until result.length) {
+    for (i <- 2 until result.length)
       if (result(i) == 0) {
         result(i) = i
-        if (i <= limit) {
-          for (j <- i * i to count by i) {
-            if (result(j) == 0) {
+        if (i <= limit)
+          for (j <- i * i to count by i)
+            if (result(j) == 0)
               result(j) = i
-            }
-          }
-        }
       }
-    }
 
     result
   }

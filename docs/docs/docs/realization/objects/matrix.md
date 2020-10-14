@@ -62,7 +62,7 @@ class Matrix[T](a: Seq[Seq[T]]) {
     if (a.isEmpty || a.exists(i => i.length != a.length) || row < 0 || row >= a.length || column < 0 || column >= a.head.length) {
       None
     } else {
-      Some(a.indices.filter(_ != row).map(i => a.head.indices.filter(_ != column).map(j => a(i)(j))))
+      Some(a.indices.withFilter(_ != row).map(i => a.head.indices.withFilter(_ != column).map(j => a(i)(j))))
     }
 }
 ```
@@ -279,7 +279,7 @@ class Matrix[T](a: Seq[Seq[T]]) {
         } yield powersC(i) = mul
       }
       var c = powersC.last
-      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+      (1 until powers.length).withFilter(powers(_) == '1').foreach { i =>
         for {
           mul <- c * powersC(powersC.length - 1 - i)
         } yield c = mul
@@ -302,7 +302,7 @@ class Matrix[T](a: Seq[Seq[T]]) {
         } yield powersC(i) = mul
       }
       var c = powersC.last
-      (1 until powers.length).filter(powers(_) == '1').foreach { i =>
+      (1 until powers.length).withFilter(powers(_) == '1').foreach { i =>
         for {
           mul <- c.mulMod(powersC(powersC.length - 1 - i), module)
         } yield c = mul

@@ -85,7 +85,7 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 **Realization**
 ```scala
   def primes(n: Int): Array[Int] =
-    isPrimeArray(n).zipWithIndex.filter(_._1).map(_._2)
+    isPrimeArray(n).zipWithIndex.withFilter(_._1).map(_._2)
 ```
 
 ---
