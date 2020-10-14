@@ -116,6 +116,18 @@ BigInt("4668731596684224866951378664").isPalindrome
 63.isPalindrome(4)
 ```
 ```scala mdoc
+import com.github.artemkorsakov.numbers.PythagoreanDeuce._
+import com.github.artemkorsakov.numbers.PythagoreanTriplet._
+primitivePythagoreanDeuce
+primitivePythagoreanDeuce.triplet
+primitivePythagoreanDeuce.nextPythagoreanDeuce.map(_.triplet)
+primitivePythagoreanDeuce.nextPythagoreanDeuce.flatMap(_.nextPythagoreanDeuce.map(_.triplet)) 
+primitivePythagoreanTriplet
+primitivePythagoreanTriplet.nextPythagoreanTriplet
+primitivePythagoreanTriplet.nextPythagoreanTriplet.flatMap(_.nextPythagoreanTriplet)
+pythagoreanTripletsWithGivenSum(1000)
+```
+```scala mdoc
 import com.github.artemkorsakov.numbers.CyclicNumbers._
 (1 to 5).map(i => i.triangleNumber)
 (1 to 5).map(i => i.squareNumber)

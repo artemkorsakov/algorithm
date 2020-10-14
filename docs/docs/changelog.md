@@ -6,6 +6,13 @@ position: 99
 
 ### {{page.title}}
 
+#### [v0.0.8](https://github.com/artemkorsakov/algorithms/tree/v0.0.8) (2020-10-14)
+
+**Features:**
+- Add some methods to package ```com.github.artemkorsakov.numbers```.
+
+---
+
 #### [v0.0.7](https://github.com/artemkorsakov/algorithms/tree/v0.0.7) (2020-10-10)
 
 **Features:**
