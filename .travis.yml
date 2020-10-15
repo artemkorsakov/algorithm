@@ -5,13 +5,20 @@ scala:
 jdk:
   - openjdk8
 
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+    - $HOME/.cache/coursier
+
 before_install:
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash decrypt-keys.sh; fi
-#  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
-#    bash openssl aes-256-cbc -K $encrypted_05f822b6caa8_key -iv $encrypted_05f822b6caa8_iv -in travis-deploy-key.enc -out travis-deploy-key -d;
-#    bash chmod 600 travis-deploy-key;
-#    bash cp travis-deploy-key ~/.ssh/id_rsa;
-#    fi
+#  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash decrypt-keys.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
+    bash openssl aes-256-cbc -K $encrypted_05f822b6caa8_key -iv $encrypted_05f822b6caa8_iv -in travis-deploy-key.enc -out travis-deploy-key -d;
+    bash chmod 600 travis-deploy-key;
+    bash cp travis-deploy-key ~/.ssh/id_rsa;
+    fi
 
 install:
   - bash scripts/install.sh;
