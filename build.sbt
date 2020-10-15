@@ -91,8 +91,8 @@ lazy val docs = project
     micrositeEditButton := Some(
         MicrositeEditButton("Improve this Page", "/edit/master/docs/docs/{{ page.path }}")
       ),
-    micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
-    micrositePushSiteWith := GitHub4s,
+    // micrositeGithubToken := Some("66c2f4199660ec261a2f1043113282700b50267e"),
+    // micrositePushSiteWith := GitHub4s,
     micrositeGitterChannel := false,
     micrositePalette := Map(
         "brand-primary"   -> "#5B5988",
