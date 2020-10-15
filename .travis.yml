@@ -1,9 +1,8 @@
 language: scala
 scala:
   - 2.12.10
-  - 2.13.0
 jdk:
-  - openjdk8
+  - oraclejdk8
 before_install:
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
     scripts/decrypt-keys.sh; fi
