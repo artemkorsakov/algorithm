@@ -4,8 +4,6 @@ import microsites.MicrositeEditButton
 val release_version = "0.0.8"
 val badge =
   "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central&color=success)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)"
-val travisBadge =
-  "[![Travis](https://img.shields.io/travis/com/artemkorsakov/algorithms)]"
 
 val apache2 = "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 val gh = GitHubSettings(
