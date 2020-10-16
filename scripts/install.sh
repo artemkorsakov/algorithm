@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Installing latest version gpg..."
+echo "Installing and configuration gpg..."
 sudo apt-get install build-essential make zlib1g-dev
 
 echo "Install Libgpg-error"
@@ -81,10 +81,10 @@ gpg-connect-agent reloadagent /bye
 echo "Import gpg keys"
 gpg --import all.gpg
 
-echo "List gpg keys..."
+echo "List gpg keys"
 gpg --list-keys
 
-echo "List secret gpg keys..."
+echo "List secret gpg keys"
 gpg --list-secret-keys
 
 echo "gpg.conf"

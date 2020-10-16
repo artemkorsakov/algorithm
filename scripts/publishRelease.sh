@@ -2,5 +2,6 @@
 set -e
 
 echo "Publishing release..."
-sbt release with-defaults
+git status
+sbt 'release with-defaults'
 echo "Publishing release success..."
