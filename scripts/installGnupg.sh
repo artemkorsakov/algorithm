@@ -70,7 +70,7 @@ make
 sudo make install
 cd ..
 
-echo "gpg version..."
+echo "gpg version"
 gpg --version
 
 echo "Install Pinentry"
@@ -78,17 +78,16 @@ sudo apt-get install pinentry-curses
 echo 'pinentry-program /usr/bin/pinentry-curses' | tee -a ~/.gnupg/gpg-agent.conf
 gpg-connect-agent reloadagent /bye
 
-echo "import gpg keys..."
-openssl aes-256-cbc -K $encrypted_404964577bd1_key -iv $encrypted_404964577bd1_iv -in all.gpg.enc -out all.gpg -d
+echo "Import gpg keys"
 gpg --import all.gpg
 
-echo "list gpg keys..."
+echo "List gpg keys..."
 gpg --list-keys
 
-echo "list secret gpg keys..."
+echo "List secret gpg keys..."
 gpg --list-secret-keys
 
-echo "gpg.conf..."
+echo "gpg.conf"
 file=~/.gnupg/gpg.conf
 echo "use-agent" >$file
 echo "pinentry-mode loopback" >>$file
@@ -96,7 +95,7 @@ echo "default-key $GPG_DEFAULT_KEY" >>$file
 echo "passphrase $GPG_PASSPHRASE" >>$file
 cat $file
 
-echo "gpg-agent.conf..."
+echo "gpg-agent.conf"
 echo "allow-loopback-pinentry" >~/.gnupg/gpg-agent.conf
 cat ~/.gnupg/gpg-agent.conf
 echo RELOADAGENT | gpg-connect-agent

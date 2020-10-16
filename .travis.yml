@@ -14,14 +14,15 @@ cache:
     - $HOME/.gnupg
 
 before_install:
+  - openssl aes-256-cbc -K $encrypted_404964577bd1_key -iv $encrypted_404964577bd1_iv -in all.gpg.enc -out all.gpg -d
   - bash scripts/setEnvironment.sh;
 
 install:
   - bash scripts/installGnupg.sh;
-#  - bash scripts/install.sh;
+  - bash scripts/install.sh;
 
 script:
-#  - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishSnapshot.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishSnapshot.sh; fi
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishRelease.sh; fi
 
 after_success:
