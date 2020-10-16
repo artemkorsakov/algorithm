@@ -87,7 +87,7 @@ echo "gpg version"
 gpg --version
 
 echo "Import gpg keys"
-gpg --import all.gpg
+gpg --batch --import all.gpg
 
 echo "List gpg keys"
 gpg --list-keys
