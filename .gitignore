@@ -21,3 +21,4 @@ project/plugins/project/
 # Created by .ignore support plugin (hsz.mobi)
 travis-deploy-key
 travis-deploy-key.pub
+all.gpg

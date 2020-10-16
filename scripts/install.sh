@@ -6,3 +6,5 @@ gem update --system
 
 echo "Installing Jekyll..."
 gem install jekyll -v 4
+
+echo "Installing success..."

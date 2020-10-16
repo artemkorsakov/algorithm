@@ -11,6 +11,7 @@ cache:
     - $HOME/.ivy2/cache
     - $HOME/.sbt
     - $HOME/.cache/coursier
+    - $HOME/.gnupg
 
 before_install:
   - bash scripts/setEnvironment.sh;
