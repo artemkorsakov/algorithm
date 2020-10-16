@@ -53,5 +53,5 @@ ThisBuild / releaseProcess := Seq[ReleaseStep](
   releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion,
   commitNextVersion,
-  pushChanges
+  // pushChanges
 )

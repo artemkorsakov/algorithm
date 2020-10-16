@@ -27,8 +27,3 @@ script:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishDoc.sh; fi
-
-env:
-  global:
-    # GitHub Credentials
-    - secure: "I0xJ+TbYYTxAD0AJI/3em43qZIBjHt71Rv0wiILnIGkRTLY04aM73U8M4tC+/kZ+6+Dr4644+dTWA+fY/rYS/RLA9cg/1Q6tSG2c7NFc2x3LDJpsFIco7NzU1l8/J7XDY7wBAxh6H0FIMuu0um+CxG0xM2XKD67VBA+snQrkqshcoTcVf0rX+MC9lRFQ93aYaZ8P6WnffxDIVooGdOK7chsKzVhzvWcCrZieFE+V5gwyTUbeEV7+r+UNepDbeUQEaNljG5KU1zGXYW8wrUp2dKDvdEvejNJgL2nnLkMMg9sOIDv0Tk2+TWTq5BiW+EoR4hb9w38XnPV2DHOi22Qy0P5ya7URSaZyIIuey04bd9CddTnwzHV6KRYtNEPw+4Kbux9fhVbySojerVqJYxWZ1hgLu6HKrd7Tq4DYYtvTywbi81wasG3/Jj4YM7PzMDry8jiEM3UPkmApKiwqKCtdUwK9WKVKRqFwD+01ixZuN93TMgjmbYBPBj86eUixwlXLBz7W0ckemCB2Dc9+tHG46+Dg1t2kOoxi71tXaIjuLM7WlngiCbXgT8eN/tCv8HR3z6bFo3btTuQ+lfHY0bcwbPPpIowOyb1ShxyUPw6rhKxfCngsdelVCalduKdI0TboNVUhI8vU4lz++sf8PTfQSNC2xTK9RDp+XtTgUG1Ryls="
