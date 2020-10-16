@@ -13,13 +13,17 @@ git config --global push.default simple
 echo "Set gpg parameters..."
 gpg --version
 
-sed -i -e 's/#default-key .*/default-key '$GPG_DEFAULT_KEY' \n passphrase '$GPG_PASSPHRASE'/g' ~/.gnupg/gpg.conf
+cat > ~/.gnupg/gpg.conf <<- "EOF"
+use-agent
+pinentry-mode loopback
+default-key $GPG_DEFAULT_KEY
+passphrase $GPG_PASSPHRASE
+EOF
+# sed -i -e 's/#default-key .*/use-agent\npinentry-mode loopback\ndefault-key '$GPG_DEFAULT_KEY'\npassphrase '$GPG_PASSPHRASE'/g' ~/.gnupg/gpg.conf
 cat ~/.gnupg/gpg.conf
 
-# sed -i 'allow-loopback-pinentry' ~/.gnupg/gpg-agent.conf
-
-# cat ~/.gnupg/gpg-agent.conf
-
-# echo RELOADAGENT | gpg-connect-agent
-
+cat > ~/.gnupg/gpg-agent.conf <<- "EOF"
+allow-loopback-pinentry
+EOF
+echo RELOADAGENT | gpg-connect-agent
 
