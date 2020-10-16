@@ -2,5 +2,5 @@
 set -e
 
 echo "Publishing release..."
-sbt release release-version 0.0.9 next-version 0.0.10-SNAPSHOT
+sbt release with-defaults
 echo "Publishing release success..."
