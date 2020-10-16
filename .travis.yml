@@ -19,9 +19,11 @@ before_install:
 
 install:
   - if [ $TRAVIS_BRANCH =~ ^(develop|master)$ -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
-    bash scripts/installGnupg.sh; scripts/install.sh;
-    else sbt test;
+    bash scripts/installGnupg.sh;
+    else
+    sbt test;
     fi
+  - if [ $TRAVIS_BRANCH =~ ^(develop|master)$ -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/install.sh; fi
 
 script:
   - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishSnapshot.sh; fi
