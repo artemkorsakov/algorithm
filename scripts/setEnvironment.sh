@@ -15,11 +15,10 @@ gpg --version
 
 file=~/.gnupg/gpg.conf
 echo "use-agent" >$file
-echo "pinentry-mode loopback" >>$file
+# echo "pinentry-mode loopback" >>$file
 echo "default-key $GPG_DEFAULT_KEY" >>$file
 echo "passphrase $GPG_PASSPHRASE" >>$file
 cat $file
-# sed -i -e 's/#default-key .*/use-agent\npinentry-mode loopback\ndefault-key '$GPG_DEFAULT_KEY'\npassphrase '$GPG_PASSPHRASE'/g' ~/.gnupg/gpg.conf
 
 echo "allow-loopback-pinentry" >~/.gnupg/gpg-agent.conf
 cat ~/.gnupg/gpg-agent.conf
