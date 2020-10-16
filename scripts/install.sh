@@ -2,6 +2,7 @@
 
 echo "Installing and configuration gpg..."
 echo "Go to dist folder"
+mkdir dist
 cd dist
 
 echo "Install build-essential"
