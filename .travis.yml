@@ -11,18 +11,22 @@ cache:
     - $HOME/.ivy2/cache
     - $HOME/.sbt
     - $HOME/.cache/coursier
+    - $HOME/.gnupg
 
 before_install:
-  - export SONATYPE_USER=$SONATYPE_USER
-  - export SONATYPE_PASSWORD=$SONATYPE_PASSWORD
-  - export GITHUB_TOKEN=$GITHUB_TOKEN
+  - openssl aes-256-cbc -K $encrypted_404964577bd1_key -iv $encrypted_404964577bd1_iv -in all.gpg.enc -out all.gpg -d
+  - bash scripts/setEnvironment.sh;
 
 install:
-  - bash scripts/install.sh;
+  - if [ $TRAVIS_BRANCH =~ "^(develop|master)$"]; then
+    bash scripts/installGnupg.sh; scripts/install.sh;
+    else
+    sbt test;
+    fi
 
 script:
-  - sbt test
-#  - sbt release
+  - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishSnapshot.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishRelease.sh; fi
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishMicrosite.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishDoc.sh; fi
