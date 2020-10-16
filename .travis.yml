@@ -13,16 +13,14 @@ cache:
     - $HOME/.cache/coursier
 
 before_install:
-  - export SONATYPE_USER=$SONATYPE_USER
-  - export SONATYPE_PASSWORD=$SONATYPE_PASSWORD
-  - export GITHUB_TOKEN=$GITHUB_TOKEN
+  - bash scripts/setEnvironment.sh;
 
 install:
   - bash scripts/install.sh;
 
 script:
-  - sbt test
-#  - sbt release
+  - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishSnapshot.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishRelease.sh; fi
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishMicrosite.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishDoc.sh; fi
