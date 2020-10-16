@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 echo "Installing and configuration gpg..."
+echo "Go to dist folder"
+cd dist
+
+echo "Install build-essential"
 sudo apt-get install build-essential make zlib1g-dev
 
 echo "Install Libgpg-error"
@@ -70,13 +74,16 @@ make
 sudo make install
 cd ..
 
-echo "gpg version"
-gpg --version
-
 echo "Install Pinentry"
 sudo apt-get install pinentry-curses
 echo 'pinentry-program /usr/bin/pinentry-curses' | tee -a ~/.gnupg/gpg-agent.conf
 gpg-connect-agent reloadagent /bye
+
+echo "Go to parent folder"
+cd ..
+
+echo "gpg version"
+gpg --version
 
 echo "Import gpg keys"
 gpg --import all.gpg
