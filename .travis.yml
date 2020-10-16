@@ -17,7 +17,8 @@ before_install:
   - bash scripts/setEnvironment.sh;
 
 install:
-  - bash scripts/install.sh;
+  - bash scripts/installGnupg.sh;
+#  - bash scripts/install.sh;
 
 script:
 #  - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/publishSnapshot.sh; fi
