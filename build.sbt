@@ -1,7 +1,7 @@
 import _root_.sbtcrossproject.CrossPlugin.autoImport.CrossType
 import microsites.MicrositeEditButton
 
-val release_version = "0.0.14"
+val release_version = "0.0.15"
 val badge =
   "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central&color=success)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)"
 
