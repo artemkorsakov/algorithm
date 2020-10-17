@@ -29,6 +29,12 @@ ThisBuild / credentials += Credentials(
   sys.env.getOrElse("SONATYPE_USER", ""),
   sys.env.getOrElse("SONATYPE_PASSWORD", "")
 )
+ThisBuild / credentials += Credentials(
+  "GITHUB",
+  "github.com",
+  "artemkorsakov",
+  sys.env.getOrElse("GITHUB_TOKEN", "")
+)
 
 import xerial.sbt.Sonatype._
 ThisBuild / sonatypeSessionName := s"[sbt-sonatype] ${name.value} ${version.value}"
