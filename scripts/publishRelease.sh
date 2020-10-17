@@ -2,5 +2,6 @@
 set -e
 
 echo "Publishing release..."
-sbt release release-version 0.0.9 next-version 0.0.10-SNAPSHOT
+git checkout master
+sbt 'release release-version 0.0.15 next-version 0.0.16-SNAPSHOT'
 echo "Publishing release success..."
