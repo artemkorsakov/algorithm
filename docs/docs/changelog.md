@@ -6,7 +6,7 @@ position: 99
 
 ### {{page.title}}
 
-#### [v0.0.15](https://github.com/artemkorsakov/algorithms/tree/v0.0.15) (2020-10-17)
+#### [v0.0.15](https://github.com/artemkorsakov/algorithms/releases/tag/0.0.15) (2020-10-17)
 
 **Features:**
 - Integration with [Travis CI](https://travis-ci.com/).
