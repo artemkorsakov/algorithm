@@ -38,7 +38,7 @@ object PolynomialEquation {
       aList(index) = aList(index) / divisor
     }
 
-    aList
+    aList.toIndexedSeq
   }
 
   private def coefficientsForSolutionSearching(k: Int): Seq[Seq[Long]] =
