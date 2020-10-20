@@ -4,8 +4,6 @@ import com.github.artemkorsakov.games.poker.Poker
 import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
-import scala.io.Source
-
 class PokerSuite extends AnyFunSuiteLike {
   test("doesPlayer1Win") {
     // Pair of Fives, Pair of Eights
@@ -22,9 +20,5 @@ class PokerSuite extends AnyFunSuiteLike {
 
     // Full House With Three Fours, Full House with Three Threes
     Poker("2H 2D 4C 4D 4S", "3C 3D 3S 9S 9D").doesPlayer1Win shouldBe true
-
-    val rows  = Source.fromResource("p054_poker.txt").getLines
-    val count = rows.count(row => Poker(row.substring(0, 14), row.substring(15)).doesPlayer1Win)
-    count shouldBe 376
   }
 }

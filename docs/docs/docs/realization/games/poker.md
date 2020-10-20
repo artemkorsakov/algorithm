@@ -31,7 +31,7 @@ import com.github.artemkorsakov.games.poker.PokerCard._
 class PokerHand(hand: String) {
   private val split: Array[String] = hand.split(" ")
   require(split.length == 5)
-  private val cards: Seq[PokerCard] = split.flatMap(string2PokerCard)
+  private val cards: Seq[PokerCard] = split.flatMap(string2PokerCard).toSeq
   private val sortedRanks: Seq[PokerRank.Value] =
     cards.map(card => card.pokerRank).sortWith((pr1, pr2) => pr2.id - pr1.id < 0)
   private val sortedDistinctRanks: Seq[PokerRank.Value] = sortedRanks.distinct
