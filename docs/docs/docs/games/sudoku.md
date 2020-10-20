@@ -6,27 +6,39 @@ realization_link: ../realization/games/sudoku.html
 
 ## {{page.title}}
 
-### polynomialCoefficients
-Returns the coefficients of a polynomial equation with the given power and array of solutions.
+Su Doku (Japanese meaning _number place_) is the name given to a popular puzzle concept. 
+Its origin is unclear, but credit must be attributed to Leonhard Euler who invented a similar, 
+and much more difficult, puzzle idea called Latin Squares. 
+The objective of Su Doku puzzles, however, is to replace the blanks (or zeros) in a 9 by 9 grid in such 
+that each row, column, and 3 by 3 box contains each of the digits 1 to 9. 
+Below is an example of a typical starting puzzle grid and its solution grid.
 
-For example, there is a equation **a<sub>0</sub>*x<sup>2</sup> + a<sub>1</sub>*x + a<sub>2</sub> = b**.
-<br>If **[b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>]** are solutions for **x &#8712; [1,2,3]** then
-**PolynomialEquation.polynomialCoefficients(3, Seq(b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>))** 
-returns coefficients **[a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>]**.
+![image 1](https://projecteuler.net/project/images/p096_1.png)
+![image 2](https://projecteuler.net/project/images/p096_2.png)
+
+A well constructed Su Doku puzzle has a unique solution and can be solved by logic, 
+although it may be necessary to employ "guess and test" methods in order to eliminate options 
+(there is much contested opinion over this). The complexity of the search determines the difficulty of the puzzle; 
+the example above is considered easy because it can be solved by straight forward direct deduction.
+
+### result
+
+Returns a solution for the given SuDoku.
 
 **Algorithm**
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#polynomialCoefficients" | downcase }})
+[**Algorithm realization**]({{ page.realization_link }}{{ "#result" | downcase }})
 
 **Sources** 
-- [Polynomial](https://en.wikipedia.org/wiki/Polynomial)
+- [Project Euler. Problem 96](https://projecteuler.net/problem=96)
 
 **Using**
 ```scala mdoc
-import com.github.artemkorsakov.equations.PolynomialEquation
-PolynomialEquation.polynomialCoefficients(3, Seq(1, 8, 27))
+import com.github.artemkorsakov.games.sudoku.SuDoku._
+var src = "003020600\n900305001\n001806400\n008102900\n700000008\n006708200\n002609500\n800203009\n005010300"
+toSuDoku(src).get.result.foreach(_.foreach(row => println(row.mkString("|", "", "|"))))
 ```
 
 ---

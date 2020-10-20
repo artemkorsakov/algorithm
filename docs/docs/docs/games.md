@@ -36,3 +36,8 @@ Poker("4D 6S 9H QH QC", "3D 6D 7H QD QS").doesPlayer1Win
 // Full House With Three Fours, Full House with Three Threes
 Poker("2H 2D 4C 4D 4S", "3C 3D 3S 9S 9D").doesPlayer1Win
 ```
+```scala mdoc
+import com.github.artemkorsakov.games.sudoku.SuDoku._
+var src = "003020600\n900305001\n001806400\n008102900\n700000008\n006708200\n002609500\n800203009\n005010300"
+toSuDoku(src).get.result.foreach(_.foreach(row => println(row.mkString("|", "", "|"))))
+```
