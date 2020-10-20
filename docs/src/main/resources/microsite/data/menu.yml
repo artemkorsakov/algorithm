@@ -134,3 +134,22 @@ options:
     nested_options:
       - title: Common operations
         url: docs/operations/common_operations.html
+
+  - title: Games
+    url: docs/games.html
+
+    nested_options:
+      - title: Dice game
+        url: docs/games/dice.html
+
+      - title: Darts
+        url: docs/games/darts.html
+
+      - title: Nim
+        url: docs/games/nim.html
+
+      - title: Poker
+        url: docs/games/poker.html
+
+      - title: SuDoku
+        url: docs/games/sudoku.html
