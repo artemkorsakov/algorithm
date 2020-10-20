@@ -5,9 +5,10 @@ import com.github.artemkorsakov.games.poker.PokerCard._
 class PokerHand(hand: String) {
   private val split: Array[String] = hand.split(" ")
   require(split.length == 5)
-  private val cards: Array[PokerCard] = split.flatMap(string2PokerCard)
-  private val sortedRanks             = cards.map(card => card.pokerRank).sortWith((pr1, pr2) => pr2.id - pr1.id < 0)
-  private val sortedDistinctRanks     = sortedRanks.distinct
+  private val cards: Seq[PokerCard] = split.flatMap(string2PokerCard)
+  private val sortedRanks: Seq[PokerRank.Value] =
+    cards.map(card => card.pokerRank).sortWith((pr1, pr2) => pr2.id - pr1.id < 0)
+  private val sortedDistinctRanks: Seq[PokerRank.Value] = sortedRanks.distinct
 
   private def isFiveOfAKind: Boolean =
     sortedDistinctRanks.length == 1
@@ -23,9 +24,13 @@ class PokerHand(hand: String) {
     (PokerHandsType.STRAIGHT_FLUSH, straight._2)
 
   private def isStraight: Boolean =
-    sortedRanks.sameElements(
-      Array(PokerRank.FIVE, PokerRank.FOUR, PokerRank.THREE, PokerRank.TWO, PokerRank.A)
-    ) || (0 until sortedRanks.length - 1).forall(i => sortedRanks(i).id - sortedRanks(i + 1).id == 1)
+    sortedRanks == Seq(
+        PokerRank.FIVE,
+        PokerRank.FOUR,
+        PokerRank.THREE,
+        PokerRank.TWO,
+        PokerRank.A
+      ) || (0 until sortedRanks.length - 1).forall(i => sortedRanks(i).id - sortedRanks(i + 1).id == 1)
   private def straight: (PokerHandsType.Value, Seq[PokerRank.Value]) = {
     val pokerRank =
       if (sortedRanks.head == PokerRank.A && sortedRanks(1) == PokerRank.FIVE) PokerRank.FIVE
@@ -90,7 +95,7 @@ class PokerHand(hand: String) {
       (countOfFirstCard == 2 && countOfLastCard == 2) || (countOfFirstCard == 2 && countOfLastCard == 1) || (countOfFirstCard == 1 && countOfLastCard == 2)
     }
   private def twoPair: (PokerHandsType.Value, Seq[PokerRank.Value]) = {
-    val isFirstEqualSecond = sortedRanks(0).id == sortedRanks(1).id
+    val isFirstEqualSecond = sortedRanks.head.id == sortedRanks(1).id
     val isThirdEqualFourth = sortedRanks(2).id == sortedRanks(3).id
     val thirdIndex         = if (isFirstEqualSecond && isThirdEqualFourth) 4 else if (isFirstEqualSecond) 2 else 0
     (
