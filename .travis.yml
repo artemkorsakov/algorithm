@@ -16,7 +16,7 @@ install:
 - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
   scripts/install.sh; fi
 - if [ "$TRAVIS_BRANCH" != "master" ]; then sbt
-  ++$TRAVIS_SCALA_VERSION test; fi
+  ++$TRAVIS_SCALA_VERSION +test; fi
 
 script:
 - if [ "$TRAVIS_BRANCH" = "develop" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash

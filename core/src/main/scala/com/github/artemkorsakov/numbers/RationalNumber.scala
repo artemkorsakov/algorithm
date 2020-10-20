@@ -63,6 +63,9 @@ class RationalNumber(x: BigInt, y: BigInt) {
 }
 
 object RationalNumber {
+  def apply(x: Int, y: Int): RationalNumber   = new RationalNumber(BigInt(x), BigInt(y))
+  def apply(x: Long, y: Long): RationalNumber = new RationalNumber(BigInt(x), BigInt(y))
+
   val ZeroRationalNumber: RationalNumber = new RationalNumber(0, 1)
 
   def max(r1: RationalNumber, r2: RationalNumber): RationalNumber =
