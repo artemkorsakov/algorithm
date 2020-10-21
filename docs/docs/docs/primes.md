@@ -19,6 +19,7 @@ generatePrimes(10)
 10965021787L.smallestPrimeFactor
 smallestPrimeFactorArray(10)
 1000.primeFactorsWithPow
+1024.goldbach
 ```
 ```scala mdoc
 import com.github.artemkorsakov.primes.PhiFunction._

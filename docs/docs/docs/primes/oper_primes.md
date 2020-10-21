@@ -209,3 +209,27 @@ For a given number return all its prime factors with powers.
 ```
 
 ---
+
+### goldbach
+
+Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers.
+E.g. 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case.
+It has been numerically confirmed up to very large numbers (much larger than Scala's Int can represent).
+
+Return the two prime numbers that sum up to a given even integer.
+
+**Algorithm**
+
+**Complexity** 
+     
+[**Algorithm realization**]({{ page.realization_link }}{{ "#goldbach" | downcase }})
+
+**Sources** 
+
+**Using**
+```scala mdoc
+28.goldbach
+1024.goldbach
+```
+
+---

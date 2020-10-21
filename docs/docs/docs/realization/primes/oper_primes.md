@@ -14,6 +14,7 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Primes(n: Long) {
   def isPrime: Boolean =
     if (n < 2) false
     else if (n < 4) true
@@ -26,6 +27,7 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
       while (candidate <= sqrt && n % candidate != 0) candidate += (if (candidate % 6 == 5) 2 else 4)
       n % candidate != 0
     }
+}
 ```
 
 ---
@@ -36,6 +38,9 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Primes(n: Long) {
+  import com.github.artemkorsakov.primes.Primes._
+
   def nextPrime: Long =
     if (n == 2) {
       3
@@ -48,6 +53,7 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
       }
       nextPrime
     }
+}
 ```
 
 ---
@@ -84,8 +90,12 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Primes(n: Long) {
+  import com.github.artemkorsakov.primes.Primes._
+
   def primes(n: Int): Array[Int] =
     isPrimeArray(n).zipWithIndex.withFilter(_._1).map(_._2)
+}
 ```
 
 ---
@@ -96,6 +106,8 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+  import com.github.artemkorsakov.primes.Primes._
+
   def generatePrimes(count: Int): Array[Int] =
     if (count <= 0) {
       Array.empty[Int]
@@ -135,6 +147,9 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Primes(n: Long) {
+  import com.github.artemkorsakov.primes.Primes._
+
   def largestPrimeFactor: Long = {
     var max    = 1L
     var i      = 2L
@@ -151,6 +166,7 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
     max
   }
+}
 ```
 
 ---
@@ -161,8 +177,10 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+class Primes(n: Long) {
   def smallestPrimeFactor: Long =
     (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
+}
 ```
 
 ---
@@ -202,6 +220,11 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
 **Realization**
 ```scala
+import scala.collection.mutable
+
+class Primes(n: Long) {
+  import com.github.artemkorsakov.primes.Primes._
+
   def primeFactorsWithPow: Map[Long, Long] = {
     val map = mutable.Map.empty[Long, Long]
 
@@ -221,6 +244,25 @@ Realizations for [Operations with primes]({{ page.parent_link }}).
 
     map.toMap
   }
+}
+```
+
+---
+
+### goldbach
+
+[Algorithm]({{ page.parent_link }}{{ "#goldbach" | downcase }})
+
+**Realization**
+```scala
+class Primes(n: Long) {
+  import com.github.artemkorsakov.primes.Primes._
+
+  def goldbach: (Long, Long) = {
+    val p = (2L to n / 2).find(p => p.isPrime && (n - p).isPrime).getOrElse(0L)
+    (p, n - p)
+  }
+}
 ```
 
 ---
