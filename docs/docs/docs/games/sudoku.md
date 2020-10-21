@@ -37,7 +37,7 @@ Returns a solution for the given SuDoku.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.games.sudoku.SuDoku._
-var src = "003020600\n900305001\n001806400\n008102900\n700000008\n006708200\n002609500\n800203009\n005010300"
+val src = "003020600\n900305001\n001806400\n008102900\n700000008\n006708200\n002609500\n800203009\n005010300"
 toSuDoku(src).get.result.foreach(_.foreach(row => println(row.mkString("|", "", "|"))))
 ```
 

@@ -6,6 +6,13 @@ position: 99
 
 ### {{page.title}}
 
+#### [v0.1.0](https://github.com/artemkorsakov/algorithms/releases/tag/0.1.0) (2020-10-20)
+
+**Features:**
+- Publish complete package ```com.github.artemkorsakov.games``` with algorithms for different games.
+
+---
+
 #### [v0.0.15](https://github.com/artemkorsakov/algorithms/releases/tag/0.0.15) (2020-10-17)
 
 **Features:**
