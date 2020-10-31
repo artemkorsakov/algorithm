@@ -15,19 +15,17 @@ Realizations for [Perfect Numbers]({{ page.parent_link }}).
 **Realization**
 ```scala
 import com.github.artemkorsakov.divisors.Divisors._
-import com.github.artemkorsakov.divisors.PerfectNumbers.PerfectNumbersType
+import com.github.artemkorsakov.divisors.PerfectNumbers._
 
 class PerfectNumbers(n: Long) {
-
-  def perfectNumbersType: PerfectNumbersType.Value = {
+  def perfectNumbersType: PerfectNumbersType = {
     val sum = n.sumOfDivisors - n
-    if (sum == n) {
-      PerfectNumbersType.Perfect
-    } else if (sum < n) {
-      PerfectNumbersType.Deficient
-    } else {
-      PerfectNumbersType.Abundant
-    }
+    if (sum == n)
+      Perfect
+    else if (sum < n)
+      Deficient
+    else
+      Abundant
   }
 }
 ```

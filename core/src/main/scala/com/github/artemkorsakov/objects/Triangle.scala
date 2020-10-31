@@ -1,28 +1,29 @@
 package com.github.artemkorsakov.objects
 
-import com.github.artemkorsakov.objects.Triangle.PointOnTriangleType
+import com.github.artemkorsakov.objects.Triangle._
 
 /** <a href="https://en.wikipedia.org/wiki/Triangle">Triangle</a> */
 case class Triangle(point1: (Int, Int), point2: (Int, Int), point3: (Int, Int)) {
-  def getPointOnTriangleType(point: (Int, Int)): PointOnTriangleType.Value = {
+  def getPointOnTriangleType(point: (Int, Int)): PointOnTriangleType = {
     val first  = (point1._1 - point._1) * (point2._2 - point1._2) - (point2._1 - point1._1) * (point1._2 - point._2)
     val second = (point2._1 - point._1) * (point3._2 - point2._2) - (point3._1 - point2._1) * (point2._2 - point._2)
     val third  = (point3._1 - point._1) * (point1._2 - point3._2) - (point1._1 - point3._1) * (point3._2 - point._2)
     if (first == 0 || second == 0 || third == 0)
-      PointOnTriangleType.OnTheSide
+      OnTheSide
     else if (first < 0 && second < 0 && third < 0 || first > 0 && second > 0 && third > 0)
-      PointOnTriangleType.Inside
+      Inside
     else
-      PointOnTriangleType.Outside
+      Outside
   }
 
   /** Is zero point inside? */
   def isZeroPointInside: Boolean =
-    getPointOnTriangleType((0, 0)).equals(PointOnTriangleType.Inside)
+    getPointOnTriangleType((0, 0)).equals(Inside)
 }
 
 object Triangle {
-  object PointOnTriangleType extends Enumeration {
-    val Inside, Outside, OnTheSide = Value
-  }
+  sealed trait PointOnTriangleType
+  case object Inside    extends PointOnTriangleType
+  case object Outside   extends PointOnTriangleType
+  case object OnTheSide extends PointOnTriangleType
 }
