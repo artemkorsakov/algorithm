@@ -89,21 +89,21 @@ lazy val docs = project
     micrositeGithubRepo := "algorithms",
     micrositeTheme := "pattern",
     micrositeEditButton := Some(
-        MicrositeEditButton("Improve this Page", "/edit/master/docs/docs/{{ page.path }}")
-      ),
+      MicrositeEditButton("Improve this Page", "/edit/master/docs/docs/{{ page.path }}")
+    ),
     micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
     micrositePushSiteWith := GitHub4s,
     micrositeGitterChannel := false,
     micrositePalette := Map(
-        "brand-primary"   -> "#5B5988",
-        "brand-secondary" -> "#292E53",
-        "brand-tertiary"  -> "#222749",
-        "gray-dark"       -> "#49494B",
-        "gray"            -> "#7B7B7E",
-        "gray-light"      -> "#E5E5E6",
-        "gray-lighter"    -> "#F4F3F4",
-        "white-color"     -> "#FFFFFF"
-      ),
+      "brand-primary"   -> "#5B5988",
+      "brand-secondary" -> "#292E53",
+      "brand-tertiary"  -> "#222749",
+      "gray-dark"       -> "#49494B",
+      "gray"            -> "#7B7B7E",
+      "gray-light"      -> "#E5E5E6",
+      "gray-lighter"    -> "#F4F3F4",
+      "white-color"     -> "#FFFFFF"
+    ),
     apiURL := Some(url(s"${micrositeUrl.value}${micrositeBaseUrl.value}/api/")),
     autoAPIMappings := true,
     unidocProjectFilter in (ScalaUnidoc, unidoc) := inProjects(coreJVM),
@@ -112,19 +112,19 @@ lazy val docs = project
     fork in (ScalaUnidoc, unidoc) := true,
     scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") },
     mdocVariables := Map(
-        "VERSION"                   -> release_version,
-        "SCALA_VERSIONS"            -> "2.13, 2.12",
-        "MAVEN_BADGE"               -> badge,
-        "DESCRIPTION"               -> micrositeDescription.value,
-        "EMAIL"                     -> s"mailto:${mainDev.email}",
-        "GITHUB"                    -> github,
-        "ISSUES"                    -> s"$github/algorithms/issues",
-        "PULLS"                     -> s"$github/algorithms/pulls",
-        "WEBSITE"                   -> s"${micrositeUrl.value}${micrositeBaseUrl.value}",
-        "DOC_SITE"                  -> s"${micrositeUrl.value}${micrositeDocumentationUrl.value}",
-        "API_SITE"                  -> apiURL.value.get.toString,
-        "SOURCE_OF_ALGORITHMS_LINK" -> s"${micrositeUrl.value}/algorithms/sources_of_algorithms.html"
-      )
+      "VERSION"                   -> release_version,
+      "SCALA_VERSIONS"            -> "2.13, 2.12",
+      "MAVEN_BADGE"               -> badge,
+      "DESCRIPTION"               -> micrositeDescription.value,
+      "EMAIL"                     -> s"mailto:${mainDev.email}",
+      "GITHUB"                    -> github,
+      "ISSUES"                    -> s"$github/algorithms/issues",
+      "PULLS"                     -> s"$github/algorithms/pulls",
+      "WEBSITE"                   -> s"${micrositeUrl.value}${micrositeBaseUrl.value}",
+      "DOC_SITE"                  -> s"${micrositeUrl.value}${micrositeDocumentationUrl.value}",
+      "API_SITE"                  -> apiURL.value.get.toString,
+      "SOURCE_OF_ALGORITHMS_LINK" -> s"${micrositeUrl.value}/algorithms/sources_of_algorithms.html"
+    )
   )
 
 lazy val buildSettings = sharedBuildSettings(gh, libs)
@@ -134,9 +134,9 @@ lazy val commonSettings =
     organization := "com.github.artemkorsakov",
     parallelExecution in Test := true,
     crossScalaVersions := Seq(
-        libs.vers("scalac_2.12"),
-        libs.vers("scalac_2.13")
-      )
+      libs.vers("scalac_2.12"),
+      libs.vers("scalac_2.13")
+    )
   )
 
 lazy val commonJsSettings = Seq(scalaJSStage in Global := FastOptStage)
