@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Numbers description"
-realization_link: ../realization/str/numbers_description.html
+realization: str/NumbersDescription.scala
 ---
-
-## {{page.title}}
 
 Number description in different languages.
 
@@ -15,8 +13,6 @@ Number description [in English](https://en.wikipedia.org/wiki/English_numerals).
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#inEnglish" | downcase }})
-
 **Sources** 
 - [English numerals](https://en.wikipedia.org/wiki/English_numerals)
 
@@ -36,8 +32,6 @@ Number description in Russian.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#inRussian" | downcase }})
-
 **Sources** 
 
 **Using**

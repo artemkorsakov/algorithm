@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Radicals"
-realization_link: ../realization/primes/radicals.html
+realization: primes/Radicals.scala
 ---
-
-## {{page.title}}
 
 In number theory, [the radical of a positive integer n](https://en.wikipedia.org/wiki/Radical_of_an_integer) is defined as the product of the distinct prime numbers dividing n. Each prime factor of n occurs exactly once as a factor of this product:
 
@@ -20,8 +18,6 @@ Return the product of distinct prime factors of n.
      
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#rad" | downcase }})
-
 **Sources** 
 - [wiki: Radical of an integer](https://en.wikipedia.org/wiki/Radical_of_an_integer)
 
@@ -43,8 +39,6 @@ Return array of products of distinct prime factors of any n not more limit.
    
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#allRads" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -62,8 +56,6 @@ Return `true` if number is [a square-free integer](https://en.wikipedia.org/wiki
    
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isSquareFree" | downcase }})
-
 **Sources** 
 
 **Using**

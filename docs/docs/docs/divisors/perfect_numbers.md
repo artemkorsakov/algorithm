@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Perfect Numbers"
-realization_link: ../realization/divisors/perfect_numbers.html
+realization: divisors/PerfectNumbers.scala
 ---
-
-## {{page.title}}
 
 Operations with [perfect numbers](https://en.wikipedia.org/wiki/Perfect_number).
 
@@ -18,8 +16,6 @@ Return perfectNumbersType:
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#perfectNumbersType" | downcase }})
-
 **Sources** 
 - [Perfect numbers](https://en.wikipedia.org/wiki/Perfect_number)
 

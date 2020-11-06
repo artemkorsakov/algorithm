@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Binomial Coefficient"
-realization_link: ../realization/combinatorics/binomial_coefficient.html
+realization: combinatorics/BinomialCoefficient.scala
 ---
-
-## {{page.title}}
 
 Operations with [binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient).
 
@@ -17,8 +15,6 @@ Calculate binomial coefficient ![binomial coefficient](https://latex.codecogs.co
  
 **Complexity** _O_(n)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#binomialCoefficient" | downcase }})
-
 **Sources** 
 - [Wikipedia](https://en.wikipedia.org/wiki/Binomial_coefficient)
 

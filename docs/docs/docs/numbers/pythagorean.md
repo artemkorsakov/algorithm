@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Pythagorean triplet"
-realization_link: ../realization/numbers/pythagorean.html
+realization: numbers/PythagoreanTriplet.scala
 ---
-
-## {{page.title}}
 
 [A Pythagorean triple](https://en.wikipedia.org/wiki/Pythagorean_triple) 
 consists of three positive integers **a**, **b**, and **c**, such that **a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>**. 
@@ -39,8 +37,6 @@ The resulting ternary tree, starting at (2,1), contains every such (m, n) pair e
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#nextPythagoreanDeuce" | downcase }})
-
 **Sources** 
 - [Tree of primitive Pythagorean triples](https://en.wikipedia.org/wiki/Tree_of_primitive_Pythagorean_triples)
 
@@ -75,8 +71,6 @@ and no primitive triple appears more than once.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#nextPythagoreanTriplet" | downcase }})
-
 **Sources** 
 - [Tree of primitive Pythagorean triples](https://en.wikipedia.org/wiki/Tree_of_primitive_Pythagorean_triples)
 
@@ -98,8 +92,6 @@ Return all Pythagorean triplets such as **a+b+c = sum**.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#pythagoreanTripletsWithGivenSum" | downcase }})
-
 **Sources** 
 - [Project Euler. Problem 9](https://projecteuler.net/overview=009)
 

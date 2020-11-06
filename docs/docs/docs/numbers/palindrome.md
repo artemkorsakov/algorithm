@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Palindrome"
-realization_link: ../realization/numbers/palindrome.html
+realization: numbers/Palindrome.scala
 ---
-
-## {{page.title}}
 
 [Palindrome](https://en.wikipedia.org/wiki/Palindrome).
 
@@ -17,8 +15,6 @@ Is the given number a palindrome in the base **n** system?
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isPalindrome" | downcase }})
-
 **Sources** 
 
 **Using**

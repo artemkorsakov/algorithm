@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Rational number/Fraction"
-realization_link: ../realization/numbers/rational.html
+realization: numbers/RationalNumber.scala
 ---
-
-## {{page.title}}
 
 A [rational number](https://en.wikipedia.org/wiki/Rational_number) is a number that can be expressed as the quotient 
 or [fraction](https://en.wikipedia.org/wiki/Fraction) p/q of two integers, a numerator p and a non-zero denominator q.
@@ -25,8 +23,6 @@ Fraction operations: [Addition](https://en.wikipedia.org/wiki/Rational_number#Ad
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#addSubMulDiv" | downcase }})
-
 **Sources** 
 - [Rational number](https://en.wikipedia.org/wiki/Rational_number)
 - [Fraction](https://en.wikipedia.org/wiki/Fraction)
@@ -58,8 +54,6 @@ Returns **true** if the rational numbers are equal.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#equal" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -84,8 +78,6 @@ Comparison of two fractions.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#compare" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -116,8 +108,6 @@ Fraction to percent.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#toPercent" | downcase }})
-
 **Sources** 
 
 **Using**

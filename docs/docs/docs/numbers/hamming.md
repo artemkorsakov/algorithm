@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Hamming number"
-realization_link: ../realization/numbers/hamming.html
+realization: numbers/HammingNumber.scala
 ---
-
-## {{page.title}}
 
 A positive number is a generalised [Hamming number](https://en.wikipedia.org/wiki/Regular_number) of type n,
 if it has no prime factor larger than n.
@@ -15,8 +13,6 @@ if it has no prime factor larger than n.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isHammingNumber" | downcase }})
-
 **Sources** 
 
 **Using**

@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Roman numerals"
-realization_link: ../realization/str/roman_numerals.html
+realization: str/RomanNumerals.scala
 ---
-
-## {{page.title}}
 
 [About Roman Numerals](https://projecteuler.net/about=roman_numerals).
 
@@ -15,8 +13,6 @@ Roman number in its minimum notation.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#toMinimalRomanNumeral" | downcase }})
-
 **Sources** 
 - [Roman Numerals](https://en.wikipedia.org/wiki/Roman_numerals)
 - [About Roman Numerals](https://projecteuler.net/about=roman_numerals)
@@ -36,8 +32,6 @@ Roman number to Arabic.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#toArabic" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -54,8 +48,6 @@ Arabic number to Roman.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#toRoman" | downcase }})
-
 **Sources** 
 
 **Using**

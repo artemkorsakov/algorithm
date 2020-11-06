@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Operations with divisors"
-realization_link: ../realization/divisors/divisors_oper.html
+realization: divisors/Divisors.scala
 ---
-
-## {{page.title}}
 
 Common operations with divisors.
 
@@ -21,8 +19,6 @@ Similarly, **gcd(u, 2v) = gcd(u, v)** if **u** is odd.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#gcd" | downcase }})
-
 **Sources** 
 - [Binary GCD algorithm](https://en.wikipedia.org/wiki/Binary_GCD_algorithm)
 
@@ -47,8 +43,6 @@ The result is a tuple **(gcd(a,b), x, y)**
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#gcdex" | downcase }})
-
 **Sources** 
 - [Extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
 
@@ -70,8 +64,6 @@ In the standard notation of modular arithmetic this congruence is written as
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#gcdInverse" | downcase }})
-
 **Sources** 
 - [Modular multiplicative inverse](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse)
 
@@ -89,8 +81,6 @@ Returns all divisors of n (more than 1 and less than n).
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#divisors" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -112,8 +102,6 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sumOfDivisors" | downcase }})
-
 **Sources** 
 - [Divisor function](https://en.wikipedia.org/wiki/Divisor_function)
 
@@ -136,8 +124,6 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#countOfDivisors" | downcase }})
-
 **Sources** 
 - [Divisor function](https://en.wikipedia.org/wiki/Divisor_function)
 

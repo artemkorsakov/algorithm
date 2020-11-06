@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Sorting Algorithms"
-realization_link: ../realization/sort/sorting.html
+realization: sort/Sorting.scala
 ---
-
-## {{page.title}}
 
 [Sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
@@ -15,8 +13,6 @@ realization_link: ../realization/sort/sorting.html
 
 **Complexity** _O_(n<sup>2</sup>)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#insertionSort" | downcase }})
-
 **Sources** 
 - [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 
@@ -39,8 +35,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Complexity** _O_(n<sup>2</sup>)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#insertionSortReverse" | downcase }})
-
 **Sources** 
 - [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 
@@ -62,8 +56,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Complexity** _О_(n<sup>2</sup>) comparisons, _О_(n) swaps
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#selectionSort" | downcase }})
-
 **Sources** 
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 
@@ -85,8 +77,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Complexity** _О_(n<sup>2</sup>) comparisons, _О_(n) swaps
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#selectionSortReverse" | downcase }})
-
 **Sources** 
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 
@@ -108,8 +98,6 @@ import com.github.artemkorsakov.sort.Sorting._
 
 **Complexity** _О_(n<sup>2</sup>) comparisons, _О_(n) swaps
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mergeSort" | downcase }})
-
 **Sources** 
 - [Merge sort](https://en.wikipedia.org/wiki/Merge_sort)
 

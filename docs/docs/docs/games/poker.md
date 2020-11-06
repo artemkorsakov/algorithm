@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Poker"
-realization_link: ../realization/games/poker.html
+realization: games/poker
 ---
-
-## {{page.title}}
 
 In the card game poker, a hand consists of five cards and are ranked, from lowest to highest, in the following way:
 - **High Card**: Highest value card.
@@ -44,8 +42,6 @@ Does first player win?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#doesPlayer1Win" | downcase }})
-
 **Sources** 
 - [Project Euler. Problem 54](https://projecteuler.net/problem=54)
 

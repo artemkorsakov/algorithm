@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Harshad number"
-realization_link: ../realization/numbers/harshad.html
+realization: numbers/HarshadNumber.scala
 ---
-
-## {{page.title}}
 
 [A harshad number](https://en.wikipedia.org/wiki/Harshad_number) is an integer that is divisible by the sum of its digits.
 
@@ -17,8 +15,6 @@ A strong Harshad number is a harshad number that, when divided by the sum of its
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isHarshadNumber" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -38,8 +34,6 @@ A strong Harshad number is a harshad number that, when divided by the sum of its
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isStrongHarshadNumber" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -72,8 +66,6 @@ Return all strong, right truncatable Harshad primes less than 10<sup>p</sup>.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#getStrongRightTruncatableHarshadPrimes" | downcase }})
-
 **Sources** 
 - [Project Euler. Problem 387](https://projecteuler.net/problem=387)
 

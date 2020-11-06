@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Pandigital"
-realization_link: ../realization/digital/pandigital.html
+realization: digital/Pandigital.scala
 ---
-
-## {{page.title}}
 
 ### isPandigital
 - Is a number an integer that has among its significant digits each digit used exactly once?
@@ -15,8 +13,6 @@ realization_link: ../realization/digital/pandigital.html
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isPandigital" | downcase }})
-
 **Sources** 
 
 **Using**

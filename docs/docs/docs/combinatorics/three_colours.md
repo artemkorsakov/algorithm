@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Three colours"
-realization_link: ../realization/combinatorics/three_colours.html
+realization: combinatorics/ThreeColours.scala
 ---
-
-## {{page.title}}
 
 ### countABCRows
 We have A white balls, B black balls and C grey balls.
@@ -18,8 +16,6 @@ How many different options to arrange these balls in a row?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#countABCRows" | downcase }})
-
 **Sources** 
 
 **Using**

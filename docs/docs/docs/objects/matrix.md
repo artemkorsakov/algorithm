@@ -1,10 +1,9 @@
 ---
-layout: docs
+layout: docsplus
 title: "Matrix"
-realization_link: ../realization/objects/matrix.html
+realization: objects/Matrix.scala
 ---
 
-## {{page.title}}
 [Matrix](https://en.wikipedia.org/wiki/Matrix_multiplication).
 
 ### mulRows
@@ -15,8 +14,6 @@ Product of two lines.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mulRows" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -36,8 +33,6 @@ Seq(1007, 2456, -3466).mulMod(Seq(-3347, 4343, 6445), 1000)
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#matrixTranspose" | downcase }})
-
 **Sources** 
 - [Transpose](https://en.wikipedia.org/wiki/Transpose)
 
@@ -58,8 +53,6 @@ New matrix without the given row and the given column.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#minorMatrix" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -76,8 +69,6 @@ Seq(Seq(-2, -1, -1, -4), Seq(-1, -2, -1, -6), Seq(-1, -1, 2, 4), Seq(2, 1, -3, -
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#matrixDeterminant" | downcase }})
-
 **Sources** 
 - [Determinant](https://en.wikipedia.org/wiki/Determinant)
 
@@ -95,8 +86,6 @@ Addition of two matrices.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#add" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -116,8 +105,6 @@ Matrix multiplication by number.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mulByNum" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -136,8 +123,6 @@ Matrix multiplication.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mulMatrix" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -156,8 +141,6 @@ Matrix multiplication by row.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#mulMatrixByRow" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -179,8 +162,6 @@ Matrix exponentiation.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#power" | downcase }})
-
 **Sources** 
 
 **Using**

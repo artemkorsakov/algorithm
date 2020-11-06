@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Operations with strings"
-realization_link: ../realization/str/string_algorithms.html
+realization: str/StringAlgorithms.scala
 ---
-
-## {{page.title}}
 
 ### sum
 Returns the sum of two numbers given as a string.
@@ -19,8 +17,6 @@ Returns the sum of two numbers given as a string.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sum" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -42,8 +38,6 @@ It is the same as [Digits - containTheSameDigits](../digital/digits#containthesa
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#areAnagrams" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -60,8 +54,6 @@ areAnagrams("post", "stop")
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#alphabeticalValue" | downcase }})
-
 **Sources** 
 - [Project Euler Problem 22](https://projecteuler.net/problem=22)
 

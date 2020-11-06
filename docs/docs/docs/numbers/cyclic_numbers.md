@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Cyclic numbers"
-realization_link: ../realization/numbers/cyclic_numbers.html
+realization: numbers/CyclicNumbers.scala
 ---
-
-## {{page.title}}
 
 The term [figurate number](https://en.wikipedia.org/wiki/Figurate_number) is used by different writers for members of different sets of numbers, 
 generalizing from triangular numbers to different shapes (polygonal numbers) 
@@ -22,8 +20,6 @@ and different dimensions (polyhedral numbers).
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#figurateNumbers" | downcase }})
-
 **Sources** 
 - [Triangular number](https://en.wikipedia.org/wiki/Triangular_number)
 - [Square number](https://en.wikipedia.org/wiki/Square_number)

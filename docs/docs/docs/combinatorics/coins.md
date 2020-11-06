@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Coins"
-realization_link: ../realization/combinatorics/coins.html
+realization: combinatorics/Coins.scala
 ---
-
-## {{page.title}}
 
 ### countWays
 In the United Kingdom the currency is made up of pound (£) and pence (p). 
@@ -25,8 +23,6 @@ How many different ways can £2 be made using any number of coins?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#countWays" | downcase }})
-
 **Sources** 
 - [Project Euler: Coin sums](https://projecteuler.net/problem=31)
 - [Project Euler: Coin sums (overview)](https://projecteuler.net/overview=031)
@@ -49,8 +45,6 @@ Two sums that differ only in the order of their summands are considered the same
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#partition" | downcase }})
-
 **Sources** 
 - [Wikipedia](https://en.wikipedia.org/wiki/Partition_(number_theory))
 
@@ -69,8 +63,6 @@ How many options to get sum as a sum of at least two positive numbers?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers" | downcase }})
-
 **Sources** 
 
 **Using**
