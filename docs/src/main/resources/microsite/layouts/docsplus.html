@@ -2,7 +2,11 @@
 layout: docs
 ---
 
-<h2>{{page.title}}</h2>
+{% if page.full_title %}
+<h2>{{ page.full_title }}</h2>
+{% else %}
+<h2>{{ page.title }}</h2>
+{% endif %}
 
 {{ content }}
 

@@ -5,8 +5,6 @@ full_title: "Chinese Remainder Theorem"
 realization: divisors/ChineseRemainderTheorem.scala
 ---
 
-## {{page.full_title}}
-
 [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem).
 
 ### solution
