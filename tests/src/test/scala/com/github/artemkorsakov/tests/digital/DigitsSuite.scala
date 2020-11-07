@@ -56,10 +56,10 @@ class DigitsSuite extends AnyFunSuiteLike {
   }
 
   test("possibleNumbers") {
-    possibleNumbers(Seq(1, 3, 7)) shouldBe Set("713", "731", "317", "137", "173", "371")
-    possibleNumbers(Seq(1, 0, 7)) shouldBe Set("710", "170", "107", "701", "071", "017")
-    possibleNumbers(Seq(1, 1)) shouldBe Set("11")
-    possibleNumbers(Seq(1, 1, 5, 6)) shouldBe Set(
+    possibleNumbers(IndexedSeq(1, 3, 7)) shouldBe Set("713", "731", "317", "137", "173", "371")
+    possibleNumbers(IndexedSeq(1, 0, 7)) shouldBe Set("710", "170", "107", "701", "071", "017")
+    possibleNumbers(IndexedSeq(1, 1)) shouldBe Set("11")
+    possibleNumbers(IndexedSeq(1, 1, 5, 6)) shouldBe Set(
       "1156",
       "1165",
       "1516",

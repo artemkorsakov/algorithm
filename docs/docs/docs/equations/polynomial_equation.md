@@ -22,7 +22,7 @@ returns coefficients **[a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>]**.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.equations.PolynomialEquation
-PolynomialEquation.polynomialCoefficients(3, Seq(1, 8, 27))
+PolynomialEquation.polynomialCoefficients(3, Array(1, 8, 27))
 ```
 
 ---

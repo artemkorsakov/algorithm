@@ -84,7 +84,7 @@ Returns all numbers made up of given digits.
 
 **Using**
 ```scala mdoc
-possibleNumbers(Seq(1, 1, 5, 6))
+possibleNumbers(IndexedSeq(1, 1, 5, 6))
 ```
 
 ---

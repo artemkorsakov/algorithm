@@ -4,6 +4,8 @@ import com.github.artemkorsakov.divisors.Divisors._
 import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
+import scala.collection.LinearSeq
+
 class DivisorsSuite extends AnyFunSuiteLike {
   test("gcd") {
     gcd(15, 12) shouldBe 3
@@ -11,8 +13,8 @@ class DivisorsSuite extends AnyFunSuiteLike {
     gcd(7, 12) shouldBe 1
     gcd(7, 49) shouldBe 7
     gcd(12121212L, 23422344L) shouldBe 12
-    gcd(Array(14, 21, 28, 2, 49)) shouldBe 1
-    gcd(Array(14, 21, 28, 49)) shouldBe 7
+    gcd(LinearSeq (14, 21, 28, 2, 49)) shouldBe 1
+    gcd(LinearSeq (14, 21, 28, 49)) shouldBe 7
     gcd(-8, 21) shouldBe 1
     gcd(BigInt(-8), BigInt(24)) shouldBe 8
   }

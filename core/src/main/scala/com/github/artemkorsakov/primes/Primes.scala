@@ -1,7 +1,5 @@
 package com.github.artemkorsakov.primes
 
-import scala.collection.mutable
-
 class Primes(n: Long) {
   import Primes._
 
@@ -60,7 +58,7 @@ class Primes(n: Long) {
   /** For a given number return all its prime factors with powers.
     */
   def primeFactorsWithPow: Map[Long, Long] = {
-    val map = mutable.Map.empty[Long, Long]
+    var map = Map.empty[Long, Long]
 
     var i      = 2L
     var number = n
@@ -76,11 +74,10 @@ class Primes(n: Long) {
       i += 1
     }
 
-    map.toMap
+    map
   }
 
-  /**
-    * Goldbach's conjecture.
+  /** Goldbach's conjecture.
     * Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers.
     * E.g. 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case.
     * It has been numerically confirmed up to very large numbers (much larger than Scala's Int can represent).
@@ -141,7 +138,7 @@ object Primes {
           tempCount += 1
         }
         candidate += 2
-        if (tempCount < count && candidate.isPrime) {
+        if (result.isDefinedAt(tempCount) && candidate.isPrime) {
           result(tempCount) = candidate
           tempCount += 1
         }
