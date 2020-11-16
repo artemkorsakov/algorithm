@@ -42,7 +42,9 @@ class GenericOperationSuite extends AnyFunSuiteLike {
     GenericOperation.mulT(1L, 1L) shouldBe 1L
     math.abs(GenericOperation.mulT(1.1, 1.1) - 1.21) <= 1e-5 shouldBe true
     GenericOperation.mulT(BigInt(1), BigInt(1)) shouldBe BigInt(1)
-    math.abs((GenericOperation.mulT(BigDecimal(1.1), BigDecimal(1.1)) - BigDecimal(1.21)).toDouble) <= 1e-5 shouldBe true
+    math.abs(
+      (GenericOperation.mulT(BigDecimal(1.1), BigDecimal(1.1)) - BigDecimal(1.21)).toDouble
+    ) <= 1e-5 shouldBe true
   }
 
   test("modT") {

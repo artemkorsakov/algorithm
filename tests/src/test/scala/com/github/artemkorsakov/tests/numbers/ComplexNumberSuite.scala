@@ -23,8 +23,7 @@ class ComplexNumberSuite extends AnyFunSuiteLike {
     assert(complexNumber.a === 14.0 / 17.0 +- 0.01)
     assert(complexNumber.b === -5.0 / 17.0 +- 0.01)
 
-    complexNumber =
-      (ComplexNumber(1, 1) * ComplexNumber(2, 1) * ComplexNumber(3, 1)) / ComplexNumber(1, -1)
+    complexNumber = (ComplexNumber(1, 1) * ComplexNumber(2, 1) * ComplexNumber(3, 1)) / ComplexNumber(1, -1)
     assert(complexNumber.a === -5.0 +- 0.01)
     assert(complexNumber.b === 5.0 +- 0.01)
 
