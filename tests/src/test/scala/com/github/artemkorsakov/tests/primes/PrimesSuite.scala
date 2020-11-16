@@ -6,7 +6,7 @@ import org.scalatest.matchers.should.Matchers._
 
 class PrimesSuite extends AnyFunSuiteLike {
   test("isPrime") {
-    (-1).isPrime shouldBe false
+    -1.isPrime shouldBe false
     0.isPrime shouldBe false
     1.isPrime shouldBe false
     2.isPrime shouldBe true

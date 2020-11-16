@@ -7,7 +7,7 @@ import org.scalatest.matchers.should.Matchers._
 
 class NumbersDescriptionSuite extends AnyFunSuiteLike {
   test("inEnglish") {
-    (-1).inEnglish shouldBe None
+    -1.inEnglish shouldBe None
     1000000000000000L.inEnglish shouldBe None
     11.inEnglish shouldBe "eleven".some
     32.inEnglish shouldBe "thirty-two".some
@@ -22,7 +22,7 @@ class NumbersDescriptionSuite extends AnyFunSuiteLike {
   }
 
   test("inRussian") {
-    (-1).inRussian shouldBe None
+    -1.inRussian shouldBe None
     1000000000000000L.inRussian shouldBe None
     1.inRussian shouldBe "один".some
     2.inRussian shouldBe "два".some
