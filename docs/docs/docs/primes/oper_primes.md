@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Operations with primes"
-realization_link: ../realization/primes/oper_primes.html
+realization: primes/Primes.scala
 ---
-
-## {{page.title}}
 
 Common operations with [prime numbers](https://en.wikipedia.org/wiki/Prime_number).
 
@@ -21,8 +19,6 @@ Determines if the given integer is prime.
      
 **Complexity** _O_(&#8730;n)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isPrime" | downcase }})
-
 **Sources** 
 - [Project Euler: Problem 7](https://projecteuler.net/problem=7)
 - [Project Euler: Problem 7 overview](https://projecteuler.net/overview=007)
@@ -46,8 +42,6 @@ Get next prime number for the given prime number.
  
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#nextPrime" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -69,8 +63,6 @@ All prime numbers from 2 through n as a boolean array.
 
 **Complexity** _O_(n log(log n))
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isPrimeArray" | downcase }})
-
 **Sources** 
 - [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 
@@ -89,8 +81,6 @@ All prime numbers from 2 through n.
 
 **Complexity** _O_(n log(log n))
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#primes" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -112,8 +102,6 @@ Get the given count of primes.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#generatePrimes" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -135,8 +123,6 @@ Get the largest prime factor.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#largestPrimeFactor" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -154,8 +140,6 @@ Get the smallest prime factor.
 
 **Complexity** _O_(&#8730;n)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#smallestPrimeFactor" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -176,8 +160,6 @@ For example: spf = {0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2}.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#smallestPrimeFactorArray" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -198,14 +180,34 @@ For a given number return all its prime factors with powers.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#primeFactorsWithPow" | downcase }})
-
 **Sources** 
 
 **Using**
 ```scala mdoc
 1000.primeFactorsWithPow
 1024.primeFactorsWithPow
+```
+
+---
+
+### goldbach
+
+Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers.
+E.g. 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case.
+It has been numerically confirmed up to very large numbers (much larger than Scala's Int can represent).
+
+Return the two prime numbers that sum up to a given even integer.
+
+**Algorithm**
+
+**Complexity** 
+     
+**Sources** 
+
+**Using**
+```scala mdoc
+28.goldbach
+1024.goldbach
 ```
 
 ---

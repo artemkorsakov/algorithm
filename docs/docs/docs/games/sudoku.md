@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "SuDoku"
-realization_link: ../realization/games/sudoku.html
+realization: games/sudoku
 ---
-
-## {{page.title}}
 
 Su Doku (Japanese meaning _number place_) is the name given to a popular puzzle concept. 
 Its origin is unclear, but credit must be attributed to Leonhard Euler who invented a similar, 
@@ -29,8 +27,6 @@ Returns a solution for the given SuDoku.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#result" | downcase }})
-
 **Sources** 
 - [Project Euler. Problem 96](https://projecteuler.net/problem=96)
 

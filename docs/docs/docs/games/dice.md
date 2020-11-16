@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Dice game"
-realization_link: ../realization/games/dice.html
+realization: games/dice
 ---
-
-## {{page.title}}
 
 [List of dice games](https://en.wikipedia.org/wiki/List_of_dice_games)
 
@@ -15,8 +13,6 @@ An array of probabilities to get the given sums from the cube with the maximum f
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#probabilities" | downcase }})
-
 **Sources** 
 - [Project Euler. Problem 205](https://projecteuler.net/problem=205)
 

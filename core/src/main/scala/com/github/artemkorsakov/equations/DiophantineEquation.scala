@@ -5,8 +5,7 @@ import com.github.artemkorsakov.operations.CommonOperations._
 /** x<sup>2</sup> – D*y<sup>2</sup> = 1 */
 case class DiophantineEquation(d: Int) {
 
-  /**
-    * The <a href="https://en.wikipedia.org/wiki/Chakravala_method">chakravala method</a>
+  /** The <a href="https://en.wikipedia.org/wiki/Chakravala_method">chakravala method</a>
     * is a cyclic algorithm to solve indeterminate quadratic equations.
     */
   def minimalEquation: Option[(BigInt, BigInt)] =

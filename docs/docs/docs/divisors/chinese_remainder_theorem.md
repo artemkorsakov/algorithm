@@ -1,11 +1,9 @@
 ---
-layout: docs
+layout: docsplus
 title: "Chinese Remainder T."
 full_title: "Chinese Remainder Theorem"
-realization_link: ../realization/divisors/chinese_remainder_theorem.html
+realization: divisors/ChineseRemainderTheorem.scala
 ---
-
-## {{page.full_title}}
 
 [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem).
 
@@ -21,8 +19,6 @@ find ![f](http://latex.codecogs.com/svg.latex?M_%7Bi%7D=%7B%5Cfrac%20%20M%7Ba_%7
      
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#solution" | downcase }})
-
 **Sources** 
 - [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem)
 

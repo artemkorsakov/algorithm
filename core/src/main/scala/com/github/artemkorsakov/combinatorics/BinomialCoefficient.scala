@@ -19,8 +19,7 @@ object BinomialCoefficient {
       tup._1 / tup._2
     }
 
-  /**
-    * Get Binomial Coefficient by modulus
+  /** Get Binomial Coefficient by modulus
     *
     * @see <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">detailed description</a>
     */

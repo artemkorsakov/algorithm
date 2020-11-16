@@ -2,6 +2,7 @@ package com.github.artemkorsakov.divisors
 
 import com.github.artemkorsakov.primes.Primes._
 
+import scala.collection.LinearSeq
 import scala.math.{ abs, BigInt }
 
 class Divisors(number: Long) {
@@ -36,11 +37,15 @@ object Divisors {
 
   implicit def int2Divisors(i: Int): Divisors = new Divisors(i.toLong)
 
-  def gcd(aArray: Array[Long]): Long =
-    if (aArray.length <= 1)
-      aArray.headOption.getOrElse(1)
-    else
-      gcd(aArray.head, gcd(aArray.tail))
+  def gcd(linearSeq: LinearSeq[Long]): Long =
+    linearSeq.headOption match {
+      case Some(head) =>
+        linearSeq.tail match {
+          case Nil  => head
+          case tail => gcd(head, gcd(tail))
+        }
+      case None => 1
+    }
 
   /** Return the greatest common divisor.
     */

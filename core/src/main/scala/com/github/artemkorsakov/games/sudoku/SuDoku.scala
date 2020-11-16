@@ -29,8 +29,7 @@ case class SuDoku(cells: Array[Array[Array[Int]]]) {
   private def isNotAnswer: Boolean =
     cells.exists(_.exists(_.length != 1))
 
-  /**
-    * Set the specified value in the specified field.
+  /** Set the specified value in the specified field.
     */
   private def setValue(i: Int, j: Int, value: Int): Boolean = {
     val tempSuDoku = copySuDoku
@@ -41,8 +40,7 @@ case class SuDoku(cells: Array[Array[Array[Int]]]) {
     result
   }
 
-  /**
-    * Set the specified value in the specified field but then return to the previous state of the cells regardless of the result.
+  /** Set the specified value in the specified field but then return to the previous state of the cells regardless of the result.
     */
   private def setValueWithoutChanges(i: Int, j: Int, value: Int): Boolean = {
     val tempSuDoku = copySuDoku
@@ -50,8 +48,7 @@ case class SuDoku(cells: Array[Array[Array[Int]]]) {
     tempSuDoku.removeValueFromRowColSqr(i, j, value) && tempSuDoku.isSuDokuMatrixValid
   }
 
-  /**
-    * Check that each row contains digits from 1 to 9 at least once.
+  /** Check that each row contains digits from 1 to 9 at least once.
     * Check that each column contains digits from 1 to 9 at least once.
     */
   private def isSuDokuMatrixValid: Boolean =

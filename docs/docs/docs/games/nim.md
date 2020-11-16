@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Nim"
-realization_link: ../realization/games/nim.html
+realization: games/nim
 ---
-
-## {{page.title}}
 
 [Nim](https://en.wikipedia.org/wiki/Nim) is a game played with heaps of stones, where two players take it in turn to remove any number of stones from any heap until no stones remain.
 
@@ -36,8 +34,6 @@ Return **X(n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub>)**.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#getX" | downcase }})
-
 **Sources** 
 - [Nim](https://en.wikipedia.org/wiki/Nim)
 - [Project Euler. Problem 301](https://projecteuler.net/problem=301)

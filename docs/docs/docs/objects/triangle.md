@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Triangle"
-realization_link: ../realization/objects/triangle.html
+realization: objects/Triangle.scala
 ---
-
-## {{page.title}}
 
 ### getPointOnTriangleType
 Returns the position of a point relative to a triangle: inside, outside, on the side.
@@ -13,8 +11,6 @@ Returns the position of a point relative to a triangle: inside, outside, on the 
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#getPointOnTriangleType" | downcase }})
-
 **Sources** 
 - [Triangle](https://en.wikipedia.org/wiki/Triangle)
 
@@ -35,8 +31,6 @@ Is zero point inside the triangle?
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isZeroPointInside" | downcase }})
-
 **Sources** 
 
 **Using**

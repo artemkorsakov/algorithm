@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Fibonacci"
-realization_link: ../realization/numbers/fibonacci.html
+realization: numbers/Fibonacci.scala
 ---
-
-## {{page.title}}
 
 In mathematics, [the Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number), 
 commonly denoted **F<sub>n</sub>**, form a sequence, called the Fibonacci sequence, 
@@ -24,8 +22,6 @@ The beginning of the sequence is thus:
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#fibonacci" | downcase }})
-
 **Sources** 
 - [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number)
 
@@ -45,8 +41,6 @@ import com.github.artemkorsakov.numbers.Fibonacci._
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#fibonacciMatrix" | downcase }})
-
 **Sources** 
 - [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number)
 

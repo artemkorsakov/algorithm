@@ -25,12 +25,12 @@ class PokerHand(hand: String) {
 
   private def isStraight: Boolean =
     sortedRanks == Seq(
-        PokerRank.FIVE,
-        PokerRank.FOUR,
-        PokerRank.THREE,
-        PokerRank.TWO,
-        PokerRank.A
-      ) || (0 until sortedRanks.length - 1).forall(i => sortedRanks(i).id - sortedRanks(i + 1).id == 1)
+      PokerRank.FIVE,
+      PokerRank.FOUR,
+      PokerRank.THREE,
+      PokerRank.TWO,
+      PokerRank.A
+    ) || (0 until sortedRanks.length - 1).forall(i => sortedRanks(i).id - sortedRanks(i + 1).id == 1)
   private def straight: (PokerHandsType.Value, Seq[PokerRank.Value]) = {
     val pokerRank =
       if (sortedRanks.head == PokerRank.A && sortedRanks(1) == PokerRank.FIVE) PokerRank.FIVE

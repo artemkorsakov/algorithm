@@ -61,7 +61,7 @@ object CommonOperations {
 
   /** Gets all square numbers the number of digits in which is equal to the given.
     */
-  def allSquares(countOfDigits: Int): List[Int] = {
+  def allSquares(countOfDigits: Int): IndexedSeq[Int] = {
     val start  = pow(10.0, countOfDigits - 1.0).toInt
     val finish = start * 10 - 1
     allSquares(start, finish)
@@ -69,9 +69,9 @@ object CommonOperations {
 
   /** Gets all square numbers from start (inclusive) to finish (inclusive).
     */
-  def allSquares(start: Int, finish: Int): List[Int] = {
+  def allSquares(start: Int, finish: Int): IndexedSeq[Int] = {
     val first = if (start.toDouble.isSquare) sqrt(start.toDouble).toInt else sqrt(start.toDouble).toInt + 1
-    (first to sqrt(finish.toDouble).toInt).map(i => i * i).toList
+    (first to sqrt(finish.toDouble).toInt).map(i => i * i)
   }
 
   /** Returns a list of unique lists containing given numbers without repetition.

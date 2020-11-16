@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Darts"
-realization_link: ../realization/games/darts.html
+realization: games/darts
 ---
-
-## {{page.title}}
 
 In the game of darts a player throws three darts at a target board which is split into twenty equal 
 sized sections numbered one to twenty.
@@ -65,8 +63,6 @@ How many distinct ways can a player checkout with the given score?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#allDistinctWaysToCheckOut" | downcase }})
-
 **Sources** 
 - [Project Euler. Problem 109](https://projecteuler.net/problem=109)
 

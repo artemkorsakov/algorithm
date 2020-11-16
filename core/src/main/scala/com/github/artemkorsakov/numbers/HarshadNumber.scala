@@ -30,16 +30,14 @@ object HarshadNumber {
     }
   }
 
-  /**
-    * Now take the number 2011 which is prime.
+  /** Now take the number 2011 which is prime.
     * When we truncate the last digit from it we get 201, a strong Harshad number that is also right truncatable.
     * Let's call such primes strong, right truncatable Harshad primes.
     */
   private def strongRightTruncatableHarshadPrimes(strongHarshadNumber: Long): Seq[Long] =
     (1 to 9 by 2).withFilter(i => (strongHarshadNumber * 10 + i).isPrime).map(strongHarshadNumber * 10 + _)
 
-  /**
-    * A Harshad or Niven number is a number that is divisible by the sum of its digits.
+  /** A Harshad or Niven number is a number that is divisible by the sum of its digits.
     * 201 is a Harshad number because it is divisible by 3 (the sum of its digits.)
     * When we truncate the last digit from 201, we get 20, which is a Harshad number.
     * When we truncate the last digit from 20, we get 2, which is also a Harshad number.

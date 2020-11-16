@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Digits"
-realization_link: ../realization/digital/digits.html
+realization: digital/Digits.scala
 ---
-
-## {{page.title}}
 
 ### containTheSameDigits
 Do two numbers contain the same digits?
@@ -15,8 +13,6 @@ It is the same as [Operations with strings - areAnagrams](../str/string_algorith
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#containTheSameDigits" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -34,8 +30,6 @@ Returns the digits of a number.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#digits" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -52,8 +46,6 @@ Returns the sum of the digits of a number.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sumOfDigits" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -70,8 +62,6 @@ Does the number have at least two of the same digits?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#hasEqualDigits" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -90,13 +80,11 @@ Returns all numbers made up of given digits.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#possibleNumbers" | downcase }})
-
 **Sources** 
 
 **Using**
 ```scala mdoc
-possibleNumbers(Seq(1, 1, 5, 6))
+possibleNumbers(IndexedSeq(1, 1, 5, 6))
 ```
 
 ---

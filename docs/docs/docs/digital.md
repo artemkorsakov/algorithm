@@ -16,7 +16,7 @@ containTheSameDigits(127035954683L, 589323567104L)
 56993.hasEqualDigits
 56993.hasEqualDigits(2, 9)
 56993.hasEqualDigits(3, 9)
-possibleNumbers(Seq(1, 1, 5, 6))
+possibleNumbers(IndexedSeq(1, 1, 5, 6))
 ```
 ```scala mdoc:reset
 import com.github.artemkorsakov.digital.Pandigital._

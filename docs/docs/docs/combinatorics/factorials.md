@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Factorials"
-realization_link: ../realization/combinatorics/factorials.html
+realization: combinatorics/Factorials.scala
 ---
-
-## {{page.title}}
 
 [Factorial](https://en.wikipedia.org/wiki/Factorial)
 
@@ -16,8 +14,6 @@ Calculate factorial.
  
 **Complexity** _O_(n)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#factorial" | downcase }})
-
 **Sources** 
 - [Wikipedia](https://en.wikipedia.org/wiki/Factorial)
 

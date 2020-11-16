@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Complex number"
-realization_link: ../realization/numbers/complex.html
+realization: numbers/ComplexNumber.scala
 ---
-
-## {{page.title}}
 
 A [complex number](https://en.wikipedia.org/wiki/Complex_number) is a number that can be expressed in the form **a + bi**, 
 where **a** and **b** are real numbers, and **i** represents the imaginary unit, 
@@ -16,8 +14,6 @@ satisfying the equation **i<sup>2</sup> = -1**.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#complexOperations" | downcase }})
-
 **Sources** 
 - [Complex number](https://en.wikipedia.org/wiki/Complex_number)
 

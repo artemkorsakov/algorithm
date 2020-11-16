@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Collatz number"
-realization_link: ../realization/numbers/collatz.html
+realization: numbers/CollatzNumber.scala
 ---
-
-## {{page.title}}
 
 Returns count of Collatz conjecture's steps.
 
@@ -15,8 +13,6 @@ Returns count of Collatz conjecture's steps.
 
 **Complexity** 
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#collatz" | downcase }})
-
 **Sources** 
 - [Collatz conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
 

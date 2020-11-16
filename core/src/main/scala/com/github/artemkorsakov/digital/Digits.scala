@@ -62,9 +62,9 @@ object Digits {
 
   /** Returns all numbers made up of given digits.
     */
-  def possibleNumbers(digits: Seq[Int]): Set[String] =
+  def possibleNumbers(digits: IndexedSeq[Int]): Set[String] =
     if (digits.length == 1) {
-      Set(digits.head.toString)
+      digits.map(_.toString).toSet
     } else {
       var products = Set.empty[String]
       for (i <- digits.indices) {

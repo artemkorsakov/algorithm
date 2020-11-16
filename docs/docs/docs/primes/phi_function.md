@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Euler's totient function"
-realization_link: ../realization/primes/phi_function.html
+realization: primes/PhiFunction.scala
 ---
-
-## {{page.title}}
 
 In number theory, [Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function) counts 
 the positive integers up to a given integer n that are relatively prime to n.
@@ -17,8 +15,6 @@ Counts the positive integers up to a given integer n that are relatively prime t
      
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#totient" | downcase }})
-
 **Sources** 
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 
@@ -41,8 +37,6 @@ Euler's totient function's array
      
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#totientArray" | downcase }})
-
 **Sources** 
 - [wiki: Euler's totient function](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 

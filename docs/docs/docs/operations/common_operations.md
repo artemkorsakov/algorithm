@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Common operations"
-realization_link: ../realization/operations/common_operations.html
+realization: operations/CommonOperations.scala
 ---
-
-## {{page.title}}
 
 Common simple operations.
 
@@ -16,8 +14,6 @@ The sum of the n first numbers.
 
 **Complexity** _O_(1)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sumToGiven" | downcase }})
-
 **Sources** 
 - [Sum](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF)
 
@@ -37,8 +33,6 @@ The sum of the n first square numbers.
 
 **Complexity** _O_(1)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sumOfSquaresTo" | downcase }})
-
 **Sources** 
 - [Square number](https://en.wikipedia.org/wiki/Square_number)
 
@@ -57,8 +51,6 @@ The sum of the n first cubes numbers.
 
 **Complexity** _O_(1)
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sumOfCubesTo" | downcase }})
-
 **Sources** 
 - [Cube](https://en.wikipedia.org/wiki/Cube_(algebra))
 
@@ -76,8 +68,6 @@ A square root of a number x.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#sqrt" | downcase }})
-
 **Sources** 
 - [Square root](https://en.wikipedia.org/wiki/Square_root)
 
@@ -95,8 +85,6 @@ Is a number a square?
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#isSquare" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -115,8 +103,6 @@ All square numbers from start (inclusive) to finish (inclusive).
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#allSquares" | downcase }})
-
 **Sources** 
 
 **Using**
@@ -134,8 +120,6 @@ Returns a list of unique lists containing given numbers without repetition.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#allNumbersVariants" | downcase }})
-
 **Sources** 
 
 **Using**

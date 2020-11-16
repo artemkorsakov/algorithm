@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Diophantine equation"
-realization_link: ../realization/equations/diophantine_equation.html
+realization: equations/DiophantineEquation.scala
 ---
-
-## {{page.title}}
 
 Solving an equation x<sup>2</sup> – D*y<sup>2</sup> = 1 by [Chakravala method](https://en.wikipedia.org/wiki/Chakravala_method).
 
@@ -14,8 +12,6 @@ Solving an equation x<sup>2</sup> – D*y<sup>2</sup> = 1 by [Chakravala method]
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#minimalEquation" | downcase }})
-
 **Sources** 
 - [Chakravala method](https://en.wikipedia.org/wiki/Chakravala_method)
 

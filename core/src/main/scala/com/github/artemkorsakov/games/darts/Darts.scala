@@ -9,7 +9,7 @@ object Darts {
   val allDistinctWaysToCheckOut: Map[Int, Int] = {
     // First step checkout
     var integerMap = doublePoints.map(point => point -> 1).toMap
-    
+
     // Second step checkout
     points.foreach(value =>
       doublePoints.foreach { doublePoint =>

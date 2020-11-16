@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Quadratic equation"
-realization_link: ../realization/equations/quadratic_equation.html
+realization: equations/QuadraticEquation.scala
 ---
-
-## {{page.title}}
 
 Solutions to [a quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation).
 
@@ -16,8 +14,6 @@ Integer solutions to a quadratic equation.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#solutionsInIntegers" | downcase }})
-
 **Sources** 
 - [Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation)
 
@@ -37,8 +33,6 @@ Solutions to a quadratic equation in real numbers.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#solutions" | downcase }})
-
 **Sources** 
 - [Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation)
 
@@ -59,8 +53,6 @@ Solutions to a quadratic equation in complex numbers.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#solutionsInComplexNumbers" | downcase }})
-
 **Sources** 
 - [Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation)
 

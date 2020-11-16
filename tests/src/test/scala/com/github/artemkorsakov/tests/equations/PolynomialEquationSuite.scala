@@ -5,7 +5,7 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
 class PolynomialEquationSuite extends AnyFunSuiteLike {
-  val goodPolynomialArrayTemp: Seq[Long] = (1L to 10L).map(i => i * i * i)
+  val goodPolynomialArrayTemp: Array[Long] = (1L to 10L).map(i => i * i * i).toArray
 
   test("polynomialCoefficients") {
     val aList0 = PolynomialEquation.polynomialCoefficients(2, goodPolynomialArrayTemp)
@@ -19,7 +19,7 @@ class PolynomialEquationSuite extends AnyFunSuiteLike {
     PolynomialEquation.polynomialSolution(3, aList1) shouldBe 27
     PolynomialEquation.polynomialSolution(4, aList1) shouldBe 58
 
-    val expected = Seq(1, 683, 44287, 838861, 8138021, 51828151, 247165843, 954437177, 3138105961L, 9090909091L,
+    val expected = Array(1, 683, 44287, 838861, 8138021, 51828151, 247165843, 954437177, 3138105961L, 9090909091L,
       23775972551L, 57154490053L, 128011456717L, 269971011311L, 540609741211L, 1034834473201L, 1903994239313L,
       3382547898907L, 5824512944911L)
     var aList = PolynomialEquation.polynomialCoefficients(1, expected)

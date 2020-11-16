@@ -1,10 +1,8 @@
 ---
-layout: docs
+layout: docsplus
 title: "Polynomial equation"
-realization_link: ../realization/equations/polynomial_equation.html
+realization: equations/PolynomialEquation.scala
 ---
-
-## {{page.title}}
 
 ### polynomialCoefficients
 Returns the coefficients of a polynomial equation with the given power and array of solutions.
@@ -18,15 +16,13 @@ returns coefficients **[a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>]**.
 
 **Complexity**
      
-[**Algorithm realization**]({{ page.realization_link }}{{ "#polynomialCoefficients" | downcase }})
-
 **Sources** 
 - [Polynomial](https://en.wikipedia.org/wiki/Polynomial)
 
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.equations.PolynomialEquation
-PolynomialEquation.polynomialCoefficients(3, Seq(1, 8, 27))
+PolynomialEquation.polynomialCoefficients(3, Array(1, 8, 27))
 ```
 
 ---

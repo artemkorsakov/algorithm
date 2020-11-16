@@ -42,11 +42,10 @@ class Sorting(array: Array[Int]) {
   def selectionSort(): Unit =
     for (i <- 0 until array.length - 1) {
       var jMin = i
-      for (j <- i + 1 until array.length) {
+      for (j <- i + 1 until array.length)
         if (array(j) < array(jMin)) {
           jMin = j
         }
-      }
       swap(i, jMin)
     }
 
@@ -58,11 +57,10 @@ class Sorting(array: Array[Int]) {
   def selectionSortReverse(): Unit =
     for (i <- 0 until array.length - 1) {
       var jMax = i
-      for (j <- i + 1 until array.length) {
+      for (j <- i + 1 until array.length)
         if (array(j) > array(jMax)) {
           jMax = j
         }
-      }
       swap(i, jMax)
     }
 
@@ -95,7 +93,7 @@ class Sorting(array: Array[Int]) {
 
       var i = first
       var j = mid + 1
-      for (k <- first to last) {
+      for (k <- first to last)
         if (i > mid) {
           array(k) = buf(j)
           j += 1
@@ -109,7 +107,6 @@ class Sorting(array: Array[Int]) {
           array(k) = buf(i)
           i += 1
         }
-      }
     }
 }
 

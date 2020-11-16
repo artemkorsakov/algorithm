@@ -30,7 +30,7 @@ class RomanNumeralsSuite extends AnyFunSuiteLike {
   }
 
   test("toRoman") {
-    (-1).toRoman shouldBe None
+    -1.toRoman shouldBe None
     0.toRoman shouldBe "".some
     49.toRoman shouldBe "XLIX".some
     1984.toRoman shouldBe "MCMLXXXIV".some
