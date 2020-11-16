@@ -5,8 +5,7 @@ import com.github.artemkorsakov.objects.Matrix._
 
 import scala.collection.mutable
 
-/**
-  * A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c,
+/** A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c,
   * for which, a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>.
   */
 case class PythagoreanTriplet(a: Long, b: Long, c: Long) {
@@ -30,8 +29,7 @@ object PythagoreanTriplet {
     PythagoreanTriplet(t._1, t._2, t._3)
   val primitivePythagoreanTriplet: PythagoreanTriplet = PythagoreanTriplet(3, 4, 5)
 
-  /**
-    * Return all Pythagorean triplets such as a+b+c = sum.
+  /** Return all Pythagorean triplets such as a+b+c = sum.
     * @see <a href="https://projecteuler.net/overview=009">detailed description</a>
     */
   def pythagoreanTripletsWithGivenSum(sum: Long): Seq[PythagoreanTriplet] = {

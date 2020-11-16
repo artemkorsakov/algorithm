@@ -3,15 +3,13 @@ package com.github.artemkorsakov.equations
 import com.github.artemkorsakov.numbers.ComplexNumber
 import com.github.artemkorsakov.operations.CommonOperations._
 
-/**
-  * a*x<sup>2</sup> + b*x + c = 0;
+/** a*x<sup>2</sup> + b*x + c = 0;
   *
   * @see <a href="https://en.wikipedia.org/wiki/Quadratic_equation">detailed description</a>
   */
 case class QuadraticEquation(a: Double, b: Double, c: Double) {
 
-  /**
-    * x = (-b +/- &#8730;(b<sup>2</sup> - 4ac) )/2a
+  /** x = (-b +/- &#8730;(b<sup>2</sup> - 4ac) )/2a
     */
   def solutionsInIntegers: Seq[Long] = {
     val d = b * b - 4 * a * c
@@ -32,8 +30,7 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     }
   }
 
-  /**
-    * x = (-b +/- &#8730;(b<sup>2</sup> - 4ac) )/2a
+  /** x = (-b +/- &#8730;(b<sup>2</sup> - 4ac) )/2a
     */
   def solutions: Seq[Double] = {
     val d = b * b - 4 * a * c
@@ -49,8 +46,7 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     }
   }
 
-  /**
-    * x = -b/2a +/- (&#8730;(4ac - b<sup>2</sup>)/2a)i
+  /** x = -b/2a +/- (&#8730;(4ac - b<sup>2</sup>)/2a)i
     */
   def solutionsInComplexNumbers: Seq[ComplexNumber] = {
     val d = b * b - 4 * a * c

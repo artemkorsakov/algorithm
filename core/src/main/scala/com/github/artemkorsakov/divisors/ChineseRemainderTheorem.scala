@@ -2,8 +2,7 @@ package com.github.artemkorsakov.divisors
 
 import com.github.artemkorsakov.divisors.Divisors.gcdInverse
 
-/**
-  * Chinese remainder theorem.
+/** Chinese remainder theorem.
   *
   * @see <a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">Chinese remainder theorem</a>
   */

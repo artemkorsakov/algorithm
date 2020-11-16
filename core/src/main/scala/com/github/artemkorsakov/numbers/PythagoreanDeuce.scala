@@ -2,8 +2,7 @@ package com.github.artemkorsakov.numbers
 
 import com.github.artemkorsakov.objects.Matrix._
 
-/**
-  * A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c,
+/** A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c,
   * for which, a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>,
   * a=m<sup>2</sup> - n<sup>2</sup>,
   * b=2*m*n,

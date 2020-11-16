@@ -11,5 +11,5 @@ object PokerHandsType extends Enumeration {
   THREE_OF_A_KIND,    // Three of a kind is a hand that contains three cards of one rank and two cards of two other ranks (the kickers)
   TWO_PAIR,           // Two pair is a hand that contains two cards of one rank, two cards of another rank and one card of a third rank (the kicker)
   ONE_PAIR,           // One pair is a hand that contains two cards of one rank and three cards of three other ranks (the kickers)
-  HIGH_CARD = Value   // High card is a hand that does not fall into any other category
+  HIGH_CARD = Value // High card is a hand that does not fall into any other category
 }
