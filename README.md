@@ -11,12 +11,11 @@ The following books, articles and resources served as a source for the algorithm
 ![release](https://img.shields.io/github/v/release/artemkorsakov/algorithms?include_prereleases)
 
 [![master](https://img.shields.io/travis/com/artemkorsakov/algorithms/master?label=master)](https://travis-ci.com/artemkorsakov/algorithms)
-[![develop](https://img.shields.io/travis/com/artemkorsakov/algorithms/develop?label=develop)](https://travis-ci.com/artemkorsakov/algorithms)
 ![last commit](https://img.shields.io/github/last-commit/artemkorsakov/algorithms)
 
 Add the following to your build.sbt
 ```
-libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.1.0"
+libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.1.1"
 ```
 
 **Using**
