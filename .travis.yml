@@ -12,15 +12,5 @@ cache:
     - "$HOME/.sbt"
     - "$HOME/.cache/coursier"
 
-before_install:
-  - openssl aes-256-cbc -K $encrypted_404964577bd1_key -iv $encrypted_404964577bd1_iv -in all.gpg.enc -out all.gpg -d
-  - bash scripts/setEnvironment.sh;
-
-install:
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash scripts/install.sh; fi
-
 script:
   - sbt +test scalafmtCheckAll scalafmtSbtCheck;
-
-after_script:
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then sbt +publishSigned; fi
