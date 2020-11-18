@@ -23,12 +23,7 @@ ThisBuild / description := "Algorithms library contains the most popular and eff
 ThisBuild / homepage := Some(url("https://artemkorsakov.github.io/algorithms/"))
 
 ThisBuild / pomIncludeRepository := { _ => false }
-ThisBuild / credentials += Credentials(
-  "Sonatype Nexus Repository Manager",
-  "oss.sonatype.org",
-  sys.env.getOrElse("SONATYPE_USER", ""),
-  sys.env.getOrElse("SONATYPE_PASSWORD", "")
-)
+ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / ".sonatype_credentials")
 
 import xerial.sbt.Sonatype._
 ThisBuild / sonatypeSessionName := s"[sbt-sonatype] ${name.value} ${version.value}"
@@ -47,10 +42,11 @@ ThisBuild / releaseProcess := Seq[ReleaseStep](
   runTest,
   setReleaseVersion,
   commitReleaseVersion,
-  // tagRelease,
+  tagRelease,
   releaseStepCommand("publishSigned"),
-  releaseStepCommand("sonatypeBundleRelease")
-  // setNextVersion,
-  // commitNextVersion,
-  // pushChanges
+  // releaseStepCommandAndRemaining("+publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
 )
