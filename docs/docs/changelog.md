@@ -6,7 +6,7 @@ position: 99
 
 ### {{page.title}}
 
-#### [v0.1.1](https://github.com/artemkorsakov/algorithms/releases/tag/0.1.1) (2020-11-17)
+#### [v0.1.1](https://github.com/artemkorsakov/algorithms/releases/tag/v0.1.1) (2020-11-17)
 
 **Features:**
 - Update documentation.
