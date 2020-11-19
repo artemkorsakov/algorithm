@@ -13,13 +13,11 @@ cache:
     - "$HOME/.cache/coursier"
 
 before_install:
-  - export GITHUB_TOKEN=$GITHUB_TOKEN
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
-    scripts/decrypt-keys.sh; fi
+  - openssl aes-256-cbc -K $encrypted_404964577bd1_key -iv $encrypted_404964577bd1_iv -in all.gpg.enc -out all.gpg -d
 
 install:
-  - rvm use 2.6.5 --install --fuzzy
-  - gem install jekyll -v 4
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
+    scripts/decrypt-keys.sh; fi
 
 script:
   - sbt +test scalafmtCheckAll scalafmtSbtCheck;
