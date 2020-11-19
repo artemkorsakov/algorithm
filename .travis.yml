@@ -12,5 +12,18 @@ cache:
     - "$HOME/.sbt"
     - "$HOME/.cache/coursier"
 
+before_install:
+  - export GITHUB_TOKEN=$GITHUB_TOKEN
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
+    scripts/decrypt-keys.sh; fi
+
+install:
+  - rvm use 2.6.5 --install --fuzzy
+  - gem install jekyll -v 4
+
 script:
   - sbt +test scalafmtCheckAll scalafmtSbtCheck;
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
+    scripts/publishMicrosite.sh; fi
