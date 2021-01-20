@@ -29,7 +29,7 @@ class CommonOperations(x: Double) {
   /** Is a number a square?
     */
   def isSquare: Boolean =
-    abs(sqrt.toLong.toDouble.square - x) < 1e-10
+    abs(math.sqrt(x).toLong.toDouble.square - x) < 1e-10
 
 }
 

@@ -16,7 +16,7 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     if (d < 0 || !d.isSquare) {
       Seq.empty[Long]
     } else {
-      val sqrt = math.round(d.sqrt)
+      val sqrt = math.round(math.sqrt(d))
       val den  = 2 * a
       if (sqrt == 0) {
         if (b % den == 0) Seq((-b / den).toLong) else Seq.empty[Long]
