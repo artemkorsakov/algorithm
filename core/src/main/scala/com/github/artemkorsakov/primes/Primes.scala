@@ -21,11 +21,11 @@ class Primes(n: Long) {
   /** Get next prime number for the given prime number.
     */
   def nextPrime: Long =
-    if (n == 2)
+    if (n == 2) {
       3
-    else if (n == 3)
+    } else if (n == 3) {
       5
-    else {
+    } else {
       var nextPrime = if (n % 3 == 1) n + 4 else n + 2
       while (!nextPrime.isPrime)
         nextPrime = if (nextPrime % 3 == 1) nextPrime + 4 else nextPrime + 2
@@ -103,8 +103,9 @@ object Primes {
     var i  = 2
     var i2 = i * i
     while (i2 <= n) {
-      if (result(i))
+      if (result(i)) {
         (i2 to n by i).foreach(j => result(j) = false)
+      }
       i += 1
       i2 = i * i
     }
@@ -119,13 +120,13 @@ object Primes {
   /** Get the given number of primes.
     */
   def generatePrimes(count: Int): Array[Int] =
-    if (count <= 0)
+    if (count <= 0) {
       Array.empty[Int]
-    else if (count == 1)
+    } else if (count == 1) {
       Array(2)
-    else if (count == 2)
+    } else if (count == 2) {
       Array(2, 3)
-    else {
+    } else {
       val result = new Array[Int](count)
       result(0) = 2
       result(1) = 3
@@ -158,10 +159,12 @@ object Primes {
     for (i <- 2 until result.length)
       if (result(i) == 0) {
         result(i) = i
-        if (i <= limit)
+        if (i <= limit) {
           for (j <- i * i to count by i)
-            if (result(j) == 0)
+            if (result(j) == 0) {
               result(j) = i
+            }
+        }
       }
 
     result

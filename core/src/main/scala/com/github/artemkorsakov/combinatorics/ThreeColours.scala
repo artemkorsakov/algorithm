@@ -21,6 +21,9 @@ object ThreeColours {
   }
 
   private def count(min: Int, mid: Int, max: Int): Long =
-    if (min == 0 && mid == 0) 1
-    else countABCRows(min - 1, mid, max) + countABCRows(min, mid - 1, max) + countABCRows(min, mid, max - 1)
+    if (min == 0 && mid == 0) {
+      1
+    } else {
+      countABCRows(min - 1, mid, max) + countABCRows(min, mid - 1, max) + countABCRows(min, mid, max - 1)
+    }
 }

@@ -7,7 +7,7 @@ import org.scalatest.matchers.should.Matchers._
 
 class NumbersDescriptionSuite extends AnyFunSuiteLike {
   test("inEnglish") {
-    -1.inEnglish shouldBe None
+    (-1.inEnglish).shouldBe(None)
     1000000000000000L.inEnglish shouldBe None
     11.inEnglish shouldBe "eleven".some
     32.inEnglish shouldBe "thirty-two".some
@@ -18,11 +18,14 @@ class NumbersDescriptionSuite extends AnyFunSuiteLike {
     5000.inEnglish shouldBe "five thousand".some
     1435.inEnglish shouldBe "one thousand four hundred and thirty-five".some
     999999.inEnglish shouldBe "nine hundred and ninety-nine thousand nine hundred and ninety-nine".some
-    999999999999999L.inEnglish shouldBe "nine hundred and ninety-nine trillion nine hundred and ninety-nine billion nine hundred and ninety-nine million nine hundred and ninety-nine thousand nine hundred and ninety-nine".some
+    999999999999999L.inEnglish.shouldBe(
+      ("nine hundred and ninety-nine trillion nine hundred and ninety-nine billion nine hundred and " +
+      "ninety-nine million nine hundred and ninety-nine thousand nine hundred and ninety-nine").some
+    )
   }
 
   test("inRussian") {
-    -1.inRussian shouldBe None
+    (-1.inRussian).shouldBe(None)
     1000000000000000L.inRussian shouldBe None
     1.inRussian shouldBe "один".some
     2.inRussian shouldBe "два".some
@@ -68,6 +71,9 @@ class NumbersDescriptionSuite extends AnyFunSuiteLike {
     11011435.inRussian shouldBe "одиннадцать миллионов одиннадцать тысяч четыреста тридцать пять".some
     12012435.inRussian shouldBe "двенадцать миллионов двенадцать тысяч четыреста тридцать пять".some
     19019435.inRussian shouldBe "девятнадцать миллионов девятнадцать тысяч четыреста тридцать пять".some
-    999999999999999L.inRussian shouldBe "девятьсот девяносто девять триллионов девятьсот девяносто девять миллиардов девятьсот девяносто девять миллионов девятьсот девяносто девять тысяч девятьсот девяносто девять".some
+    999999999999999L.inRussian.shouldBe(
+      ("девятьсот девяносто девять триллионов девятьсот девяносто девять миллиардов девятьсот девяносто девять миллионов " +
+      "девятьсот девяносто девять тысяч девятьсот девяносто девять").some
+    )
   }
 }

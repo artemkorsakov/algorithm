@@ -21,6 +21,7 @@ install:
 
 script:
   - sbt +test scalafmtCheckAll scalafmtSbtCheck;
+  - sbt scalastyle && sbt test:scalastyle;
 
 after_success:
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash

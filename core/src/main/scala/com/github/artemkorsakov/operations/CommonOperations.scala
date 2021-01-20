@@ -14,17 +14,16 @@ class CommonOperations(x: Double) {
     */
   def sqrt: Double = {
     @tailrec
-    def sqrtIter(guess: Double, x: Double): Double =
-      if (isGoodEnough(guess, x)) guess
-      else sqrtIter(improve(guess, x), x)
+    def sqrtIter(guess: Double): Double =
+      if (isGoodEnough(guess)) guess else sqrtIter(improve(guess))
 
-    def improve(guess: Double, x: Double) =
+    def improve(guess: Double) =
       (guess + x / guess) / 2
 
-    def isGoodEnough(guess: Double, x: Double) =
-      abs(guess.square - x) < 1e-10
+    def isGoodEnough(guess: Double) =
+      abs(guess.square - x) / x < 1e-10
 
-    sqrtIter(1.0, x)
+    sqrtIter(1.0)
   }
 
   /** Is a number a square?

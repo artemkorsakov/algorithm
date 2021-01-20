@@ -19,6 +19,8 @@ class CommonOperationsSuite extends AnyFunSuiteLike {
 
   test("sqrt") {
     (81.sqrt - 9) < 1e-5 shouldBe true
+    (1e60.sqrt - 1e30) < 1e-5 shouldBe true
+    (1e-6.sqrt - 0.001) < 1e-5 shouldBe true
   }
 
   test("isSquare") {

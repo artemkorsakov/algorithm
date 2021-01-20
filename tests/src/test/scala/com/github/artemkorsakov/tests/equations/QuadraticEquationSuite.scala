@@ -2,10 +2,13 @@ package com.github.artemkorsakov.tests.equations
 
 import com.github.artemkorsakov.equations._
 import com.github.artemkorsakov.numbers._
+import org.scalatest.Ignore
 import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
+@Ignore
 class QuadraticEquationSuite extends AnyFunSuiteLike {
+
   test("solutionsInIntegers") {
     QuadraticEquation(1, -5, 6).solutionsInIntegers shouldBe Seq(3, 2)
     QuadraticEquation(1, -5, -6).solutionsInIntegers shouldBe Seq(6, -1)
