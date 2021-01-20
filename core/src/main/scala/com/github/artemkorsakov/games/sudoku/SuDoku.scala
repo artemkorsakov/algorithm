@@ -13,17 +13,16 @@ case class SuDoku(cells: Array[Array[Array[Int]]]) {
           .foreach(j =>
             cells(i)(j).withFilter(!setValueWithoutChanges(i, j, _)).foreach { value =>
               hasToRemove = true
-              if (!removeValue(i, j, value))
+              if (!removeValue(i, j, value)) {
                 isValid = false
+              }
             }
           )
       )
     }
 
-    if (isValid && !isNotAnswer)
-      Some(cells.map(_.map(_.head)))
-    else
-      None
+    if (isValid && !isNotAnswer) Some(cells.map(_.map(_.head)))
+    else None
   }
 
   private def isNotAnswer: Boolean =
@@ -35,8 +34,9 @@ case class SuDoku(cells: Array[Array[Array[Int]]]) {
     val tempSuDoku = copySuDoku
     tempSuDoku.cells(i)(j) = Array(value)
     val result = tempSuDoku.removeValueFromRowColSqr(i, j, value) && tempSuDoku.isSuDokuMatrixValid
-    if (result)
+    if (result) {
       tempSuDoku.cells.indices.foreach(i => cells(i) = tempSuDoku.cells(i))
+    }
     result
   }
 
@@ -69,9 +69,9 @@ case class SuDoku(cells: Array[Array[Array[Int]]]) {
 
   /** Removes a given value from the cell (i, j). */
   private def removeValue(i: Int, j: Int, value: Int): Boolean =
-    if (cells(i)(j).length == 1)
+    if (cells(i)(j).length == 1) {
       cells(i)(j).head != value
-    else {
+    } else {
       cells(i)(j) = cells(i)(j).filter(_ != value)
       cells(i)(j).length != 1 || setValue(i, j, cells(i)(j).head)
     }

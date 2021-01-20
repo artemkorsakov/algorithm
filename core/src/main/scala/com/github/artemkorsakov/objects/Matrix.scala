@@ -20,33 +20,30 @@ case class Matrix[T](a: Seq[Seq[T]]) {
     if (
       a.isEmpty || a
         .exists(i => i.length != a.length) || row < 0 || row >= a.length || column < 0 || column >= a.head.length
-    )
+    ) {
       None
-    else
+    } else {
       Some(a.indices.withFilter(_ != row).map(i => a.head.indices.withFilter(_ != column).map(j => a(i)(j))))
+    }
 
   /** <a href="https://en.wikipedia.org/wiki/Determinant">Determinant</a> of a matrix. */
   def matrixDeterminant: Option[T] =
-    if (a.isEmpty || a.exists(i => i.length != a.length))
+    if (a.isEmpty || a.exists(i => i.length != a.length)) {
       None
-    else if (a.length == 1)
+    } else if (a.length == 1) {
       Some(a.head.head)
-    else
+    } else {
       Some(a.head.indices.foldLeft(zeroT(a.head.head)) { (sum, i) =>
         val mul = mulT(a.head(i), a.minorMatrix(0, i).get.matrixDeterminant.get)
-        if (i % 2 == 0)
-          addT(sum, mul)
-        else
-          subT(sum, mul)
+        if (i % 2 == 0) addT(sum, mul) else subT(sum, mul)
       })
+    }
 
   def +(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] = add(b)
 
   def add(b: Seq[Seq[T]]): Option[Seq[Seq[T]]] =
-    if (a.length != b.length || a.indices.exists(i => a(i).length != b(i).length))
-      None
-    else
-      Some(a.indices.map(i => a(i).indices.map(j => addT(a(i)(j), b(i)(j)))))
+    if (a.length != b.length || a.indices.exists(i => a(i).length != b(i).length)) None
+    else Some(a.indices.map(i => a(i).indices.map(j => addT(a(i)(j), b(i)(j)))))
 
   def *(b: T): Seq[Seq[T]] = mul(b)
 
@@ -63,26 +60,28 @@ case class Matrix[T](a: Seq[Seq[T]]) {
     if (
       a.isEmpty || b.isEmpty || a
         .exists(_.length != a.head.length) || b.exists(_.length != b.head.length) || a.head.length != b.length
-    )
+    ) {
       None
-    else
+    } else {
       a.indices
         .map(i => b.head.indices.map(j => a(i).mul(b.indices.map(k => b(k)(j)))).toList.traverse(identity))
         .toList
         .traverse(identity)
+    }
 
   /** <a href="https://en.wikipedia.org/wiki/Matrix_multiplication">multiplication</a> */
   def mulMod(b: Seq[Seq[T]], module: T): Option[Seq[Seq[T]]] =
     if (
       a.isEmpty || b.isEmpty || a
         .exists(_.length != a.head.length) || b.exists(_.length != b.head.length) || a.head.length != b.length
-    )
+    ) {
       None
-    else
+    } else {
       a.indices
         .map(i => b.head.indices.map(j => a(i).mulMod(b.indices.map(k => b(k)(j)), module)).toList.traverse(identity))
         .toList
         .traverse(identity)
+    }
 
   def *(b: MatrixLine[T]): Option[Seq[T]] = mul(b)
 
@@ -98,11 +97,11 @@ case class Matrix[T](a: Seq[Seq[T]]) {
 
   /** Matrix exponentiation. */
   def power(b: Long): Option[Seq[Seq[T]]] =
-    if (b < 1)
+    if (b < 1) {
       None
-    else if (b == 1)
+    } else if (b == 1) {
       Some(a)
-    else {
+    } else {
       val powers  = b.toBinaryString
       val powersC = new Array[Seq[Seq[T]]](powers.length)
       powersC(0) = a
@@ -121,11 +120,11 @@ case class Matrix[T](a: Seq[Seq[T]]) {
     }
 
   def powerMod(b: Long, module: T): Option[Seq[Seq[T]]] =
-    if (b < 1)
+    if (b < 1) {
       None
-    else if (b == 1)
+    } else if (b == 1) {
       Some(a.map(_.map(modT(_, module))))
-    else {
+    } else {
       val powers  = b.toBinaryString
       val powersC = new Array[Seq[Seq[T]]](powers.length)
       powersC(0) = a

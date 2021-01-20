@@ -82,14 +82,15 @@ class NumbersDescription(number: Long) {
       case n if n < million =>
         val first = number / thousand
         val firstInRussian =
-          if (first % 10 == 1 && (first % hundred) / 10 != 1)
+          if (first % 10 == 1 && (first % hundred) / 10 != 1) {
             ((first / 10) * 10).inRussian |+| " одна тысяча".some
-          else if (first % 10 == 2 && (first % hundred) / 10 != 1)
+          } else if (first % 10 == 2 && (first % hundred) / 10 != 1) {
             ((first / 10) * 10).inRussian |+| " две тысячи".some
-          else if (3 <= first % 10 && first % 10 <= 4 && (first % hundred) / 10 != 1)
+          } else if (3 <= first % 10 && first % 10 <= 4 && (first % hundred) / 10 != 1) {
             first.inRussian.map(f => f + " тысячи")
-          else
+          } else {
             first.inRussian.map(f => f + " тысяч")
+          }
         firstInRussian |+| " ".some |+| (number % thousand).inRussian
       case n if n < billion     => constructRussian(n, million)
       case n if n < trillion    => constructRussian(n, billion)
@@ -100,12 +101,13 @@ class NumbersDescription(number: Long) {
   private def constructRussian(n: Long, base: Long): Option[String] = {
     val first = n / base
     val firstInRussian =
-      if (first % 10 == 1 && (first % base) / 10 != 1)
+      if (first % 10 == 1 && (first % base) / 10 != 1) {
         first.inRussian |+| " ".some |+| toRussianBase(base)
-      else if (2 <= first % 10 && first % 10 <= 4 && (first % base) / 10 != 1)
+      } else if (2 <= first % 10 && first % 10 <= 4 && (first % base) / 10 != 1) {
         first.inRussian |+| " ".some |+| toRussianBase(base) |+| "а".some
-      else
+      } else {
         first.inRussian |+| " ".some |+| toRussianBase(base) |+| "ов".some
+      }
     firstInRussian |+| " ".some |+| (n % base).inRussian
   }
 

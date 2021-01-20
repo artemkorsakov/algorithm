@@ -13,20 +13,21 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     */
   def solutionsInIntegers: Seq[Long] = {
     val d = b * b - 4 * a * c
-    if (d < 0 || !d.isSquare)
+    if (d < 0 || !d.isSquare) {
       Seq.empty[Long]
-    else {
+    } else {
       val sqrt = math.round(d.sqrt)
       val den  = 2 * a
-      if (sqrt == 0)
+      if (sqrt == 0) {
         if (b % den == 0) Seq((-b / den).toLong) else Seq.empty[Long]
-      else
+      } else {
         ((-b + sqrt) % den == 0, (-b - sqrt) % den == 0) match {
           case (true, true)   => Seq(((-b + sqrt) / den).toLong, ((-b - sqrt) / den).toLong)
           case (true, false)  => Seq(((-b + sqrt) / den).toLong)
           case (false, true)  => Seq(((-b - sqrt) / den).toLong)
           case (false, false) => Seq.empty[Long]
         }
+      }
     }
   }
 
@@ -34,15 +35,16 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     */
   def solutions: Seq[Double] = {
     val d = b * b - 4 * a * c
-    if (d < 0)
+    if (d < 0) {
       Seq.empty[Double]
-    else {
+    } else {
       val sqrt = math.sqrt(d)
       val den  = 2 * a
-      if (sqrt == 0)
+      if (sqrt == 0) {
         Seq(-b / den)
-      else
+      } else {
         Seq((-b + sqrt) / den, (-b - sqrt) / den)
+      }
     }
   }
 
@@ -50,9 +52,9 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     */
   def solutionsInComplexNumbers: Seq[ComplexNumber] = {
     val d = b * b - 4 * a * c
-    if (d >= 0)
+    if (d >= 0) {
       solutions.map(ComplexNumber(_, 0.0))
-    else {
+    } else {
       val sqrt = math.sqrt(-d)
       val den  = 2 * a
       Seq(ComplexNumber(-b / den, sqrt / den), ComplexNumber(-b / den, -sqrt / den))

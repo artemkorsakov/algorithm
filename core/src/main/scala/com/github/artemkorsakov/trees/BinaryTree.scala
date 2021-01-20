@@ -32,7 +32,8 @@ object BinaryTree {
     def isMirrorOf[V](tree: Tree[V]): Boolean
 
     /** Symmetric binary trees.
-      * Let us call a binary tree symmetric if you can draw a vertical line through the root node and then the right subtree is the mirror image in the structure of the left subtree.
+      * Let us call a binary tree symmetric if you can draw a vertical line through the root node and
+      * then the right subtree is the mirror image in the structure of the left subtree.
       *
       * Node('a', Node('b'), Node('c')).isSymmetric is true
       */
@@ -52,7 +53,7 @@ object BinaryTree {
     override def isMirrorOf[V](tree: Tree[V]): Boolean                               = tree == End
     override def isSymmetric: Boolean                                                = true
     override def addValue[U >: Nothing](x: U)(implicit ev: U => Ordered[U]): Tree[U] = Node(x)
-    override def toString                                                            = ""
+    override def toString: String                                                    = ""
   }
 
   case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {

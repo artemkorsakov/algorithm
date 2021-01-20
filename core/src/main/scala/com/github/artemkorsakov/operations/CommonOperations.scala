@@ -76,9 +76,9 @@ object CommonOperations {
   /** Returns a list of unique lists containing given numbers without repetition.
     */
   def allNumbersVariants(numbers: Set[Int]): Set[Set[Int]] =
-    if (numbers.size <= 1)
+    if (numbers.size <= 1) {
       Set(numbers)
-    else {
+    } else {
       val number                = numbers.head
       val allNumbersVariantTemp = allNumbersVariants(numbers.tail)
       Set(Set(number)) ++ allNumbersVariantTemp ++ allNumbersVariantTemp.map(tempVariant => tempVariant + number)

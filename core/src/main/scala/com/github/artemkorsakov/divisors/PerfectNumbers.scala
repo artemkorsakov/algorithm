@@ -17,12 +17,13 @@ class PerfectNumbers(n: Long) {
     */
   def perfectNumbersType: PerfectNumbersType = {
     val sum = n.sumOfDivisors - n
-    if (sum == n)
+    if (sum == n) {
       Perfect
-    else if (sum < n)
+    } else if (sum < n) {
       Deficient
-    else
+    } else {
       Abundant
+    }
   }
 }
 

@@ -9,9 +9,9 @@ case class DiophantineEquation(d: Int) {
     * is a cyclic algorithm to solve indeterminate quadratic equations.
     */
   def minimalEquation: Option[(BigInt, BigInt)] =
-    if (d.isSquare)
+    if (d.isSquare) {
       None
-    else {
+    } else {
       val a         = BigInt(math.round(math.sqrt(d.toDouble)))
       val k         = a.pow(2) - d
       var iteration = Iteration(a, BigInt(1), k, d)
@@ -33,9 +33,9 @@ case class Iteration(a: BigInt, b: BigInt, k: BigInt, d: Int) {
 
   /** Update a, b and k to (a*m + N*b)/|k|, (a + b*m)/|k|, (m<sup>2</sup> - N)/k */
   def getNext: Iteration =
-    if (isSuccess)
+    if (isSuccess) {
       this
-    else {
+    } else {
       val m    = getM
       val newA = (a * m + b * d) / k.abs
       val newB = (a + b * m) / k.abs

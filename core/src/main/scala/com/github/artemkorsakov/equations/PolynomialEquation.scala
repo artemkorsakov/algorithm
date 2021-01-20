@@ -41,9 +41,9 @@ object PolynomialEquation {
   }
 
   private def coefficientsForSolutionSearching(k: Int): Array[Array[Long]] =
-    if (k == 1)
+    if (k == 1) {
       Array(Array(1L))
-    else {
+    } else {
       val coefficients = coefficientsForSolutionSearching(k - 1)
       val last         = coefficients.last
       val current      = 1L +: (0 until last.length - 1).map(i => last(i + 1) - last(i)) :+ -last.last

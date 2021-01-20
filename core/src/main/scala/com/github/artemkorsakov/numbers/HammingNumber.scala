@@ -7,11 +7,11 @@ import com.github.artemkorsakov.primes.Primes.primes
   */
 case class HammingNumber(number: Long) {
   def isHammingNumber(n: Int): Boolean =
-    if (number < 2 || number <= n)
+    if (number < 2 || number <= n) {
       true
-    else if (n < 2)
+    } else if (n < 2) {
       false
-    else {
+    } else {
       var temp       = number
       val primesList = primes(n)
       var isHamming  = false
@@ -20,8 +20,9 @@ case class HammingNumber(number: Long) {
         val prime = primesList(i)
         while (temp % prime == 0)
           temp /= prime
-        if (temp == 1)
+        if (temp == 1) {
           isHamming = true
+        }
         i += 1
       }
       isHamming

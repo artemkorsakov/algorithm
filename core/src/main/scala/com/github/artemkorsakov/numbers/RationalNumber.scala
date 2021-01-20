@@ -8,12 +8,13 @@ class RationalNumber(x: BigInt, y: BigInt) {
   require(y != 0, "denominator can't be 0")
 
   val tuple: (BigInt, BigInt) =
-    if (x == BigInt(0))
+    if (x == BigInt(0)) {
       (BigInt(0), BigInt(1))
-    else if (y < 0)
+    } else if (y < 0) {
       (-x, -y)
-    else
+    } else {
       (x, y)
+    }
   private val g           = gcd(tuple._1, tuple._2)
   val numerator: BigInt   = tuple._1 / g
   val denominator: BigInt = tuple._2 / g
@@ -26,16 +27,16 @@ class RationalNumber(x: BigInt, y: BigInt) {
   def this(r: RationalNumber) = this(r.numerator, r.denominator)
 
   def +(r: RationalNumber): RationalNumber = add(r)
-  def add(r: RationalNumber) =
+  def add(r: RationalNumber): RationalNumber =
     new RationalNumber(numerator * r.denominator + r.numerator * denominator, denominator * r.denominator)
   def -(r: RationalNumber): RationalNumber = sub(r)
-  def sub(r: RationalNumber) =
+  def sub(r: RationalNumber): RationalNumber =
     new RationalNumber(numerator * r.denominator - r.numerator * denominator, denominator * r.denominator)
   def *(r: RationalNumber): RationalNumber = mul(r)
-  def mul(r: RationalNumber) =
+  def mul(r: RationalNumber): RationalNumber =
     new RationalNumber(numerator * r.numerator, denominator * r.denominator)
   def /(r: RationalNumber): RationalNumber = div(r)
-  def div(r: RationalNumber) =
+  def div(r: RationalNumber): RationalNumber =
     new RationalNumber(numerator * r.denominator, r.numerator * denominator)
 
   def upend: RationalNumber =
@@ -54,7 +55,7 @@ class RationalNumber(x: BigInt, y: BigInt) {
   def >=(r: RationalNumber): Boolean =
     numerator * r.denominator >= r.numerator * denominator
 
-  override def toString = s"$numerator/$denominator"
+  override def toString: String = s"$numerator/$denominator"
 
   /** Fraction to percent. */
   def toPercent: Double =

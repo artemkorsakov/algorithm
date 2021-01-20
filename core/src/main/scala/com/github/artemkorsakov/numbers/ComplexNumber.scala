@@ -53,9 +53,9 @@ case class ComplexNumber(a: Double, b: Double) {
 
   def power(p: Int): ComplexNumber = {
     require(p >= 1)
-    if (p == 1)
+    if (p == 1) {
       ComplexNumber(a, b)
-    else {
+    } else {
       val powers  = p.toBinaryString
       val powersC = new Array[ComplexNumber](powers.length)
       powersC(0) = ComplexNumber(a, b)

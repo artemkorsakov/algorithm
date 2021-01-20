@@ -15,12 +15,13 @@ case class Dice(maxCube: Int) {
   }
 
   private def cubeCount(steps: Int, sum: Int): Int =
-    if (steps < 0 || sum < steps)
+    if (steps < 0 || sum < steps) {
       0
-    else if (steps == sum)
+    } else if (steps == sum) {
       1
-    else if (steps == 0)
+    } else if (steps == 0) {
       0
-    else
+    } else {
       cache.getOrElseUpdate((steps, sum), (1 to maxCube).map(i => cubeCount(steps - 1, sum - i)).sum)
+    }
 }

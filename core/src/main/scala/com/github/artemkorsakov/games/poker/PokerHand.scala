@@ -126,35 +126,38 @@ class PokerHand(hand: String) {
     (PokerHandsType.HIGH_CARD, sortedRanks)
 
   val (pokerHandsType: PokerHandsType.Value, ranks: Seq[PokerRank.Value]) =
-    if (isFiveOfAKind)
+    if (isFiveOfAKind) {
       fiveOfAKind
-    else if (isStraightFlush)
+    } else if (isStraightFlush) {
       straightFlush
-    else if (isFourOfAKind)
+    } else if (isFourOfAKind) {
       fourOfAKind
-    else if (isFullHouse)
+    } else if (isFullHouse) {
       fullHouse
-    else if (isFlush)
+    } else if (isFlush) {
       flush
-    else if (isStraight)
+    } else if (isStraight) {
       straight
-    else if (isThreeOfAKind)
+    } else if (isThreeOfAKind) {
       threeOfAKind
-    else if (isTwoPair)
+    } else if (isTwoPair) {
       twoPair
-    else if (isOnePair)
+    } else if (isOnePair) {
       onePair
-    else
+    } else {
       highCard
+    }
 
   def compareTo(pokerHand: PokerHand): Int = {
     val diff = pokerHandsType.id.compareTo(pokerHand.pokerHandsType.id)
-    if (diff != 0) diff
-    else
+    if (diff != 0) {
+      diff
+    } else {
       ranks.indices
         .map(i => pokerHand.ranks(i).id.compareTo(ranks(i).id))
         .find(r => r != 0)
         .getOrElse(0)
+    }
   }
 
   def ==(pokerHand: PokerHand): Boolean    = this.equal(pokerHand)

@@ -52,19 +52,20 @@ object Divisors {
   def gcd(a: Long, b: Long): Long = {
     val u = abs(a)
     val v = abs(b)
-    if (u == v)
+    if (u == v) {
       u
-    else if (u == 0)
+    } else if (u == 0) {
       v
-    else if (v == 0)
+    } else if (v == 0) {
       u
-    else
+    } else {
       (~u & 1, ~v & 1) match {
         case (1, 1) => gcd(u >> 1, v >> 1) << 1
         case (1, 0) => gcd(u >> 1, v)
         case (0, 1) => gcd(u, v >> 1)
         case (_, _) => if (u > v) gcd(u - v, v) else gcd(v - u, u)
       }
+    }
   }
 
   /** Return the greatest common divisor.
@@ -72,19 +73,20 @@ object Divisors {
   def gcd(a: BigInt, b: BigInt): BigInt = {
     val u = if (a < 0) -a else a
     val v = if (b < 0) -b else b
-    if (u == v)
+    if (u == v) {
       u
-    else if (u == 0)
+    } else if (u == 0) {
       v
-    else if (v == 0)
+    } else if (v == 0) {
       u
-    else
+    } else {
       ((~u & 1).toInt, (~v & 1).toInt) match {
         case (1, 1) => gcd(u >> 1, v >> 1) << 1
         case (1, 0) => gcd(u >> 1, v)
         case (0, 1) => gcd(u, v >> 1)
         case (_, _) => if (u > v) gcd(u - v, v) else gcd(v - u, u)
       }
+    }
   }
 
   /** Extended Euclidean algorithm.
@@ -92,9 +94,9 @@ object Divisors {
     * @see <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">detailed description</a>
     */
   def gcdex(a: Long, b: Long): (Long, Long, Long) =
-    if (a == 0)
+    if (a == 0) {
       (b, 0, 1)
-    else {
+    } else {
       val temp = gcdex(b % a, a)
       (temp._1, temp._3 - (b / a) * temp._2, temp._2)
     }
@@ -105,10 +107,11 @@ object Divisors {
     */
   def gcdInverse(a: Long, m: Long): Long = {
     val extraEuclid = gcdex(a, m)
-    if (extraEuclid._1 == 1)
+    if (extraEuclid._1 == 1) {
       (extraEuclid._2 % m + m) % m
-    else
+    } else {
       -1
+    }
   }
 
 }
