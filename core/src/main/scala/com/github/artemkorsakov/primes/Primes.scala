@@ -63,7 +63,7 @@ class Primes(n: Long) {
     var i      = 2L
     var number = n
     while (number > 1) {
-      if (i.isPrime && number % i == 0) {
+      if (number % i == 0) {
         var pow = 0L
         while (number % i == 0) {
           number /= i
