@@ -142,3 +142,11 @@ import com.github.artemkorsakov.numbers.CyclicNumbers._
 2512.isHeptagonal
 1281.isOctagonal
 ```
+```scala mdoc
+import com.github.artemkorsakov.numbers.OtherNumbers._
+(0 to 5).map(padovan)
+(0 to 5).map(jacobsthal)
+(0 to 5).map(pell)
+(0 to 5).map(tribonacci)
+(0 to 5).map(tetranacci)
+```

@@ -105,6 +105,9 @@ options:
       - title: Cyclic numbers
         url: docs/numbers/cyclic_numbers.html
 
+      - title: Other numbers
+        url: docs/numbers/other_numbers.html
+
   - title: Various math objects
     url: docs/objects.html
 
