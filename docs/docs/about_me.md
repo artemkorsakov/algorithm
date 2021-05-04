@@ -6,9 +6,9 @@ position: 100
 
 ### {{page.title}}
 
-My name is Artem Korsakov (Артём Корсаков). 
-I am a Scala developer and a former QA Automation Engineer.
-I love mathematics and algorithms. 
+My name is Artem Korsakov (Артём Корсаков).
+I am a QA Automation Engineer.
+I love mathematics and algorithms.
 
 I created this library for solving problems on [project Euler](https://projecteuler.net/about).
 Here are only well-known algorithms - there are no solutions to problems from Euler project.

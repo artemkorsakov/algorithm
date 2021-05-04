@@ -105,6 +105,9 @@ options:
       - title: Cyclic numbers
         url: docs/numbers/cyclic_numbers.html
 
+      - title: Other numbers
+        url: docs/numbers/other_numbers.html
+
   - title: Various math objects
     url: docs/objects.html
 
@@ -134,6 +137,13 @@ options:
     nested_options:
       - title: Common operations
         url: docs/operations/common_operations.html
+
+  - title: Trees
+    url: docs/trees.html
+
+    nested_options:
+      - title: Binary Tree
+        url: docs/trees/binary_tree.html
 
   - title: Games
     url: docs/games.html
