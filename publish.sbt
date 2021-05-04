@@ -1,4 +1,4 @@
-import sbt.Credentials
+import sbt.{ url, Credentials }
 import sbt.Keys.credentials
 ThisBuild / organization := "com.github.artemkorsakov"
 ThisBuild / organizationName := "Artem Korsakov"
@@ -10,19 +10,11 @@ ThisBuild / scmInfo := Some(
     "scm:git@github.com:artemkorsakov/algorithms.git"
   )
 )
-ThisBuild / developers := List(
-  Developer(
-    id = "@artemkorsakov",
-    name = "Artem Korsakov",
-    email = "artemkorsakov@mail.ru",
-    url = url("http://github.com/artemkorsakov")
-  )
-)
 
 ThisBuild / description := "Algorithms library contains the most popular and efficient algorithms."
 ThisBuild / homepage := Some(url("https://artemkorsakov.github.io/algorithms/"))
+ThisBuild / licenses += apache
 
-ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / credentials += Credentials(
   "Sonatype Nexus Repository Manager",
   "oss.sonatype.org",
@@ -35,16 +27,17 @@ ThisBuild / sonatypeSessionName := s"[sbt-sonatype] ${name.value} ${version.valu
 ThisBuild / sonatypeProjectHosting := Some(GitHubHosting("artemkorsakov", "algorithms", "artemkorsakov@mail.ru"))
 ThisBuild / sonatypeProfileName := "com.github.artemkorsakov"
 ThisBuild / publishTo := sonatypePublishToBundle.value
-ThisBuild / publishMavenStyle := true
+ThisBuild / sonatypeTimeoutMillis := 2 * 60 * 1000
 
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
+run / javaOptions += "-Xmx8G"
 ThisBuild / releaseCrossBuild := true
 ThisBuild / releaseVersionBump := sbtrelease.Version.Bump.Next
 ThisBuild / releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
   runClean,
-  runTest,
+  releaseStepCommandAndRemaining("+test"),
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,

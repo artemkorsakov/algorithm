@@ -1,7 +1,7 @@
 language: scala
 sudo: false
 scala:
-  - 2.12.12
+  - 2.13.4
 jdk:
   - openjdk8
 
@@ -20,8 +20,8 @@ install:
     scripts/decrypt-keys.sh; fi
 
 script:
-  - sbt +test scalafmtCheckAll scalafmtSbtCheck;
-  - sbt scalastyle && sbt test:scalastyle;
+  - sbt +test
+  - sbt scalafmtCheckAll scalafmtSbtCheck
 
 after_success:
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash

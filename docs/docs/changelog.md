@@ -6,35 +6,42 @@ position: 99
 
 ### {{page.title}}
 
-#### [v0.1.1](https://github.com/artemkorsakov/algorithms/releases/tag/v0.1.1) (2020-11-17)
+#### [v0.1.2](https://github.com/artemkorsakov/algorithms/releases/tag/v0.1.2)
+
+**Features:**
+- Update sbt version.
+
+---
+
+#### [v0.1.1](https://github.com/artemkorsakov/algorithms/releases/tag/v0.1.1)
 
 **Features:**
 - Update documentation.
 
 ---
 
-#### [v0.1.0](https://github.com/artemkorsakov/algorithms/releases/tag/0.1.0) (2020-10-20)
+#### [v0.1.0](https://github.com/artemkorsakov/algorithms/releases/tag/0.1.0)
 
 **Features:**
 - Publish complete package ```com.github.artemkorsakov.games``` with algorithms for different games.
 
 ---
 
-#### [v0.0.15](https://github.com/artemkorsakov/algorithms/releases/tag/0.0.15) (2020-10-17)
+#### [v0.0.15](https://github.com/artemkorsakov/algorithms/releases/tag/0.0.15)
 
 **Features:**
 - Integration with [Travis CI](https://travis-ci.com/).
 
 ---
 
-#### [v0.0.8](https://github.com/artemkorsakov/algorithms/tree/v0.0.8) (2020-10-14)
+#### [v0.0.8](https://github.com/artemkorsakov/algorithms/tree/v0.0.8)
 
 **Features:**
 - Add some methods to package ```com.github.artemkorsakov.numbers```.
 
 ---
 
-#### [v0.0.7](https://github.com/artemkorsakov/algorithms/tree/v0.0.7) (2020-10-10)
+#### [v0.0.7](https://github.com/artemkorsakov/algorithms/tree/v0.0.7)
 
 **Features:**
 - Publish complete package ```com.github.artemkorsakov.numbers``` for operations with various numbers.
@@ -43,7 +50,7 @@ position: 99
 
 ---
 
-#### [v0.0.6](https://github.com/artemkorsakov/algorithms/tree/v0.0.6) (2020-09-28)
+#### [v0.0.6](https://github.com/artemkorsakov/algorithms/tree/v0.0.6)
 
 **Features:**
 - Publish complete package ```com.github.artemkorsakov.digital``` for operations with digits.
@@ -53,14 +60,14 @@ position: 99
 
 ---
 
-#### [v0.0.5](https://github.com/artemkorsakov/algorithms/tree/v0.0.5) (2020-09-19)
+#### [v0.0.5](https://github.com/artemkorsakov/algorithms/tree/v0.0.5)
 
 **Features:**
 - Publish complete package ```com.github.artemkorsakov.combinatorics``` for [Combinatorics algorithms](https://en.wikipedia.org/wiki/Combinatorics).
 
 ---
 
-#### [v0.0.4](https://github.com/artemkorsakov/algorithms/tree/v0.0.4) (2020-09-18)
+#### [v0.0.4](https://github.com/artemkorsakov/algorithms/tree/v0.0.4)
 
 **Features:**
 - Publish complete package ```com.github.artemkorsakov.primes``` for working with 
@@ -70,7 +77,7 @@ position: 99
 
 ---
 
-#### [v0.0.3](https://github.com/artemkorsakov/algorithms/tree/v0.0.3) (2020-09-10)
+#### [v0.0.3](https://github.com/artemkorsakov/algorithms/tree/v0.0.3)
 
 **Features:**
 

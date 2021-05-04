@@ -1,16 +1,23 @@
-import _root_.sbtcrossproject.CrossPlugin.autoImport.CrossType
-import microsites.MicrositeEditButton
+import Dependencies.Version._
+import microsites._
+import sbtcatalysts.CatalystsKeys.docsMappingsAPIDir
+import sbtcrossproject.CrossPlugin.autoImport.CrossType
+
+addCommandAlias("com", "all compile test:compile")
+addCommandAlias("fmt", "all scalafmtSbt scalafmtAll")
+addCommandAlias("fmtCheck", "all scalafmtSbtCheck scalafmtCheckAll")
+addCommandAlias("stl", "all scalastyle test:scalastyle")
+addCommandAlias("gitSnapshots", ";set version in ThisBuild := git.gitDescribedVersion.value.get + \"-SNAPSHOT\"")
 
 val release_version = "0.1.1"
 val badge =
   "[![Maven Central](https://img.shields.io/maven-central/v/com.github.artemkorsakov/algorithms-core_2.13.svg?label=Maven%20Central&color=success)](https://search.maven.org/search?q=g:%22com.github.artemkorsakov%22%20AND%20a:%22algorithms-core_2.13%22)"
 
-val apache2 = "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 val gh = GitHubSettings(
   org = "artemkorsakov",
   proj = "algorithms",
-  publishOrg = "artemkorsakov",
-  license = apache2
+  publishOrg = "com.github.artemkorsakov",
+  license = apache
 )
 
 val github = "https://github.com/artemkorsakov"
@@ -22,62 +29,64 @@ val mainDev =
     new java.net.URL(github)
   )
 
-val devs = List(Developer)
+val devs = List(mainDev)
+val libs = org.typelevel.libraries
 
-lazy val libs = org.typelevel.libraries
+ThisBuild / crossScalaVersions := Seq(Scala212, Scala213)
+ThisBuild / scalaVersion := Scala213
 
 lazy val rootSettings = buildSettings ++ commonSettings ++ publishSettings ++ scoverageSettings
 lazy val module       = mkModuleFactory(gh.proj, mkConfig(rootSettings, commonJvmSettings, commonJsSettings))
 lazy val prj          = mkPrjFactory(rootSettings)
 
-lazy val Algorithms = project
-  .in(file("."))
+lazy val rootPrj = project
   .configure(mkRootConfig(rootSettings, rootJVM))
-  .aggregate(rootJVM)
-  .dependsOn(rootJVM)
-  .settings(noPublishSettings)
+  .aggregate(rootJVM, rootJS)
+  .dependsOn(rootJVM, rootJS)
+  .settings(
+    noPublishSettings,
+    crossScalaVersions := Nil
+  )
 
 lazy val rootJVM = project
   .configure(mkRootJvmConfig(gh.proj, rootSettings, commonJvmSettings))
-  .aggregate(coreJVM, testsJVM, docs)
-  .dependsOn(coreJVM, testsJVM)
-  .settings(noPublishSettings)
+  .aggregate(macrosJVM, platformJVM, docs, algorithms)
+  .dependsOn(macrosJVM, platformJVM)
+  .settings(noPublishSettings, crossScalaVersions := Nil)
 
 lazy val rootJS = project
   .configure(mkRootJsConfig(gh.proj, rootSettings, commonJsSettings))
-  .aggregate(coreJS, testsJS)
-  .dependsOn(coreJS, testsJS)
-  .settings(noPublishSettings)
-
-lazy val core    = prj(coreM)
-lazy val coreJVM = coreM.jvm
-lazy val coreJS  = coreM.js
-lazy val coreM = module("core", CrossType.Pure)
-  .settings(
-    libs.dependencies("cats-core")
-  )
-
-lazy val tests    = prj(testsM)
-lazy val testsJVM = testsM.jvm
-lazy val testsJS  = testsM.js
-lazy val testsM = module("tests", CrossType.Pure)
-  .dependsOn(coreM)
+  .aggregate(macrosJS, platformJS)
   .settings(
     noPublishSettings,
+    crossScalaVersions := Nil
+  )
+
+/** Macros - cross project that defines macros. */
+lazy val macros    = prj(macrosM)
+lazy val macrosJVM = macrosM.jvm
+lazy val macrosJS  = macrosM.js
+lazy val macrosM = module("macros", CrossType.Pure).settings(
+  noPublishSettings
+)
+
+/** Platform - cross project that provides cross platform support. */
+lazy val platform    = prj(platformM)
+lazy val platformJVM = platformM.jvm
+lazy val platformJS  = platformM.js
+lazy val platformM = module("platform", CrossType.Dummy)
+  .dependsOn(macrosM)
+  .settings(
+    noPublishSettings,
+    libs.dependencies("specs2-core", "specs2-scalacheck"),
     libs.testDependencies("scalatest")
   )
 
-lazy val docsMappingsAPIDir = settingKey[String]("Name of subdirectory in site target directory for api docs")
-
-/** Docs - Generates and publishes the scaladoc API documents and the project web site using sbt-microsite.
-  * https://47degrees.github.io/sbt-microsites/docs/settings/
-  */
+/** Docs - Generates and publishes the scaladoc API documents and the project web site. */
 lazy val docs = project
-  .configure(mkDocConfig(gh, rootSettings, Nil, core))
-  .enablePlugins(MicrositesPlugin)
-  .enablePlugins(ScalaUnidocPlugin)
+  .configure(mkDocConfig(gh, rootSettings, Seq(), platformJVM, macrosJVM))
+  .enablePlugins(MicrositesPlugin, ScalaUnidocPlugin)
   .settings(
-    crossScalaVersions := Seq(scalaVersion.value),
     micrositeName := "Algorithms Library",
     micrositeDescription := "Algorithms library contains the most popular and interesting algorithms.",
     micrositeUrl := "https://artemkorsakov.github.io",
@@ -106,10 +115,9 @@ lazy val docs = project
     ),
     apiURL := Some(url(s"${micrositeUrl.value}${micrositeBaseUrl.value}/api/")),
     autoAPIMappings := true,
-    unidocProjectFilter in (ScalaUnidoc, unidoc) := inProjects(coreJVM),
+    unidocProjectFilter in (ScalaUnidoc, unidoc) := inProjects(algorithms),
     docsMappingsAPIDir := "api",
     addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), docsMappingsAPIDir),
-    fork in (ScalaUnidoc, unidoc) := true,
     scalacOptions in (ScalaUnidoc, unidoc) ~= { _.filter(_ != "-Xlint:-unused,_") },
     mdocVariables := Map(
       "VERSION"                   -> release_version,
@@ -129,15 +137,13 @@ lazy val docs = project
 
 lazy val buildSettings = sharedBuildSettings(gh, libs)
 
-lazy val commonSettings =
-  addCompilerPlugins(libs, "kind-projector") ++ sharedCommonSettings ++ scalacAllSettings ++ Seq(
-    organization := "com.github.artemkorsakov",
-    parallelExecution in Test := true,
-    crossScalaVersions := Seq(
-      libs.vers("scalac_2.12"),
-      libs.vers("scalac_2.13")
-    )
-  )
+lazy val commonSettings = sharedCommonSettings ++ Seq(
+  scalaVersion := (ThisBuild / scalaVersion).value,
+  crossScalaVersions := (ThisBuild / crossScalaVersions).value,
+  parallelExecution in Test := false,
+  developers := devs,
+  scalacOptions := scalacOptions.value.filterNot(_.startsWith("-Wunused")).filterNot(_.startsWith("-Ywarn-unused"))
+) ++ unidocCommonSettings
 
 lazy val commonJsSettings = Seq(scalaJSStage in Global := FastOptStage)
 
@@ -147,4 +153,10 @@ lazy val publishSettings = sharedPublishSettings(gh) ++ credentialSettings ++ sh
 
 lazy val scoverageSettings = sharedScoverageSettings(60)
 
-addCommandAlias("com", "all compile test:compile")
+lazy val algorithms = project
+  .settings(
+    moduleName := "algorithms-core",
+    commonSettings,
+    libraryDependencies ++= Dependencies.algorithms.value,
+    libs.dependencies("cats-core")
+  )
