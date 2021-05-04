@@ -84,6 +84,7 @@ lazy val platformM = module("platform", CrossType.Dummy)
 
 /** Docs - Generates and publishes the scaladoc API documents and the project web site. */
 lazy val docs = project
+  .dependsOn(algorithms)
   .configure(mkDocConfig(gh, rootSettings, Seq(), platformJVM, macrosJVM))
   .enablePlugins(MicrositesPlugin, ScalaUnidocPlugin)
   .settings(
@@ -158,5 +159,6 @@ lazy val algorithms = project
     moduleName := "algorithms-core",
     commonSettings,
     libraryDependencies ++= Dependencies.algorithms.value,
-    libs.dependencies("cats-core")
+    libs.dependencies("cats-core"),
+    libs.testDependencies("scalatest")
   )
