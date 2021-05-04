@@ -15,43 +15,7 @@ The following books, articles and resources served as a source for the algorithm
 
 Add the following to your build.sbt
 ```
-libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.1.1"
-```
-
-**Using**
-```scala
-import com.github.artemkorsakov.primes.Primes._
-import com.github.artemkorsakov.primes.PhiFunction._
-import com.github.artemkorsakov.combinatorics.BinomialCoefficient._
-import com.github.artemkorsakov.combinatorics.Coins._
-import com.github.artemkorsakov.combinatorics.Factorials._
-import com.github.artemkorsakov.divisors.ChineseRemainderTheorem
-import com.github.artemkorsakov.str.NumbersDescription._
-import com.github.artemkorsakov.str.RomanNumerals._
-
-val res0 = 1000999.isPrime
-// res0: Boolean = true
-
-val res1 = 87109.totient
-// res1: Long = 79180
-
-val res2 = binomialCoefficient(100, 68)
-// res2: BigInt = 143012501349174257560226775
-
-val res3 = 1000.partition
-// res3: BigInt = 24061467864032622473692149727991
-
-val res4 = 30.factorial
-// res4: BigInt = 265252859812191058636308480000000
-
-val res5 = ChineseRemainderTheorem.solution(Array(707, 527), Array(0, 5))
-// res5: BigInt = 258762
-
-val res6 = 1435.inEnglish
-// res6: Option[String] = Some(one thousand four hundred and thirty-five)
-
-val res7 = "MCMLXXXIV".toArabic
-// res7: Option[Long] = Some(1984)
+libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.1.2"
 ```
 
 ## Documentation
