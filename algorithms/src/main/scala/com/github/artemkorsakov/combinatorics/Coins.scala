@@ -33,6 +33,7 @@ class Coins(number: Int) {
     }
     p
   }
+
 }
 
 object Coins {
@@ -53,4 +54,20 @@ object Coins {
     */
   def optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(sum: Int): BigInt =
     sum.partition - 1
+
+  def partitions(n: Long): Seq[Seq[Long]] =
+    partitions(n, n)
+
+  private def partitions(n: Long, limit: Long): Seq[Seq[Long]] =
+    if (limit <= 0 || n < 0) {
+      Seq.empty[Seq[Long]]
+    } else if (n == 0) {
+      Seq(Seq.empty[Long])
+    } else if (n == 1) {
+      Seq(Seq(1))
+    } else if (limit == 1) {
+      Seq((1L to n).map(_ => 1))
+    } else {
+      partitions(n - limit, limit).map(seq => limit +: seq) ++ partitions(n, limit - 1)
+    }
 }

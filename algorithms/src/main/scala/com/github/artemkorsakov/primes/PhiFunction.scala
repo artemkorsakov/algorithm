@@ -1,14 +1,28 @@
 package com.github.artemkorsakov.primes
 
 class PhiFunction(n: Long) {
-  import Primes._
 
   /** Counts the positive integers up to a given integer n that are relatively prime to n.
     *
     * @see <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function">detailed description</a>
     */
-  def totient: Long =
-    n.primeFactorsWithPow.keySet.foldLeft(n)((b, p) => b * (p - 1) / p)
+  def totient: Long = {
+    var mul    = n
+    var number = n
+    if (number % 2 == 0) {
+      while (number % 2 == 0) number /= 2
+      mul = mul / 2
+    }
+    var i = 3L
+    while (number > 1) {
+      if (number % i == 0) {
+        while (number % i == 0) number /= i
+        mul = (i - 1) * mul / i
+      }
+      i += 2
+    }
+    mul
+  }
 }
 
 object PhiFunction {

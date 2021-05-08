@@ -6,6 +6,59 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
 
 class OtherNumbersSuite extends AnyFunSuiteLike {
+  test("bernoulli") {
+    val expectedNumerators: IndexedSeq[BigDecimal] = IndexedSeq(
+      1,
+      -1,
+      1,
+      0,
+      -1,
+      0,
+      1,
+      0,
+      -1,
+      0,
+      5,
+      0,
+      -691,
+      0,
+      7,
+      0,
+      -3617,
+      0,
+      43867,
+      0,
+      -174611,
+      0,
+      854513,
+      0,
+      -236364091,
+      0,
+      8553103,
+      0,
+      -23749461029L,
+      0,
+      8615841276005L,
+      0,
+      -7709321041217L,
+      0,
+      2577687858367L,
+      0,
+      BigDecimal("-26315271553053477373"),
+      0,
+      2929993913841559L,
+      0,
+      BigDecimal("-261082718496449122051")
+    )
+    val expectedDenominators: IndexedSeq[BigDecimal] =
+      IndexedSeq(1, 2, 6, 1, 30, 1, 42, 1, 30, 1, 66, 1, 2730, 1, 6, 1, 510, 1, 798, 1, 330, 1, 138, 1, 2730, 1, 6, 1,
+        870, 1, 14322, 1, 510, 1, 6, 1, 1919190, 1, 6, 1, 13530)
+
+    forAll(expectedNumerators.indices) { i =>
+      (math.abs((bernoulli(i) - expectedNumerators(i) / expectedDenominators(i)).toDouble) <= 1e-5).shouldBe(true)
+    }
+  }
+
   test("padovan") {
     val expected: IndexedSeq[BigInt] = IndexedSeq(1, 0, 0, 1, 0, 1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 12, 16, 21, 28, 37, 49,
       65, 86, 114, 151, 200, 265, 351, 465, 616, 816, 1081, 1432, 1897, 2513, 3329, 4410, 5842, 7739, 10252, 13581,

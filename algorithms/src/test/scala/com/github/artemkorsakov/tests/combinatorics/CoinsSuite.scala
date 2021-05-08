@@ -1,5 +1,6 @@
 package com.github.artemkorsakov.tests.combinatorics
 
+import com.github.artemkorsakov.combinatorics.Coins
 import com.github.artemkorsakov.combinatorics.Coins._
 import org.scalatest.funsuite.AnyFunSuiteLike
 import org.scalatest.matchers.should.Matchers._
@@ -17,6 +18,19 @@ class CoinsSuite extends AnyFunSuiteLike {
     10.partition shouldBe 42
     100.partition shouldBe 190569292
     1000.partition shouldBe BigInt("24061467864032622473692149727991")
+  }
+
+  test("partitions") {
+    Coins.partitions(4) shouldBe Seq(Seq(4), Seq(3, 1), Seq(2, 2), Seq(2, 1, 1), Seq(1, 1, 1, 1))
+    Coins.partitions(5) shouldBe Seq(
+      Seq(5),
+      Seq(4, 1),
+      Seq(3, 2),
+      Seq(3, 1, 1),
+      Seq(2, 2, 1),
+      Seq(2, 1, 1, 1),
+      Seq(1, 1, 1, 1, 1)
+    )
   }
 
   test("optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers") {

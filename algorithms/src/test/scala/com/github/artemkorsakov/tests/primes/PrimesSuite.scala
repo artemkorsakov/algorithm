@@ -81,6 +81,12 @@ class PrimesSuite extends AnyFunSuiteLike {
     777111.primeFactorsWithPow shouldBe Map(3 -> 1, 37 -> 1, 7001 -> 1)
   }
 
+  test("primeFactors") {
+    primeFactors(1000) shouldBe Set(2, 5)
+    primeFactors(1024) shouldBe Set(2)
+    primeFactors(777111) shouldBe Set(3, 37, 7001)
+  }
+
   test("goldbach") {
     28.goldbach shouldBe ((5, 23))
   }

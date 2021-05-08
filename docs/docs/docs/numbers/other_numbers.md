@@ -4,6 +4,25 @@ title: "Other numbers"
 realization: numbers/OtherNumbers.scala
 ---
 
+### bernoulli
+
+[Bernoulli number](https://en.wikipedia.org/wiki/Bernoulli_number)
+
+**Algorithm**
+
+**Complexity**
+
+**Sources**
+- [Bernoulli number](https://en.wikipedia.org/wiki/Bernoulli_number)
+
+**Using**
+```scala mdoc
+import com.github.artemkorsakov.numbers.OtherNumbers.bernoulli
+(0 to 5).map(bernoulli)
+```
+
+---
+
 ### padovan
 
 Padovan sequence (or Padovan numbers):

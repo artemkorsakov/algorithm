@@ -20,6 +20,7 @@ class PhiFunctionSuite extends AnyFunSuiteLike {
     87109.totient shouldBe 79180
     284029.totient shouldBe 282940
     9983167.totient shouldBe 9973816
+    5654317604L.totient shouldBe 2609145504L
   }
 
   test("totientArray") {

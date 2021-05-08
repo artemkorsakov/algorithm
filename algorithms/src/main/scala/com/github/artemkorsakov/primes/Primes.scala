@@ -1,5 +1,7 @@
 package com.github.artemkorsakov.primes
 
+import scala.collection.mutable
+
 class Primes(n: Long) {
   import Primes._
 
@@ -168,6 +170,28 @@ object Primes {
       }
 
     result
+  }
+
+  def primeFactors(n: Long): Set[Long] = {
+    val set    = mutable.HashSet.empty[Long]
+    var number = math.abs(n)
+    if (number % 2 == 0) {
+      while (number % 2 == 0) number /= 2
+      set += 2L
+    }
+    if (number % 3 == 0) {
+      while (number % 3 == 0) number /= 3
+      set += 3L
+    }
+    var i = 5L
+    while (number > 1) {
+      if (number % i == 0) {
+        while (number % i == 0) number /= i
+        set += i
+      }
+      i += (if (i % 6 == 5) 2 else 4)
+    }
+    set.toSet
   }
 
 }

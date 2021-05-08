@@ -1,14 +1,30 @@
 package com.github.artemkorsakov.numbers
 
+import com.github.artemkorsakov.combinatorics.BinomialCoefficient.binomialCoefficient
+
 import scala.collection.mutable
 import scala.math.BigInt
 
 object OtherNumbers {
-  private val padovanMap: mutable.Map[Int, BigInt]    = mutable.Map((0, 1), (1, 0), (2, 0))
-  private val jacobsthalMap: mutable.Map[Int, BigInt] = mutable.Map((0, 0), (1, 1))
-  private val pellMap: mutable.Map[Int, BigInt]       = mutable.Map((0, 0), (1, 1))
-  private val tribonacciMap: mutable.Map[Int, BigInt] = mutable.Map((0, 0), (1, 0), (2, 1))
-  private val tetranacciMap: mutable.Map[Int, BigInt] = mutable.Map((0, 0), (1, 0), (2, 0), (3, 1))
+  private val bernoulliMap: mutable.Map[Int, BigDecimal] = mutable.Map((0, BigDecimal(1)))
+  private val padovanMap: mutable.Map[Int, BigInt]       = mutable.Map((0, 1), (1, 0), (2, 0))
+  private val jacobsthalMap: mutable.Map[Int, BigInt]    = mutable.Map((0, 0), (1, 1))
+  private val pellMap: mutable.Map[Int, BigInt]          = mutable.Map((0, 0), (1, 1))
+  private val tribonacciMap: mutable.Map[Int, BigInt]    = mutable.Map((0, 0), (1, 0), (2, 1))
+  private val tetranacciMap: mutable.Map[Int, BigInt]    = mutable.Map((0, 0), (1, 0), (2, 0), (3, 1))
+
+  /** <a href="https://en.wikipedia.org/wiki/Bernoulli_number">Bernoulli number</a> */
+  def bernoulli(k: Int): BigDecimal =
+    if (k == 1) {
+      BigDecimal(-0.5)
+    } else if (k % 2 == 1) {
+      BigDecimal(0)
+    } else {
+      bernoulliMap.getOrElseUpdate(
+        k,
+        0.5 - (2 to k by 2).map(l => bernoulli(k - l) * BigDecimal(binomialCoefficient(k + 1, l + 1))).sum / (k + 1)
+      )
+    }
 
   /** <a href="https://oeis.org/A000931">Padovan sequence (or Padovan numbers)</a>
     * : a<sub>n</sub> = a<sub>n-2</sub> + a<sub>n-3</sub> with a<sub>0</sub> = 1, a<sub>1</sub> = a<sub>2</sub> = 0.
