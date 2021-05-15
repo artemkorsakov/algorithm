@@ -52,9 +52,9 @@ object Coins {
     } else if (n == 0) {
       Seq(Seq.empty[Long])
     } else if (n == 1) {
-      Seq(Seq(1))
+      Seq(Seq(1L))
     } else if (limit == 1) {
-      Seq((1L to n).map(_ => 1))
+      Seq((1L to n).map(_ => 1L))
     } else {
       partitionsSeq(n - limit)(limit).map(seq => limit +: seq) ++ partitionsSeq(n)(limit - 1)
     }

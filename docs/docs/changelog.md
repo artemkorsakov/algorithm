@@ -6,6 +6,13 @@ position: 99
 
 ### {{page.title}}
 
+#### [v0.1.3](https://github.com/artemkorsakov/algorithms/releases/tag/v0.1.3)
+
+**Features:**
+- Some refactor.
+
+---
+
 #### [v0.1.2](https://github.com/artemkorsakov/algorithms/releases/tag/v0.1.2)
 
 **Features:**

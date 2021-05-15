@@ -52,6 +52,7 @@ Arabic number to Roman.
 
 **Using**
 ```scala mdoc
+import com.github.artemkorsakov.str.ArabicNumerals._
 toRoman(1984)
 ```
 

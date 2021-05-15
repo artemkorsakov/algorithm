@@ -15,7 +15,7 @@ The following books, articles and resources served as a source for the algorithm
 
 Add the following to your build.sbt
 ```
-libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.1.2"
+libraryDependencies += "com.github.artemkorsakov" %% "algorithms-core" % "0.1.3"
 ```
 
 ## Documentation

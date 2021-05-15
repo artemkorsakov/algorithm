@@ -25,6 +25,7 @@ inRussian(999999)
 ```
 ```scala mdoc
 import com.github.artemkorsakov.str.RomanNumerals._
+import com.github.artemkorsakov.str.ArabicNumerals._
 toMinimalRomanNumeral("MCCCCCCVI")
 toArabic("MCMLXXXIV")
 toRoman(1984)
