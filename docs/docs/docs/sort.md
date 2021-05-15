@@ -12,27 +12,27 @@ You can use the package, for example, like this:
 import com.github.artemkorsakov.sort.Sorting._
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.insertionSort()
+  insertionSort(array)
   array
 }
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.insertionSortReverse()
+  insertionSortReverse(array)
   array
 }
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.selectionSort()
+  selectionSort(array)
   array
 }
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.selectionSortReverse()
+  selectionSortReverse(array)
   array
 }
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.mergeSort()
+  mergeSort(array)
   array
 }
 ```

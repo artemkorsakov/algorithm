@@ -5,8 +5,10 @@ import com.github.artemkorsakov.primes.Primes.primes
 /** A positive number is a generalised <a href="https://en.wikipedia.org/wiki/Regular_number">Hamming number</a> of type n,
   * if it has no prime factor larger than n.
   */
-case class HammingNumber(number: Long) {
-  def isHammingNumber(n: Int): Boolean =
+object HammingNumber {
+  def isHammingNumber(number: Int, n: Int): Boolean = isHammingNumber(number.toLong, n)
+
+  def isHammingNumber(number: Long, n: Int): Boolean =
     if (number < 2 || number <= n) {
       true
     } else if (n < 2) {
@@ -27,9 +29,4 @@ case class HammingNumber(number: Long) {
       }
       isHamming
     }
-}
-
-object HammingNumber {
-  implicit def int2HammingNumber(number: Int): HammingNumber   = HammingNumber(number.toLong)
-  implicit def long2HammingNumber(number: Long): HammingNumber = HammingNumber(number)
 }

@@ -21,7 +21,7 @@ realization: sort/Sorting.scala
 import com.github.artemkorsakov.sort.Sorting._
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.insertionSort()
+  insertionSort(array)
   array
 }
 ```
@@ -42,7 +42,7 @@ import com.github.artemkorsakov.sort.Sorting._
 ```scala mdoc
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.insertionSortReverse()
+  insertionSortReverse(array)
   array
 }
 ```
@@ -63,7 +63,7 @@ import com.github.artemkorsakov.sort.Sorting._
 ```scala mdoc
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.selectionSort()
+  selectionSort(array)
   array
 }
 ```
@@ -84,7 +84,7 @@ import com.github.artemkorsakov.sort.Sorting._
 ```scala mdoc
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.selectionSortReverse()
+  selectionSortReverse(array)
   array
 }
 ```
@@ -105,7 +105,7 @@ import com.github.artemkorsakov.sort.Sorting._
 ```scala mdoc
 {
   val array = Array(5, 2, 4, 6, 1, 3)
-  array.mergeSort()
+  mergeSort(array)
   array
 }
 ```

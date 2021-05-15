@@ -13,8 +13,8 @@ import com.github.artemkorsakov.operations.CommonOperations._
 sumToGiven(1000000)
 sumOfSquaresTo(1000)
 sumOfCubesTo(1000)
-1000.sqrt
-36.isSquare
+sqrt(1000)
+isSquare(36)
 allSquares(2)
 allSquares(1024, 1444)
 allNumbersVariants(Set(2, 3, 5))

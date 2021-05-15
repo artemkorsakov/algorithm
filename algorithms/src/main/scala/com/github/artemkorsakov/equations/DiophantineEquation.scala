@@ -9,7 +9,7 @@ case class DiophantineEquation(d: Int) {
     * is a cyclic algorithm to solve indeterminate quadratic equations.
     */
   def minimalEquation: Option[(BigInt, BigInt)] =
-    if (d.isSquare) {
+    if (isSquare(d.toLong)) {
       None
     } else {
       val a         = BigInt(math.round(math.sqrt(d.toDouble)))

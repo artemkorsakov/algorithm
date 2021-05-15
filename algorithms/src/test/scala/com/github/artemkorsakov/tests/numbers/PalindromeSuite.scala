@@ -6,19 +6,19 @@ import org.scalatest.matchers.should.Matchers._
 
 class PalindromeSuite extends AnyFunSuiteLike {
   test("isPalindrome") {
-    1100.isPalindrome shouldBe false
-    10.isPalindrome shouldBe false
-    4994.isPalindrome shouldBe true
-    BigInt("4668731596684224866951378664").isPalindrome shouldBe true
-    BigInt("4668731596684224866951378665").isPalindrome shouldBe false
+    isPalindrome(1100) shouldBe false
+    isPalindrome(10) shouldBe false
+    isPalindrome(4994) shouldBe true
+    isPalindrome(BigInt("4668731596684224866951378664")) shouldBe true
+    isPalindrome(BigInt("4668731596684224866951378665")) shouldBe false
   }
 
   test("isPalindromeByBase") {
-    3.isPalindrome(2) shouldBe true
-    4.isPalindrome(2) shouldBe false
-    15.isPalindrome(2) shouldBe true
-    26.isPalindrome(3) shouldBe true
-    63.isPalindrome(4) shouldBe true
-    4994.isPalindrome(2) shouldBe false
+    isPalindrome(3, 2) shouldBe true
+    isPalindrome(4, 2) shouldBe false
+    isPalindrome(15, 2) shouldBe true
+    isPalindrome(26, 3) shouldBe true
+    isPalindrome(63, 4) shouldBe true
+    isPalindrome(4994, 2) shouldBe false
   }
 }

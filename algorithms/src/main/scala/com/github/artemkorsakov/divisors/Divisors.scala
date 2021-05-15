@@ -17,7 +17,7 @@ object Divisors {
     * @see <a href="https://en.wikipedia.org/wiki/Divisor_function">detailed description</a>
     */
   def sumOfDivisors(number: Long): BigInt = {
-    val primeDivisors = number.primeFactorsWithPow
+    val primeDivisors = primeFactorsWithPow(number)
     primeDivisors.keySet.foldLeft(BigInt(1)) { (mul, prime) =>
       val num = BigInt(prime).pow(primeDivisors(prime).toInt + 1) - 1
       val den = BigInt(prime) - 1
@@ -28,7 +28,7 @@ object Divisors {
   /** Return the count of divisors of n.
     */
   def countOfDivisors(number: Long): Long =
-    number.primeFactorsWithPow.values.foldLeft(1L)((mul, a) => mul * (a + 1))
+    primeFactorsWithPow(number).values.foldLeft(1L)((mul, a) => mul * (a + 1))
 
   def gcd(linearSeq: LinearSeq[Long]): Long =
     linearSeq.headOption match {

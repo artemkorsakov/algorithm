@@ -24,7 +24,7 @@ Return the product of distinct prime factors of n.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.primes.Radicals._
-504.rad
+rad(504)
 ```
 
 ---
@@ -60,8 +60,8 @@ Return `true` if number is [a square-free integer](https://en.wikipedia.org/wiki
 
 **Using**
 ```scala mdoc
-20.isSquareFree
-21.isSquareFree
+isSquareFree(20)
+isSquareFree(21)
 ```
 
 ---

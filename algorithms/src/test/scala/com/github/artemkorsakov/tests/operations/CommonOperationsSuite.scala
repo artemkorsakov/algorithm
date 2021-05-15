@@ -18,15 +18,15 @@ class CommonOperationsSuite extends AnyFunSuiteLike {
   }
 
   test("sqrt") {
-    (81.sqrt - 9) < 1e-5 shouldBe true
-    (1e60.sqrt - 1e30) < 1e-5 shouldBe true
-    (1e-6.sqrt - 0.001) < 1e-5 shouldBe true
+    (sqrt(81) - 9) < 1e-5 shouldBe true
+    (sqrt(1e60) - 1e30) < 1e-5 shouldBe true
+    (sqrt(1e-6) - 0.001) < 1e-5 shouldBe true
   }
 
   test("isSquare") {
-    36.isSquare shouldBe true
-    35.isSquare shouldBe false
-    37.isSquare shouldBe false
+    isSquare(36) shouldBe true
+    isSquare(35) shouldBe false
+    isSquare(37) shouldBe false
   }
 
   test("allSquares") {

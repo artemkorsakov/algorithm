@@ -21,7 +21,7 @@ Counts the positive integers up to a given integer n that are relatively prime t
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.primes.PhiFunction._
-87109.totient
+totient(87109)
 ```
 
 ---

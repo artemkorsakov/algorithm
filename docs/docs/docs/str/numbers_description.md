@@ -19,8 +19,8 @@ Number description [in English](https://en.wikipedia.org/wiki/English_numerals).
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.str.NumbersDescription._
-1435.inEnglish
-999999.inEnglish
+inEnglish(1435)
+inEnglish(999999)
 ```
 
 ---
@@ -36,8 +36,8 @@ Number description in Russian.
 
 **Using**
 ```scala mdoc:to-string
-11011435.inRussian
-999999.inRussian
+inRussian(11011435)
+inRussian(999999)
 ```
 
 ---

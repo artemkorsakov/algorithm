@@ -2,16 +2,15 @@ package com.github.artemkorsakov.str
 
 import cats.implicits._
 import com.github.artemkorsakov.str.RomanNumeralSymbol._
-import com.github.artemkorsakov.str.RomanNumerals._
 
 /** Roman Numerals.
   *
   * @see <a href="https://en.wikipedia.org/wiki/Roman_numerals">Roman Numerals</a>
   * @see <a href="https://projecteuler.net/about=roman_numerals">About Roman Numerals</a>
   */
-class RomanNumerals(roman: String) {
+object RomanNumerals {
 
-  lazy val toMinimalRomanNumeral: Option[String] = {
+  def toMinimalRomanNumeral(roman: String): Option[String] =
     if (roman.exists(ch => toRomanNumeralSymbol(ch.toString).isEmpty)) {
       None
     } else {
@@ -30,10 +29,9 @@ class RomanNumerals(roman: String) {
         .replaceAll("CCCC", "CD")
         .some
     }
-  }
 
-  lazy val toArabic: Option[Long] = {
-    val min = toMinimalRomanNumeral
+  def toArabic(roman: String): Option[Long] = {
+    val min = toMinimalRomanNumeral(roman)
     if (min.isEmpty) {
       None
     } else {
@@ -51,19 +49,14 @@ class RomanNumerals(roman: String) {
 
 }
 
-class ArabicNumerals(number: Long) {
-  lazy val toRoman: Option[String] =
+object ArabicNumerals {
+  def toRoman(number: Long): Option[String] =
     if (number < 0) {
       None
     } else if (number == 0) {
       "".some
     } else {
       val max = RomanNumeralSymbol.values.filter(v => v.id <= number).maxBy(_.id)
-      max.toString.some |+| (number - max.id).toRoman
+      max.toString.some |+| toRoman(number - max.id)
     }
-}
-
-object RomanNumerals {
-  implicit def string2RomanNumerals(roman: String): RomanNumerals = new RomanNumerals(roman)
-  implicit def long2ArabicNumerals(arabic: Long): ArabicNumerals  = new ArabicNumerals(arabic)
 }

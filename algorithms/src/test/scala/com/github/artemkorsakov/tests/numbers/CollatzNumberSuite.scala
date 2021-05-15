@@ -6,9 +6,9 @@ import org.scalatest.matchers.should.Matchers._
 
 class CollatzNumberSuite extends AnyFunSuiteLike {
   test("collatz") {
-    1.collatz shouldBe 0
-    3.collatz shouldBe 7
-    19.collatz shouldBe 20
-    27.collatz shouldBe 111
+    collatz(1) shouldBe 0
+    collatz(3) shouldBe 7
+    collatz(19) shouldBe 20
+    collatz(27) shouldBe 111
   }
 }

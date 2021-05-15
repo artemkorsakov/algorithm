@@ -20,12 +20,12 @@ Is the given number a palindrome in the base **n** system?
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.Palindrome._
-BigInt("4668731596684224866951378664").isPalindrome
-4994.isPalindrome
-4994.isPalindrome(2)
-15.isPalindrome(2)
-26.isPalindrome(3)
-63.isPalindrome(4)
+isPalindrome(BigInt("4668731596684224866951378664"))
+isPalindrome(4994)
+isPalindrome(4994, 2)
+isPalindrome(15, 2)
+isPalindrome(26, 3)
+isPalindrome(63, 4)
 ```
 
 ---

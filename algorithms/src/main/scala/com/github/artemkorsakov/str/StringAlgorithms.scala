@@ -3,14 +3,6 @@ package com.github.artemkorsakov.str
 class StringAlgorithms(str: String) {
   def sum(second: String): String = StringAlgorithms.sum(str, second)
   def |+|(second: String): String = sum(second)
-
-  /** Gets the alphabetical value.
-    *
-    * @see <a href="https://projecteuler.net/problem=22">Project Euler Problem 22</a>
-    */
-  def alphabeticalValue: Int =
-    str.replaceAll("\\W", "").toUpperCase().foldLeft(0)((sum, aChar) => sum + (aChar - 'A') + 1)
-
 }
 
 object StringAlgorithms {
@@ -38,5 +30,12 @@ object StringAlgorithms {
     */
   def areAnagrams(word1: String, word2: String): Boolean =
     (word1.length == word2.length) && word1.toCharArray.sorted.sameElements(word2.toCharArray.sorted)
+
+  /** Gets the alphabetical value.
+    *
+    * @see <a href="https://projecteuler.net/problem=22">Project Euler Problem 22</a>
+    */
+  def alphabeticalValue(str: String): Int =
+    str.replaceAll("\\W", "").toUpperCase().foldLeft(0)((sum, aChar) => sum + (aChar - 'A') + 1)
 
 }

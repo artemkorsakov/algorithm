@@ -4,29 +4,26 @@ import com.github.artemkorsakov.digital.Digits._
 import com.github.artemkorsakov.primes.Primes._
 
 /** <a href="https://en.wikipedia.org/wiki/Harshad_number">Harshad number</a> */
-case class HarshadNumber(number: Long) {
+object HarshadNumber {
+  def isHarshadNumber(number: Int): Boolean = isHarshadNumber(number.toLong)
 
   /** A harshad number is an integer that is divisible by the sum of its digits. */
-  def isHarshadNumber: Boolean =
-    number % sumOfDigits(number) == 0
+  def isHarshadNumber(number: Long): Boolean = number % sumOfDigits(number) == 0
+
+  def isStrongHarshadNumber(number: Int): Boolean = isStrongHarshadNumber(number.toLong)
 
   /** A strong Harshad number is a harshad number that, when divided by the sum of its digits, results in a prime. */
-  def isStrongHarshadNumber: Boolean = {
+  def isStrongHarshadNumber(number: Long): Boolean = {
     val sod = sumOfDigits(number)
-    number % sod == 0 && (number / sod).isPrime
+    number % sod == 0 && isPrime(number / sod)
   }
-}
-
-object HarshadNumber {
-  implicit def int2HarshadNumber(n: Int): HarshadNumber  = new HarshadNumber(n.toLong)
-  implicit def int2HarshadNumber(n: Long): HarshadNumber = new HarshadNumber(n)
 
   /** Return all strong, right truncatable Harshad primes less than 10<sup>p</sup>. */
   def getStrongRightTruncatableHarshadPrimes(p: Int): Seq[Long] = {
     var harshadNumbers = Seq(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L)
     (1 until p - 1).flatMap { _ =>
       harshadNumbers = rightTruncatableHarshadNumbers(harshadNumbers)
-      harshadNumbers.withFilter(_.isStrongHarshadNumber).flatMap(strongRightTruncatableHarshadPrimes)
+      harshadNumbers.withFilter(isStrongHarshadNumber).flatMap(strongRightTruncatableHarshadPrimes)
     }
   }
 
@@ -35,7 +32,7 @@ object HarshadNumber {
     * Let's call such primes strong, right truncatable Harshad primes.
     */
   private def strongRightTruncatableHarshadPrimes(strongHarshadNumber: Long): Seq[Long] =
-    (1 to 9 by 2).withFilter(i => (strongHarshadNumber * 10 + i).isPrime).map(strongHarshadNumber * 10 + _)
+    (1 to 9 by 2).withFilter(i => isPrime(strongHarshadNumber * 10 + i)).map(strongHarshadNumber * 10 + _)
 
   /** A Harshad or Niven number is a number that is divisible by the sum of its digits.
     * 201 is a Harshad number because it is divisible by 3 (the sum of its digits.)

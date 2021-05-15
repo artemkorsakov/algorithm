@@ -10,25 +10,26 @@ The package ```com.github.artemkorsakov.primes``` contains algorithms for workin
 You can use the package, for example, like this:
 ```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-1000999.isPrime
-1000999.nextPrime
+isPrime(1000999)
+nextPrime(1000999)
 isPrimeArray(6)
 primes(10)
 generatePrimes(10)
-600851475143L.largestPrimeFactor
-10965021787L.smallestPrimeFactor
+largestPrimeFactor(600851475143L)
+smallestPrimeFactor(10965021787L)
 smallestPrimeFactorArray(10)
-1000.primeFactorsWithPow
-1024.goldbach
+primeFactorsWithPow(1000)
+goldbach(1024)
+isKPrime(2627408, 6)
 ```
 ```scala mdoc
 import com.github.artemkorsakov.primes.PhiFunction._
-87109.totient
+totient(87109)
 totientArray(10)
 ```
 ```scala mdoc
 import com.github.artemkorsakov.primes.Radicals._
-504.rad
+rad(504)
 allRads(10) 
-21.isSquareFree
+isSquareFree(21)
 ```

@@ -6,8 +6,8 @@ import org.scalatest.matchers.should.Matchers._
 
 class HammingNumberSuite extends AnyFunSuiteLike {
   test("isHammingNumber") {
-    2125764000.isHammingNumber(5) shouldBe true
-    2125764000.isHammingNumber(7) shouldBe true
-    2125764000.isHammingNumber(3) shouldBe false
+    isHammingNumber(2125764000, 5) shouldBe true
+    isHammingNumber(2125764000, 7) shouldBe true
+    isHammingNumber(2125764000, 3) shouldBe false
   }
 }

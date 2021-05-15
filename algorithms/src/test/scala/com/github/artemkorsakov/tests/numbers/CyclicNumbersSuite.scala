@@ -13,36 +13,37 @@ class CyclicNumbersSuite extends AnyFunSuiteLike {
   private val FIRST_OCTAGONAL   = Array(1, 8, 21, 40, 65, 96)
 
   test("check methods") {
-    (1 to 13).forall(i => i.triangleNumber == FIRST_TRIANGLES(i - 1)) shouldBe true
-    (1 to 9).forall(i => i.squareNumber == FIRST_SQUARE(i - 1)) shouldBe true
-    (1 to 8).forall(i => i.pentagonalNumber == FIRST_PENTAGONALS(i - 1)) shouldBe true
-    (1 to 7).forall(i => i.hexagonalNumber == FIRST_HEXAGONALS(i - 1)) shouldBe true
-    (1 to 6).forall(i => i.heptagonalNumber == FIRST_HEPTAGONAL(i - 1)) shouldBe true
-    (1 to 6).forall(i => i.octagonalNumber == FIRST_OCTAGONAL(i - 1)) shouldBe true
+    (1 to 13).forall(i => triangleNumber(i) == FIRST_TRIANGLES(i - 1)) shouldBe true
+    (1 to 9).forall(i => squareNumber(i) == FIRST_SQUARE(i - 1)) shouldBe true
+    (1 to 8).forall(i => pentagonalNumber(i) == FIRST_PENTAGONALS(i - 1)) shouldBe true
+    (1 to 7).forall(i => hexagonalNumber(i) == FIRST_HEXAGONALS(i - 1)) shouldBe true
+    (1 to 6).forall(i => heptagonalNumber(i) == FIRST_HEPTAGONAL(i - 1)) shouldBe true
+    (1 to 6).forall(i => octagonalNumber(i) == FIRST_OCTAGONAL(i - 1)) shouldBe true
 
     for (i <- 1 until 100) {
-      i.isTriangle shouldBe FIRST_TRIANGLES.contains(i)
-      i.isSquare shouldBe FIRST_SQUARE.contains(i)
-      i.isPentagonal shouldBe FIRST_PENTAGONALS.contains(i)
-      i.isHexagonal shouldBe FIRST_HEXAGONALS.contains(i)
-      i.isHeptagonal shouldBe FIRST_HEPTAGONAL.contains(i)
-      i.isOctagonal shouldBe FIRST_OCTAGONAL.contains(i)
+      isTriangle(i) shouldBe FIRST_TRIANGLES.contains(i)
+      isSquare(i) shouldBe FIRST_SQUARE.contains(i)
+      isPentagonal(i) shouldBe FIRST_PENTAGONALS.contains(i)
+      isHexagonal(i) shouldBe FIRST_HEXAGONALS.contains(i)
+      isHeptagonal(i) shouldBe FIRST_HEPTAGONAL.contains(i)
+      isOctagonal(i) shouldBe FIRST_OCTAGONAL.contains(i)
     }
 
-    5482660.isPentagonal shouldBe true
-    7042750.isPentagonal shouldBe true
-    1560090.isPentagonal shouldBe true
-    8602840.isPentagonal shouldBe true
+    isPentagonal(5482660) shouldBe true
+    isPentagonal(7042750) shouldBe true
+    isPentagonal(1560090) shouldBe true
+    isPentagonal(8602840) shouldBe true
 
-    40755.isPentagonal shouldBe true
-    40755.isTriangle shouldBe true
-    40755.isHexagonal shouldBe true
+    isPentagonal(40755) shouldBe true
+    isTriangle(40755) shouldBe true
+    isHexagonal(40755) shouldBe true
 
-    8256.isTriangle shouldBe true
-    5625.isSquare shouldBe true
-    2882.isPentagonal shouldBe true
-    8128.isHexagonal shouldBe true
-    2512.isHeptagonal shouldBe true
-    1281.isOctagonal shouldBe true
+    isTriangle(8256) shouldBe true
+    isSquare(5625) shouldBe true
+    isPentagonal(2882) shouldBe true
+    isHexagonal(8128) shouldBe true
+    isHeptagonal(2512) shouldBe true
+    isOctagonal(1281) shouldBe true
   }
+
 }

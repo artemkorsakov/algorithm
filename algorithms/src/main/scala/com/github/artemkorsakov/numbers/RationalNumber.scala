@@ -4,7 +4,7 @@ import com.github.artemkorsakov.divisors.Divisors.gcd
 
 /** <a href="https://en.wikipedia.org/wiki/Rational_number">Rational number</a> or <a href="https://en.wikipedia.org/wiki/Fraction_(mathematics)">Fraction</a>
   */
-class RationalNumber(x: BigInt, y: BigInt) {
+case class RationalNumber(x: BigInt, y: BigInt) {
   require(y != 0, "denominator can't be 0")
 
   val tuple: (BigInt, BigInt) =

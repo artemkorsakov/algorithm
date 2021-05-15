@@ -18,9 +18,9 @@ if it has no prime factor larger than n.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.HammingNumber._
-2125764000.isHammingNumber(5)
-2125764000.isHammingNumber(7)
-2125764000.isHammingNumber(3)
+isHammingNumber(2125764000, 5)
+isHammingNumber(2125764000, 7)
+isHammingNumber(2125764000, 3)
 ```
 
 ---

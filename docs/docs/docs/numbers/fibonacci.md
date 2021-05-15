@@ -28,8 +28,10 @@ The beginning of the sequence is thus:
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.Fibonacci._
-(1 to 6).map(i => i.fibonacci)
-100.fibonacci
+(1 to 6).map(fibonacci)
+fibonacci(100)
+(1 to 6).map(approximateFibonacci)
+approximateFibonacci(100)
 ```
 
 ---
@@ -46,8 +48,8 @@ import com.github.artemkorsakov.numbers.Fibonacci._
 
 **Using**
 ```scala mdoc
-20.fibonacciMatrix
-1000000000000000L.fibonacciMatrix(1307674368000L)
+fibonacciMatrix(20)
+fibonacciMatrix(1000000000000000L, 1307674368000L)
 ```
 
 ---

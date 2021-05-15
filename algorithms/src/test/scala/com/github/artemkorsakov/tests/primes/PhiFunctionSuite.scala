@@ -6,25 +6,25 @@ import org.scalatest.matchers.should.Matchers._
 
 class PhiFunctionSuite extends AnyFunSuiteLike {
   test("totient") {
-    1.totient shouldBe 1
-    2.totient shouldBe 1
-    3.totient shouldBe 2
-    4.totient shouldBe 2
-    5.totient shouldBe 4
-    6.totient shouldBe 2
-    7.totient shouldBe 6
-    8.totient shouldBe 4
-    9.totient shouldBe 6
-    10.totient shouldBe 4
+    totient(1) shouldBe 1
+    totient(2) shouldBe 1
+    totient(3) shouldBe 2
+    totient(4) shouldBe 2
+    totient(5) shouldBe 4
+    totient(6) shouldBe 2
+    totient(7) shouldBe 6
+    totient(8) shouldBe 4
+    totient(9) shouldBe 6
+    totient(10) shouldBe 4
 
-    87109.totient shouldBe 79180
-    284029.totient shouldBe 282940
-    9983167.totient shouldBe 9973816
-    5654317604L.totient shouldBe 2609145504L
+    totient(87109) shouldBe 79180
+    totient(284029) shouldBe 282940
+    totient(9983167) shouldBe 9973816
+    totient(5654317604L) shouldBe 2609145504L
   }
 
   test("totientArray") {
     val phiArray = totientArray(10000)
-    phiArray.zipWithIndex.forall(t => t._1 == t._2.totient) shouldBe true
+    phiArray.zipWithIndex.forall(t => t._1 == totient(t._2)) shouldBe true
   }
 }

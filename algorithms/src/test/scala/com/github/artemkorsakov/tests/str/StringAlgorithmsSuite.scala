@@ -23,11 +23,11 @@ class StringAlgorithmsSuite extends AnyFunSuiteLike {
   }
 
   test("alphabeticalValue") {
-    "test".alphabeticalValue shouldBe 64
-    "COLIN".alphabeticalValue shouldBe 53
-    "\"COLIN\"".alphabeticalValue shouldBe 53
-    "COL'IN".alphabeticalValue shouldBe 53
-    "SKY".alphabeticalValue shouldBe 55
+    alphabeticalValue("test") shouldBe 64
+    alphabeticalValue("COLIN") shouldBe 53
+    alphabeticalValue("\"COLIN\"") shouldBe 53
+    alphabeticalValue("COL'IN") shouldBe 53
+    alphabeticalValue("SKY") shouldBe 55
   }
 
 }

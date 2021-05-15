@@ -2,12 +2,13 @@ package com.github.artemkorsakov.primes
 
 import scala.collection.mutable
 
-class Primes(n: Long) {
-  import Primes._
+object Primes {
+
+  def isPrime(n: Int): Boolean = isPrime(n.toLong)
 
   /** Determines if the given integer is prime.
     */
-  def isPrime: Boolean =
+  def isPrime(n: Long): Boolean =
     if (n < 2) false
     else if (n < 4) true
     else if (n % 2 == 0) false
@@ -20,23 +21,25 @@ class Primes(n: Long) {
       n                             % candidate != 0
     }
 
+  def nextPrime(n: Int): Long = nextPrime(n.toLong)
+
   /** Get next prime number for the given prime number.
     */
-  def nextPrime: Long =
+  def nextPrime(n: Long): Long =
     if (n == 2) {
       3
     } else if (n == 3) {
       5
     } else {
       var nextPrime = if (n % 3 == 1) n + 4 else n + 2
-      while (!nextPrime.isPrime)
+      while (!isPrime(nextPrime))
         nextPrime = if (nextPrime % 3 == 1) nextPrime + 4 else nextPrime + 2
       nextPrime
     }
 
   /** Get the largest prime factor.
     */
-  def largestPrimeFactor: Long = {
+  def largestPrimeFactor(n: Long): Long = {
     var max    = 1L
     var i      = 2L
     var number = n
@@ -46,7 +49,7 @@ class Primes(n: Long) {
         while (number % i == 0)
           number /= i
       }
-      i = i.nextPrime
+      i = nextPrime(i)
     }
 
     max
@@ -54,12 +57,12 @@ class Primes(n: Long) {
 
   /** Get the smallest prime factor.
     */
-  def smallestPrimeFactor: Long =
+  def smallestPrimeFactor(n: Long): Long =
     (2L to math.sqrt(n.toDouble).toLong).find(n % _ == 0).getOrElse(n)
 
   /** For a given number return all its prime factors with powers.
     */
-  def primeFactorsWithPow: Map[Long, Long] = {
+  def primeFactorsWithPow(n: Long): Map[Long, Long] = {
     var map = Map.empty[Long, Long]
 
     var i      = 2L
@@ -85,15 +88,10 @@ class Primes(n: Long) {
     * It has been numerically confirmed up to very large numbers (much larger than Scala's Int can represent).
     * Write a function to find the two prime numbers that sum up to a given even integer.
     */
-  def goldbach: (Long, Long) = {
-    val p = (2L to n / 2).find(p => p.isPrime && (n - p).isPrime).getOrElse(0L)
+  def goldbach(n: Long): (Long, Long) = {
+    val p = (2L to n / 2).find(p => isPrime(p) && isPrime(n - p)).getOrElse(0L)
     (p, n - p)
   }
-}
-
-object Primes {
-  implicit def long2PrimesLong(i: Long): Primes = new Primes(i)
-  implicit def int2PrimesLong(i: Int): Primes   = new Primes(i.toLong)
 
   /** Array of boolean values whether the array index is a prime number (Sieve of Eratosthenes).
     */
@@ -136,12 +134,12 @@ object Primes {
       var candidate = 5
       var tempCount = 2
       while (tempCount < count) {
-        if (candidate.isPrime) {
+        if (isPrime(candidate)) {
           result(tempCount) = candidate
           tempCount += 1
         }
         candidate += 2
-        if (result.isDefinedAt(tempCount) && candidate.isPrime) {
+        if (result.isDefinedAt(tempCount) && isPrime(candidate)) {
           result(tempCount) = candidate
           tempCount += 1
         }

@@ -19,10 +19,10 @@ Returns count of Collatz conjecture's steps.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.CollatzNumber._
-1.collatz
-3.collatz
-19.collatz
-27.collatz
+collatz(1)
+collatz(3)
+collatz(19)
+collatz(27)
 ```
 
 ---

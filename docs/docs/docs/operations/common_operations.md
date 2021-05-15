@@ -73,7 +73,7 @@ A square root of a number x.
 
 **Using**
 ```scala mdoc
-1000.sqrt
+sqrt(1000)
 ```
 
 ---
@@ -89,7 +89,7 @@ Is a number a square?
 
 **Using**
 ```scala mdoc
-36.isSquare
+isSquare(36)
 ```
 
 ---

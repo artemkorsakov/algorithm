@@ -20,9 +20,9 @@ A strong Harshad number is a harshad number that, when divided by the sum of its
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.HarshadNumber._
-1728.isHarshadNumber
-1729.isHarshadNumber
-1730.isHarshadNumber
+isHarshadNumber(1728)
+isHarshadNumber(1729)
+isHarshadNumber(1730)
 ```
 
 ---
@@ -38,9 +38,9 @@ A strong Harshad number is a harshad number that, when divided by the sum of its
 
 **Using**
 ```scala mdoc
-198.isStrongHarshadNumber
-1728.isStrongHarshadNumber
-1729.isStrongHarshadNumber
+isStrongHarshadNumber(198)
+isStrongHarshadNumber(1728)
+isStrongHarshadNumber(1729)
 ```
 
 ---

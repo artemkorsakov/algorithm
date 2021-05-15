@@ -59,7 +59,25 @@ areAnagrams("post", "stop")
 
 **Using**
 ```scala mdoc
-"\"COLIN\"".alphabeticalValue
+alphabeticalValue("\"COLIN\"")
+```
+
+---
+
+### lcs
+[Longest common subsequence problem](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem).
+
+**Algorithm**
+
+**Complexity**
+
+**Sources**
+- [Longest common subsequence problem](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem)
+
+**Using**
+```scala mdoc
+import com.github.artemkorsakov.str.Lcs
+Lcs.lcs("nothardlythefinaltest", "zzzfinallyzzz")
 ```
 
 ---

@@ -26,7 +26,7 @@ Determines if the given integer is prime.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.primes.Primes._
-1000999.isPrime
+isPrime(1000999)
 ```
 
 ---
@@ -46,7 +46,7 @@ Get next prime number for the given prime number.
 
 **Using**
 ```scala mdoc
-1000999.nextPrime
+nextPrime(1000999)
 ```
 
 ---
@@ -127,7 +127,7 @@ Get the largest prime factor.
 
 **Using**
 ```scala mdoc
-600851475143L.largestPrimeFactor
+largestPrimeFactor(600851475143L)
 ```
 
 ---
@@ -144,7 +144,7 @@ Get the smallest prime factor.
 
 **Using**
 ```scala mdoc
-10965021787L.smallestPrimeFactor
+smallestPrimeFactor(10965021787L)
 ```
 
 ---
@@ -184,8 +184,8 @@ For a given number return all its prime factors with powers.
 
 **Using**
 ```scala mdoc
-1000.primeFactorsWithPow
-1024.primeFactorsWithPow
+primeFactorsWithPow(1000)
+primeFactorsWithPow(1024)
 ```
 
 ---
@@ -206,8 +206,26 @@ Return the two prime numbers that sum up to a given even integer.
 
 **Using**
 ```scala mdoc
-28.goldbach
-1024.goldbach
+goldbach(28)
+goldbach(1024)
+```
+
+---
+
+### isKPrime
+A natural number is called k-prime if it has exactly k prime factors, counted with multiplicity.
+
+**Algorithm**
+
+**Complexity**
+
+**Sources**
+- [Codewars: k-Primes](https://www.codewars.com/kata/5726f813c8dcebf5ed000a6b/)
+
+**Using**
+```scala mdoc
+import com.github.artemkorsakov.primes.Primes._
+isKPrime(2627408, 6)
 ```
 
 ---

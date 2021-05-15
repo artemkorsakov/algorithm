@@ -13,7 +13,7 @@ case class QuadraticEquation(a: Double, b: Double, c: Double) {
     */
   def solutionsInIntegers: Seq[Long] = {
     val d = b * b - 4 * a * c
-    if (d < 0 || !d.isSquare) {
+    if (d < 0 || !d.isWhole || !isSquare(d.toLong)) {
       Seq.empty[Long]
     } else {
       val sqrt = math.round(math.sqrt(d))

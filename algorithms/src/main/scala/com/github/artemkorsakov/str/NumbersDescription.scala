@@ -1,9 +1,8 @@
 package com.github.artemkorsakov.str
 
 import cats.implicits._
-import com.github.artemkorsakov.str.NumbersDescription._
 
-class NumbersDescription(number: Long) {
+object NumbersDescription {
   private val hundred: Long     = 100
   private val thousand: Long    = 1000
   private val million: Long     = 1000000
@@ -13,7 +12,7 @@ class NumbersDescription(number: Long) {
 
   /** @see <a href="https://en.wikipedia.org/wiki/English_numerals">English numerals</a>
     */
-  def inEnglish: Option[String] =
+  def inEnglish(number: Long): Option[String] =
     number match {
       case n if n < 21 || (n < hundred && n % 10 == 0) => toEnglishBase(n)
       case n if n < hundred && n            % 10 > 0 =>
@@ -27,10 +26,10 @@ class NumbersDescription(number: Long) {
     }
 
   private def constructEnglish(n: Long, base: Long): Option[String] = {
-    val first  = (n / base).inEnglish |+| " ".some |+| toEnglishBase(base)
+    val first  = inEnglish(n / base) |+| " ".some |+| toEnglishBase(base)
     val rest   = n % base
     val art    = if (base == hundred) " and " else " "
-    val second = if (rest == 0) "".some else art.some |+| rest.inEnglish
+    val second = if (rest == 0) "".some else art.some |+| inEnglish(rest)
     first |+| second
   }
 
@@ -72,26 +71,26 @@ class NumbersDescription(number: Long) {
       case _              => None
     }
 
-  def inRussian: Option[String] =
+  def inRussian(number: Long): Option[String] =
     (number match {
       case n if n < 21 => toRussianBase(n)
       case n if n < hundred =>
-        toRussianBase((number / 10) * 10) |+| " ".some |+| (number % 10).inRussian
+        toRussianBase((number / 10) * 10) |+| " ".some |+| inRussian(number % 10)
       case n if n < thousand =>
-        toRussianBase((number / hundred) * hundred) |+| " ".some |+| (number % hundred).inRussian
+        toRussianBase((number / hundred) * hundred) |+| " ".some |+| inRussian(number % hundred)
       case n if n < million =>
         val first = number / thousand
         val firstInRussian =
           if (first % 10 == 1 && (first % hundred) / 10 != 1) {
-            ((first / 10) * 10).inRussian |+| " одна тысяча".some
+            inRussian((first / 10) * 10) |+| " одна тысяча".some
           } else if (first % 10 == 2 && (first % hundred) / 10 != 1) {
-            ((first / 10) * 10).inRussian |+| " две тысячи".some
+            inRussian((first / 10) * 10) |+| " две тысячи".some
           } else if (3 <= first % 10 && first % 10 <= 4 && (first % hundred) / 10 != 1) {
-            first.inRussian.map(f => f + " тысячи")
+            inRussian(first).map(f => f + " тысячи")
           } else {
-            first.inRussian.map(f => f + " тысяч")
+            inRussian(first).map(f => f + " тысяч")
           }
-        firstInRussian |+| " ".some |+| (number % thousand).inRussian
+        firstInRussian |+| " ".some |+| inRussian(number % thousand)
       case n if n < billion     => constructRussian(n, million)
       case n if n < trillion    => constructRussian(n, billion)
       case n if n < quadrillion => constructRussian(n, trillion)
@@ -102,13 +101,13 @@ class NumbersDescription(number: Long) {
     val first = n / base
     val firstInRussian =
       if (first % 10 == 1 && (first % base) / 10 != 1) {
-        first.inRussian |+| " ".some |+| toRussianBase(base)
+        inRussian(first) |+| " ".some |+| toRussianBase(base)
       } else if (2 <= first % 10 && first % 10 <= 4 && (first % base) / 10 != 1) {
-        first.inRussian |+| " ".some |+| toRussianBase(base) |+| "а".some
+        inRussian(first) |+| " ".some |+| toRussianBase(base) |+| "а".some
       } else {
-        first.inRussian |+| " ".some |+| toRussianBase(base) |+| "ов".some
+        inRussian(first) |+| " ".some |+| toRussianBase(base) |+| "ов".some
       }
-    firstInRussian |+| " ".some |+| (n % base).inRussian
+    firstInRussian |+| " ".some |+| inRussian(n % base)
   }
 
   private def toRussianBase(n: Long): Option[String] =
@@ -155,9 +154,4 @@ class NumbersDescription(number: Long) {
       case 1000000000000L => "триллион".some
       case _              => None
     }
-}
-
-object NumbersDescription {
-  implicit def int2NumbersDescription(number: Int): NumbersDescription   = new NumbersDescription(number.toLong)
-  implicit def long2NumbersDescription(number: Long): NumbersDescription = new NumbersDescription(number)
 }

@@ -31,18 +31,18 @@ and different dimensions (polyhedral numbers).
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.CyclicNumbers._
-(1 to 5).map(i => i.triangleNumber)
-(1 to 5).map(i => i.squareNumber)
-(1 to 5).map(i => i.pentagonalNumber)
-(1 to 5).map(i => i.hexagonalNumber)
-(1 to 5).map(i => i.heptagonalNumber)
-(1 to 5).map(i => i.octagonalNumber)
-8256.isTriangle
-5625.isSquare
-2882.isPentagonal
-8128.isHexagonal
-2512.isHeptagonal
-1281.isOctagonal
+(1 to 5).map(triangleNumber)
+(1 to 5).map(squareNumber)
+(1 to 5).map(pentagonalNumber)
+(1 to 5).map(hexagonalNumber)
+(1 to 5).map(heptagonalNumber)
+(1 to 5).map(octagonalNumber)
+isTriangle(8256)
+isSquare(5625)
+isPentagonal(2882)
+isHexagonal(8128)
+isHeptagonal(2512)
+isOctagonal(1281)
 ```
 
 ---

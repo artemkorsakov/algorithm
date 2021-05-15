@@ -6,10 +6,10 @@ import org.scalatest.matchers.should.Matchers._
 
 class RadicalsSuite extends AnyFunSuiteLike {
   test("rad") {
-    100.rad shouldBe 10
-    7.rad shouldBe 7
-    8.rad shouldBe 2
-    12.rad shouldBe 6
+    rad(100) shouldBe 10
+    rad(7) shouldBe 7
+    rad(8) shouldBe 2
+    rad(12) shouldBe 6
   }
 
   test("allRads") {
@@ -20,8 +20,8 @@ class RadicalsSuite extends AnyFunSuiteLike {
   }
 
   test("isSquareFree") {
-    10.isSquareFree shouldBe true
-    20.isSquareFree shouldBe false
-    100.isSquareFree shouldBe false
+    isSquareFree(10) shouldBe true
+    isSquareFree(20) shouldBe false
+    isSquareFree(100) shouldBe false
   }
 }
