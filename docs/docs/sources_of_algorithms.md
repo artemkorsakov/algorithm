@@ -9,6 +9,7 @@ position: 1
     - [Project Euler](https://projecteuler.net)
     - [Wikipedia](https://wikipedia.org)
     - [Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
+    - [Codewars](https://www.codewars.com)
 
 - #### Books:
     - ...

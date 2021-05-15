@@ -29,15 +29,15 @@ class DivisorsSuite extends AnyFunSuiteLike {
   }
 
   test("divisors") {
-    30.divisors shouldBe Set(2, 15, 3, 10, 5, 6)
+    divisors(30) shouldBe Set(2, 15, 3, 10, 5, 6)
   }
 
   test("sumOfDivisors") {
-    220.sumOfDivisors shouldBe 504
-    284.sumOfDivisors shouldBe 504
+    sumOfDivisors(220) shouldBe 504
+    sumOfDivisors(284) shouldBe 504
   }
 
   test("countOfDivisors") {
-    100.countOfDivisors shouldBe 9
+    countOfDivisors(100) shouldBe 9
   }
 }

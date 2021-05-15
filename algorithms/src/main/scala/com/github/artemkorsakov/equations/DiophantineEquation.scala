@@ -25,8 +25,6 @@ case class DiophantineEquation(d: Int) {
     x.pow(2) == y.pow(2) * d + 1
 }
 
-object DiophantineEquation {}
-
 case class Iteration(a: BigInt, b: BigInt, k: BigInt, d: Int) {
   def isSuccess: Boolean =
     k == BigInt(1)

@@ -1,9 +1,8 @@
 package com.github.artemkorsakov.divisors
 
 import com.github.artemkorsakov.divisors.Divisors._
-import com.github.artemkorsakov.divisors.PerfectNumbers._
 
-class PerfectNumbers(n: Long) {
+object PerfectNumbers {
 
   /** Return numberType:
     *
@@ -15,8 +14,8 @@ class PerfectNumbers(n: Long) {
     *
     * @see <a href="https://en.wikipedia.org/wiki/Perfect_number">Perfect number</a>
     */
-  def perfectNumbersType: PerfectNumbersType = {
-    val sum = n.sumOfDivisors - n
+  def perfectNumbersType(n: Long): PerfectNumbersType = {
+    val sum = sumOfDivisors(n) - n
     if (sum == n) {
       Perfect
     } else if (sum < n) {
@@ -25,11 +24,6 @@ class PerfectNumbers(n: Long) {
       Abundant
     }
   }
-}
-
-object PerfectNumbers {
-  implicit def long2PerfectNumbers(i: Long): PerfectNumbers = new PerfectNumbers(i)
-  implicit def int2PerfectNumbers(i: Int): PerfectNumbers   = new PerfectNumbers(i.toLong)
 
   sealed trait PerfectNumbersType
   case object Perfect   extends PerfectNumbersType

@@ -26,33 +26,36 @@ class DigitsSuite extends AnyFunSuiteLike {
   }
 
   test("digits") {
-    1406357289L.digits shouldBe Array(1, 4, 0, 6, 3, 5, 7, 2, 8, 9)
-    1234.digits shouldBe Array(1, 2, 3, 4)
-    "0001234".digits shouldBe Array(1, 2, 3, 4)
-    BigInt("12345678901234567890").digits shouldBe Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+    digits(1406357289L) shouldBe Array(1, 4, 0, 6, 3, 5, 7, 2, 8, 9)
+    digits(1234) shouldBe Array(1, 2, 3, 4)
+    digits("1234") shouldBe Array(1, 2, 3, 4)
+    digits("01234") shouldBe Array(1, 2, 3, 4)
+    digits("0001234") shouldBe Array(1, 2, 3, 4)
+    digits("1234000") shouldBe Array(1, 2, 3, 4, 0, 0, 0)
+    digits(BigInt("12345678901234567890")) shouldBe Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
   }
 
   test("sumOfDigits") {
-    1457.sumOfDigits shouldBe 17
-    1457L.sumOfDigits shouldBe 17
-    "1457".sumOfDigits shouldBe 17
-    BigInt(1457).sumOfDigits shouldBe 17
+    sumOfDigits(1457) shouldBe 17
+    sumOfDigits(1457L) shouldBe 17
+    sumOfDigits("1457") shouldBe 17
+    sumOfDigits(BigInt(1457)) shouldBe 17
   }
 
   test("hasEqualDigits") {
-    111.hasEqualDigits shouldBe true
-    112.hasEqualDigits shouldBe true
-    123.hasEqualDigits shouldBe false
-    56003.hasEqualDigits shouldBe true
-    56113.hasEqualDigits shouldBe true
-    56333.hasEqualDigits shouldBe true
-    56443.hasEqualDigits shouldBe true
-    56663.hasEqualDigits shouldBe true
-    56773.hasEqualDigits shouldBe true
-    56993.hasEqualDigits shouldBe true
-    569993.hasEqualDigits(3, 9) shouldBe true
-    56993.hasEqualDigits(2, 9) shouldBe true
-    56993.hasEqualDigits(3, 9) shouldBe false
+    hasEqualDigits(111) shouldBe true
+    hasEqualDigits(112) shouldBe true
+    hasEqualDigits(123) shouldBe false
+    hasEqualDigits(56003) shouldBe true
+    hasEqualDigits(56113) shouldBe true
+    hasEqualDigits(56333) shouldBe true
+    hasEqualDigits(56443) shouldBe true
+    hasEqualDigits(56663) shouldBe true
+    hasEqualDigits(56773) shouldBe true
+    hasEqualDigits(56993) shouldBe true
+    hasEqualDigits(569993, 3, 9) shouldBe true
+    hasEqualDigits(56993, 2, 9) shouldBe true
+    hasEqualDigits(56993, 3, 9) shouldBe false
   }
 
   test("possibleNumbers") {

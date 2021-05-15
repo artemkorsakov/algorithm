@@ -91,4 +91,10 @@ class PrimesSuite extends AnyFunSuiteLike {
     28.goldbach shouldBe ((5, 23))
   }
 
+  test("isKPrime") {
+    isKPrime(2627408, 6) shouldBe true
+    isKPrime(2627416, 6) shouldBe true
+    isKPrime(2627440, 6) shouldBe true
+    isKPrime(2627448, 6) shouldBe true
+  }
 }

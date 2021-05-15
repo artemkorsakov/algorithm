@@ -6,8 +6,8 @@ import org.scalatest.matchers.should.Matchers._
 
 class PerfectNumbersSuite extends AnyFunSuiteLike {
   test("perfectNumbersType") {
-    6.perfectNumbersType shouldBe Perfect
-    7.perfectNumbersType shouldBe Deficient
-    12.perfectNumbersType shouldBe Abundant
+    perfectNumbersType(6) shouldBe Perfect
+    perfectNumbersType(7) shouldBe Deficient
+    perfectNumbersType(12) shouldBe Abundant
   }
 }

@@ -85,7 +85,7 @@ Returns all divisors of n (more than 1 and less than n).
 
 **Using**
 ```scala mdoc
-30.divisors
+divisors(30)
 ```
 
 ---
@@ -107,7 +107,7 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 
 **Using**
 ```scala mdoc
-220.sumOfDivisors
+sumOfDivisors(220)
 ```
 
 ---
@@ -129,7 +129,7 @@ and **a<sub>i</sub>** is the maximum power of **p<sub>i</sub>** by which **n** i
 
 **Using**
 ```scala mdoc
-100.countOfDivisors
+countOfDivisors(100)
 ```
 
 ---

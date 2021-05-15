@@ -2,53 +2,35 @@ package com.github.artemkorsakov.digital
 
 import com.github.artemkorsakov.str.StringAlgorithms
 
-class Digits(number: BigInt) {
+object Digits {
 
   /** Returns the digits of a number.
     */
-  def digits: Array[Int] = {
-    val digits = new Array[Int](number.toString.length)
-    var i      = 1
-    var n      = number
-    while (i <= digits.length) {
-      digits(digits.length - i) = (n % 10).toInt
-      n /= 10
-      i += 1
-    }
-    digits
-  }
+  def digits(number: BigInt): IndexedSeq[Int] = digits(number.toString)
+
+  /** Returns the digits of a number.
+    */
+  def digits(number: String): IndexedSeq[Int] = number.replaceFirst("^0+", "").trim.map(_.asDigit)
 
   /** Returns the sum of the digits of a number.
     */
-  def sumOfDigits: Int = {
-    var sum = 0
-    var n   = number
-    while (n > 0) {
-      sum += (n % 10).toInt
-      n /= 10
-    }
-    sum
-  }
+  def sumOfDigits(number: BigInt): Int = sumOfDigits(number.toString)
+
+  /** Returns the sum of the digits of a number.
+    */
+  def sumOfDigits(number: String): Int = number.foldLeft(0)((s, ch) => s + ch.asDigit)
 
   /** Is the given digit in the given number at least countOfEqual times?
     */
-  def hasEqualDigits(countOfEqual: Int, digit: Int): Boolean =
-    digits.count(d => d == digit) >= countOfEqual
+  def hasEqualDigits(number: BigInt, countOfEqual: Int, digit: Int): Boolean =
+    digits(number).count(_ == digit) >= countOfEqual
 
   /** Has equal digits?
     */
-  def hasEqualDigits: Boolean = {
-    val dgs = digits
+  def hasEqualDigits(number: BigInt): Boolean = {
+    val dgs = digits(number)
     dgs.length != dgs.distinct.length
   }
-
-}
-
-object Digits {
-  implicit def int2Digits(n: Int): Digits       = new Digits(BigInt(n))
-  implicit def long2Digits(n: Long): Digits     = new Digits(BigInt(n))
-  implicit def string2Digits(n: String): Digits = new Digits(BigInt(n))
-  implicit def bigint2Digits(n: BigInt): Digits = new Digits(n)
 
   /** Do two numbers contain the same digits?
     */

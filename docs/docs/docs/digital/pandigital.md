@@ -18,9 +18,9 @@ realization: digital/Pandigital.scala
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.digital.Pandigital._
-192384576L.isPandigital
-2134.isPandigital(4)
-1406357289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0))
+isPandigital(192384576L)
+isPandigital(2134, 4)
+isPandigital(1406357289L, Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0))
 ```
 
 ---

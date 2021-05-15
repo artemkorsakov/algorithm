@@ -22,7 +22,7 @@ Return perfectNumbersType:
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.divisors.PerfectNumbers._
-8128.perfectNumbersType
+perfectNumbersType(8128)
 ```
 
 ---

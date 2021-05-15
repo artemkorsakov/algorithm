@@ -1,43 +1,6 @@
 package com.github.artemkorsakov.combinatorics
 
-class Coins(number: Int) {
-  private val array = new Array[BigInt](number + 1)
-  array(0) = BigInt(1)
-  array(1) = BigInt(1)
-  array(2) = BigInt(2)
-
-  /** A way of writing n as a sum of positive integers.
-    *
-    * @see <a href="https://en.wikipedia.org/wiki/Partition_(number_theory)">detailed description</a>
-    */
-  val partition: BigInt = {
-    for (n <- 3 to number) {
-      val p = partitionPart(1, n, BigInt(0))
-      array(n) = partitionPart(-1, n, p)
-    }
-    array(number)
-  }
-
-  private def partitionPart(s: Int, n: Int, pS: BigInt): BigInt = {
-    var k  = s
-    var op = k * (3 * k - 1) / 2
-    var p  = pS
-    while (op <= n) {
-      if ((k + 1) % 2 == 0) {
-        p += array(n - op)
-      } else {
-        p -= array(n - op)
-      }
-      k += s
-      op = k * (3 * k - 1) / 2
-    }
-    p
-  }
-
-}
-
 object Coins {
-  implicit def int2Coins(n: Int): Coins = new Coins(n)
 
   /** How many options to get a given sum from given coins?
     *
@@ -50,15 +13,40 @@ object Coins {
     ways(sum)
   }
 
-  /** How many options to get sum as a sum of at least two positive numbers?
+  /** A way of writing n as a sum of positive integers.
+    *
+    * @see <a href="https://en.wikipedia.org/wiki/Partition_(number_theory)">detailed description</a>
     */
-  def optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(sum: Int): BigInt =
-    sum.partition - 1
+  def partition(number: Int): BigInt = {
+    val array = new Array[BigInt](number + 1)
+    array(0) = BigInt(1)
+    array(1) = BigInt(1)
+    array(2) = BigInt(2)
 
-  def partitions(n: Long): Seq[Seq[Long]] =
-    partitions(n, n)
+    def partitionPart(s: Int, n: Int, pS: BigInt): BigInt = {
+      var k  = s
+      var op = k * (3 * k - 1) / 2
+      var p  = pS
+      while (op <= n) {
+        if ((k + 1) % 2 == 0) {
+          p += array(n - op)
+        } else {
+          p -= array(n - op)
+        }
+        k += s
+        op = k * (3 * k - 1) / 2
+      }
+      p
+    }
 
-  private def partitions(n: Long, limit: Long): Seq[Seq[Long]] =
+    for (n <- 3 to number) {
+      val p = partitionPart(1, n, BigInt(0))
+      array(n) = partitionPart(-1, n, p)
+    }
+    array(number)
+  }
+
+  def partitionsSeq(n: Long)(implicit limit: Long = n): Seq[Seq[Long]] =
     if (limit <= 0 || n < 0) {
       Seq.empty[Seq[Long]]
     } else if (n == 0) {
@@ -68,6 +56,10 @@ object Coins {
     } else if (limit == 1) {
       Seq((1L to n).map(_ => 1))
     } else {
-      partitions(n - limit, limit).map(seq => limit +: seq) ++ partitions(n, limit - 1)
+      partitionsSeq(n - limit)(limit).map(seq => limit +: seq) ++ partitionsSeq(n)(limit - 1)
     }
+
+  /** How many options to get sum as a sum of at least two positive numbers?
+    */
+  def optionsToGetSumAsASumOfAtLeastTwoPositiveNumbers(sum: Int): BigInt = partition(sum) - 1
 }

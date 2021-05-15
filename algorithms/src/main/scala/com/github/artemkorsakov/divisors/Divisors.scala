@@ -5,18 +5,18 @@ import com.github.artemkorsakov.primes.Primes._
 import scala.collection.LinearSeq
 import scala.math.{ abs, BigInt }
 
-class Divisors(number: Long) {
+object Divisors {
 
   /** Returns all divisors of n (more than 1 and less than n).
     */
-  def divisors: Set[Long] =
+  def divisors(number: Long): Set[Long] =
     (2L to math.sqrt(number.toDouble).toLong).withFilter(number % _ == 0).flatMap(i => Set(i, number / i)).toSet
 
   /** Return the sum of the divisors of n.
     *
     * @see <a href="https://en.wikipedia.org/wiki/Divisor_function">detailed description</a>
     */
-  def sumOfDivisors: BigInt = {
+  def sumOfDivisors(number: Long): BigInt = {
     val primeDivisors = number.primeFactorsWithPow
     primeDivisors.keySet.foldLeft(BigInt(1)) { (mul, prime) =>
       val num = BigInt(prime).pow(primeDivisors(prime).toInt + 1) - 1
@@ -27,15 +27,8 @@ class Divisors(number: Long) {
 
   /** Return the count of divisors of n.
     */
-  def countOfDivisors: Long =
+  def countOfDivisors(number: Long): Long =
     number.primeFactorsWithPow.values.foldLeft(1L)((mul, a) => mul * (a + 1))
-
-}
-
-object Divisors {
-  implicit def long2Divisors(i: Long): Divisors = new Divisors(i)
-
-  implicit def int2Divisors(i: Int): Divisors = new Divisors(i.toLong)
 
   def gcd(linearSeq: LinearSeq[Long]): Long =
     linearSeq.headOption match {

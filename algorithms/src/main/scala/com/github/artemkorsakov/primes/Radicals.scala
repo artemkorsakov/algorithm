@@ -8,8 +8,7 @@ class Radicals(n: Long) {
 
   /** Return the product of distinct prime factors of n.
     */
-  def rad: Long =
-    n.primeFactorsWithPow.keySet.product
+  def rad: Long = primeFactors(n).product
 
   /** Is square-free integer?
     * @see <a href="https://en.wikipedia.org/wiki/Square-free_integer">detailed description</a>

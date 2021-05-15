@@ -50,7 +50,7 @@ Two sums that differ only in the order of their summands are considered the same
 
 **Using**
 ```scala mdoc
-1000.partition
+partition(1000)
 ```
 
 ---

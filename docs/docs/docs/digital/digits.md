@@ -34,7 +34,7 @@ Returns the digits of a number.
 
 **Using**
 ```scala mdoc
-1406357289L.digits
+digits(1406357289L)
 ```
 
 ---
@@ -50,7 +50,7 @@ Returns the sum of the digits of a number.
 
 **Using**
 ```scala mdoc
-1406357289L.sumOfDigits
+sumOfDigits(1406357289L)
 ```
 
 ---
@@ -66,9 +66,9 @@ Does the number have at least two of the same digits?
 
 **Using**
 ```scala mdoc
-56993.hasEqualDigits
-56993.hasEqualDigits(2, 9)
-56993.hasEqualDigits(3, 9)
+hasEqualDigits(56993)
+hasEqualDigits(56993, 2, 9)
+hasEqualDigits(56993, 3, 9)
 ```
 
 ---

@@ -6,11 +6,11 @@ import org.scalatest.matchers.should.Matchers._
 
 class FactorialsSuite extends AnyFunSuiteLike {
   test("factorial") {
-    0.factorial shouldBe 1
-    1.factorial shouldBe 1
-    2.factorial shouldBe 2
-    9.factorial shouldBe 362880
-    15.factorial shouldBe BigInt("1307674368000")
-    30.factorial shouldBe BigInt("265252859812191058636308480000000")
+    factorial(0) shouldBe 1
+    factorial(1) shouldBe 1
+    factorial(2) shouldBe 2
+    factorial(9) shouldBe 362880
+    factorial(15) shouldBe BigInt("1307674368000")
+    factorial(30) shouldBe BigInt("265252859812191058636308480000000")
   }
 }

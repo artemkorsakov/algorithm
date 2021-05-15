@@ -6,8 +6,8 @@ object PolynomialEquation {
   /** Solution of a polynomial equation with given coefficients for a given n. */
   def polynomialSolution(n: Int, aList: Array[Long]): Long = {
     var number = 1L
-    aList.indices.foldLeft(0L) { (sum, i) =>
-      val s = sum + aList(aList.length - 1 - i) * number
+    aList.reverse.foldLeft(0L) { (sum, a) =>
+      val s = sum + a * number
       number *= n
       s
     }
@@ -40,14 +40,14 @@ object PolynomialEquation {
     aList
   }
 
-  private def coefficientsForSolutionSearching(k: Int): Array[Array[Long]] =
+  private def coefficientsForSolutionSearching(k: Int): IndexedSeq[IndexedSeq[Long]] =
     if (k == 1) {
-      Array(Array(1L))
+      IndexedSeq(IndexedSeq(1L))
     } else {
       val coefficients = coefficientsForSolutionSearching(k - 1)
       val last         = coefficients.last
       val current      = 1L +: (0 until last.length - 1).map(i => last(i + 1) - last(i)) :+ -last.last
-      coefficients :+ current.toArray
+      coefficients :+ current
     }
 
 }

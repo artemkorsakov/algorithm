@@ -8,12 +8,12 @@ case class HarshadNumber(number: Long) {
 
   /** A harshad number is an integer that is divisible by the sum of its digits. */
   def isHarshadNumber: Boolean =
-    number % number.sumOfDigits == 0
+    number % sumOfDigits(number) == 0
 
   /** A strong Harshad number is a harshad number that, when divided by the sum of its digits, results in a prime. */
   def isStrongHarshadNumber: Boolean = {
-    val sumOfDigits = number.sumOfDigits
-    number % sumOfDigits == 0 && (number / sumOfDigits).isPrime
+    val sod = sumOfDigits(number)
+    number % sod == 0 && (number / sod).isPrime
   }
 }
 
@@ -48,9 +48,9 @@ object HarshadNumber {
     harshadNumbers.flatMap(rightTruncatableHarshadNumbers)
 
   private def rightTruncatableHarshadNumbers(harshadNumber: Long): Seq[Long] = {
-    val sumOfDigits = harshadNumber.sumOfDigits
-    val newNumber   = harshadNumber * 10
-    (0 to 9).withFilter(i => (newNumber + i) % (sumOfDigits + i) == 0).map(newNumber + _)
+    val sod       = sumOfDigits(harshadNumber)
+    val newNumber = harshadNumber * 10
+    (0 to 9).withFilter(i => (newNumber + i) % (sod + i) == 0).map(newNumber + _)
   }
 
 }

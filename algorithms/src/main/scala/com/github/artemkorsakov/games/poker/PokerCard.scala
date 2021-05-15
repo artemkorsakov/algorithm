@@ -1,6 +1,6 @@
 package com.github.artemkorsakov.games.poker
 
-case class PokerCard(pokerRank: PokerRank.Value, pokerSuit: PokerSuit.Value) {}
+case class PokerCard(pokerRank: PokerRank.Value, pokerSuit: PokerSuit.Value)
 
 object PokerCard {
   def string2PokerCard(card: String): Option[PokerCard] =

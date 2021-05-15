@@ -15,14 +15,14 @@ class CoinsSuite extends AnyFunSuiteLike {
   }
 
   test("partition") {
-    10.partition shouldBe 42
-    100.partition shouldBe 190569292
-    1000.partition shouldBe BigInt("24061467864032622473692149727991")
+    partition(10) shouldBe 42
+    partition(100) shouldBe 190569292
+    partition(1000) shouldBe BigInt("24061467864032622473692149727991")
   }
 
   test("partitions") {
-    Coins.partitions(4) shouldBe Seq(Seq(4), Seq(3, 1), Seq(2, 2), Seq(2, 1, 1), Seq(1, 1, 1, 1))
-    Coins.partitions(5) shouldBe Seq(
+    Coins.partitionsSeq(4) shouldBe Seq(Seq(4), Seq(3, 1), Seq(2, 2), Seq(2, 1, 1), Seq(1, 1, 1, 1))
+    Coins.partitionsSeq(5) shouldBe Seq(
       Seq(5),
       Seq(4, 1),
       Seq(3, 2),

@@ -194,4 +194,28 @@ object Primes {
     set.toSet
   }
 
+  /** A natural number is called k-prime if it has exactly k prime factors, counted with multiplicity. */
+  def isKPrime(n: Long, k: Int): Boolean =
+    n >= 2 && k >= 1 && {
+      var count  = 0L
+      var number = n
+      if (number % 2 == 0) {
+        while (number % 2 == 0) {
+          number /= 2
+          count += 1
+        }
+      }
+      var i = 3L
+      while (i * i <= number && 1 < number && count <= k) {
+        if (number % i == 0) {
+          while (number % i == 0) {
+            number /= i
+            count += 1
+          }
+        }
+        i += 2
+      }
+      if (number > 1) count += 1
+      count == k
+    }
 }

@@ -6,33 +6,20 @@ import org.scalatest.matchers.should.Matchers._
 
 class PandigitalSuite extends AnyFunSuiteLike {
   test("isPandigital") {
-    192384576L.isPandigital shouldBe true
-    "192384576".isPandigital shouldBe true
-    918273645L.isPandigital shouldBe true
-    "918273645".isPandigital shouldBe true
-    192384571L.isPandigital shouldBe false
-    "192384571".isPandigital shouldBe false
-    192384570L.isPandigital shouldBe false
-    "192384570".isPandigital shouldBe false
+    isPandigital(192384576L) shouldBe true
+    isPandigital(918273645L) shouldBe true
+    isPandigital(192384571L) shouldBe false
+    isPandigital(192384570L) shouldBe false
 
-    2134.isPandigital(4) shouldBe true
-    "2134".isPandigital(4) shouldBe true
-    7652413.isPandigital(7) shouldBe true
-    "7652413".isPandigital(7) shouldBe true
-    2144.isPandigital(4) shouldBe false
-    "2144".isPandigital(4) shouldBe false
-    2135.isPandigital(4) shouldBe false
-    "2135".isPandigital(4) shouldBe false
-    2140.isPandigital(4) shouldBe false
-    "2140".isPandigital(4) shouldBe false
+    isPandigital(2134, 4) shouldBe true
+    isPandigital(7652413, 7) shouldBe true
+    isPandigital(2144, 4) shouldBe false
+    isPandigital(2135, 4) shouldBe false
+    isPandigital(2140, 4) shouldBe false
 
-    1406357289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0)) shouldBe true
-    140657289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 2, 1, 0)) shouldBe true
-    "1406357289".isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0)) shouldBe true
-    "140657289".isPandigital(Array(9, 8, 7, 6, 5, 4, 2, 1, 0)) shouldBe true
-    1406357289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 2, 1, 0)) shouldBe false
-    140657289L.isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 1, 0)) shouldBe false
-    "1406357289".isPandigital(Array(9, 8, 7, 6, 5, 4, 2, 1, 0)) shouldBe false
-    "140657289".isPandigital(Array(9, 8, 7, 6, 5, 4, 3, 1, 0)) shouldBe false
+    isPandigital(1406357289L, Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0)) shouldBe true
+    isPandigital(140657289L, Array(9, 8, 7, 6, 5, 4, 2, 1, 0)) shouldBe true
+    isPandigital(1406357289L, Array(9, 8, 7, 6, 5, 4, 2, 1, 0)) shouldBe false
+    isPandigital(140657289L, Array(9, 8, 7, 6, 5, 4, 3, 1, 0)) shouldBe false
   }
 }
