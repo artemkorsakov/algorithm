@@ -30,8 +30,8 @@ Fraction operations: [Addition](https://en.wikipedia.org/wiki/Rational_number#Ad
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.RationalNumber
-val x = new RationalNumber(1, 3)
-val y = new RationalNumber(5, 7)
+val x = RationalNumber(1, 3)
+val y = RationalNumber(5, 7)
 x.add(y)
 x.sub(y)
 x.mul(y)
@@ -58,14 +58,14 @@ Returns **true** if the rational numbers are equal.
 
 **Using**
 ```scala mdoc
-x.equal(new RationalNumber(1, 3))
-x.equal(new RationalNumber(-2, -6))
-x.equal(new RationalNumber(3, 9))
-x.equal(new RationalNumber(1, 4))
-x == new RationalNumber(1, 3)
-x == new RationalNumber(-2, -6)
-x == new RationalNumber(3, 9)
-x == new RationalNumber(1, 4)
+x.equal(RationalNumber(1, 3))
+x.equal(RationalNumber(-2, -6))
+x.equal(RationalNumber(3, 9))
+x.equal(RationalNumber(1, 4))
+x == RationalNumber(1, 3)
+x == RationalNumber(-2, -6)
+x == RationalNumber(3, 9)
+x == RationalNumber(1, 4)
 ```
 
 ---
@@ -96,6 +96,9 @@ x >= x
 max(x, y) == y
 max(x, x) == x
 max(y, y) == y
+x max y
+x max x
+y max y
 ```
 
 ---
@@ -113,7 +116,7 @@ Fraction to percent.
 **Using**
 ```scala mdoc
 import com.github.artemkorsakov.numbers.RationalNumber
-new RationalNumber(5, 7).toPercent
+RationalNumber(5, 7).toPercent
 ```
 
 ---

@@ -11,8 +11,8 @@ You can use the package, for example, like this:
 ```scala mdoc
 import com.github.artemkorsakov.numbers.RationalNumber
 import com.github.artemkorsakov.numbers.RationalNumber._
-val x = new RationalNumber(1, 3)
-val y = new RationalNumber(5, 7)
+val x = RationalNumber(1, 3)
+val y = RationalNumber(5, 7)
 x.add(y)
 x.sub(y)
 x.mul(y)
@@ -23,14 +23,14 @@ x * y
 x / y
 x.upend
 y.upend
-x.equal(new RationalNumber(1, 3))
-x.equal(new RationalNumber(-2, -6))
-x.equal(new RationalNumber(3, 9))
-x.equal(new RationalNumber(1, 4))
-x == new RationalNumber(1, 3)
-x == new RationalNumber(-2, -6)
-x == new RationalNumber(3, 9)
-x == new RationalNumber(1, 4)
+x.equal(RationalNumber(1, 3))
+x.equal(RationalNumber(-2, -6))
+x.equal(RationalNumber(3, 9))
+x.equal(RationalNumber(1, 4))
+x == RationalNumber(1, 3)
+x == RationalNumber(-2, -6)
+x == RationalNumber(3, 9)
+x == RationalNumber(1, 4)
 x < y
 y < x
 x < x
@@ -44,7 +44,10 @@ x >= x
 max(x, y) == y
 max(x, x) == x
 max(y, y) == y
-new RationalNumber(5, 7).toPercent
+x max y
+x max x
+y max y
+RationalNumber(5, 7).toPercent
 ```
 ```scala mdoc
 import com.github.artemkorsakov.numbers.ComplexNumber
