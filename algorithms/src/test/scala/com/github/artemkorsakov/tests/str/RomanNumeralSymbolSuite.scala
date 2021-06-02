@@ -1,6 +1,5 @@
 package com.github.artemkorsakov.tests.str
 
-import cats.implicits._
 import com.github.artemkorsakov.str.RomanNumeralSymbol
 import com.github.artemkorsakov.str.RomanNumeralSymbol._
 import org.scalatest.funsuite.AnyFunSuiteLike
@@ -24,24 +23,24 @@ class RomanNumeralSymbolSuite extends AnyFunSuiteLike {
   }
 
   test("toRomanNumeralSymbol") {
-    RomanNumeralSymbol.I.some shouldBe toRomanNumeralSymbol("I")
-    RomanNumeralSymbol.I.some shouldBe toRomanNumeralSymbol("II")
-    RomanNumeralSymbol.I.some shouldBe toRomanNumeralSymbol("IL")
-    RomanNumeralSymbol.I.some shouldBe toRomanNumeralSymbol("III")
-    RomanNumeralSymbol.I.some shouldBe toRomanNumeralSymbol("IIIL")
-    RomanNumeralSymbol.IV.some shouldBe toRomanNumeralSymbol("IV")
-    RomanNumeralSymbol.V.some shouldBe toRomanNumeralSymbol("V")
-    RomanNumeralSymbol.V.some shouldBe toRomanNumeralSymbol("VV")
-    RomanNumeralSymbol.IX.some shouldBe toRomanNumeralSymbol("IX")
-    RomanNumeralSymbol.X.some shouldBe toRomanNumeralSymbol("X")
-    RomanNumeralSymbol.XL.some shouldBe toRomanNumeralSymbol("XL")
-    RomanNumeralSymbol.L.some shouldBe toRomanNumeralSymbol("L")
-    RomanNumeralSymbol.XC.some shouldBe toRomanNumeralSymbol("XC")
-    RomanNumeralSymbol.C.some shouldBe toRomanNumeralSymbol("C")
-    RomanNumeralSymbol.CD.some shouldBe toRomanNumeralSymbol("CD")
-    RomanNumeralSymbol.D.some shouldBe toRomanNumeralSymbol("D")
-    RomanNumeralSymbol.CM.some shouldBe toRomanNumeralSymbol("CM")
-    RomanNumeralSymbol.M.some shouldBe toRomanNumeralSymbol("M")
+    Some(RomanNumeralSymbol.I) shouldBe toRomanNumeralSymbol("I")
+    Some(RomanNumeralSymbol.I) shouldBe toRomanNumeralSymbol("II")
+    Some(RomanNumeralSymbol.I) shouldBe toRomanNumeralSymbol("IL")
+    Some(RomanNumeralSymbol.I) shouldBe toRomanNumeralSymbol("III")
+    Some(RomanNumeralSymbol.I) shouldBe toRomanNumeralSymbol("IIIL")
+    Some(RomanNumeralSymbol.IV) shouldBe toRomanNumeralSymbol("IV")
+    Some(RomanNumeralSymbol.V) shouldBe toRomanNumeralSymbol("V")
+    Some(RomanNumeralSymbol.V) shouldBe toRomanNumeralSymbol("VV")
+    Some(RomanNumeralSymbol.IX) shouldBe toRomanNumeralSymbol("IX")
+    Some(RomanNumeralSymbol.X) shouldBe toRomanNumeralSymbol("X")
+    Some(RomanNumeralSymbol.XL) shouldBe toRomanNumeralSymbol("XL")
+    Some(RomanNumeralSymbol.L) shouldBe toRomanNumeralSymbol("L")
+    Some(RomanNumeralSymbol.XC) shouldBe toRomanNumeralSymbol("XC")
+    Some(RomanNumeralSymbol.C) shouldBe toRomanNumeralSymbol("C")
+    Some(RomanNumeralSymbol.CD) shouldBe toRomanNumeralSymbol("CD")
+    Some(RomanNumeralSymbol.D) shouldBe toRomanNumeralSymbol("D")
+    Some(RomanNumeralSymbol.CM) shouldBe toRomanNumeralSymbol("CM")
+    Some(RomanNumeralSymbol.M) shouldBe toRomanNumeralSymbol("M")
     toRomanNumeralSymbol("A") shouldBe None
     toRomanNumeralSymbol("AB") shouldBe None
     toRomanNumeralSymbol("ABC") shouldBe None

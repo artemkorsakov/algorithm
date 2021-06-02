@@ -1,6 +1,5 @@
 package com.github.artemkorsakov.str
 
-import cats.implicits._
 import com.github.artemkorsakov.str.RomanNumeralSymbol._
 
 /** Roman Numerals.
@@ -14,20 +13,21 @@ object RomanNumerals {
     if (roman.exists(ch => toRomanNumeralSymbol(ch.toString).isEmpty)) {
       None
     } else {
-      roman.toUpperCase
-        .replaceAll("IIIII", "V")
-        .replaceAll("VV", "X")
-        .replaceAll("XXXXX", "L")
-        .replaceAll("LL", "C")
-        .replaceAll("CCCCC", "D")
-        .replaceAll("DD", "M")
-        .replaceAll("VIIII", "IX")
-        .replaceAll("IIII", "IV")
-        .replaceAll("LXXXX", "XC")
-        .replaceAll("XXXX", "XL")
-        .replaceAll("DCCCC", "CM")
-        .replaceAll("CCCC", "CD")
-        .some
+      Some(
+        roman.toUpperCase
+          .replaceAll("IIIII", "V")
+          .replaceAll("VV", "X")
+          .replaceAll("XXXXX", "L")
+          .replaceAll("LL", "C")
+          .replaceAll("CCCCC", "D")
+          .replaceAll("DD", "M")
+          .replaceAll("VIIII", "IX")
+          .replaceAll("IIII", "IV")
+          .replaceAll("LXXXX", "XC")
+          .replaceAll("XXXX", "XL")
+          .replaceAll("DCCCC", "CM")
+          .replaceAll("CCCC", "CD")
+      )
     }
 
   def toArabic(roman: String): Option[Long] = {
@@ -43,7 +43,7 @@ object RomanNumerals {
         sum += symbol.id
         i += symbol.toString.length
       }
-      sum.some
+      Some(sum)
     }
   }
 
@@ -54,9 +54,9 @@ object ArabicNumerals {
     if (number < 0) {
       None
     } else if (number == 0) {
-      "".some
+      Some("")
     } else {
       val max = RomanNumeralSymbol.values.filter(v => v.id <= number).maxBy(_.id)
-      max.toString.some |+| toRoman(number - max.id)
+      toRoman(number - max.id).map(str => s"$max$str")
     }
 }
