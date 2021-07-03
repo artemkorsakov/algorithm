@@ -18,6 +18,6 @@ My results on Euler project are
 #### Contact with me (Russian or English)
 - [github](@GITHUB@)
 - [email](@EMAIL@)
-- [linkedIn](https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D1%91%D0%BC-%D0%BA%D0%BE%D1%80%D1%81%D0%B0%D0%BA%D0%BE%D0%B2-a682646b/)
+- [linkedIn](https://www.linkedin.com/in/artem-korsakov-a682646b/)
  
 
